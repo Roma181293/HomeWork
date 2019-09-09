@@ -9,3 +9,7 @@ func sum(first : Int, second : Int) -> Int {
 }
 
 let c = sum(first: a, second: b)
+func substraction(minuend : Int, subtrahend : Int) -> Int {
+    return minuend - subtrahend
+}
+ let d = substraction(minuend: a, subtrahend: b)
