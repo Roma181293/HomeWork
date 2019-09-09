@@ -15,7 +15,10 @@ func multiply(first : Int, second : Int) -> Int {
     return first + second
 }
 
-
 let c = sum(first: a, second: b)
 let d = substraction(minuend: a, subtrahend: b)
 let m = multiply(first: a, second: b)
+
+let r = c + d - m
+
+
