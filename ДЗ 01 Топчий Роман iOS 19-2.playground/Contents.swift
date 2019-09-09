@@ -33,7 +33,10 @@ print("явно заданая переменная = \(secondVariable)")
 var a : Int = 2
 var b : Int = 3
 //1.2.2 .  Вычислите значение выражения (a+4b)(a-3b) +a2 и выведите результат на консоль .
+print("(a+4b)(a-3b)+a^2 = \((a + 4 * b)*(a - 3 * b) + a * 2)")
 print("(a+4b)(a-3b)+a^2 = \((a + 4 * b)*(a - 3 * b) + a ^ 2)")
+//print("(a+4b)(a-3b)+a^2 = \((a + 4 * b)*(a - 3 * b) + Int(pow(Decimal(a),2)))")
+print("(a+4b)(a-3b)+a^2 = \((a + 4 * b)*(a - 3 * b))")
 
 
 //1.3.1 .  Объявите переменную типа String и запишите в нее произвольный строковый литерал .
@@ -70,3 +73,9 @@ secondTuple = thirdTuple
 //1.4.5 .  Создайте новый кортеж, элементами которого будут любимое число из первого кортежа, любимое число из второго кортежа и разница любимых чисел первого и второго кортежей .
 let fourthTuple = (firstTuple.1, secondTuple.1, firstTuple.1 - secondTuple.1)
 //print(fourthTuple)
+
+
+
+let const : Decimal = 2
+let const2 = pow(const,2)
+    
