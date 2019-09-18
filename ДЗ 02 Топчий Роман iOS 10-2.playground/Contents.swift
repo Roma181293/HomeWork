@@ -70,25 +70,25 @@ statusCode, message, errorMessage (число, строка и строка)
 в противном случает выводите errorMessage
 После этого проделайте тоже самое только без участия statusCode */
 
-let result200 = (statusCode : 200, message : "OK", errorMessage : "")
-let result404 = (statusCode : 404, message : "", errorMessage : "Not Found")
+let result200 : (statusCode : Int, message : String?, errorMessage : String?) = (200, "OK", nil)
+let result404 : (statusCode : Int, message : String?, errorMessage : String?) = (404, nil, "Not Found")
 let resultsArray = [result200, result404]
 
 for result in resultsArray {
     if result.statusCode >= 200 && result.statusCode < 300 {
-        print("\(result.statusCode) - \(result.message)")
+        print("\(result.statusCode) - \(result.message!)")
     }
     else {
-        print("\(result.statusCode) - \(result.errorMessage)")
+        print("\(result.statusCode) - \(result.errorMessage!)")
     }
 }
 
 for result in resultsArray {
-    if result.message != "" {
-        print("\(result.statusCode) - \(result.message)")
+    if result.message != nil {
+        print("\(result.statusCode) - \(result.message!)")
     }
-    else if result.errorMessage != "" {
-        print("\(result.statusCode) - \(result.errorMessage)")
+    else if result.errorMessage != nil {
+        print("\(result.statusCode) - \(result.errorMessage!)")
     }
 }
 
@@ -155,9 +155,13 @@ var secondVariable : TupleType = ("100", nil)
 var thirdVariable : TupleType = ("-65", "70")
 
 let array1 = [firstVariable, secondVariable, thirdVariable]
-for element in array1 {
-    if element!.numberOne != nil && element!.numberTwo != nil {
-        print(element!)
+for element : TupleType in array1 {
+    if element != nil && element!.numberOne != nil && element!.numberTwo != nil {
+        //Вариант 1
+        let result : (numberOne:  Text, numberTwo: Text) = (element!.numberOne!, element!.numberTwo!)
+        print(result)
+        //Вариант 2
+        //print((numberOne : element!.numberOne!, numberTwo : element!.numberTwo!))
     }
 }
 
@@ -194,6 +198,6 @@ var index = 0
 for character in abc {
     index += 1
     if character == u {
-        print("u undex = \(index)")
+        print("u index = \(index)")
     }
 }
