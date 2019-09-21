@@ -24,8 +24,6 @@ for index in 0..<array.count{
     }
 }
 
-//print(leftIndexOfMin)
-//print(rightIndexOfMin)
 var sum = 0
 if rightIndexOfMin! > leftIndexOfMin! && leftIndexOfMin != nil && rightIndexOfMin != nil {
     for index in leftIndexOfMin! + 1..<rightIndexOfMin! {
@@ -124,11 +122,10 @@ else {
 
 print("5.6. Дан массив случайных чисел в диапазоне от -20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними. ")
  array = [20,-1,18,-3,16,-5,14,-7,12,-9,10,-11,8,-13,6,-14,4,-15,2,-17]
-print("out \(array)")
+print("in \(array)")
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
 func sortFromLowerToUpper(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) -> [Int]{
     //print("in array \(arr)")
     var array = arr
@@ -148,24 +145,17 @@ func sortFromLowerToUpper(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) 
             }
         }
         //print("out array \(array)")
-       
     }
      return array
 }
-
 //let a = sortFromLowerToUpper(0,6,[1,3,2,5,6,4,8])
 //print("a = \(a)")
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
-
-
-
-
-var leftIndex : Int?                   //delete var
-var rightIndex : Int?                  //delete var
+var leftIndex : Int?
+var rightIndex : Int?
 for (index, value) in array.enumerated() {
     if value < 0 {
         leftIndex = index
@@ -179,18 +169,7 @@ for index in 0..<array.count{
     }
 }
 if leftIndex != nil && rightIndex != nil {
- // array = sortFromLowerToUpper(leftIndex!,rightIndex!-1,array)
- //or
-    for i in leftIndex! + 1...rightIndex! {
-        var extremum = array[i]
-        for (index, value) in array.enumerated() {
-            if index >= i && index <= rightIndex!  && value < extremum {
-                extremum = value
-                array[index] = array[i]
-                array[i] = extremum
-            }
-        }
-    }
+    array = sortFromLowerToUpper(leftIndex!,rightIndex!-1,array)
     print("out \(array)")
 }
 else {
@@ -212,7 +191,6 @@ for i in 1...20{
 print("in \(array)")
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
 func sortFromUpperToLower(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) -> [Int]{
     //print("in array \(arr)")
     var array = arr
@@ -235,12 +213,7 @@ func sortFromUpperToLower(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) 
     }
     return array
 }
-
-
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
 
 let randomNumber = Int(arc4random_uniform(20)) + 1
 print("Random number \(randomNumber)")
@@ -253,7 +226,6 @@ for (index, value) in array.enumerated() {
         indexOfRandomNumber = index
     }
 }
-
 print("Index Of Random Number \(indexOfRandomNumber!)")
 
 switch indexOfRandomNumber {
