@@ -82,7 +82,7 @@ var indexesOfNonZeros = [Int]()
 var bufferArray = [Int]()
 for (index, value) in array.enumerated() {
     if value != 0 {
-      indexesOfNonZeros += [index]
+        indexesOfNonZeros += [index]
     }
 }
 for i in indexesOfNonZeros{
@@ -122,9 +122,9 @@ else {
 
 
 print("5.6. Дан массив случайных чисел в диапазоне от -20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними. ")
-var array = [20,-1,18,-3,16,-5,14,-7,12,-9,10,-11,8,-13,6,-14,4,-15,2,-17]
+ array = [20,-1,18,-3,16,-5,14,-7,12,-9,10,-11,8,-13,6,-14,4,-15,2,-17]
 print(array)
-var bufferArray = [Int]()
+bufferArray = []
 var leftIndex : Int?                   //delete var
 var rightIndex : Int?                  //delete var
 for (index, value) in array.enumerated() {
@@ -143,23 +143,23 @@ if leftIndex != nil && rightIndex != nil {
     for i in leftIndex! + 1..<rightIndex! {
         var localMinIndex = i
         var localMin = array[i]
-       // print("start - \(i) - \(localMinIndex) - \(localMin)")
+        // print("start - \(i) - \(localMinIndex) - \(localMin)")
         //поиск минимума и его индекса
-
+        
         for (index, value) in array.enumerated() {
             if index > i && index < rightIndex!  && value < localMin {
                 localMin = value
                 localMinIndex = index
             }
         }
-                for k in 0...localMinIndex-i {
+        for k in 0...localMinIndex-i {
             array[localMinIndex-k] = array[localMinIndex-k-1]
-        }        
+        }
         array[i] = localMin
-       
+        
     }
     print(array)
-   
+    
 }
 else {
     print("Не найдено два отрицательных числа в массиве!")
@@ -202,12 +202,4 @@ arrayB = arrayB.sorted(by: <)
 array = arrayA + [randomNumber] + arrayB
 
 print(array)
-
-
-
-
-
-
-
-
 
