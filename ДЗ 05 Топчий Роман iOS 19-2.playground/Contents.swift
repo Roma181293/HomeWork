@@ -7,7 +7,7 @@ import UIKit
 
 print("5.1. Найти сумму  элементов, находящихся между первым и последним отрицательными элементами.")
 var array = [1,-1,1,1,-1,1,-1,1]
-print(array)
+print("in \(array)")
 var leftIndexOfMin : Int?
 var rightIndexOfMin : Int?
 for (index, value) in array.enumerated() {
@@ -40,7 +40,7 @@ else if leftIndexOfMin == nil && rightIndexOfMin == nil {
 
 print("5.2. Преобразовать массив так, чтобы сначала шли все отрицательные элементы, а потом положительные(0 считать положительным). (не использовать встроенный remove, insert, append)")
 array = [2,8,4,-5,1,-6,0,]
-print(array)
+print("in \(array)")
 var negativeCounter = 0
 for (index, value) in array.enumerated() {
     if value < 0 {
@@ -52,11 +52,11 @@ for (index, value) in array.enumerated() {
         negativeCounter += 1
     }
 }
-print(array)
+print("out \(array)")
 
 
 print("\n 5.3. Написать программу, определяющую сумму/количество положительных/ отрицательных элементов массива.")
-print(array)
+print("in \(array)")
 var sumOfPositivNumbers = 0
 var counterOfPositivNumbers = 0
 var sumOfNegativeNumbers = 0
@@ -77,7 +77,7 @@ print("Количество положительных элементов = \(co
 
 print("5.4. Сжать массив, удалив из него все 0, и заполнить освободившиеся справа элементы значениями -1. (не использовать встроенный remove, insert, append)")
 array = [4,0,2,0,3,4,0,3,4,5,0,0,5]
-print(array)
+print("in \(array)")
 var indexesOfNonZeros = [Int]()
 var bufferArray = [Int]()
 for (index, value) in array.enumerated() {
@@ -88,19 +88,20 @@ for (index, value) in array.enumerated() {
 for i in indexesOfNonZeros{
     bufferArray += [array[i]]
 }
-//let arrayOfMinusOne = Array(repeating: -1, count: array.count - bufferArray.count)
-
 array = bufferArray + Array(repeating: -1, count: array.count - bufferArray.count)
 
-//print(indexesOfNonZeros)
-//print(bufferArray)
-print(array)
+print("out \(array)")
+
+
+
+
+
+
 
 
 print("\n5.5.Написать программу, определяющую сумму элементов массива, находящихся в массиве после первого элемента со значением 0.")
 array = [1,1,0,0,1,1,1]
-
-print(array)
+print("in \(array)")
 var indexOfFirstZero : Int?
 sum = 0
 for (index,value) in array.enumerated() {
@@ -123,8 +124,46 @@ else {
 
 print("5.6. Дан массив случайных чисел в диапазоне от -20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними. ")
  array = [20,-1,18,-3,16,-5,14,-7,12,-9,10,-11,8,-13,6,-14,4,-15,2,-17]
-print(array)
-bufferArray = []
+print("out \(array)")
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+func sortFromLowerToUpper(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) -> [Int]{
+    //print("in array \(arr)")
+    var array = arr
+    if leftIndex < 0 || leftIndex > rightIndex || rightIndex > arr.count-1{
+        print("sort borders out of range!")
+    }
+    else {
+        
+        for i in leftIndex + 1...rightIndex {
+            var extremum = array[i]
+            for (index, value) in array.enumerated() {
+                if index >= i && index <= rightIndex  && value < extremum {
+                    extremum = value
+                    array[index] = array[i]
+                    array[i] = extremum
+                }
+            }
+        }
+        //print("out array \(array)")
+       
+    }
+     return array
+}
+
+//let a = sortFromLowerToUpper(0,6,[1,3,2,5,6,4,8])
+//print("a = \(a)")
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
 var leftIndex : Int?                   //delete var
 var rightIndex : Int?                  //delete var
 for (index, value) in array.enumerated() {
@@ -140,30 +179,27 @@ for index in 0..<array.count{
     }
 }
 if leftIndex != nil && rightIndex != nil {
-    for i in leftIndex! + 1..<rightIndex! {
-        var localMinIndex = i
-        var localMin = array[i]
-        // print("start - \(i) - \(localMinIndex) - \(localMin)")
-        //поиск минимума и его индекса
-        
+ // array = sortFromLowerToUpper(leftIndex!,rightIndex!-1,array)
+ //or
+    for i in leftIndex! + 1...rightIndex! {
+        var extremum = array[i]
         for (index, value) in array.enumerated() {
-            if index > i && index < rightIndex!  && value < localMin {
-                localMin = value
-                localMinIndex = index
+            if index >= i && index <= rightIndex!  && value < extremum {
+                extremum = value
+                array[index] = array[i]
+                array[i] = extremum
             }
         }
-        for k in 0...localMinIndex-i {
-            array[localMinIndex-k] = array[localMinIndex-k-1]
-        }
-        array[i] = localMin
-        
     }
-    print(array)
-    
+    print("out \(array)")
 }
 else {
     print("Не найдено два отрицательных числа в массиве!")
 }
+
+
+
+
 
 
 
@@ -173,33 +209,61 @@ array = []
 for i in 1...20{
     array += [i]
 }
-print(array)
+print("in \(array)")
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+func sortFromUpperToLower(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) -> [Int]{
+    //print("in array \(arr)")
+    var array = arr
+    if leftIndex < 0 || leftIndex > rightIndex || rightIndex > arr.count-1{
+        print("sort borders out of range!")
+    }
+    else {
+        
+        for i in leftIndex...rightIndex {
+            var extremum = array[i]
+            for (index, value) in array.enumerated() {
+                if index >= i && index <= rightIndex  && value > extremum {
+                    extremum = value
+                    array[index] = array[i]
+                    array[i] = extremum
+                }
+            }
+        }
+       // print("out array \(array)")
+    }
+    return array
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
 
 let randomNumber = Int(arc4random_uniform(20)) + 1
 print("Random number \(randomNumber)")
 
-var indexOfRandomNumber : Int = -1
-var arrayA = [Int]()
-var arrayB = [Int]()
+var indexOfRandomNumber : Int?
 
+//поиск индекса произвольного элемента
 for (index, value) in array.enumerated() {
     if value == randomNumber {
         indexOfRandomNumber = index
     }
 }
 
-print("Index Of Random Number \(indexOfRandomNumber)")
+print("Index Of Random Number \(indexOfRandomNumber!)")
 
-for i in 0..<indexOfRandomNumber {
-    arrayA += [array[i]]
+switch indexOfRandomNumber {
+case 0:
+    array = sortFromLowerToUpper(indexOfRandomNumber!+1,array.count-1,array)
+case array.count-1:
+    array = sortFromUpperToLower(0,indexOfRandomNumber!-1,array)
+default:
+    array = sortFromLowerToUpper(indexOfRandomNumber!+1,array.count-1,array)
+    array = sortFromUpperToLower(0,indexOfRandomNumber!-1,array)
 }
-arrayA = arrayA.sorted(by: >)
-
-for i in indexOfRandomNumber + 1..<array.count {
-    arrayB += [array[i]]
-}
-arrayB = arrayB.sorted(by: <)
-array = arrayA + [randomNumber] + arrayB
 
 print(array)
-
