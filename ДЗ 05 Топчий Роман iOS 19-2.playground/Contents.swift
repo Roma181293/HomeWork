@@ -122,31 +122,50 @@ else {
 
 
 print("5.6. Дан массив случайных чисел в диапазоне от -20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними. ")
-array = []
-for _ in 1...10{
-    array += [Int(arc4random_uniform(41)) - 20]
-}
+var array = [20,-1,18,-3,16,-5,14,-7,12,-9,10,-11,8,-13,6,-14,4,-15,2,-17]
 print(array)
-
-bufferArray = []
-leftIndexOfMin = -1
-rightIndexOfMin = array.count
+var bufferArray = [Int]()
+var leftIndex : Int?                   //delete var
+var rightIndex : Int?                  //delete var
 for (index, value) in array.enumerated() {
     if value < 0 {
-        leftIndexOfMin = index
+        leftIndex = index
         break
     }
 }
 for index in 0..<array.count{
     if array[array.count - 1 - index] < 0 {
-        rightIndexOfMin = array.count - 1 - index
+        rightIndex = array.count - 1 - index
         break
     }
 }
-for index in leftIndexOfMin + 1..<rightIndexOfMin {
-    bufferArray += [array[index]]
+if leftIndex != nil && rightIndex != nil {
+    for i in leftIndex! + 1..<rightIndex! {
+        var localMinIndex = i
+        var localMin = array[i]
+       // print("start - \(i) - \(localMinIndex) - \(localMin)")
+        //поиск минимума и его индекса
+
+        for (index, value) in array.enumerated() {
+            if index > i && index < rightIndex!  && value < localMin {
+                localMin = value
+                localMinIndex = index
+            }
+        }
+                for k in 0...localMinIndex-i {
+            array[localMinIndex-k] = array[localMinIndex-k-1]
+        }        
+        array[i] = localMin
+       
+    }
+    print(array)
+   
 }
-print(bufferArray.sorted(by: <))
+else {
+    print("Не найдено два отрицательных числа в массиве!")
+}
+
+
 
 
 print("\n5.7. Дан массив из 20 целых чисел со значениями от 1 до 20. Необходимо: a) создать случайное число из того же диапазона и найти позицию этого случайного числа в массиве; b) отсортировать элементы массива, находящиеся слева от найденной позиции по убыванию, а элементы массива, находящиеся справа от найденной позиции по возрастанию.")
@@ -192,59 +211,3 @@ print(array)
 
 
 
-// print("5.6. Дан массив случайных чисел в диапазоне от -20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними. ")
-// var array = [20,-1,18,-3,16,-5,14,-7,12,-9,10,-11,8,-13,6,-14,4,-15,2,-17]
-// print(array)
-
-// var bufferArray = [Int]()
-// var leftIndexOfMin : Int?                   //delete var
-// var rightIndexOfMin : Int?                  //delete var
-// for (index, value) in array.enumerated() {
-//     if value < 0 {
-//         leftIndexOfMin = index
-//         break
-//     }
-// }
-// for index in 0..<array.count{
-//     if array[array.count - 1 - index] < 0 {
-//         rightIndexOfMin = array.count - 1 - index
-//         break
-//     }
-// }
-
-// if leftIndexOfMin != nil && rightIndexOfMin != nil{
-   
-  
-//     for i in leftIndexOfMin! + 1..<rightIndexOfMin! {
-//         var localMinIndex : Int?
-//         var localMin = array[i]
-//         print("start \(localMinIndex) - \(localMin)")
-//         //поиск минимума
-//         for j in leftIndexOfMin! + 1..<rightIndexOfMin!-1 {
-//            if array[j] < localMin {
-//                 localMin = array[j]
-//            }
-//         }
-//         print("find \(localMinIndex) - \(localMin)")
-//         //поиск индекса минимума
-//         for l in leftIndexOfMin! + 1..<rightIndexOfMin!-1 {
-//            if array[l] == localMin {
-//                 localMinIndex = l
-//            }
-//         }
-//          print("find \(localMinIndex!) - \(localMin)")
-//         print("find locIndex and i \(localMinIndex!) - \(i)")
-//         for k in 0..<localMinIndex!-i+1 {
-//             array[localMinIndex!-k] = array[localMinIndex!-k-1]
-//         }
-    
-//         array[i] = localMin
-//         localMin = 1234567
-//         print(array)
-//     }
-//     print(array)
-   
-// }
-// else {
-//     print("Не найдено два отрицательных числа в массиве!")
-// }
