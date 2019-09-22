@@ -96,8 +96,6 @@ for (_, value) in array1.enumerated(){
         min = value
     }
 }
-
-
 if min < -2 {
     for (index, value) in array1.enumerated(){
         if value < 0 {
