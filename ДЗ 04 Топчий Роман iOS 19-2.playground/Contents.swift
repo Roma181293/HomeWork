@@ -55,16 +55,23 @@ print("")
 
 //4.4 Найдите минимальный положительный элемент массива
 print("\n4.4. Найдите минимальный положительный элемент массива")
-print(array1)
+var array3 = [-3,-5,-3,2,6]
+print(array3)
 var indexOfMinValue = 0
+var positiveTicker = false
 var minValue = array1[indexOfMinValue]
-for (index, value) in array1.enumerated() {
-    if value > 0 &&  value < minValue {
+for (index, value) in array3.enumerated() {
+    if value > 0 && value < minValue {
         minValue = value
         indexOfMinValue = index
+        positiveTicker = true
     }
 }
+if positiveTicker == true {
 print("Index of min value = \(indexOfMinValue), min value = \(minValue) \n")
+} else {
+    print("There is no positive number")
+}
 
 //4.5 Найдите кол-во элементов массива, которые больше 5 и меньше 20. Выведите их на экран.
 print("\n4.5. Найдите кол-во элементов массива, которые больше 5 и меньше 20. Выведите их на экран.")
@@ -83,11 +90,18 @@ print("Кол-во элементов массива, которые больш�
 
 print("\n4.Доп.1. Если в данном массиве действительных чисел а1,...,аn есть хотя бы один член, меньший чем -2,то все отрицательные члены заменить их квадратами.")
 print(array1)
-if array1.min()! < -2 {
+var min = array1[0]
+for (_, value) in array1.enumerated(){
+    if value < min {
+        min = value
+    }
+}
+
+
+if min < -2 {
     for (index, value) in array1.enumerated(){
         if value < 0 {
-            array1.insert(value * value, at: index)
-            array1.remove(at: index + 1)
+            array1[index] = value*value
         }
     }
 }
@@ -105,9 +119,7 @@ for (index, value) in array2.enumerated() {
     if value%5 == 0 && value%7 != 0 {
         print("\(index) - \(value)")
         counter += 1
-        if counter <= 3 {
-            sum += value
-        }
+        sum += value
     }
 }
 print("количество членов массива а1,..,аn,которые делятся на 5 и не делятся на 7  = \(counter)")
