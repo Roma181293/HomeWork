@@ -1,241 +1,192 @@
-import UIKit
+import Foundation
 
 /*Выполнил:     Топчий Роман
- Группа:        iOS 19-2
- Дата сдачи:    21.09.2019 */
+Группа:        iOS 19-2
+Дата сдачи:    28.09.2019 */
 
 
-print("5.1. Найти сумму  элементов, находящихся между первым и последним отрицательными элементами.")
-var array = [1,-1,1,1,-1,1,-1,1]
-print("in \(array)")
-var leftIndexOfMin : Int?
-var rightIndexOfMin : Int?
-for (index, value) in array.enumerated() {
-    if value < 0 {
-        leftIndexOfMin = index
-        break
-    }
+print("6.1. Создайте пару функций с короткими именами, которые возвращают строку с классным символом или символами. Например heart() возвращает сердце и т.п. Вызовите все эти функции внутри принта для вывода строки этих символов путем конкатенации.")
+
+
+func men() -> String {
+    return "🧑"
 }
-
-for index in 0..<array.count{
-    if array[array.count - 1 - index] < 0 {
-        rightIndexOfMin = array.count - 1 - index
-        break
-    }
+func mac() -> String {
+    return "💻"
 }
-
-var sum = 0
-if rightIndexOfMin! > leftIndexOfMin! && leftIndexOfMin != nil && rightIndexOfMin != nil {
-    for index in leftIndexOfMin! + 1..<rightIndexOfMin! {
-        sum += array[index]
-    }
-    print("сумма  элементов, находящихся между первым и последним отрицательными элементами = \(sum)\n")
+func manOnMac() -> String {
+    return "👨‍💻"
 }
-else if leftIndexOfMin == nil && rightIndexOfMin == nil {
-    print("недостаточное кол-во отрицательных чисел. нет либо правого, либо левого или и правого и левого отрицательного значения")
-}
+print(men() + mac() + manOnMac())
 
 
-print("5.2. Преобразовать массив так, чтобы сначала шли все отрицательные элементы, а потом положительные(0 считать положительным). (не использовать встроенный remove, insert, append)")
-array = [2,8,4,-5,1,-6,0,]
-print("in \(array)")
-var negativeCounter = 0
-for (index, value) in array.enumerated() {
-    if value < 0 {
-        let buf = value
-        for j in  0..<index - negativeCounter  {
-            array[index-j] = array[index-j-1]
-        }
-        array[negativeCounter] = buf
-        negativeCounter += 1
-    }
-}
-print("out \(array)")
+print("\n6.2. Написать функцию которая: принимает массив целых чисел, возвращает  минимальный положительный элемент массива (Int). Если такого элемента не найдено, то возвращает nil ")
 
-
-print("\n 5.3. Написать программу, определяющую сумму/количество положительных/ отрицательных элементов массива.")
-print("in \(array)")
-var sumOfPositivNumbers = 0
-var counterOfPositivNumbers = 0
-var sumOfNegativeNumbers = 0
-var counterOfNegativeNumbers = 0
-
-for element in array {
-    if element < 0 {
-        sumOfNegativeNumbers += element
-        counterOfNegativeNumbers += 1
-    }
-    else if element > 0 {
-        sumOfPositivNumbers += element
-        counterOfPositivNumbers += 1
-    }
-}
-print("Количество положительных элементов = \(counterOfPositivNumbers) \nКоличество отрицательных элементов = \(counterOfNegativeNumbers) \nСумма положительных элементов = \(sumOfPositivNumbers) \nСумма отрицательных элементов = \(sumOfNegativeNumbers) \n")
-
-
-print("5.4. Сжать массив, удалив из него все 0, и заполнить освободившиеся справа элементы значениями -1. (не использовать встроенный remove, insert, append)")
-array = [4,0,2,0,3,4,0,3,4,5,0,0,5]
-print("in \(array)")
-var indexesOfNonZeros = [Int]()
-var bufferArray = [Int]()
-for (index, value) in array.enumerated() {
-    if value != 0 {
-        indexesOfNonZeros += [index]
-    }
-}
-for i in indexesOfNonZeros{
-    bufferArray += [array[i]]
-}
-array = bufferArray + Array(repeating: -1, count: array.count - bufferArray.count)
-
-print("out \(array)")
-
-
-
-
-
-
-
-
-print("\n5.5.Написать программу, определяющую сумму элементов массива, находящихся в массиве после первого элемента со значением 0.")
-array = [1,1,0,0,1,1,1]
-print("in \(array)")
-var indexOfFirstZero : Int?
-sum = 0
-for (index,value) in array.enumerated() {
-    if value == 0 {
-        indexOfFirstZero = index
-        //print(indexOfFirstZero)
-        break
-    }
-}
-if indexOfFirstZero != nil  {
-    for index in indexOfFirstZero! + 1..<array.count {
-        sum += array[index]
-    }
-    print("суммa элементов массива, находящихся в массиве после первого элемента со значением 0 = \(sum)\n")
-}
-else {
-    print("В массиве отсутствует нулевое значение\n")
-}
-
-
-print("5.6. Дан массив случайных чисел в диапазоне от -20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними. ")
- array = [20,-1,18,-3,16,-5,14,-7,12,-9,10,-11,8,-13,6,-14,4,-15,2,-17]
-print("in \(array)")
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-func sortFromLowerToUpper(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) -> [Int]{
-    //print("in array \(arr)")
-    var array = arr
-    if leftIndex < 0 || leftIndex > rightIndex || rightIndex > arr.count-1{
-        print("sort borders out of range!")
+func minPositiveNumberFinder(_ array : [Int]) -> Int? {
+    if array.isEmpty {
+        return nil
     }
     else {
-        
-        for i in leftIndex + 1...rightIndex {
-            var extremum = array[i]
-            for (index, value) in array.enumerated() {
-                if index >= i && index <= rightIndex  && value < extremum {
-                    extremum = value
-                    array[index] = array[i]
-                    array[i] = extremum
-                }
+        var min : Int = array[0]
+        var positiveTicker : Bool = false
+        for element in array {
+            if element <= min && element > 0 {
+                min = element
+                positiveTicker = true
             }
         }
-        //print("out array \(array)")
+        if positiveTicker == true {
+            return min
+        }
+        else {
+            return nil
+        }
     }
-     return array
+    
 }
-//let a = sortFromLowerToUpper(0,6,[1,3,2,5,6,4,8])
-//print("a = \(a)")
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-var leftIndex : Int?
-var rightIndex : Int?
-for (index, value) in array.enumerated() {
-    if value < 0 {
-        leftIndex = index
-        break
-    }
-}
-for index in 0..<array.count{
-    if array[array.count - 1 - index] < 0 {
-        rightIndex = array.count - 1 - index
-        break
-    }
-}
-if leftIndex != nil && rightIndex != nil {
-    array = sortFromLowerToUpper(leftIndex!,rightIndex!-1,array)
-    print("out \(array)")
-}
-else {
-    print("Не найдено два отрицательных числа в массиве!")
-}
-
-
-
-
-
-
-
-
-print("\n5.7. Дан массив из 20 целых чисел со значениями от 1 до 20. Необходимо: a) создать случайное число из того же диапазона и найти позицию этого случайного числа в массиве; b) отсортировать элементы массива, находящиеся слева от найденной позиции по убыванию, а элементы массива, находящиеся справа от найденной позиции по возрастанию.")
-array = []
-for i in 1...20{
-    array += [i]
-}
+var array : [Int] = [1,-4,2,5,4]
 print("in \(array)")
 
-///////////////////////////////////////////////////////////////////////////////////////////////////
-func sortFromUpperToLower(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) -> [Int]{
-    //print("in array \(arr)")
-    var array = arr
-    if leftIndex < 0 || leftIndex > rightIndex || rightIndex > arr.count-1{
-        print("sort borders out of range!")
+if let a = minPositiveNumberFinder(array) {
+    print("Min positive number = \(a)")
+}
+else{
+    print("There is no positive number")
+}
+
+
+
+print("\n6.3. Написать функцию которая: принимает массив целых чисел, возвращает  опциональный кортеж содержащий минимальный положительный элемент массива и его индекс (index: Int, value: Int)? . Если такого элемента не найдено, то возвращает nil")
+
+func minFinder(_ array : [Int]) -> (index: Int, value: Int)?  {
+    var returnValue : (index: Int, value: Int)?
+
+    if array.isEmpty {
+        return returnValue
     }
     else {
+        var positiveTicker : Bool = false
+        var min = ((index: 0, value: array[0]))
         
-        for i in leftIndex...rightIndex {
-            var extremum = array[i]
-            for (index, value) in array.enumerated() {
-                if index >= i && index <= rightIndex  && value > extremum {
-                    extremum = value
-                    array[index] = array[i]
-                    array[i] = extremum
-                }
+        for (index, value) in array.enumerated() {
+            if value <= min.value && value > 0 {
+                min.value = value
+                min.index = index
+                positiveTicker = true
             }
         }
-       // print("out array \(array)")
-    }
-    return array
-}
-///////////////////////////////////////////////////////////////////////////////////////////////////
-
-let randomNumber = Int(arc4random_uniform(20)) + 1
-print("Random number \(randomNumber)")
-
-var indexOfRandomNumber : Int?
-
-//поиск индекса произвольного элемента
-for (index, value) in array.enumerated() {
-    if value == randomNumber {
-        indexOfRandomNumber = index
+        if positiveTicker == true {
+            returnValue = min
+        }
+        return returnValue
     }
 }
-print("Index Of Random Number \(indexOfRandomNumber!)")
 
-switch indexOfRandomNumber {
-case 0:
-    array = sortFromLowerToUpper(indexOfRandomNumber!+1,array.count-1,array)
-case array.count-1:
-    array = sortFromUpperToLower(0,indexOfRandomNumber!-1,array)
-default:
-    array = sortFromLowerToUpper(indexOfRandomNumber!+1,array.count-1,array)
-    array = sortFromUpperToLower(0,indexOfRandomNumber!-1,array)
+
+print("in \(array)")
+
+if let a = minFinder(array) {
+    print("Min positive number = \(a)")
+}
+else{
+    print("There is no positive number")
 }
 
-print(array)
+
+
+print("\n6.4. Написать функцию которая: принимает массив целых чисел, возвращает  кортеж (tuple) содержащий минимальный положительный элемент массива и его индекс (index: Int?, value: Int?). Если такого элемента не найдено, то возвращает кортеж, значения в котором равны nil.")
+
+func minFinder2(_ array : [Int]) -> (index: Int?, value: Int?)  {
+    var returnValue : (index: Int?, value: Int?)
+
+    if array.isEmpty {
+        return returnValue
+    }
+    else {
+        var positiveTicker : Bool = false
+        var min = ((index: 0, value: array[0]))
+        
+        for (index, value) in array.enumerated() {
+            if value <= min.value && value > 0 {
+                min.value = value
+                min.index = index
+                positiveTicker = true
+            }
+        }
+        if positiveTicker == true {
+            returnValue =  min
+        }
+        return returnValue
+    }
+}
+
+
+print("in \(array)")
+
+if let index = minFinder2(array).index, let value = minFinder2(array).value {
+    print("Min positive number = (index: \(index), value: \(value))")
+}
+else{
+    print("There is no positive number")
+}
+
+
+print("\n6.4. Создайте функцию, которая принимает массив, а возвращает массив в обратном порядке.")
+
+func reverseArray(_ array : [Int]) -> [Int] {
+    if array.isEmpty { return array}
+    else {
+        var arr = [Int]()
+        for index in 0...array.count-1 {
+            arr.append(array[array.count-1 - index])
+        }
+        return arr
+    }
+}
+print("in \(array)")
+print("revers array \(reverseArray(array))")
+
+
+print("\n6.5. Используя  inout  выполните задание номер 6.4 так, чтобы функция не возвращала перевернутый массив, но меняла элементы в существующем. Что будет если убрать inout?")
+
+func reverseArray2(_ array : inout [Int]) {
+    if array.isEmpty { }
+    else {
+        //var arr = [Int]()
+        for index in 0...array.count/2 {
+            let buf = array[index]
+            array[index] = array[array.count-1-index]
+            array[array.count-1-index] = buf
+            
+        }
+    }
+}
+print("in \(array)")
+reverseArray2(&array)
+print("revers array \(array)")
+print("Что будет если убрать inout?\nwarning:\"Cannot assign through subscript: 'array' is a 'let' constant\"")
+
+
+print("\n6.6. Создайте функцию, которая принимает два массива ar1 и ar2. Возвращает массив в котором элементы Х[i] состоят из суммы элементов входящих массивов поэлементно. Размер массива Х должен быть равен наибольшему размеру из ar1 и ar2")
+
+func arraySum(_ array1: [Int], _ array2: [Int]) -> [Int] {
+    var arr1 = array1
+    var arr2 = array2
+    var x = [Int]()
+    if array1.count > array2.count {
+        arr2 = arr2 + Array(repeating: 0, count: array1.count - array2.count)
+    }
+    else {
+        arr1 = arr1 + Array(repeating: 0, count: array2.count - array1.count)
+    }
+    
+    for i in 0...arr2.count-1 {
+        x.append(arr1[i]+arr2[i])
+    }
+    
+    return x
+}
+let array1 = [1,3,5]
+let array2 = [1,4,2,7,4,2]
+print("array1 = \(array1)\narray2 = \(array2)\nsum = \(arraySum(array1, array2))")
+
