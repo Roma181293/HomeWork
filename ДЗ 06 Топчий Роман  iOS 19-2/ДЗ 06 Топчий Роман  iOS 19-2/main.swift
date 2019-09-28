@@ -61,10 +61,8 @@ print("\n6.3. Написать функцию которая: принимает
 func minFinder(_ array : [Int]) -> (index: Int, value: Int)?  {
     var returnValue : (index: Int, value: Int)?
 
-    if array.isEmpty {
-        return returnValue
-    }
-    else {
+    if array.isEmpty == false {
+      
         var positiveTicker : Bool = false
         var min = ((index: 0, value: array[0]))
         
@@ -78,8 +76,8 @@ func minFinder(_ array : [Int]) -> (index: Int, value: Int)?  {
         if positiveTicker == true {
             returnValue = min
         }
-        return returnValue
     }
+    return returnValue
 }
 
 
@@ -99,31 +97,31 @@ print("\n6.4. Написать функцию которая: принимает
 func minFinder2(_ array : [Int]) -> (index: Int?, value: Int?)  {
     var returnValue : (index: Int?, value: Int?)
 
-    if array.isEmpty {
-        return returnValue
-    }
-    else {
-        var positiveTicker : Bool = false
-        var min = ((index: 0, value: array[0]))
-        
+    if array.isEmpty == false {
         for (index, value) in array.enumerated() {
-            if value <= min.value && value > 0 {
-                min.value = value
-                min.index = index
-                positiveTicker = true
+            if value > 0 {
+                returnValue.value = value
+                returnValue.index = index
+                break
             }
         }
-        if positiveTicker == true {
-            returnValue =  min
+        if let _ = returnValue.index, let minValue = returnValue.value {
+            for (index, value) in array.enumerated() {
+                if value > 0 && value < minValue {
+                    returnValue.value = value
+                    returnValue.index = index
+                }
+            }
         }
-        return returnValue
+        
     }
+    return returnValue
 }
 
+var array12 = [-3, 1, -4, 2, 5, 4]
+print("in \(array12)")
 
-print("in \(array)")
-
-if let index = minFinder2(array).index, let value = minFinder2(array).value {
+if let index = minFinder2(array12).index, let value = minFinder2(array12).value {
     print("Min positive number = (index: \(index), value: \(value))")
 }
 else{
@@ -131,7 +129,7 @@ else{
 }
 
 
-print("\n6.4. Создайте функцию, которая принимает массив, а возвращает массив в обратном порядке.")
+print("\n6.5.1. Создайте функцию, которая принимает массив, а возвращает массив в обратном порядке.")
 
 func reverseArray(_ array : [Int]) -> [Int] {
     if array.isEmpty { return array}
@@ -147,7 +145,7 @@ print("in \(array)")
 print("revers array \(reverseArray(array))")
 
 
-print("\n6.5. Используя  inout  выполните задание номер 6.4 так, чтобы функция не возвращала перевернутый массив, но меняла элементы в существующем. Что будет если убрать inout?")
+print("\n6.5.2. Используя  inout  выполните задание номер 6.4 так, чтобы функция не возвращала перевернутый массив, но меняла элементы в существующем. Что будет если убрать inout?")
 
 func reverseArray2(_ array : inout [Int]) {
     if array.isEmpty { }
@@ -180,7 +178,7 @@ func arraySum(_ array1: [Int], _ array2: [Int]) -> [Int] {
         arr1 = arr1 + Array(repeating: 0, count: array2.count - array1.count)
     }
     
-    for i in 0...arr2.count-1 {
+    for i in 0..<arr2.count {
         x.append(arr1[i]+arr2[i])
     }
     
