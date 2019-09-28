@@ -23,28 +23,28 @@ print(men() + mac() + manOnMac())
 print("\n6.2. Написать функцию которая: принимает массив целых чисел, возвращает  минимальный положительный элемент массива (Int). Если такого элемента не найдено, то возвращает nil ")
 
 func minPositiveNumberFinder(_ array : [Int]) -> Int? {
-    if array.isEmpty {
-        return nil
-    }
-    else {
-        var min : Int = array[0]
-        var positiveTicker : Bool = false
+    var returnValue : Int?
+
+    if array.isEmpty == false {
         for element in array {
-            if element <= min && element > 0 {
-                min = element
-                positiveTicker = true
+            if element > 0 {
+                returnValue = element
+                break
             }
         }
-        if positiveTicker == true {
-            return min
+        if let positive = returnValue {
+            for element in array {
+                if element > 0 && element < positive {
+                    returnValue = element
+                }
+            }
         }
-        else {
-            return nil
-        }
+        
     }
+    return returnValue
     
 }
-var array : [Int] = [1,-4,2,5,4]
+var array : [Int] = [-5, 1,-4,2,5,4]
 print("in \(array)")
 
 if let a = minPositiveNumberFinder(array) {
@@ -59,27 +59,28 @@ else{
 print("\n6.3. Написать функцию которая: принимает массив целых чисел, возвращает  опциональный кортеж содержащий минимальный положительный элемент массива и его индекс (index: Int, value: Int)? . Если такого элемента не найдено, то возвращает nil")
 
 func minFinder(_ array : [Int]) -> (index: Int, value: Int)?  {
+    
     var returnValue : (index: Int, value: Int)?
 
     if array.isEmpty == false {
-      
-        var positiveTicker : Bool = false
-        var min = ((index: 0, value: array[0]))
-        
         for (index, value) in array.enumerated() {
-            if value <= min.value && value > 0 {
-                min.value = value
-                min.index = index
-                positiveTicker = true
+            if value > 0 {
+                returnValue = (index, value)
+                break
             }
         }
-        if positiveTicker == true {
-            returnValue = min
+        
+        if let positive = returnValue {
+            for (index, value) in array.enumerated() {
+                if value > 0 && value < positive.value {
+                    returnValue = (index, value)
+                }
+            }
         }
+        
     }
     return returnValue
 }
-
 
 print("in \(array)")
 
@@ -105,9 +106,9 @@ func minFinder2(_ array : [Int]) -> (index: Int?, value: Int?)  {
                 break
             }
         }
-        if let _ = returnValue.index, let minValue = returnValue.value {
+        if let _ = returnValue.index, let posMin = returnValue.value {
             for (index, value) in array.enumerated() {
-                if value > 0 && value < minValue {
+                if value > 0 && value < posMin {
                     returnValue.value = value
                     returnValue.index = index
                 }
@@ -118,10 +119,9 @@ func minFinder2(_ array : [Int]) -> (index: Int?, value: Int?)  {
     return returnValue
 }
 
-var array12 = [-3, 1, -4, 2, 5, 4]
-print("in \(array12)")
+print("in \(array)")
 
-if let index = minFinder2(array12).index, let value = minFinder2(array12).value {
+if let index = minFinder2(array).index, let value = minFinder2(array).value {
     print("Min positive number = (index: \(index), value: \(value))")
 }
 else{
