@@ -23,7 +23,7 @@ var kegNumber : Int?
 var table : Set<Int> = []
 var winner = false
 let numberOfKeg : Int = 10
-let quantityOfNumberInCard = 3
+let сardSize = 3
 var bag : Set<Int> = [1,2,3,4,5,7,8,9,10]
 var playersCards : [Set<Int>] = [[6,8,7],[7,5,9],[6,9,4]]
 
@@ -57,7 +57,7 @@ print("На столе: \(table)")
 kegNumber = nil
 
 for (playerIndex,playerCard) in playersCards.enumerated() {
-    let result = "\(playerIndex): \(playerCard) - Открыто \(quantityOfNumberInCard - playerCard.subtracting(table).count) из \(quantityOfNumberInCard) - осталось \(playerCard.subtracting(table)) "
+    let result = "\(playerIndex): \(playerCard) - Открыто \(сardSize - playerCard.subtracting(table).count) из \(сardSize) - осталось \(playerCard.subtracting(table)) "
     
     if playerCard.subtracting(table).isEmpty {
         print(result + "==WINNER==")
