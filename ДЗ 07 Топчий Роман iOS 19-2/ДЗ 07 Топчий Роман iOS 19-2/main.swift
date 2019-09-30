@@ -67,9 +67,9 @@ var round : Int = 0
 //MARK: Определение количества играков
 while numberOfPlayers == nil {
     print("\nВведи количество играков")
-    
+
     readingInt(incomeValue: &numberOfPlayers, line: readLine())
-    
+
     if let _ = numberOfPlayers {
         if numberOfPlayers! <= 0 {
             print("Введено отрицательное число!!! Будь внимателен! \(numberOfPlayers!) < 0")
@@ -81,9 +81,9 @@ while numberOfPlayers == nil {
 //MARK: Определение количества бочонков в мешке
 while numberOfKeg == nil {
     print("\nВведи количество бочонков в мешке")
-    
+
     readingInt(incomeValue: &numberOfKeg, line: readLine())
-    
+
     if let _ = numberOfKeg {
         if numberOfKeg! <= 0 {
             print("Введено отрицательное число!!! Будь внимателен! \(numberOfKeg!) < 0")
@@ -97,9 +97,9 @@ fillBag(bag: &bag, numberOfKeg: numberOfKeg!)
 //MARK: Определение количества чисел в билете
 while сardSize == nil {
     print("\nВведи количество чисел в билете")
-    
+
     readingInt(incomeValue: &сardSize, line: readLine())
-   
+
     if let _ = сardSize {
         if сardSize! <= 0 {
             сardSize = nil
@@ -124,7 +124,7 @@ repeat{
 
     round += 1
     print("\n===========================================================\nROUND № : \(round)")
-    
+
 //MARK: Выбор бочонка / ввод номера бочонка
     while kegNumber == nil  {
         print("\nОткрыть следующий бочонок! Введи номер. Или просто нажми Enter.")
@@ -147,15 +147,15 @@ repeat{
             }
         }
     }
-    
+
 //MARK: Выставление на стол бочонка из мешка
     table.insert(kegNumber!)
     bag.remove(kegNumber!)
     print("На столе: \(table)")
     kegNumber = nil
-    
-    
-    
+
+
+
     for (playerIndex,playerCard) in playersCards.enumerated() {
 //MARK: Вычеркивание в карточках номера соответствующего номеру бочонка
         let result = "\(playerIndex): \(playerCard) - Открыто \(сardSize! - playerCard.subtracting(table).count) из \(сardSize!) - осталось \(playerCard.subtracting(table)) "
@@ -172,3 +172,25 @@ repeat{
 }
 while winner == false
 print("!!!GAME OVER!!!")
+
+
+
+print("7.2. (Dictionary) (2 балла)  Написать функцию, которая считает количество каждого символа в введенной строке. Выдать результат работы функции в таком виде: \"Мама мыла раму!\"")
+
+var dictionary = [Character : Int]()
+
+if let str = readLine() {
+
+    for symbol in str {
+        if dictionary[symbol] == nil {
+            dictionary[symbol] = 1
+        }
+        else{
+            dictionary.updateValue(dictionary[symbol]! + 1, forKey: symbol)
+        }
+    }
+}
+
+for (key, value) in dictionary {
+    print("\"\(key)\" : \(value)")
+}
