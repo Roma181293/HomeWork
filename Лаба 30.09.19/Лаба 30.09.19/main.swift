@@ -78,37 +78,46 @@ class List {
     func insertBefore(info val : Int, beforeInfo name: Int) {
         
         var currentPointer = head
-        var prevPointer = head
         while currentPointer?.next != nil && currentPointer?.info != name  {
-            prevPointer = currentPointer
             currentPointer = currentPointer?.next
-           
         }
+        
         let node = Node(val)
-        if currentPointer?.info == name {
-                       
-//                       currentPointer?.prev =  node
-//                       prevPointer?.next = node
-//                       node.prev = prevPointer
-//                       node.next = currentPointer
-            
+        if currentPointer?.info == name && (head === currentPointer) == false {
             node.prev = currentPointer?.prev
             node.next = currentPointer
             currentPointer?.prev?.next = node
             currentPointer?.prev =  node
-            
         }
-        else if currentPointer?.info == name && currentPointer?.prev == nil{
+        else if head === currentPointer {
+            head = node
             node.next = currentPointer
             currentPointer?.prev = node
-            head = node
         }
         else {
-            print("There is no element with info:\(name)")
+            print("There is no element with info : \(name)")
         }
     }
     
-
+    func remove(info val : Int) {
+        
+        var currentPointer = head
+        while currentPointer?.next != nil && currentPointer?.info != val  {
+            currentPointer = currentPointer?.next
+        }
+        
+        if currentPointer?.info == val && (head === currentPointer) == false {
+            currentPointer?.next?.prev = currentPointer?.prev
+            currentPointer?.prev?.next = currentPointer?.next
+        }
+         else if head === currentPointer {
+            head = currentPointer?.next
+            currentPointer?.next = nil
+        }
+        else {
+            print("There is no element with info : \(val)")
+        }
+    }
     
     
     func printList() {
@@ -129,8 +138,9 @@ a.append(22)
 a.append(33)
 a.append(44)
 a.append(55)
+a.remove(info: 55)
 
 
 
-a.insertBefore(info: 3456, beforeInfo: 11)
+//a.insertBefore(info: 3456, beforeInfo: 8787)
 a.printList()
