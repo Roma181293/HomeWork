@@ -1,10 +1,6 @@
-//
-//  main.swift
-//  ДЗ 08 Топчий Роман iOS 10-2
-//
-//  Created by Roman on 10/7/19.
-//  Copyright © 2019 RomanTopchii. All rights reserved.
-//
+/*Выполнил:     Топчий Роман
+Группа:        iOS 19-2
+Дата сдачи:    11.10.2019 */
 
 import Foundation
 
