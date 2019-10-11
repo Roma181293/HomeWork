@@ -6,7 +6,7 @@ import UIKit
 
 
 print("5.1. Найти сумму  элементов, находящихся между первым и последним отрицательными элементами.")
-var array = [1,-1,1,1,-1,1,-1,1]
+var array = [1,1,1,1,1,1,-1,1]
 print("in \(array)")
 var leftIndexOfMin : Int?
 var rightIndexOfMin : Int?
@@ -31,13 +31,13 @@ if rightIndexOfMin! > leftIndexOfMin! && leftIndexOfMin != nil && rightIndexOfMi
     }
     print("сумма  элементов, находящихся между первым и последним отрицательными элементами = \(sum)\n")
 }
-else if leftIndexOfMin == nil && rightIndexOfMin == nil {
+else if leftIndexOfMin == nil || rightIndexOfMin == nil {
     print("недостаточное кол-во отрицательных чисел. нет либо правого, либо левого или и правого и левого отрицательного значения")
 }
 
 
 print("5.2. Преобразовать массив так, чтобы сначала шли все отрицательные элементы, а потом положительные(0 считать положительным). (не использовать встроенный remove, insert, append)")
-array = [2,8,4,-5,1,-6,0,]
+array = [2,8,4,5,1,6,0,]
 print("in \(array)")
 var negativeCounter = 0
 for (index, value) in array.enumerated() {
@@ -74,7 +74,7 @@ print("Количество положительных элементов = \(co
 
 
 print("5.4. Сжать массив, удалив из него все 0, и заполнить освободившиеся справа элементы значениями -1. (не использовать встроенный remove, insert, append)")
-array = [4,0,2,0,3,4,0,3,4,5,0,0,5]
+array = [4,0,2,0,3,4,0,3,4,0,0,0,5]
 print("in \(array)")
 var indexesOfNonZeros = [Int]()
 var bufferArray = [Int]()
@@ -98,7 +98,7 @@ print("out \(array)")
 
 
 print("\n5.5.Написать программу, определяющую сумму элементов массива, находящихся в массиве после первого элемента со значением 0.")
-array = [1,1,0,0,1,1,1]
+array = [1,1,1,1,1]
 print("in \(array)")
 var indexOfFirstZero : Int?
 sum = 0
@@ -121,7 +121,7 @@ else {
 
 
 print("5.6. Дан массив случайных чисел в диапазоне от -20 до +20. Необходимо найти позиции крайних отрицательных элементов (самого левого отрицательного элемента и самого правого отрицательного элемента) и отсортировать элементы, находящиеся между ними. ")
- array = [20,-1,18,-3,16,-5,14,-7,12,-9,10,-11,8,-13,6,-14,4,-15,2,-17]
+ array = [20,1,18,6,4,-4,-15,2,17]
 print("in \(array)")
 
 
@@ -129,7 +129,7 @@ print("in \(array)")
 func sortFromLowerToUpper(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) -> [Int]{
     //print("in array \(arr)")
     var array = arr
-    if leftIndex < 0 || leftIndex > rightIndex || rightIndex > arr.count-1{
+    if leftIndex < 0 || leftIndex >= rightIndex || rightIndex > arr.count-1{
         print("sort borders out of range!")
     }
     else {
@@ -184,17 +184,17 @@ else {
 
 
 print("\n5.7. Дан массив из 20 целых чисел со значениями от 1 до 20. Необходимо: a) создать случайное число из того же диапазона и найти позицию этого случайного числа в массиве; b) отсортировать элементы массива, находящиеся слева от найденной позиции по убыванию, а элементы массива, находящиеся справа от найденной позиции по возрастанию.")
-array = []
-for i in 1...20{
-    array += [i]
-}
+array = [15, 16, 2, 1, 5, 6, 7, 8, 9, 10, 11, 12, 13, 17, 4, 3, 14, 18, 19, 20]
+//for i in 1...20{
+//    array += [i]
+//}
 print("in \(array)")
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 func sortFromUpperToLower(_ leftIndex : Int, _ rightIndex : Int, _ arr : [Int]) -> [Int]{
     //print("in array \(arr)")
     var array = arr
-    if leftIndex < 0 || leftIndex > rightIndex || rightIndex > arr.count-1{
+    if leftIndex < 0 || leftIndex >= rightIndex || rightIndex > arr.count-1{
         print("sort borders out of range!")
     }
     else {
@@ -234,7 +234,7 @@ case 0:
 case array.count-1:
     array = sortFromUpperToLower(0,indexOfRandomNumber!-1,array)
 default:
-    array = sortFromLowerToUpper(indexOfRandomNumber!+1,array.count-1,array)
+    array = sortFromLowerToUpper(indexOfRandomNumber!,array.count-1,array)
     array = sortFromUpperToLower(0,indexOfRandomNumber!-1,array)
 }
 
