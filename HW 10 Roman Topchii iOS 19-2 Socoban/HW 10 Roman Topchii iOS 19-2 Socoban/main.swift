@@ -12,9 +12,9 @@ enum Direction {
     case left, right, up, down
 }
 
-enum Object {
-    case player, box, wall, destination, space
-}
+//enum Object {
+//    case player, box, wall, destination, space
+//}
 
 class Player {
     var x : Int = 1
@@ -24,7 +24,6 @@ class Player {
 class Box {
     var x : Int = 1
     var y : Int = 1
-
 }
 
 class Destination {
@@ -73,54 +72,70 @@ class Game {
     }
     
     
-    func movePlayer(to direction: Direction) {
+    func move(to direction: Direction) {
         switch direction {
             case .left:
+                print(canMove(player: player, box: box))
                 if player.x > 0 {
-                    player.x -= 1
+                    if player.x-1 == box.x && player.y == box.y {
+                       
+                        if canMove(player: player, box: box) {
+                            player.x -= 1
+                            box.x -= 1
+                        }
+                    }
+                    else {
+                        player.x -= 1
+                    }
                 }
             
             case .right:
+                print(canMove(player: player, box: box))
                 if player.x < room.width-1 {
-                    player.x += 1
+                    if player.x+1 == box.x  && player.y == box.y {
+                        if canMove(player: player, box: box) {
+                            player.x += 1
+                            box.x += 1
+                        }
+                    }
+                    else {
+                        player.x += 1
+                    }
                 }
             
             case .up:
+                print(canMove(player: player, box: box))
                 if player.y > 0 {
-                    player.y -= 1
+                    
+                    if player.y-1 == box.y && player.x == box.x{
+                        if canMove(player: player, box: box) {
+                            player.y -= 1
+                            box.y -= 1
+                        }
+                    }
+                    else {
+                        player.y -= 1
+                    }
                 }
             
             case .down:
+                print(canMove(player: player, box: box))
                 if player.y < room.height-1 {
-                    player.y += 1
+                    if player.y+1 == box.y && player.x == box.x {
+                        if canMove(player: player, box: box) {
+                            player.y += 1
+                            box.y += 1
+                        }
+                    }
+                    else {
+                        player.y += 1
+                    }
                 }
         }
     }
     
     
-    func moveBox(to direction: Direction) {
-        switch direction {
-            case .left:
-                if box.x > 0 {
-                    box.x -= 1
-                }
-               
-            case .right:
-                if box.x < room.width-1 {
-                    box.x += 1
-                }
-               
-            case .up:
-                if box.y > 0 {
-                    box.y -= 1
-                }
-               
-            case .down:
-                if box.y < room.height-1 {
-                    box.y += 1
-                }
-        }
-    }
+ 
     
     func gameOver(box : Box, destination : Destination) -> Bool {
         if destination.x == box.x && destination.y == box.y{
@@ -130,11 +145,6 @@ class Game {
             return false
         }
     }
-    
-    
-    
-    
-    
 }
 
 
@@ -152,47 +162,13 @@ while isGameOver == false {
     if let read = readLine() {
         switch read {
         case "l":
-            if game.player.x-1 == game.box.x && game.player.y == game.box.y {
-                if game.canMove(player: game.player, box: game.box) {
-                    game.movePlayer(to: Direction.left)
-                    game.moveBox(to: Direction.left)
-                }
-            }
-            else {
-                game.movePlayer(to: Direction.left)
-            }
+                game.move(to: Direction.left)
         case "r":
-            if game.player.x+1 == game.box.x  && game.player.y == game.box.y {
-                if game.canMove(player: game.player, box: game.box) {
-                    game.movePlayer(to: Direction.right)
-                    game.moveBox(to: Direction.right)
-                }
-            }
-            else {
-                game.movePlayer(to: Direction.right)
-            }
+                game.move(to: Direction.right)
         case "d":
-            if game.player.y+1 == game.box.y && game.player.x == game.box.x {
-                if game.canMove(player: game.player, box: game.box) {
-                    game.movePlayer(to: Direction.down)
-                    game.moveBox(to: Direction.down)
-                }
-            }
-            else {
-                game.movePlayer(to: Direction.down)
-            }
+                game.move(to: Direction.down)
         case "u":
-            if game.player.y-1 == game.box.y && game.player.x == game.box.x{
-                print(game.canMove(player: game.player, box: game.box))
-                if game.canMove(player: game.player, box: game.box) {
-                    game.movePlayer(to: Direction.up)
-                    game.moveBox(to: Direction.up)
-                }
-                
-            }
-            else {
-                game.movePlayer(to: Direction.up)
-            }
+                game.move(to: Direction.up)
         default:
             break
         }
