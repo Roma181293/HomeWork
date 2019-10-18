@@ -30,6 +30,14 @@ class Destination {
     var x : Int = 9
     var y : Int = 9
 }
+//struct Wall {
+//    var x : Int
+//    var y : Int
+////    init(x : Int, y : Int) {
+////        self.x = x
+////        self.y = y
+////    }
+//}
 
 class Room {
     var width : Int = 10
@@ -41,6 +49,7 @@ class Game {
     var player : Player = Player()
     var box : Box = Box()
     var destination = Destination()
+    var walls : [(x : Int, y : Int)] = []
    
     func roomToString() -> String {
         var area: String = ""
@@ -56,6 +65,13 @@ class Game {
                 else if destination.x == x && destination.y == y {
                     cell = "❎"
                 }
+                else if walls.isEmpty == false {
+                    for wall in walls{
+                        if wall.x == x && wall.y == y {
+                            cell = "🚧"
+                        }
+                    }
+                }
                 area.append(cell)
             }
             area.append("\n")
@@ -63,7 +79,7 @@ class Game {
         return area
     }
     
-    func canMove(player : Player, box : Box) -> Bool {
+    func canMoveBox(player : Player, box : Box) -> Bool {
         var result : Bool = false
         if box.x > 0 && box.x < room.width - 1 && player.y == box.y || box.y > 0 && box.y < room.height - 1 && player.x == box.x {
             result = true
@@ -75,11 +91,10 @@ class Game {
     func move(to direction: Direction) {
         switch direction {
             case .left:
-                print(canMove(player: player, box: box))
+                print(canMoveBox(player: player, box: box))
                 if player.x > 0 {
                     if player.x-1 == box.x && player.y == box.y {
-                       
-                        if canMove(player: player, box: box) {
+                        if canMoveBox(player: player, box: box) {
                             player.x -= 1
                             box.x -= 1
                         }
@@ -90,10 +105,10 @@ class Game {
                 }
             
             case .right:
-                print(canMove(player: player, box: box))
+                print(canMoveBox(player: player, box: box))
                 if player.x < room.width-1 {
                     if player.x+1 == box.x  && player.y == box.y {
-                        if canMove(player: player, box: box) {
+                        if canMoveBox(player: player, box: box) {
                             player.x += 1
                             box.x += 1
                         }
@@ -104,11 +119,10 @@ class Game {
                 }
             
             case .up:
-                print(canMove(player: player, box: box))
+                print(canMoveBox(player: player, box: box))
                 if player.y > 0 {
-                    
                     if player.y-1 == box.y && player.x == box.x{
-                        if canMove(player: player, box: box) {
+                        if canMoveBox(player: player, box: box) {
                             player.y -= 1
                             box.y -= 1
                         }
@@ -119,10 +133,10 @@ class Game {
                 }
             
             case .down:
-                print(canMove(player: player, box: box))
+                print(canMoveBox(player: player, box: box))
                 if player.y < room.height-1 {
                     if player.y+1 == box.y && player.x == box.x {
-                        if canMove(player: player, box: box) {
+                        if canMoveBox(player: player, box: box) {
                             player.y += 1
                             box.y += 1
                         }
@@ -145,6 +159,57 @@ class Game {
             return false
         }
     }
+    
+        func readRoomString() {
+            let roomString = "xxxxxxxxxx\nx........x\nxxx......x\nx...*....x\nx......+.x\nx..xx....x\nx..$.....x\nx........x\nxxxxxxxxxx"
+            print(roomString)
+                
+            var rowCounter = 0
+            var columnCounter = 0
+            room.height = 0
+            room.width = 0
+    
+            for char in roomString {
+    
+                switch char {
+                case "$":
+                    player.x = columnCounter
+                    player.y = rowCounter
+                    columnCounter += 1
+                    room.width = max(room.width,columnCounter)
+                case "+":
+                    destination.x = columnCounter
+                    destination.y = rowCounter
+                    columnCounter += 1
+                    room.width = max(room.width,columnCounter)
+                case "*":
+                    box.x = columnCounter
+                    box.y = rowCounter
+                    columnCounter += 1
+                    room.width = max(room.width,columnCounter)
+                case "x":
+                    walls.append((x: columnCounter, y: rowCounter))
+                    columnCounter += 1
+                    room.width = max(room.width,columnCounter)
+                case "\n":
+                    rowCounter += 1
+                    room.height = max(room.height,rowCounter)+1
+                    columnCounter = 0
+                default:
+                    columnCounter += 1
+                }
+            }
+//            print(player.x, player.y)
+//            print(box.x, box.y)
+//            print(destination.x, destination.y)
+//            print(walls)
+//            print("room.width = \(room.width), room.height = \(room.height)")
+//
+    }
+    
+    
+    
+    
 }
 
 
@@ -152,23 +217,26 @@ class Game {
 
 
 var game = Game()
+game.readRoomString()
+
+
 print(game.roomToString())
 var isGameOver = false
 
 while isGameOver == false {
-    
+
     print("введи направление хода: ", terminator: "")
-    
+
     if let read = readLine() {
         switch read {
         case "l":
-                game.move(to: Direction.left)
+                game.move(to: .left)
         case "r":
-                game.move(to: Direction.right)
+                game.move(to: .right)
         case "d":
-                game.move(to: Direction.down)
+                game.move(to: .down)
         case "u":
-                game.move(to: Direction.up)
+                game.move(to: .up)
         default:
             break
         }
