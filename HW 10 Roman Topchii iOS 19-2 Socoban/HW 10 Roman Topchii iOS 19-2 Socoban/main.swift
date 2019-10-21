@@ -12,9 +12,9 @@ enum Direction {
     case left, right, up, down
 }
 
-//enum Object {
-//    case player, box, wall, destination, space
-//}
+enum Object {
+    case player, box, wall, destination, emptySpace
+}
 
 class Player {
     var x : Int = 1
@@ -30,14 +30,6 @@ class Destination {
     var x : Int = 9
     var y : Int = 9
 }
-//struct Wall {
-//    var x : Int
-//    var y : Int
-////    init(x : Int, y : Int) {
-////        self.x = x
-////        self.y = y
-////    }
-//}
 
 class Room {
     var width : Int = 10
@@ -50,106 +42,127 @@ class Game {
     var box : Box = Box()
     var destination = Destination()
     var walls : [(x : Int, y : Int)] = []
-   
-    func roomToString() -> String {
-        var area: String = ""
+    
+    var room_2 : [[Object]] = []
+    
+    
+
+
+    //   *****************************
+    func roomToArray() {
+        room_2 = []
         for y in 0..<room.height {
+            var row : [Object] = []
             for x in 0..<room.width {
-                var cell = "⬜️"
+                
+                var cell : Object = .emptySpace
                 if player.x == x && player.y == y {
-                    cell = "🏃‍♂️"
+                    cell = .player
                 }
                 else if box.x == x && box.y == y {
-                    cell = "📦"
+                    cell = .box
                 }
                 else if destination.x == x && destination.y == y {
-                    cell = "❎"
+                    cell = .destination
                 }
                 else if walls.isEmpty == false {
                     for wall in walls{
                         if wall.x == x && wall.y == y {
-                            cell = "🚧"
+                            cell = .wall
                         }
                     }
                 }
-                area.append(cell)
+                row.append(cell)
             }
-            area.append("\n")
+            room_2.append(row)
         }
-        return area
+        print(room_2)
     }
     
-    func canMoveBox(player : Player, box : Box) -> Bool {
-        var result : Bool = false
-        if box.x > 0 && box.x < room.width - 1 && player.y == box.y || box.y > 0 && box.y < room.height - 1 && player.x == box.x {
-            result = true
+   //**************
+    func matrixToString() -> String {
+         var area: String = ""
+               for row in room_2 {
+                   for cell in row {
+                    switch cell {
+                    case .box:
+                        area.append("📦")
+                    case .player:
+                        area.append("🏃‍♂️")
+                    case .wall:
+                        area.append("🚧")
+                    case .destination:
+                        area.append("❎")
+                    case .emptySpace:
+                        area.append("⬜️")
+                    }
+                   }
+                   area.append("\n")
+               }
+               return area
+    }
+    
+    
+    
+    func canMove(direction : Direction) -> Bool {
+        var canMove = true
+        switch direction {
+        case .left:
+            if room_2[player.y][player.x - 1] == .wall || (room_2[player.y][player.x - 1] == .box && room_2[player.y][player.x - 2] == .wall)  {
+                canMove = false
+            }
+        case .right:
+            if room_2[player.y][player.x + 1] == .wall || (room_2[player.y][player.x + 1] == .box && room_2[player.y][player.x + 2] == .wall)  {
+                canMove = false
+            }
+        case .up:
+            if room_2[player.y - 1][player.x] == .wall || (room_2[player.y - 1][player.x] == .box && room_2[player.y - 2][player.x] == .wall)  {
+                canMove = false
+            }
+        case .down:
+            if room_2[player.y + 1][player.x] == .wall || (room_2[player.y + 1][player.x] == .box && room_2[player.y + 2][player.x] == .wall)  {
+                canMove = false
+            }
         }
-        return result
+        return canMove
     }
     
     
     func move(to direction: Direction) {
         switch direction {
             case .left:
-                print(canMoveBox(player: player, box: box))
-                if player.x > 0 {
-                    if player.x-1 == box.x && player.y == box.y {
-                        if canMoveBox(player: player, box: box) {
-                            player.x -= 1
-                            box.x -= 1
-                        }
-                    }
-                    else {
-                        player.x -= 1
+                if canMove(direction: .left){
+                    player.x -= 1
+                    if player.x == box.x && player.y == box.y {
+                        box.x -= 1
                     }
                 }
-            
+                
             case .right:
-                print(canMoveBox(player: player, box: box))
-                if player.x < room.width-1 {
-                    if player.x+1 == box.x  && player.y == box.y {
-                        if canMoveBox(player: player, box: box) {
-                            player.x += 1
-                            box.x += 1
-                        }
-                    }
-                    else {
-                        player.x += 1
+                if canMove(direction: .right){
+                    player.x += 1
+                    if player.x == box.x && player.y == box.y {
+                        box.x += 1
                     }
                 }
-            
             case .up:
-                print(canMoveBox(player: player, box: box))
-                if player.y > 0 {
-                    if player.y-1 == box.y && player.x == box.x{
-                        if canMoveBox(player: player, box: box) {
-                            player.y -= 1
-                            box.y -= 1
-                        }
-                    }
-                    else {
-                        player.y -= 1
+                if canMove(direction: .up){
+                    player.y -= 1
+                    if player.x == box.x && player.y == box.y {
+                        box.y -= 1
                     }
                 }
-            
             case .down:
-                print(canMoveBox(player: player, box: box))
-                if player.y < room.height-1 {
-                    if player.y+1 == box.y && player.x == box.x {
-                        if canMoveBox(player: player, box: box) {
-                            player.y += 1
-                            box.y += 1
-                        }
-                    }
-                    else {
-                        player.y += 1
+                if canMove(direction: .down){
+                    player.y += 1
+                    if player.x == box.x && player.y == box.y {
+                        box.y += 1
                     }
                 }
         }
+        roomToArray()
+        
     }
-    
-    
- 
     
     func gameOver(box : Box, destination : Destination) -> Bool {
         if destination.x == box.x && destination.y == box.y{
@@ -160,45 +173,44 @@ class Game {
         }
     }
     
-        func readRoomString() {
-            let roomString = "xxxxxxxxxx\nx........x\nxxx......x\nx...*....x\nx......+.x\nx..xx....x\nx..$.....x\nx........x\nxxxxxxxxxx"
-            print(roomString)
-                
-            var rowCounter = 0
-            var columnCounter = 0
-            room.height = 0
-            room.width = 0
+    func readRoomString() {
+        let roomString = "xxxxxxxxxx\nx........x\nxxx......x\nx...*....x\nx......+.x\nx..xxxx..x\nx..$.....x\nx........x\nxxxxxxxxxx"
+        print(roomString)
+            
+        var rowCounter = 0
+        var columnCounter = 0
+        room.height = 0
+        room.width = 0
     
-            for char in roomString {
-    
-                switch char {
-                case "$":
-                    player.x = columnCounter
-                    player.y = rowCounter
-                    columnCounter += 1
-                    room.width = max(room.width,columnCounter)
-                case "+":
-                    destination.x = columnCounter
-                    destination.y = rowCounter
-                    columnCounter += 1
-                    room.width = max(room.width,columnCounter)
-                case "*":
-                    box.x = columnCounter
-                    box.y = rowCounter
-                    columnCounter += 1
-                    room.width = max(room.width,columnCounter)
-                case "x":
-                    walls.append((x: columnCounter, y: rowCounter))
-                    columnCounter += 1
-                    room.width = max(room.width,columnCounter)
-                case "\n":
-                    rowCounter += 1
-                    room.height = max(room.height,rowCounter)+1
-                    columnCounter = 0
-                default:
-                    columnCounter += 1
-                }
+        for char in roomString {
+            switch char {
+            case "$":
+                player.x = columnCounter
+                player.y = rowCounter
+                columnCounter += 1
+                room.width = max(room.width,columnCounter)
+            case "+":
+                destination.x = columnCounter
+                destination.y = rowCounter
+                columnCounter += 1
+                room.width = max(room.width,columnCounter)
+            case "*":
+                box.x = columnCounter
+                box.y = rowCounter
+                columnCounter += 1
+                room.width = max(room.width,columnCounter)
+            case "x":
+                walls.append((x: columnCounter, y: rowCounter))
+                columnCounter += 1
+                room.width = max(room.width,columnCounter)
+            case "\n":
+                rowCounter += 1
+                room.height = max(room.height,rowCounter)+1
+                columnCounter = 0
+            default:
+                columnCounter += 1
             }
+        }
 //            print(player.x, player.y)
 //            print(box.x, box.y)
 //            print(destination.x, destination.y)
@@ -206,10 +218,6 @@ class Game {
 //            print("room.width = \(room.width), room.height = \(room.height)")
 //
     }
-    
-    
-    
-    
 }
 
 
@@ -218,9 +226,9 @@ class Game {
 
 var game = Game()
 game.readRoomString()
+game.roomToArray()
 
-
-print(game.roomToString())
+print(game.matrixToString())
 var isGameOver = false
 
 while isGameOver == false {
@@ -230,19 +238,19 @@ while isGameOver == false {
     if let read = readLine() {
         switch read {
         case "l":
-                game.move(to: .left)
+            game.move(to: .left)
         case "r":
-                game.move(to: .right)
+            game.move(to: .right)
         case "d":
-                game.move(to: .down)
+            game.move(to: .down)
         case "u":
-                game.move(to: .up)
+            game.move(to: .up)
         default:
             break
         }
         isGameOver = game.gameOver(box: game.box, destination: game.destination)
     }
-    print(game.roomToString())
+    print(game.matrixToString())
     if isGameOver == true {
         print("Game Over!!!")
     }
