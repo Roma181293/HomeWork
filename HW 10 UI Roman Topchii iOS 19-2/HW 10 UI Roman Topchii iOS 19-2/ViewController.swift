@@ -19,11 +19,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         gameOverLabel.text = ""
-        game.readRoomString()
+        game.readRoomString(level: 1)
         game.roomToArray()
         areaLabel.numberOfLines = 0
         areaLabel.text = game.roomToString()
-        print(game.roomToString())
+        //print(game.roomToString())
     }
     
     @IBAction func moveAction(_ sender: UIButton) {
@@ -36,24 +36,28 @@ class ViewController: UIViewController {
             direction = .down
         case 3:
             direction = .left
-        case 4:
+        default: // = 4
             direction = .right
-        default:
-            direction = .right  //???????????????????
         }
         
         game.move(to: direction)
         areaLabel.text = game.roomToString()
             
-        if game.gameOver(box: game.box, destination: game.destination) {
+        if game.gameOver(box: game.boxes, destination: game.destinations) {
             gameOverLabel.text = "GAME OVER!!!"
         }
-      
-        
-        
     }
     
     
+    @IBAction func changeLevelAction(_ sender: UIButton) {
+        game.restart()
+        gameOverLabel.text = ""
+        game.readRoomString(level: sender.tag)
+        game.roomToArray()
+        areaLabel.text = game.roomToString()
+        //print(game.roomToString())
+        
+    }
     
     
 
