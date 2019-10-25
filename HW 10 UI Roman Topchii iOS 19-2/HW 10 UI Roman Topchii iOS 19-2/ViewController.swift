@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         gameOverLabel.text = ""
         game.readRoomString(level: 1)
-        game.roomToArray()
+      
         areaLabel.numberOfLines = 0
         areaLabel.text = game.roomToString()
         //print(game.roomToString())
@@ -43,9 +43,9 @@ class ViewController: UIViewController {
         game.move(to: direction)
         areaLabel.text = game.roomToString()
             
-        if game.gameOver(box: game.boxes, destination: game.destinations) {
-            gameOverLabel.text = "GAME OVER!!!"
-        }
+//        if game.gameOver(box: game.boxes, destination: game.destinations) {
+//            gameOverLabel.text = "GAME OVER!!!"
+//        }
     }
     
     
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         game.restart()
         gameOverLabel.text = ""
         game.readRoomString(level: sender.tag)
-        game.roomToArray()
+       
         areaLabel.text = game.roomToString()
         //print(game.roomToString())
         
