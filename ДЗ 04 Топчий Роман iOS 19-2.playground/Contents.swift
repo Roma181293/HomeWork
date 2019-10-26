@@ -53,23 +53,35 @@ for i in 0...((array1.count - 1) / 2) {
 print(array1)
 print("")
 
-//4.4 Найдите минимальный положительный элемент массива
-print("\n4.4. Найдите минимальный положительный элемент массива")
-var array3 = [-3,-5,-3,2,6]
+// MARK: - 4.4
+print("//4.4 Найдите минимальный положительный элемент массива")
+
+var array3 = [-3,-1,-3,2,6]
 print(array3)
-var indexOfMinValue = 0
-var positiveTicker = false
-var minValue = array1[indexOfMinValue]
+var indexOfMinValue : Int? = nil
+var minValue : Int? = nil
 for (index, value) in array3.enumerated() {
-    if value > 0 && value < minValue {
+    if value > 0 {
         minValue = value
         indexOfMinValue = index
-        positiveTicker = true
+        break
     }
 }
-if positiveTicker == true {
-print("Index of min value = \(indexOfMinValue), min value = \(minValue) \n")
-} else {
+
+if let index = indexOfMinValue, let value = minValue {
+
+    for i in index..<array3.count {
+        if array3[i] > 0 && array3[i] < value {
+            minValue = array3[i]
+            indexOfMinValue = index
+        }
+    }
+}
+
+if let index = indexOfMinValue, let value = minValue {
+    print("Index of min value = \(index), min value = \(value) \n")
+}
+else {
     print("There is no positive number")
 }
 
