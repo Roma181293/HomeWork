@@ -6,7 +6,7 @@ import UIKit
 
 
 print("5.1. Найти сумму  элементов, находящихся между первым и последним отрицательными элементами.")
-var array = [1,1,1,1,1,1,-1,1]
+var array = [1,-1,1,-1,1,-1,1,1,1]
 print("in \(array)")
 var leftIndexOfMin : Int?
 var rightIndexOfMin : Int?
@@ -23,16 +23,20 @@ for index in 0..<array.count{
         break
     }
 }
-
 var sum = 0
-if rightIndexOfMin! > leftIndexOfMin! && leftIndexOfMin != nil && rightIndexOfMin != nil {
-    for index in leftIndexOfMin! + 1..<rightIndexOfMin! {
-        sum += array[index]
+if let l = leftIndexOfMin,  let r = rightIndexOfMin {
+    if r > l {
+        for index in l + 1..<r {
+            sum += array[index]
+        }
+        print("сумма  элементов, находящихся между первым и последним отрицательными элементами = \(sum)\n")
     }
-    print("сумма  элементов, находящихся между первым и последним отрицательными элементами = \(sum)\n")
+    else {
+        print("в массиве один отрицательный элемент")
+    }
 }
-else if leftIndexOfMin == nil || rightIndexOfMin == nil {
-    print("недостаточное кол-во отрицательных чисел. нет либо правого, либо левого или и правого и левого отрицательного значения")
+else {
+    print("в массиве нет отрицательных элементов")
 }
 
 
