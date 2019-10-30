@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		30BBD6372366A4DC00DC05DE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBD6362366A4DC00DC05DE /* main.swift */; };
+		30BBD64A23672C5B00DC05DE /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BBD64923672C5B00DC05DE /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		30BBD6312366A4DC00DC05DE /* CopyFiles */ = {
+		30BBD64423672C5B00DC05DE /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,12 +23,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		30BBD6332366A4DC00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ДЗ 11 Топчий Роман iOS 19-2"; sourceTree = BUILT_PRODUCTS_DIR; };
-		30BBD6362366A4DC00DC05DE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		30BBD64623672C5B00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "ДЗ 11 Топчий Роман iOS 19-2"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30BBD64923672C5B00DC05DE /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		30BBD6302366A4DC00DC05DE /* Frameworks */ = {
+		30BBD64323672C5B00DC05DE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -38,26 +38,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30BBD62A2366A4DC00DC05DE = {
+		30BBD63D23672C5B00DC05DE = {
 			isa = PBXGroup;
 			children = (
-				30BBD6352366A4DC00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */,
-				30BBD6342366A4DC00DC05DE /* Products */,
+				30BBD64823672C5B00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */,
+				30BBD64723672C5B00DC05DE /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		30BBD6342366A4DC00DC05DE /* Products */ = {
+		30BBD64723672C5B00DC05DE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30BBD6332366A4DC00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */,
+				30BBD64623672C5B00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		30BBD6352366A4DC00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */ = {
+		30BBD64823672C5B00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */ = {
 			isa = PBXGroup;
 			children = (
-				30BBD6362366A4DC00DC05DE /* main.swift */,
+				30BBD64923672C5B00DC05DE /* main.swift */,
 			);
 			path = "ДЗ 11 Топчий Роман iOS 19-2";
 			sourceTree = "<group>";
@@ -65,13 +65,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		30BBD6322366A4DC00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */ = {
+		30BBD64523672C5B00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30BBD63A2366A4DC00DC05DE /* Build configuration list for PBXNativeTarget "ДЗ 11 Топчий Роман iOS 19-2" */;
+			buildConfigurationList = 30BBD64D23672C5B00DC05DE /* Build configuration list for PBXNativeTarget "ДЗ 11 Топчий Роман iOS 19-2" */;
 			buildPhases = (
-				30BBD62F2366A4DC00DC05DE /* Sources */,
-				30BBD6302366A4DC00DC05DE /* Frameworks */,
-				30BBD6312366A4DC00DC05DE /* CopyFiles */,
+				30BBD64223672C5B00DC05DE /* Sources */,
+				30BBD64323672C5B00DC05DE /* Frameworks */,
+				30BBD64423672C5B00DC05DE /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -79,25 +79,25 @@
 			);
 			name = "ДЗ 11 Топчий Роман iOS 19-2";
 			productName = "ДЗ 11 Топчий Роман iOS 19-2";
-			productReference = 30BBD6332366A4DC00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */;
+			productReference = 30BBD64623672C5B00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		30BBD62B2366A4DC00DC05DE /* Project object */ = {
+		30BBD63E23672C5B00DC05DE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Roman Topchii";
 				TargetAttributes = {
-					30BBD6322366A4DC00DC05DE = {
+					30BBD64523672C5B00DC05DE = {
 						CreatedOnToolsVersion = 11.1;
 					};
 				};
 			};
-			buildConfigurationList = 30BBD62E2366A4DC00DC05DE /* Build configuration list for PBXProject "ДЗ 11 Топчий Роман iOS 19-2" */;
+			buildConfigurationList = 30BBD64123672C5B00DC05DE /* Build configuration list for PBXProject "ДЗ 11 Топчий Роман iOS 19-2" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -105,29 +105,29 @@
 				en,
 				Base,
 			);
-			mainGroup = 30BBD62A2366A4DC00DC05DE;
-			productRefGroup = 30BBD6342366A4DC00DC05DE /* Products */;
+			mainGroup = 30BBD63D23672C5B00DC05DE;
+			productRefGroup = 30BBD64723672C5B00DC05DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				30BBD6322366A4DC00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */,
+				30BBD64523672C5B00DC05DE /* ДЗ 11 Топчий Роман iOS 19-2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		30BBD62F2366A4DC00DC05DE /* Sources */ = {
+		30BBD64223672C5B00DC05DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30BBD6372366A4DC00DC05DE /* main.swift in Sources */,
+				30BBD64A23672C5B00DC05DE /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		30BBD6382366A4DC00DC05DE /* Debug */ = {
+		30BBD64B23672C5B00DC05DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -187,7 +187,7 @@
 			};
 			name = Debug;
 		};
-		30BBD6392366A4DC00DC05DE /* Release */ = {
+		30BBD64C23672C5B00DC05DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -240,7 +240,7 @@
 			};
 			name = Release;
 		};
-		30BBD63B2366A4DC00DC05DE /* Debug */ = {
+		30BBD64E23672C5B00DC05DE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -249,7 +249,7 @@
 			};
 			name = Debug;
 		};
-		30BBD63C2366A4DC00DC05DE /* Release */ = {
+		30BBD64F23672C5B00DC05DE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -261,25 +261,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		30BBD62E2366A4DC00DC05DE /* Build configuration list for PBXProject "ДЗ 11 Топчий Роман iOS 19-2" */ = {
+		30BBD64123672C5B00DC05DE /* Build configuration list for PBXProject "ДЗ 11 Топчий Роман iOS 19-2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30BBD6382366A4DC00DC05DE /* Debug */,
-				30BBD6392366A4DC00DC05DE /* Release */,
+				30BBD64B23672C5B00DC05DE /* Debug */,
+				30BBD64C23672C5B00DC05DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30BBD63A2366A4DC00DC05DE /* Build configuration list for PBXNativeTarget "ДЗ 11 Топчий Роман iOS 19-2" */ = {
+		30BBD64D23672C5B00DC05DE /* Build configuration list for PBXNativeTarget "ДЗ 11 Топчий Роман iOS 19-2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30BBD63B2366A4DC00DC05DE /* Debug */,
-				30BBD63C2366A4DC00DC05DE /* Release */,
+				30BBD64E23672C5B00DC05DE /* Debug */,
+				30BBD64F23672C5B00DC05DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 30BBD62B2366A4DC00DC05DE /* Project object */;
+	rootObject = 30BBD63E23672C5B00DC05DE /* Project object */;
 }
