@@ -224,7 +224,7 @@ print("""
 сложения матриц, (+)
 умножения матриц, (*)
 транспонирования матриц, (вычисляемое свойство transposed)
-присваивания матриц друг другу, (=)
+присваивания матриц друг другу, (=) ???????????????????????????????????????????????
 установка и получение произвольного элемента матрицы. (subscript [ ] )
 Необходимо определить соответствующие операторы.\n
 """)
@@ -277,6 +277,19 @@ class Matrix {
         return nil
     }
     
+    static func += (a : inout Matrix, b : Matrix){
+        if a.rows == b.rows && a.columns == b.columns {
+            var sum : Matrix = Matrix(rows: a.rows, columns: a.columns)
+            for i in 0..<a.rows{
+                for j in 0..<a.columns{
+                    
+                    sum[i,j] = a[i,j] + b[i,j]
+                }
+            }
+            a = sum
+        }
+    }
+    
     static func - (a : Matrix, b : Matrix) -> Matrix?{
         if a.rows == b.rows && a.columns == b.columns {
             var res : Matrix = Matrix(rows: a.rows, columns: a.columns)
@@ -289,6 +302,18 @@ class Matrix {
             return res
         }
         return nil
+    }
+    static func -= (a : inout Matrix, b : Matrix){
+        if a.rows == b.rows && a.columns == b.columns {
+            var res : Matrix = Matrix(rows: a.rows, columns: a.columns)
+            for i in 0..<a.rows{
+                for j in 0..<a.columns{
+                    
+                    res[i,j] = a[i,j] - b[i,j]
+                }
+            }
+            a = res
+        }
     }
     
     static func * (a : Matrix, b : Matrix) -> Matrix?{
