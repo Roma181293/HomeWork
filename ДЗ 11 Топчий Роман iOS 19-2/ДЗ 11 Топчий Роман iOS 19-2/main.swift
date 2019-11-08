@@ -70,7 +70,6 @@ class MyDate {
             days += date1.day - date2.day + 30
         }
 //        Swift.print(days)
-
         if date1.month - date2.month > 1 {
             months += date1.month - date2.month - 1
         }
@@ -79,35 +78,48 @@ class MyDate {
         }
 //        Swift.print(months)
 
-
-
         if date1.year - date2.year > 0 {
             years += date1.year - date2.year - 1
         }
-
 //        Swift.print(years)
         return days + months*30 + years*30*12
     }
 
-    static func + (date : MyDate, days : Int) -> MyDate{ // увеличивается дата, так как это ссылочный тип, то больше не существует исходной даты в пяамяти
+    static func + (date : MyDate, days : Int) -> MyDate{
 
         var daysTmp = days
-
-        if days / 360 >= 1  {
-            date.year += days / 360
-            daysTmp -= (days / 360) * 360
+        let dateTmp : MyDate = MyDate()
+        dateTmp.setDate(day: date.day, month: date.month, year: date.year)
+        
+        if daysTmp / 360 >= 1  {
+            dateTmp.year += daysTmp / 360
+            daysTmp -= (daysTmp / 360) * 360
         }
 
         if daysTmp / 30 >= 1  {
-            date.month += daysTmp / 30
-            daysTmp -= (daysTmp / 30) * 300
+            if date.month + daysTmp / 30 > 12 {
+                dateTmp.year += 1
+                dateTmp.month = daysTmp/30 - (12 - date.month)
+                daysTmp -= (daysTmp / 30) * 30
+            }
+            else {
+                dateTmp.month += daysTmp / 30
+                daysTmp -= (daysTmp / 30) * 30
+            }
         }
 
         if daysTmp < 30   {
-            date.day += daysTmp
+            if date.day + daysTmp  > 30 {
+                dateTmp.month += 1
+                dateTmp.day = daysTmp - (30 - date.day)
+                daysTmp -= (daysTmp / 30) * 30
+            }
+            else {
+                dateTmp.day += daysTmp
+            }
         }
 
-        return date
+        return dateTmp
     }
 
     static func == (date1 : MyDate, date2 : MyDate) -> Bool {
@@ -151,7 +163,7 @@ class MyDate {
 }
 
 var date1 = MyDate()
-date1.setDate(day: 1, month: 11, year: 1994)
+date1.setDate(day: 26, month: 11, year: 1994)
 print("date1:")
 date1.print()
 
@@ -164,9 +176,9 @@ date2.print()
 var d = date1-date2
 print("\nРазница дат \(d)")
 
-
-print("\nУведичение даты на заданое кол-во дней")
-var date3 = date1 + 371
+let days = 445
+print("\nУведичение date1 на заданое кол-во дней \(days)")
+var date3 = date1 + days
 
 date3.print()
 
@@ -206,7 +218,7 @@ else {
 }
 
 print("\nПроверка date1 < date2")
-if date2 < date1 {
+if date1 < date2 {
     date1.print()
     date2.print()
     print("date1 < date2")
@@ -233,7 +245,7 @@ class Matrix {
     let rows: Int, columns: Int
     var grid: [Double]
     var transposed : Matrix {
-        var a : Matrix = Matrix(rows: columns, columns: rows)
+        let a : Matrix = Matrix(rows: columns, columns: rows)
         var pointer = 0
         for i in 0..<rows {
             for j in 0..<columns {
@@ -265,10 +277,9 @@ class Matrix {
     
     static func + (a : Matrix, b : Matrix) -> Matrix?{
         if a.rows == b.rows && a.columns == b.columns {
-            var sum : Matrix = Matrix(rows: a.rows, columns: a.columns)
+            let sum : Matrix = Matrix(rows: a.rows, columns: a.columns)
             for i in 0..<a.rows{
                 for j in 0..<a.columns{
-                    
                     sum[i,j] = a[i,j] + b[i,j]
                 }
             }
@@ -279,10 +290,9 @@ class Matrix {
     
     static func += (a : inout Matrix, b : Matrix){
         if a.rows == b.rows && a.columns == b.columns {
-            var sum : Matrix = Matrix(rows: a.rows, columns: a.columns)
+            let sum : Matrix = Matrix(rows: a.rows, columns: a.columns)
             for i in 0..<a.rows{
                 for j in 0..<a.columns{
-                    
                     sum[i,j] = a[i,j] + b[i,j]
                 }
             }
@@ -292,10 +302,9 @@ class Matrix {
     
     static func - (a : Matrix, b : Matrix) -> Matrix?{
         if a.rows == b.rows && a.columns == b.columns {
-            var res : Matrix = Matrix(rows: a.rows, columns: a.columns)
+            let res : Matrix = Matrix(rows: a.rows, columns: a.columns)
             for i in 0..<a.rows{
                 for j in 0..<a.columns{
-                    
                     res[i,j] = a[i,j] - b[i,j]
                 }
             }
@@ -305,10 +314,9 @@ class Matrix {
     }
     static func -= (a : inout Matrix, b : Matrix){
         if a.rows == b.rows && a.columns == b.columns {
-            var res : Matrix = Matrix(rows: a.rows, columns: a.columns)
+            let res : Matrix = Matrix(rows: a.rows, columns: a.columns)
             for i in 0..<a.rows{
                 for j in 0..<a.columns{
-                    
                     res[i,j] = a[i,j] - b[i,j]
                 }
             }
@@ -319,7 +327,7 @@ class Matrix {
     static func * (a : Matrix, b : Matrix) -> Matrix?{
         if a.rows == b.columns && a.columns == b.rows {
             
-            var mult : Matrix = Matrix(rows: a.rows, columns: b.columns)
+            let mult : Matrix = Matrix(rows: a.rows, columns: b.columns)
             for i in 0..<a.rows{
                 for j in 0..<b.columns{
                     for k in 0..<a.columns{
@@ -448,7 +456,7 @@ class Circle: Shape {
     var radius : Double = 0
     
     func area() -> Double {
-        return 3.14 * radius * radius
+        return Double.pi * radius * radius
     }
     
     override func myPrint() {
