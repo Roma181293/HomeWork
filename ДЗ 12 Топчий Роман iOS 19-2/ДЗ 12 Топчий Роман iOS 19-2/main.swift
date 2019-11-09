@@ -1,6 +1,6 @@
 //
 //  main.swift
-//  ДЗ 12 Топчий Роман iOS 19-2
+//  ДЗ 12 Топчий Роман iOS 19-2
 //
 //  Created by Roman Topchii on 03.11.2019.
 //  Copyright © 2019 Roman Topchii. All rights reserved.
@@ -384,6 +384,9 @@ class QuadraticEquation : EquationProtocol {
         }
         else if b * b - 4 * a * c > 0 {
             str += "a solution x1=\(-b / (2 * a) + sqrt(b * b - 4 * a * c)/(2*a)), x2=\(-b / (2 * a) + sqrt(b * b - 4 * a * c)/(2*a))"
+        }
+        else if b * b - 4 * a * c == 0 {
+            str += "a solution x1=\(-b / (2 * a) + sqrt(b * b - 4 * a * c)/(2*a))"
         }
     }
 }
