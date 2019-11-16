@@ -379,16 +379,39 @@ class QuadraticEquation : EquationProtocol {
         if a == 0 && b == 0 && c == 0{
             str += "infinity number of solution"
         }
+        else if a == 0 && b == 0 && c != 0{
+            str += "no solution"
+        }
         else if b * b - 4 * a * c < 0 {
-            str += "a solution x1=\(-b / (2 * a) + sqrt(-(b * b - 4 * a * c))/(2*a))i, x2=\(-b / (2 * a) - sqrt(-(b * b - 4 * a * c))/(2*a))i"
+            str += "no real solution. Only complex solution x1=\(-b / (2 * a) + sqrt(-(b * b - 4 * a * c))/(2*a))i, x2=\(-b / (2 * a) - sqrt(-(b * b - 4 * a * c))/(2*a))i"
+        }
+        else if b * b - 4 * a * c == 0 {
+            str += "a solution x=\(-b / (2 * a) + sqrt(b * b - 4 * a * c)/(2*a))"
         }
         else if b * b - 4 * a * c > 0 {
             str += "a solution x1=\(-b / (2 * a) + sqrt(b * b - 4 * a * c)/(2*a)), x2=\(-b / (2 * a) + sqrt(b * b - 4 * a * c)/(2*a))"
-        }
-        else if b * b - 4 * a * c == 0 {
-            str += "a solution x1=\(-b / (2 * a) + sqrt(b * b - 4 * a * c)/(2*a))"
         }
         print(str)
     }
 }
 
+let linear = LinearEquatuion(a: 1, b: 2)
+linear.solveEquation()
+
+let linear1 = LinearEquatuion(a: 0, b: 2)
+linear1.solveEquation()
+
+let linear2 = LinearEquatuion(a: 0, b: 0)
+linear2.solveEquation()
+
+let quadratic = QuadraticEquation(a: 0, b: 0, c: 0)
+quadratic.solveEquation()
+
+let quadratic1 = QuadraticEquation(a: 0, b: 0, c: 2)
+quadratic1.solveEquation()
+
+let quadratic2 = QuadraticEquation(a: 1, b: 0, c: 6)
+quadratic2.solveEquation()
+
+let quadratic3 = QuadraticEquation(a: 1, b: 2, c: 1)
+quadratic3.solveEquation()
