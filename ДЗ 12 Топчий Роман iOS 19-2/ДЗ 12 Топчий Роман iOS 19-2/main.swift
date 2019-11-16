@@ -388,6 +388,7 @@ class QuadraticEquation : EquationProtocol {
         else if b * b - 4 * a * c == 0 {
             str += "a solution x1=\(-b / (2 * a) + sqrt(b * b - 4 * a * c)/(2*a))"
         }
+        print(str)
     }
 }
 
