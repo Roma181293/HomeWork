@@ -1,6 +1,6 @@
 //
 //  main.swift
-//  ДЗ 13 Топчий Роман IOS 19-2
+//  ДЗ 13 Топчий Роман IOS 19-2
 //
 //  Created by Roman Topchii on 11.11.2019.
 //  Copyright © 2019 Roman Topchii. All rights reserved.
@@ -175,7 +175,7 @@ class Driver: PersonProtocol, DriverProtocol{
     var name: String
     var age: Int
     func drive(from: String, to: String, onCar: CarProtocol) {
-        print("I can drive car")
+        print("Im driving from \(from) to \(to)")
     }
     var driveCategory: String
     init(name : String, age : Int, driveCategory : String) {
@@ -209,7 +209,7 @@ class TaxiOrder: OrderProtocol {
             self.car = car
             self.driver = driver
             self.passengers = passengers
-            tripDescription = "From \(from) to \(to)"
+            tripDescription = "Car model : \(car.model), driver has a license : \(driver.driveCategory).From \(from) to \(to)"
         }
         else {
             return nil
@@ -217,20 +217,6 @@ class TaxiOrder: OrderProtocol {
     }
 }
 
-
-var orderList = [TaxiOrder(car: TaxiCar(model: "BMW X5", maxCountOfPassengers: 4, currentCountOfPassengers: 0), driver: Driver(name: "Alex", age: 25, driveCategory: "B"), passengers: [Person(name: "Anna", age: 23), Person(name: "Hanna", age: 25)], from: "Korolenko", to: "Haharina"),
-                 
- TaxiOrder(car: TaxiCar(model: "BMW X5", maxCountOfPassengers: 4, currentCountOfPassengers: 0), driver: Driver(name: "Alex", age: 25, driveCategory: "B"), passengers: [Person(name: "Anna", age: 23), Person(name: "Tina", age: 23),Person(name: "Kate", age: 23), Person(name: "Hanna", age: 25)], from: "Korolenko", to: "Haharina")
-]
-
-for order in orderList {
-    if let tmp = order {
-        print(tmp.driver.driveCategory)
-    }
-    else {
-        print("Oops")
-    }
-}
 
 
 print("""
@@ -253,8 +239,6 @@ init?(car, driver, patients, doctor, passengers, from, to)
 """)
 
 class AmbulanceOrder: OrderProtocol {
-    
-    
     var car: AmbulanceCarProtocol
     var driver: DriverProtocol
     var doctor: DoctorProtocol
@@ -262,15 +246,14 @@ class AmbulanceOrder: OrderProtocol {
     var patients: [PersonProtocol] = []
     var tripDescription: String
     init?(car : AmbulanceCarProtocol, driver : DriverProtocol, patients : [PersonProtocol], doctor : DoctorProtocol, passengers : [PersonProtocol], from : String, to : String) {
-        if passengers.count < car.maxCountOfPassengers - 1 &&
-            patients.count > 0 &&
+        if passengers.count < car.maxCountOfPassengers &&
             patients.count < car.maxCountOfPatients {
             self.car = car
             self.driver = driver
             self.patients = patients
             self.doctor = doctor
             self.passengers = passengers
-            tripDescription = "From " + from + " to " + to
+            tripDescription = "Car model : \(car.model), driver has a license : \(driver.driveCategory).From \(from) to \(to)"
         }
         else {
             return nil
@@ -278,3 +261,28 @@ class AmbulanceOrder: OrderProtocol {
     }
 
 }
+
+
+var orderList : [OrderProtocol?] = [TaxiOrder(car: TaxiCar(model: "BMW X5", maxCountOfPassengers: 4, currentCountOfPassengers: 0), driver: Driver(name: "Alex", age: 25, driveCategory: "B"), passengers: [Person(name: "Anna", age: 23), Person(name: "Hanna", age: 25)], from: "Korolenko", to: "Haharina"),
+                 
+ TaxiOrder(car: TaxiCar(model: "BMW X5", maxCountOfPassengers: 4, currentCountOfPassengers: 0), driver: Driver(name: "Alex", age: 25, driveCategory: "B"), passengers: [Person(name: "Anna", age: 23), Person(name: "Tina", age: 23),Person(name: "Kate", age: 23), Person(name: "Hanna", age: 25)], from: "Korolenko", to: "Haharina"),
+ 
+ AmbulanceOrder(car: AmbulanceCar(maxCountOfPatients: 2, model: "multivan transporter", maxCountOfPassengers: 3, currentCountOfPassengers: 0), driver: Driver(name: "Harry", age: 40, driveCategory: "C"), patients: [Person(name: "Karina", age: 25)], doctor: Doctor(name: "Sarah", age: 30, specialization: "Paramedic"), passengers: [Person(name: "Hanna", age: 25)], from: "Haharina", to: "Kosmithestaya"),
+ 
+ AmbulanceOrder(car: AmbulanceCar(maxCountOfPatients: 2, model: "multivan transporter", maxCountOfPassengers: 3, currentCountOfPassengers: 0), driver: Driver(name: "Harry", age: 40, driveCategory: "C"), patients: [Person(name: "Karina", age: 25), Person(name: "Kristina", age: 25), Person(name: "Ilia", age: 25)], doctor: Doctor(name: "Sarah", age: 30, specialization: "Paramedic"), passengers: [Person(name: "Hanna", age: 25)], from: "Haharina", to: "Kosmithestaya"),
+ 
+ AmbulanceOrder(car: AmbulanceCar(maxCountOfPatients: 2, model: "multivan transporter", maxCountOfPassengers: 3, currentCountOfPassengers: 0), driver: Driver(name: "Harry", age: 40, driveCategory: "C"), patients: [
+    ], doctor: Doctor(name: "Sarah", age: 30, specialization: "Paramedic"), passengers: [Person(name: "Hanna", age: 25), Person(name: "Tina", age: 23)], from: "Haharina", to: "Kosmithestaya")
+]
+
+for order in orderList {
+    if let tmp = order {
+        print(tmp.tripDescription)
+    }
+    else {
+        print("Oops")
+    }
+}
+
+
+
