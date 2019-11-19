@@ -111,13 +111,12 @@ class Child {
     }
     func letsPlayFootbal(){
         print("-\(name): Lets play football")
-        if let tmp = mother{
-            for index in 0..<tmp.children.count {
-                if (tmp.children[index].name == name) == false {
-                    tmp.children[index].playFootbal()
+        if let mom = mother{
+            for index in 0..<mom.children.count {
+                if !(mom.children[index] === self) {
+                    mom.children[index].playFootbal()//(name: name)
                 }
             }
-            
         }
     }
     func goToSleep(){
@@ -167,10 +166,10 @@ if true {
     family.mother?.children = family.children
     family.father?.children = family.children
     
-    family.children[0].father = family.father
-    family.children[0].mother = family.mother
-    family.children[1].father = family.father
-    family.children[1].mother = family.mother
+    for i in 0..<family.children.count {
+        family.children[i].father = family.father
+        family.children[i].mother = family.mother
+    }
     
     family.mother?.childrenGoToSleep()
     family.father?.childrenGoToSleep()
