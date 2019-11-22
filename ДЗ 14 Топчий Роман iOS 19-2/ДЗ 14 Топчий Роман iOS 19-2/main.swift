@@ -1,9 +1,9 @@
 //
 //  main.swift
-//  ДЗ 14 Топчий Роман iOS 19-2
+//  ДЗ 15 Топчий Роман iOS 19-2
 //
-//  Created by web on 11/16/19.
-//  Copyright © 2019 RT. All rights reserved.
+//  Created by Roman Topchii on 19.11.2019.
+//  Copyright © 2019 Roman Topchii. All rights reserved.
 //
 
 import Foundation
@@ -48,18 +48,19 @@ class Mother {
     }
     
     func childrenGoToSleep() {
-        print("-Mom : Children, go to sleep!!!")
+        print("-Mom: Children, go to sleep!!!")
         for child in children {
             child.goToSleep()
         }
     }
     func husbandBuyBoots(){
-        print("-Mom : Husband, buy me this boots!!!")
+        print("-Mom: Husband, buy me this boots!!!")
         husband?.buyBoots()
     }
     func cookMeat(){
-        print("-Mom : I'm cooking the meat")
+        print("-Mom: I'm cooking the meat")
     }
+    
     deinit {
         print("\(name) - deinited")
         Mother.objectCounter -= 1
@@ -86,11 +87,11 @@ class Father {
     func wifeCookMeat() {
         print("-Father: Wife, lets start cook the meat!!!")
         wife?.cookMeat()
-        
     }
     func buyBoots() {
         print("-Father: I'm buying the boots")
     }
+    
     deinit {
         print("\(name) - deinited")
         Father.objectCounter -= 1
@@ -114,7 +115,7 @@ class Child {
         if let mom = mother{
             for index in 0..<mom.children.count {
                 if !(mom.children[index] === self) {
-                    mom.children[index].playFootbal()//(name: name)
+                    mom.children[index].playFootbal(name: name)
                 }
             }
         }
@@ -122,70 +123,88 @@ class Child {
     func goToSleep(){
         print("-\(name): Im going to sleep")
     }
-    func playFootbal(){
-        print("-\(name): Ok, lets play")
+    func playFootbal(name : String){
+        print("-\(self.name): Ok, \(name), lets play")
     }
     func momCookMeat(){
         print("-\(name): Mom, please cook a meat")
         mother?.cookMeat()
     }
+
     deinit {
         print("\(name) - deinited")
         Child.objectCounter -= 1
     }
 }
 
+
+
 class Family {
     var mother : Mother?
     var father : Father?
     var children : [Child] = []
     
-    
-}
-
-
-
-if true {
-    let family = Family()
-    
-    print("\nSTART\nMother.objectCounter:\(Mother.objectCounter)")
-    print("Father.objectCounter:\(Father.objectCounter)")
-    print("Child.objectCounter:\(Child.objectCounter)")
-    
-    family.mother = Mother(name: "Anna")
-    family.father = Father(name: "Alex")
-    family.children = [Child(name: "Roma"), Child(name : "Kate")]
-    
-    print("\nMIDDLE\nMother.objectCounter:\(Mother.objectCounter)")
-    print("Father.objectCounter:\(Father.objectCounter)")
-    print("Child.objectCounter:\(Child.objectCounter)")
-    
-    family.mother?.husband = family.father
-    family.father?.wife = family.mother
-    
-    family.mother?.children = family.children
-    family.father?.children = family.children
-    
-    for i in 0..<family.children.count {
-        family.children[i].father = family.father
-        family.children[i].mother = family.mother
+    static var objectCounter : Int = 0
+    init(){
+        Family.objectCounter += 1
     }
-    
-    family.mother?.childrenGoToSleep()
-    family.father?.childrenGoToSleep()
-    
-    family.father?.wifeCookMeat()
-    
-    family.mother?.husbandBuyBoots()
-    family.children[0].momCookMeat()
-    family.children[1].momCookMeat()
-    
-    family.children[0].letsPlayFootbal()
-    family.children[1].letsPlayFootbal()
-    
-   
+    deinit {
+        print("Family - deinited")
+        Family.objectCounter -= 1
+    }
 }
+
+
+
+var family : Family! = Family()
+
+print("\nSTART\nMother.objectCounter:\(Mother.objectCounter)")
+print("Father.objectCounter:\(Father.objectCounter)")
+print("Child.objectCounter:\(Child.objectCounter)")
+
+family.mother = Mother(name: "Anna")
+family.father = Father(name: "Alex")
+family.children = [Child(name: "Roma"), Child(name : "Kate")]
+
+print("\nMIDDLE\nMother.objectCounter:\(Mother.objectCounter)")
+print("Father.objectCounter:\(Father.objectCounter)")
+print("Child.objectCounter:\(Child.objectCounter)")
+
+family.mother?.husband = family.father
+family.father?.wife = family.mother
+
+family.mother?.children = family.children
+family.father?.children = family.children
+
+
+for i in 0..<family.children.count {
+    family.children[i].father = family.father
+    family.children[i].mother = family.mother
+}
+
+family.mother?.childrenGoToSleep()
+family.father?.childrenGoToSleep()
+
+family.father?.wifeCookMeat()
+family.mother?.husbandBuyBoots()
+
+family.children[0].momCookMeat()
+family.children[1].momCookMeat()
+
+for i in 0..<family.children.count {
+    family.children[i].letsPlayFootbal()
+}
+family = nil
+
 
 print("\nFINISH\nMother.objectCounter:\(Mother.objectCounter)")
 print("Father.objectCounter:\(Father.objectCounter)")
 print("Child.objectCounter:\(Child.objectCounter)")
+print("Family.objectCounter:\(Child.objectCounter)")
+
+
+
+
+
+
+
