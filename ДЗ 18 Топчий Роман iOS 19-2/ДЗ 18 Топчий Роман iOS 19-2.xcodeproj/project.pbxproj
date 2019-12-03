@@ -1,0 +1,341 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30747C552395BBC700A3D2E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30747C542395BBC700A3D2E0 /* AppDelegate.swift */; };
+		30747C572395BBC700A3D2E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30747C562395BBC700A3D2E0 /* SceneDelegate.swift */; };
+		30747C592395BBC700A3D2E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30747C582395BBC700A3D2E0 /* ViewController.swift */; };
+		30747C5C2395BBC700A3D2E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30747C5A2395BBC700A3D2E0 /* Main.storyboard */; };
+		30747C5E2395BBCA00A3D2E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30747C5D2395BBCA00A3D2E0 /* Assets.xcassets */; };
+		30747C612395BBCA00A3D2E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30747C5F2395BBCA00A3D2E0 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30747C512395BBC700A3D2E0 /* ДЗ 18 Топчий Роман iOS 19-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ДЗ 18 Топчий Роман iOS 19-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		30747C542395BBC700A3D2E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		30747C562395BBC700A3D2E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		30747C582395BBC700A3D2E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		30747C5B2395BBC700A3D2E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		30747C5D2395BBCA00A3D2E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30747C602395BBCA00A3D2E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30747C622395BBCA00A3D2E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		30747C4E2395BBC700A3D2E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		30747C482395BBC700A3D2E0 = {
+			isa = PBXGroup;
+			children = (
+				30747C532395BBC700A3D2E0 /* ДЗ 18 Топчий Роман iOS 19-2 */,
+				30747C522395BBC700A3D2E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		30747C522395BBC700A3D2E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30747C512395BBC700A3D2E0 /* ДЗ 18 Топчий Роман iOS 19-2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		30747C532395BBC700A3D2E0 /* ДЗ 18 Топчий Роман iOS 19-2 */ = {
+			isa = PBXGroup;
+			children = (
+				30747C542395BBC700A3D2E0 /* AppDelegate.swift */,
+				30747C562395BBC700A3D2E0 /* SceneDelegate.swift */,
+				30747C582395BBC700A3D2E0 /* ViewController.swift */,
+				30747C5A2395BBC700A3D2E0 /* Main.storyboard */,
+				30747C5D2395BBCA00A3D2E0 /* Assets.xcassets */,
+				30747C5F2395BBCA00A3D2E0 /* LaunchScreen.storyboard */,
+				30747C622395BBCA00A3D2E0 /* Info.plist */,
+			);
+			path = "ДЗ 18 Топчий Роман iOS 19-2";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		30747C502395BBC700A3D2E0 /* ДЗ 18 Топчий Роман iOS 19-2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30747C652395BBCA00A3D2E0 /* Build configuration list for PBXNativeTarget "ДЗ 18 Топчий Роман iOS 19-2" */;
+			buildPhases = (
+				30747C4D2395BBC700A3D2E0 /* Sources */,
+				30747C4E2395BBC700A3D2E0 /* Frameworks */,
+				30747C4F2395BBC700A3D2E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ДЗ 18 Топчий Роман iOS 19-2";
+			productName = "ДЗ 18 Топчий Роман iOS 19-2";
+			productReference = 30747C512395BBC700A3D2E0 /* ДЗ 18 Топчий Роман iOS 19-2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		30747C492395BBC700A3D2E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Roman Topchii";
+				TargetAttributes = {
+					30747C502395BBC700A3D2E0 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = 30747C4C2395BBC700A3D2E0 /* Build configuration list for PBXProject "ДЗ 18 Топчий Роман iOS 19-2" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 30747C482395BBC700A3D2E0;
+			productRefGroup = 30747C522395BBC700A3D2E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				30747C502395BBC700A3D2E0 /* ДЗ 18 Топчий Роман iOS 19-2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		30747C4F2395BBC700A3D2E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30747C612395BBCA00A3D2E0 /* LaunchScreen.storyboard in Resources */,
+				30747C5E2395BBCA00A3D2E0 /* Assets.xcassets in Resources */,
+				30747C5C2395BBC700A3D2E0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		30747C4D2395BBC700A3D2E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30747C592395BBC700A3D2E0 /* ViewController.swift in Sources */,
+				30747C552395BBC700A3D2E0 /* AppDelegate.swift in Sources */,
+				30747C572395BBC700A3D2E0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		30747C5A2395BBC700A3D2E0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30747C5B2395BBC700A3D2E0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		30747C5F2395BBCA00A3D2E0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30747C602395BBCA00A3D2E0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		30747C632395BBCA00A3D2E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		30747C642395BBCA00A3D2E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		30747C662395BBCA00A3D2E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ДЗ 18 Топчий Роман iOS 19-2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "TR.---18---------------iOS-19-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		30747C672395BBCA00A3D2E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "ДЗ 18 Топчий Роман iOS 19-2/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "TR.---18---------------iOS-19-2";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		30747C4C2395BBC700A3D2E0 /* Build configuration list for PBXProject "ДЗ 18 Топчий Роман iOS 19-2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30747C632395BBCA00A3D2E0 /* Debug */,
+				30747C642395BBCA00A3D2E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		30747C652395BBCA00A3D2E0 /* Build configuration list for PBXNativeTarget "ДЗ 18 Топчий Роман iOS 19-2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30747C662395BBCA00A3D2E0 /* Debug */,
+				30747C672395BBCA00A3D2E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 30747C492395BBC700A3D2E0 /* Project object */;
+}
