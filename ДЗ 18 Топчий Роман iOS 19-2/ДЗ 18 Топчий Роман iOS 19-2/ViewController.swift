@@ -102,6 +102,7 @@ class ViewController: UIViewController {
                 colour.red = number
                 redLabel.text = "Red:     \(Double(Int(number*100))/100)"
                 redSlider.value = colour.red
+                redTextField.text = "\(Double(Int(number*100))/100)"
             }
             else {
                 redTextField.text = "\(Double(Int(colour.red*100))/100)"
@@ -113,6 +114,7 @@ class ViewController: UIViewController {
                 colour.green = number
                 greenLabel.text = "Green: \(Double(Int(number*100))/100)"
                 greenSlider.value = colour.green
+                greenTextField.text = "\(Double(Int(number*100))/100)"
             }
             else {
                 greenTextField.text = "\(Double(Int(colour.green*100))/100)"
@@ -124,6 +126,7 @@ class ViewController: UIViewController {
                 colour.blue = number
                 blueLabel.text = "Blue:    \(Double(Int(number*100))/100)"
                 blueSlider.value = colour.blue
+                blueTextField.text = "\(Double(Int(number*100))/100)"
             }
             else {
                 blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
