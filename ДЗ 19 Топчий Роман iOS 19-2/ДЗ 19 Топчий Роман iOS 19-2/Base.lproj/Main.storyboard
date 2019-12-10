@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZAN-UE-H7R">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--root-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="root" id="BYZ-38-t0r" customClass="ViewController" customModule="ДЗ_19_Топчии__Роман_iOS_19_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="O5V-9E-XlQ">
+                                <rect key="frame" x="115" y="192" width="137" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Открыть прямоугольники"/>
+                                <connections>
+                                    <segue destination="uiC-OC-GVZ" kind="show" id="krU-6l-Cah"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fv-tf-5u0">
+                                <rect key="frame" x="56" y="360" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ntq-iH-Koh">
+                                <rect key="frame" x="106" y="353" width="50" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Корневой контроллер" id="DaU-IF-Mjj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="511.59420289855075" y="-87.053571428571431"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="O16-Vl-fTa">
+            <objects>
+                <navigationController id="ZAN-UE-H7R" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DWX-uF-v01">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UKa-h2-ozJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uMp-mf-d1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-235" y="-87"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Pr2-KF-Tzq">
+            <objects>
+                <viewController id="uiC-OC-GVZ" customClass="ViewController" customModule="ДЗ_17_1_Топчии__Роман_iOS_19_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6O7-96-1ie">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Cz-x6-9xg" userLabel="TopView">
+                                <rect key="frame" x="20" y="108" width="374" height="359"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7N2-zX-g15">
+                                        <rect key="frame" x="118" y="149" width="137" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="Открыть Следующий кортроллер"/>
+                                        <connections>
+                                            <segue destination="Htj-kk-Cwv" kind="show" id="S9k-0F-hnM"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZR-bf-x8w" userLabel="BottomView">
+                                <rect key="frame" x="20" y="487" width="374" height="359"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Cz-x6-9xg" firstAttribute="leading" secondItem="fFk-BJ-Izg" secondAttribute="leading" constant="20" id="BcT-Qa-J40"/>
+                            <constraint firstItem="fFk-BJ-Izg" firstAttribute="trailing" secondItem="6Cz-x6-9xg" secondAttribute="trailing" constant="20" id="GAn-bW-hHk"/>
+                            <constraint firstItem="IZR-bf-x8w" firstAttribute="height" secondItem="6Cz-x6-9xg" secondAttribute="height" id="K6q-T4-LWa"/>
+                            <constraint firstItem="fFk-BJ-Izg" firstAttribute="bottom" secondItem="IZR-bf-x8w" secondAttribute="bottom" constant="16" id="Kt7-tE-GmM"/>
+                            <constraint firstItem="IZR-bf-x8w" firstAttribute="top" secondItem="6Cz-x6-9xg" secondAttribute="bottom" constant="20" id="NTq-ND-iMD"/>
+                            <constraint firstItem="IZR-bf-x8w" firstAttribute="leading" secondItem="fFk-BJ-Izg" secondAttribute="leading" constant="20" id="RNq-vq-noD"/>
+                            <constraint firstItem="fFk-BJ-Izg" firstAttribute="trailing" secondItem="IZR-bf-x8w" secondAttribute="trailing" constant="20" id="ZKD-oL-F7l"/>
+                            <constraint firstItem="6Cz-x6-9xg" firstAttribute="top" secondItem="fFk-BJ-Izg" secondAttribute="top" constant="20" id="vrt-Dx-Ax2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fFk-BJ-Izg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bMX-N8-y5O"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wc7-Co-WiH" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1223" y="-87"/>
+        </scene>
+        <!--Последний контроллер-->
+        <scene sceneID="nfZ-re-3Fe">
+            <objects>
+                <viewController id="Htj-kk-Cwv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="v0s-LA-5sa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3o3-ck-E9i">
+                                <rect key="frame" x="154" y="444" width="137" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Переход к корневому контроллеру"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="2zu-AJ-8Rr">
+                                <rect key="frame" x="154" y="302" width="137" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Переход к предыдущему контроллеру"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="zk3-bC-NGV"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Последний контроллер" id="pni-sg-8aK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eeB-rV-yJE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1938" y="-87"/>
+        </scene>
+    </scenes>
+</document>
