@@ -10,6 +10,10 @@ import UIKit
 
 class GradientViewController: UIViewController {
     
+    var colour : (red : Float, green : Float, blue : Float) = (0.2,0.3,0.5)
+    var backParam : TransferProtocol?
+    
+    
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var coloredView: UIView!
     
@@ -31,15 +35,15 @@ class GradientViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let colour : (red : Float, green : Float, blue : Float) = (0.2,0.3,0.5)
+//        let colour : (red : Float, green : Float, blue : Float) = (0.2,0.3,0.5)
         print(colour)
         redSlider.value = colour.red
         greenSlider.value = colour.green
         blueSlider.value = colour.blue
         
-        redTextField.text = "\(colour.red)"
-        greenTextField.text = "\(colour.green)"
-        blueTextField.text = "\(colour.blue)"
+        redTextField.text = "\(Double(Int(colour.red*100))/100)"
+        greenTextField.text = "\(Double(Int(colour.green*100))/100)"
+        blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
         
         redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
         greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
@@ -95,45 +99,33 @@ class GradientViewController: UIViewController {
         
         switch sender.tag {
         case 1:
-            guard let text = sender.text else {return}
-            guard let number = Float(text) else {return}
+            guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.red = number
                 redLabel.text = "Red:     \(Double(Int(number*100))/100)"
                 redSlider.value = colour.red
                 redTextField.text = "\(Double(Int(number*100))/100)"
             }
-            else {
-                redTextField.text = "\(Double(Int(colour.red*100))/100)"
-            }
         case 2:
-            guard let text = sender.text else {return}
-            guard let number = Float(text) else {return}
+            guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.green = number
                 greenLabel.text = "Green: \(Double(Int(number*100))/100)"
                 greenSlider.value = colour.green
                 greenTextField.text = "\(Double(Int(number*100))/100)"
             }
-            else {
-                greenTextField.text = "\(Double(Int(colour.green*100))/100)"
-            }
         case 3:
-            guard let text = sender.text else {return}
-            guard let number = Float(text) else {return}
+            guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.blue = number
                 blueLabel.text = "Blue:    \(Double(Int(number*100))/100)"
                 blueSlider.value = colour.blue
                 blueTextField.text = "\(Double(Int(number*100))/100)"
             }
-            else {
-                blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
-            }
         default :
             break
         }
-        print(colour)
+        print(#function, colour)
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
         
     }
@@ -147,20 +139,21 @@ class GradientViewController: UIViewController {
             colour.red = sender.value
             redTextField.text = "\(Double(Int(sender.value*100))/100)"
             redLabel.text = "Red:     \(Double(Int(sender.value*100))/100)"
+           backParam!.colour.red = colour.red
         case 2:
             colour.green = sender.value
             greenTextField.text = "\(Double(Int(sender.value*100))/100)"
             greenLabel.text = "Green: \(Double(Int(sender.value*100))/100)"
+            backParam!.colour.green = colour.green
         case 3:
             colour.blue = sender.value
             blueTextField.text = "\(Double(Int(sender.value*100))/100)"
             blueLabel.text = "Blue:    \(Double(Int(sender.value*100))/100)"
+            backParam!.colour.blue = colour.blue
         default:
             break
         }
-        print(colour)
+        print(#function, colour)
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
-        
     }
-    
 }
