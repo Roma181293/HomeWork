@@ -56,9 +56,22 @@ class SettingsViewController: UIViewController{
         super.viewWillAppear(true)
         print("Settings VC", #function, colour)
         fillAllTextFilds()
+        self.tabBarController?.tabBar.items?[1].badgeValue = nil
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
     }
 
+    func addBadge() {
+        if let currentTabBarIndex = self.tabBarController?.viewControllers?.firstIndex(of: self) {
+            if let tabItems = self.tabBarController?.tabBar.items
+            {
+                // In this case we want to modify the badge number of the third tab:
+                let tabItem: UITabBarItem = tabItems[currentTabBarIndex+1]
+                tabItem.badgeValue = "*"
+                
+            }
+        }
+    }
+    
     func transferColorToAnotherVC() { // пересылка значения цвета на другой вью
            guard let tabVC = self.tabBarController else {return}
            guard let vcArray = tabVC.viewControllers else {return}
@@ -114,6 +127,7 @@ class SettingsViewController: UIViewController{
         print(#function, colour)
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
         transferColorToAnotherVC()
+        addBadge()
     }
     
 }

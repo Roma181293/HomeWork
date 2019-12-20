@@ -68,6 +68,8 @@ class GradientViewController: UIViewController {
         super.viewWillAppear(true)
         print("RGB VC", #function)
         
+        self.tabBarController?.tabBar.items?[2].badgeValue = nil
+        
         fillAllTextFilds()
         
         redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
@@ -85,6 +87,18 @@ class GradientViewController: UIViewController {
         guard let vcArray = tabVC.viewControllers else {return}
         guard let vc = vcArray[1] as? SettingsViewController else {return}
         vc.colour = colour
+    }
+    
+    func addBadge() {
+        if let currentTabBarIndex = self.tabBarController?.viewControllers?.firstIndex(of: self) {
+            if let tabItems = self.tabBarController?.tabBar.items
+            {
+                // In this case we want to modify the badge number of the third tab:
+                let tabItem: UITabBarItem = tabItems[currentTabBarIndex-1]
+                tabItem.badgeValue = "*"
+                
+            }
+        }
     }
     
     @objc func doneClicked() { //обработка нажатия на кнопку done на клавиатуре
@@ -140,6 +154,7 @@ class GradientViewController: UIViewController {
         print(#function, colour)
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
         transferColorToAnotherVC()
+        addBadge()
     }
     
     
@@ -164,5 +179,6 @@ class GradientViewController: UIViewController {
         print(#function, colour)
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
         transferColorToAnotherVC()
+        addBadge()
     }
 }
