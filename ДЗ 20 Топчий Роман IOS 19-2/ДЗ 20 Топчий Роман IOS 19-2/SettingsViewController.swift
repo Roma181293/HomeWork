@@ -10,9 +10,7 @@ import UIKit
 
 class SettingsViewController: UIViewController{
     
-    var colour : (red : Float, green : Float, blue : Float) = (0.2,0.3,0.5)
-    var backParam : TransferProtocol?
-    
+    var colour : Colour = Colour(red: 0.2, green: 0.3, blue: 0.5)
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var coloredView: UIView!
@@ -23,18 +21,24 @@ class SettingsViewController: UIViewController{
     
     
     
+    
+    
+    
+    override func loadView() {
+        super.loadView()
+        print("Settings VC", #function)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(colour)
-      
+        print("Settings VC", #function, colour)
         
-        redTextField.text = "\(Double(Int(colour.red*100))/100)"
-        greenTextField.text = "\(Double(Int(colour.green*100))/100)"
-        blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
+        
+        fillAllTextFilds()
         
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
         
-        
+        //добавление кнопки done на клавиатуру
         let keyboardToolBar = UIToolbar()
         keyboardToolBar.sizeToFit()
         
@@ -48,35 +52,38 @@ class SettingsViewController: UIViewController{
         blueTextField.inputAccessoryView = keyboardToolBar
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("Settings VC", #function, colour)
+        fillAllTextFilds()
+        coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
     }
+
+    func transferColorToAnotherVC() { // пересылка значения цвета на другой вью
+           guard let tabVC = self.tabBarController else {return}
+           guard let vcArray = tabVC.viewControllers else {return}
+           guard let vc = vcArray[2] as? GradientViewController else {return}
+           vc.colour = colour
+       }
     
     
-    @objc func doneClicked() {
+    @objc func doneClicked() {  //обработка нажатия на кнопку done на клавиатуре
         view.endEditing(true)
-        fillEmptyTextFilds()
+        fillAllTextFilds()
     }
     
-    func fillEmptyTextFilds() {
-        if redTextField.text == "" {
-            redTextField.text = "\(Double(Int(colour.red*100))/100)"
-        }
-        if greenTextField.text == "" {
-            greenTextField.text = "\(Double(Int(colour.green*100))/100)"
-        }
-        if blueTextField.text == "" {
-            blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
-        }
+    func fillAllTextFilds() {
+        print(#function, colour)
+        redTextField.text = "\(Double(Int(colour.red*100))/100)"
+        greenTextField.text = "\(Double(Int(colour.green*100))/100)"
+        blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
+        
     }
     
-    
-    
-    //закрытие клавиатуры при нажатии вне области клавиатуры
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { //закрытие клавиатуры при нажатии вне области клавиатуры
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
-        fillEmptyTextFilds()
+        fillAllTextFilds()
     }
     
     
@@ -87,32 +94,27 @@ class SettingsViewController: UIViewController{
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.red = number
-               
-                redTextField.text = "\(Double(Int(number*100))/100)"
+                redTextField.text = "\(Double(Int(colour.red*100))/100)"
             }
         case 2:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.green = number
-                
-                greenTextField.text = "\(Double(Int(number*100))/100)"
+                greenTextField.text = "\(Double(Int(colour.green*100))/100)"
             }
         case 3:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.blue = number
-               
-                blueTextField.text = "\(Double(Int(number*100))/100)"
+                blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
             }
         default :
             break
         }
         print(#function, colour)
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
-        
+        transferColorToAnotherVC()
     }
     
-    
-   
 }
 

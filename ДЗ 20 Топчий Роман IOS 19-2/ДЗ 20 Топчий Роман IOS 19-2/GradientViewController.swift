@@ -10,8 +10,8 @@ import UIKit
 
 class GradientViewController: UIViewController {
     
-    var colour : (red : Float, green : Float, blue : Float) = (0.2,0.3,0.5)
-    var backParam : TransferProtocol?
+    var colour : Colour = Colour(red: 0.2, green: 0.3, blue: 0.5)
+    
     
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var coloredView: UIView!
@@ -29,20 +29,19 @@ class GradientViewController: UIViewController {
     @IBOutlet weak var greenLabel: UILabel!
     @IBOutlet weak var blueLabel: UILabel!
     
-    
+    override func loadView() {
+        super.loadView()
+        print("RGB VC", #function, colour)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("RGB VC", #function)
-        
-        print(colour)
+        print("RGB VC", #function, colour)
         redSlider.value = colour.red
         greenSlider.value = colour.green
         blueSlider.value = colour.blue
         
-        redTextField.text = "\(Double(Int(colour.red*100))/100)"
-        greenTextField.text = "\(Double(Int(colour.green*100))/100)"
-        blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
+        fillAllTextFilds()
         
         redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
         greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
@@ -50,7 +49,7 @@ class GradientViewController: UIViewController {
         
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
         
-        
+        //добавление кнопки done на клавиатуру
         let keyboardToolBar = UIToolbar()
         keyboardToolBar.sizeToFit()
         
@@ -65,97 +64,105 @@ class GradientViewController: UIViewController {
     }
     
     
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("RGB VC", #function)
+        
+        fillAllTextFilds()
+        
+        redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
+        greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
+        blueLabel.text = "Blue:    \(Double(Int(colour.blue*100))/100)"
+        
+        redSlider.value = colour.red
+        greenSlider.value = colour.green
+        blueSlider.value = colour.blue
+        coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
+    }
     
+    func transferColorToAnotherVC() { // пересылка значения цвета на другой вью
+        guard let tabVC = self.tabBarController else {return}
+        guard let vcArray = tabVC.viewControllers else {return}
+        guard let vc = vcArray[1] as? SettingsViewController else {return}
+        vc.colour = colour
+    }
     
-    @objc func doneClicked() {
+    @objc func doneClicked() { //обработка нажатия на кнопку done на клавиатуре
         view.endEditing(true)
-        fillEmptyTextFilds()
+        fillAllTextFilds()
     }
     
-    func fillEmptyTextFilds() {
-        if redTextField.text == "" {
-            redTextField.text = "\(Double(Int(redSlider.value*100))/100)"
-        }
-        if greenTextField.text == "" {
-            greenTextField.text = "\(Double(Int(greenSlider.value*100))/100)"
-        }
-        if blueTextField.text == "" {
-            blueTextField.text = "\(Double(Int(blueSlider.value*100))/100)"
-        }
+    func fillAllTextFilds() {
+        print(#function, colour)
+        redTextField.text = "\(Double(Int(colour.red*100))/100)"
+        greenTextField.text = "\(Double(Int(colour.green*100))/100)"
+        blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
     }
     
-    
-    
-    //закрытие клавиатуры при нажатии вне области клавиатуры
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { //закрытие клавиатуры при нажатии вне области клавиатуры
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
-        fillEmptyTextFilds()
+        fillAllTextFilds()
     }
     
     
     
     @IBAction func colorIndexTextFieldAction(_ sender: UITextField) {
-        
-          
         switch sender.tag {
         case 1:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.red = number
-                redLabel.text = "Red:     \(Double(Int(number*100))/100)"
+                redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
                 redSlider.value = colour.red
-                redTextField.text = "\(Double(Int(number*100))/100)"
+                redTextField.text = "\(Double(Int(colour.red*100))/100)"
             }
         case 2:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.green = number
-                greenLabel.text = "Green: \(Double(Int(number*100))/100)"
+                greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
                 greenSlider.value = colour.green
-                greenTextField.text = "\(Double(Int(number*100))/100)"
+                greenTextField.text = "\(Double(Int(colour.green*100))/100)"
             }
         case 3:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
                 colour.blue = number
-                blueLabel.text = "Blue:    \(Double(Int(number*100))/100)"
+                blueLabel.text = "Blue:    \(Double(Int(colour.blue*100))/100)"
                 blueSlider.value = colour.blue
-                blueTextField.text = "\(Double(Int(number*100))/100)"
+                blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
             }
         default :
             break
         }
         print(#function, colour)
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
-        
+        transferColorToAnotherVC()
     }
     
     
+    
     @IBAction func sliderAction(_ sender: UISlider) {
-//        var colour : Colour = Colour(red : redSlider.value, green : greenSlider.value, blue : blueSlider.value)
-//        
         switch sender.tag {
         case 1:
             colour.red = sender.value
-            redTextField.text = "\(Double(Int(sender.value*100))/100)"
-            redLabel.text = "Red:     \(Double(Int(sender.value*100))/100)"
-         //  backParam!.colour.red = colour.red
+            redTextField.text = "\(Double(Int(colour.red*100))/100)"
+            redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
         case 2:
             colour.green = sender.value
-            greenTextField.text = "\(Double(Int(sender.value*100))/100)"
-            greenLabel.text = "Green: \(Double(Int(sender.value*100))/100)"
-        //    backParam!.colour.green = colour.green
+            greenTextField.text = "\(Double(Int(colour.green*100))/100)"
+            greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
         case 3:
             colour.blue = sender.value
-            blueTextField.text = "\(Double(Int(sender.value*100))/100)"
-            blueLabel.text = "Blue:    \(Double(Int(sender.value*100))/100)"
-      //      backParam!.colour.blue = colour.blue
+            blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
+            blueLabel.text = "Blue:    \(Double(Int(colour.blue*100))/100)"
         default:
             break
         }
         print(#function, colour)
         coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
+        transferColorToAnotherVC()
     }
 }

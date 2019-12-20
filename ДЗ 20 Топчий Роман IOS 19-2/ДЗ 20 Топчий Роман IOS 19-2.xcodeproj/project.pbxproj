@@ -16,7 +16,6 @@
 		30E4BD9B23A7EB2B000B0838 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30E4BD9923A7EB2B000B0838 /* LaunchScreen.storyboard */; };
 		30E4BDA323A7ED05000B0838 /* Colour Struct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4BDA223A7ED05000B0838 /* Colour Struct.swift */; };
 		30E4BDA523A7EDC5000B0838 /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4BDA423A7EDC5000B0838 /* GradientViewController.swift */; };
-		30E4BDA723A7EF10000B0838 /* Transfer Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E4BDA623A7EF10000B0838 /* Transfer Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		30E4BD9C23A7EB2B000B0838 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30E4BDA223A7ED05000B0838 /* Colour Struct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Colour Struct.swift"; sourceTree = "<group>"; };
 		30E4BDA423A7EDC5000B0838 /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
-		30E4BDA623A7EF10000B0838 /* Transfer Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transfer Protocol.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +69,6 @@
 				3031899523A8036800527E1A /* SettingsViewController.swift */,
 				30E4BDA423A7EDC5000B0838 /* GradientViewController.swift */,
 				30E4BDA223A7ED05000B0838 /* Colour Struct.swift */,
-				30E4BDA623A7EF10000B0838 /* Transfer Protocol.swift */,
 				30E4BD9723A7EB2B000B0838 /* Assets.xcassets */,
 				30E4BD9923A7EB2B000B0838 /* LaunchScreen.storyboard */,
 				30E4BD9C23A7EB2B000B0838 /* Info.plist */,
@@ -151,7 +148,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				30E4BD9323A7EB29000B0838 /* ViewController.swift in Sources */,
-				30E4BDA723A7EF10000B0838 /* Transfer Protocol.swift in Sources */,
 				3031899623A8036800527E1A /* SettingsViewController.swift in Sources */,
 				30E4BD8F23A7EB29000B0838 /* AppDelegate.swift in Sources */,
 				30E4BDA523A7EDC5000B0838 /* GradientViewController.swift in Sources */,
