@@ -46,7 +46,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YiP-G8-igT"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Preson" id="Wgc-Yt-jO1"/>
+                    <tabBarItem key="tabBarItem" title="Preson" image="person" catalog="system" id="Wgc-Yt-jO1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrY-kf-1bj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,7 +199,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aip-CL-4gq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="RGB" id="CGa-9U-41U"/>
+                    <tabBarItem key="tabBarItem" title="RGB" image="circle.lefthalf.fill" catalog="system" id="CGa-9U-41U"/>
                     <connections>
                         <outlet property="blueLabel" destination="LEa-A8-5Er" id="WeM-jd-ZvJ"/>
                         <outlet property="blueSlider" destination="Yis-oj-BcJ" id="tmU-4t-qBo"/>
@@ -315,7 +315,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Afd-vi-IbW"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="uXz-GM-eeN"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="hammer" catalog="system" id="uXz-GM-eeN"/>
                     <connections>
                         <outlet property="blueTextField" destination="teW-7s-HhE" id="3NB-Gi-YQS"/>
                         <outlet property="coloredView" destination="gyz-6E-432" id="hb2-Do-9eS"/>
@@ -329,4 +329,9 @@
             <point key="canvasLocation" x="729" y="351"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="circle.lefthalf.fill" catalog="system" width="64" height="60"/>
+        <image name="hammer" catalog="system" width="64" height="56"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+    </resources>
 </document>
