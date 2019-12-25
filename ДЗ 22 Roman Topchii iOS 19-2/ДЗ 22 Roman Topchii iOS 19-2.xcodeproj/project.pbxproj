@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30094AA523B3D3C0000A17F7 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30094AA423B3D3C0000A17F7 /* Emoji.swift */; };
-		30094AA723B3D3EB000A17F7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30094AA623B3D3EB000A17F7 /* DetailViewController.swift */; };
+		30094AA923B3D655000A17F7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30094AA823B3D654000A17F7 /* DetailViewController.swift */; };
 		3081847023B3D1E4005B7972 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081846F23B3D1E4005B7972 /* AppDelegate.swift */; };
 		3081847223B3D1E4005B7972 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081847123B3D1E4005B7972 /* SceneDelegate.swift */; };
 		3081847423B3D1E4005B7972 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081847323B3D1E4005B7972 /* ViewController.swift */; };
@@ -19,7 +19,7 @@
 
 /* Begin PBXFileReference section */
 		30094AA423B3D3C0000A17F7 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
-		30094AA623B3D3EB000A17F7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		30094AA823B3D654000A17F7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3081846C23B3D1E4005B7972 /* ДЗ 22 Roman Topchii iOS 19-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ДЗ 22 Roman Topchii iOS 19-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3081846F23B3D1E4005B7972 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3081847123B3D1E4005B7972 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,8 +63,8 @@
 				3081846F23B3D1E4005B7972 /* AppDelegate.swift */,
 				3081847123B3D1E4005B7972 /* SceneDelegate.swift */,
 				3081847323B3D1E4005B7972 /* ViewController.swift */,
+				30094AA823B3D654000A17F7 /* DetailViewController.swift */,
 				3081847523B3D1E4005B7972 /* Main.storyboard */,
-				30094AA623B3D3EB000A17F7 /* DetailViewController.swift */,
 				30094AA423B3D3C0000A17F7 /* Emoji.swift */,
 				3081847823B3D1ED005B7972 /* Assets.xcassets */,
 				3081847A23B3D1ED005B7972 /* LaunchScreen.storyboard */,
@@ -146,7 +146,7 @@
 			files = (
 				3081847423B3D1E4005B7972 /* ViewController.swift in Sources */,
 				3081847023B3D1E4005B7972 /* AppDelegate.swift in Sources */,
-				30094AA723B3D3EB000A17F7 /* DetailViewController.swift in Sources */,
+				30094AA923B3D655000A17F7 /* DetailViewController.swift in Sources */,
 				30094AA523B3D3C0000A17F7 /* Emoji.swift in Sources */,
 				3081847223B3D1E4005B7972 /* SceneDelegate.swift in Sources */,
 			);
