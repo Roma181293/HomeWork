@@ -7,31 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		308FA97F23AE29CE002C2CBB /* TrafficLightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308FA97E23AE29CE002C2CBB /* TrafficLightViewController.swift */; };
-		30CCDB3523AE259200CFD2A4 /* RGBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30CCDB3423AE259200CFD2A4 /* RGBViewController.swift */; };
-		30F2A08223AE2370008DDB7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2A08123AE2370008DDB7F /* AppDelegate.swift */; };
-		30F2A08423AE2370008DDB7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2A08323AE2370008DDB7F /* SceneDelegate.swift */; };
-		30F2A08623AE2370008DDB7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F2A08523AE2370008DDB7F /* ViewController.swift */; };
-		30F2A08923AE2370008DDB7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F2A08723AE2370008DDB7F /* Main.storyboard */; };
-		30F2A08B23AE2375008DDB7F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30F2A08A23AE2375008DDB7F /* Assets.xcassets */; };
-		30F2A08E23AE2375008DDB7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30F2A08C23AE2375008DDB7F /* LaunchScreen.storyboard */; };
+		3083CE6923B3F513002AA807 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083CE6823B3F513002AA807 /* AppDelegate.swift */; };
+		3083CE6B23B3F513002AA807 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083CE6A23B3F513002AA807 /* SceneDelegate.swift */; };
+		3083CE6D23B3F513002AA807 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083CE6C23B3F513002AA807 /* MainViewController.swift */; };
+		3083CE7023B3F513002AA807 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3083CE6E23B3F513002AA807 /* Main.storyboard */; };
+		3083CE7223B3F519002AA807 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3083CE7123B3F519002AA807 /* Assets.xcassets */; };
+		3083CE7523B3F519002AA807 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3083CE7323B3F519002AA807 /* LaunchScreen.storyboard */; };
+		3083CE7D23B3F75E002AA807 /* TrafficViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083CE7C23B3F75E002AA807 /* TrafficViewController.swift */; };
+		3083CE7F23B3F827002AA807 /* RGBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083CE7E23B3F827002AA807 /* RGBViewController.swift */; };
+		3083CE8323B3F994002AA807 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3083CE8223B3F994002AA807 /* Colour.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		308FA97E23AE29CE002C2CBB /* TrafficLightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightViewController.swift; sourceTree = "<group>"; };
-		30CCDB3423AE259200CFD2A4 /* RGBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBViewController.swift; sourceTree = "<group>"; };
-		30F2A07E23AE2370008DDB7F /* ДЗ 21 Топчий Роман iOS 19-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ДЗ 21 Топчий Роман iOS 19-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		30F2A08123AE2370008DDB7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		30F2A08323AE2370008DDB7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		30F2A08523AE2370008DDB7F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		30F2A08823AE2370008DDB7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		30F2A08A23AE2375008DDB7F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		30F2A08D23AE2375008DDB7F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		30F2A08F23AE2375008DDB7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3083CE6523B3F513002AA807 /* HW 21 Roman Topchii iOS 19-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW 21 Roman Topchii iOS 19-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3083CE6823B3F513002AA807 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3083CE6A23B3F513002AA807 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3083CE6C23B3F513002AA807 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		3083CE6F23B3F513002AA807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3083CE7123B3F519002AA807 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3083CE7423B3F519002AA807 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3083CE7623B3F519002AA807 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3083CE7C23B3F75E002AA807 /* TrafficViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficViewController.swift; sourceTree = "<group>"; };
+		3083CE7E23B3F827002AA807 /* RGBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBViewController.swift; sourceTree = "<group>"; };
+		3083CE8223B3F994002AA807 /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		30F2A07B23AE2370008DDB7F /* Frameworks */ = {
+		3083CE6223B3F513002AA807 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,74 +43,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		30F2A07523AE2370008DDB7F = {
+		3083CE5C23B3F513002AA807 = {
 			isa = PBXGroup;
 			children = (
-				30F2A08023AE2370008DDB7F /* ДЗ 21 Топчий Роман iOS 19-2 */,
-				30F2A07F23AE2370008DDB7F /* Products */,
+				3083CE6723B3F513002AA807 /* HW 21 Roman Topchii iOS 19-2 */,
+				3083CE6623B3F513002AA807 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		30F2A07F23AE2370008DDB7F /* Products */ = {
+		3083CE6623B3F513002AA807 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				30F2A07E23AE2370008DDB7F /* ДЗ 21 Топчий Роман iOS 19-2.app */,
+				3083CE6523B3F513002AA807 /* HW 21 Roman Topchii iOS 19-2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		30F2A08023AE2370008DDB7F /* ДЗ 21 Топчий Роман iOS 19-2 */ = {
+		3083CE6723B3F513002AA807 /* HW 21 Roman Topchii iOS 19-2 */ = {
 			isa = PBXGroup;
 			children = (
-				30F2A08323AE2370008DDB7F /* SceneDelegate.swift */,
-				30F2A08123AE2370008DDB7F /* AppDelegate.swift */,
-				30CCDB3423AE259200CFD2A4 /* RGBViewController.swift */,
-				308FA97E23AE29CE002C2CBB /* TrafficLightViewController.swift */,
-				30F2A08723AE2370008DDB7F /* Main.storyboard */,
-				30F2A08523AE2370008DDB7F /* ViewController.swift */,
-				30F2A08A23AE2375008DDB7F /* Assets.xcassets */,
-				30F2A08C23AE2375008DDB7F /* LaunchScreen.storyboard */,
-				30F2A08F23AE2375008DDB7F /* Info.plist */,
+				3083CE6823B3F513002AA807 /* AppDelegate.swift */,
+				3083CE6A23B3F513002AA807 /* SceneDelegate.swift */,
+				3083CE6C23B3F513002AA807 /* MainViewController.swift */,
+				3083CE7E23B3F827002AA807 /* RGBViewController.swift */,
+				3083CE7C23B3F75E002AA807 /* TrafficViewController.swift */,
+				3083CE8223B3F994002AA807 /* Colour.swift */,
+				3083CE6E23B3F513002AA807 /* Main.storyboard */,
+				3083CE7123B3F519002AA807 /* Assets.xcassets */,
+				3083CE7323B3F519002AA807 /* LaunchScreen.storyboard */,
+				3083CE7623B3F519002AA807 /* Info.plist */,
 			);
-			path = "ДЗ 21 Топчий Роман iOS 19-2";
+			path = "HW 21 Roman Topchii iOS 19-2";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		30F2A07D23AE2370008DDB7F /* ДЗ 21 Топчий Роман iOS 19-2 */ = {
+		3083CE6423B3F513002AA807 /* HW 21 Roman Topchii iOS 19-2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 30F2A09223AE2375008DDB7F /* Build configuration list for PBXNativeTarget "ДЗ 21 Топчий Роман iOS 19-2" */;
+			buildConfigurationList = 3083CE7923B3F519002AA807 /* Build configuration list for PBXNativeTarget "HW 21 Roman Topchii iOS 19-2" */;
 			buildPhases = (
-				30F2A07A23AE2370008DDB7F /* Sources */,
-				30F2A07B23AE2370008DDB7F /* Frameworks */,
-				30F2A07C23AE2370008DDB7F /* Resources */,
+				3083CE6123B3F513002AA807 /* Sources */,
+				3083CE6223B3F513002AA807 /* Frameworks */,
+				3083CE6323B3F513002AA807 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "ДЗ 21 Топчий Роман iOS 19-2";
-			productName = "ДЗ 21 Топчий Роман iOS 19-2";
-			productReference = 30F2A07E23AE2370008DDB7F /* ДЗ 21 Топчий Роман iOS 19-2.app */;
+			name = "HW 21 Roman Topchii iOS 19-2";
+			productName = "HW 21 Roman Topchii iOS 19-2";
+			productReference = 3083CE6523B3F513002AA807 /* HW 21 Roman Topchii iOS 19-2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		30F2A07623AE2370008DDB7F /* Project object */ = {
+		3083CE5D23B3F513002AA807 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Roman Topchii";
 				TargetAttributes = {
-					30F2A07D23AE2370008DDB7F = {
+					3083CE6423B3F513002AA807 = {
 						CreatedOnToolsVersion = 11.1;
 					};
 				};
 			};
-			buildConfigurationList = 30F2A07923AE2370008DDB7F /* Build configuration list for PBXProject "ДЗ 21 Топчий Роман iOS 19-2" */;
+			buildConfigurationList = 3083CE6023B3F513002AA807 /* Build configuration list for PBXProject "HW 21 Roman Topchii iOS 19-2" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,57 +119,58 @@
 				en,
 				Base,
 			);
-			mainGroup = 30F2A07523AE2370008DDB7F;
-			productRefGroup = 30F2A07F23AE2370008DDB7F /* Products */;
+			mainGroup = 3083CE5C23B3F513002AA807;
+			productRefGroup = 3083CE6623B3F513002AA807 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				30F2A07D23AE2370008DDB7F /* ДЗ 21 Топчий Роман iOS 19-2 */,
+				3083CE6423B3F513002AA807 /* HW 21 Roman Topchii iOS 19-2 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		30F2A07C23AE2370008DDB7F /* Resources */ = {
+		3083CE6323B3F513002AA807 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30F2A08E23AE2375008DDB7F /* LaunchScreen.storyboard in Resources */,
-				30F2A08B23AE2375008DDB7F /* Assets.xcassets in Resources */,
-				30F2A08923AE2370008DDB7F /* Main.storyboard in Resources */,
+				3083CE7523B3F519002AA807 /* LaunchScreen.storyboard in Resources */,
+				3083CE7223B3F519002AA807 /* Assets.xcassets in Resources */,
+				3083CE7023B3F513002AA807 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		30F2A07A23AE2370008DDB7F /* Sources */ = {
+		3083CE6123B3F513002AA807 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30CCDB3523AE259200CFD2A4 /* RGBViewController.swift in Sources */,
-				308FA97F23AE29CE002C2CBB /* TrafficLightViewController.swift in Sources */,
-				30F2A08623AE2370008DDB7F /* ViewController.swift in Sources */,
-				30F2A08223AE2370008DDB7F /* AppDelegate.swift in Sources */,
-				30F2A08423AE2370008DDB7F /* SceneDelegate.swift in Sources */,
+				3083CE7D23B3F75E002AA807 /* TrafficViewController.swift in Sources */,
+				3083CE7F23B3F827002AA807 /* RGBViewController.swift in Sources */,
+				3083CE6D23B3F513002AA807 /* MainViewController.swift in Sources */,
+				3083CE8323B3F994002AA807 /* Colour.swift in Sources */,
+				3083CE6923B3F513002AA807 /* AppDelegate.swift in Sources */,
+				3083CE6B23B3F513002AA807 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		30F2A08723AE2370008DDB7F /* Main.storyboard */ = {
+		3083CE6E23B3F513002AA807 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				30F2A08823AE2370008DDB7F /* Base */,
+				3083CE6F23B3F513002AA807 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		30F2A08C23AE2375008DDB7F /* LaunchScreen.storyboard */ = {
+		3083CE7323B3F519002AA807 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				30F2A08D23AE2375008DDB7F /* Base */,
+				3083CE7423B3F519002AA807 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -174,7 +178,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		30F2A09023AE2375008DDB7F /* Debug */ = {
+		3083CE7723B3F519002AA807 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -234,7 +238,7 @@
 			};
 			name = Debug;
 		};
-		30F2A09123AE2375008DDB7F /* Release */ = {
+		3083CE7823B3F519002AA807 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -288,34 +292,34 @@
 			};
 			name = Release;
 		};
-		30F2A09323AE2375008DDB7F /* Debug */ = {
+		3083CE7A23B3F519002AA807 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "ДЗ 21 Топчий Роман iOS 19-2/Info.plist";
+				INFOPLIST_FILE = "HW 21 Roman Topchii iOS 19-2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "TR.---21---------------iOS-19-2";
+				PRODUCT_BUNDLE_IDENTIFIER = "TR.HW-21-Roman-Topchii-iOS-19-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		30F2A09423AE2375008DDB7F /* Release */ = {
+		3083CE7B23B3F519002AA807 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "ДЗ 21 Топчий Роман iOS 19-2/Info.plist";
+				INFOPLIST_FILE = "HW 21 Roman Topchii iOS 19-2/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "TR.---21---------------iOS-19-2";
+				PRODUCT_BUNDLE_IDENTIFIER = "TR.HW-21-Roman-Topchii-iOS-19-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -325,25 +329,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		30F2A07923AE2370008DDB7F /* Build configuration list for PBXProject "ДЗ 21 Топчий Роман iOS 19-2" */ = {
+		3083CE6023B3F513002AA807 /* Build configuration list for PBXProject "HW 21 Roman Topchii iOS 19-2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30F2A09023AE2375008DDB7F /* Debug */,
-				30F2A09123AE2375008DDB7F /* Release */,
+				3083CE7723B3F519002AA807 /* Debug */,
+				3083CE7823B3F519002AA807 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		30F2A09223AE2375008DDB7F /* Build configuration list for PBXNativeTarget "ДЗ 21 Топчий Роман iOS 19-2" */ = {
+		3083CE7923B3F519002AA807 /* Build configuration list for PBXNativeTarget "HW 21 Roman Topchii iOS 19-2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				30F2A09323AE2375008DDB7F /* Debug */,
-				30F2A09423AE2375008DDB7F /* Release */,
+				3083CE7A23B3F519002AA807 /* Debug */,
+				3083CE7B23B3F519002AA807 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 30F2A07623AE2370008DDB7F /* Project object */;
+	rootObject = 3083CE5D23B3F513002AA807 /* Project object */;
 }
