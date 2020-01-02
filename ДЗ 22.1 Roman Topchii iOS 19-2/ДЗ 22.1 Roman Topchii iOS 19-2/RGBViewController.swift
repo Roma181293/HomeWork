@@ -112,9 +112,9 @@ class RGBViewController: UIViewController {
     }
     
     func loadFromTheUserDefaults() {
-        color.red = UserDefaults.standard.object(forKey: "redColor") as! Float
-        color.green = UserDefaults.standard.object(forKey: "greenColor") as! Float
-        color.blue = UserDefaults.standard.object(forKey: "blueColor") as! Float
+        color.red = UserDefaults.standard.object(forKey: "redColor") as? Float ?? 0
+        color.green = UserDefaults.standard.object(forKey: "greenColor") as? Float ?? 0
+        color.blue = UserDefaults.standard.object(forKey: "blueColor") as? Float ?? 0
         
         print("  RGB VC ", #function, color)
     }
