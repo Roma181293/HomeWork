@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     
     weak var rgbVC : RGBViewController!
     
-    var colour : Colour = Colour(red: 0.2, green: 0.3, blue: 0.9)
+    var color : Color = Color(red: 0.1, green: 0.1, blue: 0.1)
     
     
     @IBOutlet weak var redTextField : UITextField!
@@ -33,6 +33,7 @@ class MainViewController: UIViewController {
     override func loadView() {
         super.loadView()
         print("Main VC", #function)
+        loadFromTheUserDefaults()
     }
     
     override func viewDidLoad() {
@@ -69,7 +70,7 @@ class MainViewController: UIViewController {
     
     func transferColorToAnotherVC() { // пересылка значения цвета на другой вью и его показ
         print("Main VC", #function)
-        rgbVC.colour = colour
+        rgbVC.color = color
         rgbVC.viewWillAppear(true)
     }
     
@@ -81,9 +82,9 @@ class MainViewController: UIViewController {
     
     func fillAllTextFilds() {
         print("Main VC", #function)
-        redTextField.text = "\(Double(Int(colour.red*100))/100)"
-        greenTextField.text = "\(Double(Int(colour.green*100))/100)"
-        blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
+        redTextField.text = "\(Double(Int(color.red*100))/100)"
+        greenTextField.text = "\(Double(Int(color.green*100))/100)"
+        blueTextField.text = "\(Double(Int(color.blue*100))/100)"
     }
     
     
@@ -92,6 +93,24 @@ class MainViewController: UIViewController {
         super.touchesBegan(touches, with: event)
         fillAllTextFilds()
     }
+    
+    
+    
+    func setUserDefaults() {
+//        UserDefaults.standard.set(color.red, forKey: "redColor")
+//        UserDefaults.standard.set(color.green, forKey: "greenColor")
+//        UserDefaults.standard.set(color.blue, forKey: "blueColor")
+//        print("Main VC", #function)
+    }
+    
+    func loadFromTheUserDefaults() {
+//        color.red = UserDefaults.standard.object(forKey: "redColor") as? Float ?? 0.0
+//        color.green = UserDefaults.standard.object(forKey: "greenColor") as? Float ?? 0.0
+//        color.blue = UserDefaults.standard.object(forKey: "blueColor") as? Float ?? 0.0
+//        print(color)
+//        print("Main VC", #function)
+    }
+    
     
     
     
@@ -109,27 +128,28 @@ class MainViewController: UIViewController {
         case 1:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
-                colour.red = number
-                redTextField.text = "\(Double(Int(colour.red*100))/100)"
+                color.red = number
+                redTextField.text = "\(Double(Int(color.red*100))/100)"
             }
         case 2:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
-                colour.green = number
-                greenTextField.text = "\(Double(Int(colour.green*100))/100)"
+                color.green = number
+                greenTextField.text = "\(Double(Int(color.green*100))/100)"
             }
         case 3:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
-                colour.blue = number
-                blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
+                color.blue = number
+                blueTextField.text = "\(Double(Int(color.blue*100))/100)"
             }
         default :
             break
         }
-        print("Main VC", #function, colour)
+        print("Main VC", #function, color)
+        setUserDefaults()
         transferColorToAnotherVC()
-       
+        
     }
 }
 

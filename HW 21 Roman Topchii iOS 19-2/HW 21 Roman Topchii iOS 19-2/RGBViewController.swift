@@ -12,7 +12,7 @@ class RGBViewController: UIViewController {
     
     weak var mainVC : MainViewController!
     
-    var colour : Colour!
+    var color : Color!
     
     @IBOutlet weak var coloredView: UIView!
     
@@ -31,28 +31,28 @@ class RGBViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        print("  RGB VC ", #function, mainVC ?? "OHHHHHH 404")
-        colour = mainVC.colour
+        print("  RGB VC ", #function)
+        color = mainVC.color
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("  RGB VC ", #function, mainVC ?? "OHHHHHH 404")
+        print("  RGB VC ", #function)
         
         mainVC.rgbVC = self
         
-        redSlider.value = colour.red
-        greenSlider.value = colour.green
-        blueSlider.value = colour.blue
+        redSlider.value = color.red
+        greenSlider.value = color.green
+        blueSlider.value = color.blue
         
         fillAllTextFilds()
         
-        redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
-        greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
-        blueLabel.text = "Blue:    \(Double(Int(colour.blue*100))/100)"
+        redLabel.text = "Red:     \(Double(Int(color.red*100))/100)"
+        greenLabel.text = "Green: \(Double(Int(color.green*100))/100)"
+        blueLabel.text = "Blue:    \(Double(Int(color.blue*100))/100)"
         
-        coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
+        coloredView.backgroundColor = #colorLiteral(red: color.red, green: color.green, blue: color.blue, alpha:1)
         
         //добавление кнопки done на клавиатуру
         let keyboardToolBar = UIToolbar()
@@ -71,28 +71,28 @@ class RGBViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        print("  RGB VC ", #function, mainVC ?? "OHHHHHH 404")
+        print("  RGB VC ", #function)
         
         fillAllTextFilds()
         
-        redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
-        greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
-        blueLabel.text = "Blue:    \(Double(Int(colour.blue*100))/100)"
+        redLabel.text = "Red:     \(Double(Int(color.red*100))/100)"
+        greenLabel.text = "Green: \(Double(Int(color.green*100))/100)"
+        blueLabel.text = "Blue:    \(Double(Int(color.blue*100))/100)"
         
-        redSlider.value = colour.red
-        greenSlider.value = colour.green
-        blueSlider.value = colour.blue
+        redSlider.value = color.red
+        greenSlider.value = color.green
+        blueSlider.value = color.blue
         
-        coloredView.backgroundColor = UIColor(red: CGFloat(colour.red), green: CGFloat(colour.green), blue: CGFloat(colour.blue), alpha: 1)
+        coloredView.backgroundColor = UIColor(red: CGFloat(color.red), green: CGFloat(color.green), blue: CGFloat(color.blue), alpha: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        print("  RGB VC ", #function, mainVC ?? "OHHHHHH 404")
+        print("  RGB VC ", #function)
     }
     
     func transferColorToAnotherVC() { // пересылка значения цвета на другой вью
-        mainVC.colour = colour
+        mainVC.color = color
         mainVC.viewWillAppear(true)
     }
     
@@ -103,10 +103,19 @@ class RGBViewController: UIViewController {
     }
     
     func fillAllTextFilds() {
-        print("  RGB VC ", #function, colour)
-        redTextField.text = "\(Double(Int(colour.red*100))/100)"
-        greenTextField.text = "\(Double(Int(colour.green*100))/100)"
-        blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
+        print("  RGB VC ", #function)
+        redTextField.text = "\(Double(Int(color.red*100))/100)"
+        greenTextField.text = "\(Double(Int(color.green*100))/100)"
+        blueTextField.text = "\(Double(Int(color.blue*100))/100)"
+        setUserDefaults()
+    }
+    
+    
+    func setUserDefaults() {
+//        UserDefaults.standard.set(color.red, forKey: "redColor")
+//        UserDefaults.standard.set(color.green, forKey: "greenColor")
+//        UserDefaults.standard.set(color.blue, forKey: "blueColor")
+//        print("  RGB VC ", #function)
     }
     
     
@@ -123,33 +132,34 @@ class RGBViewController: UIViewController {
         case 1:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
-                colour.red = number
-                redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
-                redSlider.value = colour.red
-                redTextField.text = "\(Double(Int(colour.red*100))/100)"
+                color.red = number
+                redLabel.text = "Red:     \(Double(Int(color.red*100))/100)"
+                redSlider.value = color.red
+                redTextField.text = "\(Double(Int(color.red*100))/100)"
             }
         case 2:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
-                colour.green = number
-                greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
-                greenSlider.value = colour.green
-                greenTextField.text = "\(Double(Int(colour.green*100))/100)"
+                color.green = number
+                greenLabel.text = "Green: \(Double(Int(color.green*100))/100)"
+                greenSlider.value = color.green
+                greenTextField.text = "\(Double(Int(color.green*100))/100)"
             }
         case 3:
             guard let number = Float(sender.text!) else {return}
             if number >= 0 && number <= 1{
-                colour.blue = number
-                blueLabel.text = "Blue:    \(Double(Int(colour.blue*100))/100)"
-                blueSlider.value = colour.blue
-                blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
+                color.blue = number
+                blueLabel.text = "Blue:    \(Double(Int(color.blue*100))/100)"
+                blueSlider.value = color.blue
+                blueTextField.text = "\(Double(Int(color.blue*100))/100)"
             }
         default :
             break
         }
-        print("  RGB VC ", #function, colour)
-        coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
+        print("  RGB VC ", #function)
+        coloredView.backgroundColor = #colorLiteral(red: color.red, green: color.green, blue: color.blue, alpha:1)
         transferColorToAnotherVC()
+        setUserDefaults()
     }
     
     
@@ -157,22 +167,23 @@ class RGBViewController: UIViewController {
     @IBAction func sliderAction(_ sender: UISlider) {
         switch sender.tag {
         case 1:
-            colour.red = sender.value
-            redTextField.text = "\(Double(Int(colour.red*100))/100)"
-            redLabel.text = "Red:     \(Double(Int(colour.red*100))/100)"
+            color.red = sender.value
+            redTextField.text = "\(Double(Int(color.red*100))/100)"
+            redLabel.text = "Red:     \(Double(Int(color.red*100))/100)"
         case 2:
-            colour.green = sender.value
-            greenTextField.text = "\(Double(Int(colour.green*100))/100)"
-            greenLabel.text = "Green: \(Double(Int(colour.green*100))/100)"
+            color.green = sender.value
+            greenTextField.text = "\(Double(Int(color.green*100))/100)"
+            greenLabel.text = "Green: \(Double(Int(color.green*100))/100)"
         case 3:
-            colour.blue = sender.value
-            blueTextField.text = "\(Double(Int(colour.blue*100))/100)"
-            blueLabel.text = "Blue:    \(Double(Int(colour.blue*100))/100)"
+            color.blue = sender.value
+            blueTextField.text = "\(Double(Int(color.blue*100))/100)"
+            blueLabel.text = "Blue:    \(Double(Int(color.blue*100))/100)"
         default:
             break
         }
-        print("  RGB VC ", #function, colour)
-        coloredView.backgroundColor = #colorLiteral(red: colour.red, green: colour.green, blue: colour.blue, alpha:1)
+        print("  RGB VC ", #function)
+        coloredView.backgroundColor = #colorLiteral(red: color.red, green: color.green, blue: color.blue, alpha:1)
         transferColorToAnotherVC()
+        setUserDefaults()
     }
 }
