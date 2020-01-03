@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ish-jj-zlt">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Kings and Queens-->
+        <scene sceneID="WGf-7K-eOg">
+            <objects>
+                <tableViewController id="NnI-x4-csH" customClass="MainTableViewController" customModule="HW_22_3_Roman_Topchii_iOS_19_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3fZ-cg-G75">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PersonCellId" rowHeight="137" id="gLV-0S-VWc" customClass="PersonTableViewCell" customModule="HW_22_3_Roman_Topchii_iOS_19_2" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="137"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gLV-0S-VWc" id="enA-Lq-QmF">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="137"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bYg-Fx-9v1" userLabel="Person Image View">
+                                            <rect key="frame" x="4" y="4" width="120" height="129"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="r83-S8-d4U"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="L8E-Md-GFO" userLabel="Dynasty Image View">
+                                            <rect key="frame" x="290" y="4" width="120" height="129"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="HjL-Xc-wRG"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmC-Bg-CP0" userLabel="nameLable">
+                                            <rect key="frame" x="128" y="4" width="158" height="30.5"/>
+                                            <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dynastyLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chc-i2-UWD">
+                                            <rect key="frame" x="128" y="67.5" width="158" height="32"/>
+                                            <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="25"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="chc-i2-UWD" firstAttribute="leading" secondItem="bYg-Fx-9v1" secondAttribute="trailing" constant="4" id="0Vt-c7-tWE"/>
+                                        <constraint firstItem="L8E-Md-GFO" firstAttribute="top" secondItem="enA-Lq-QmF" secondAttribute="top" constant="4" id="DeA-Cc-hp5"/>
+                                        <constraint firstItem="L8E-Md-GFO" firstAttribute="leading" secondItem="chc-i2-UWD" secondAttribute="trailing" constant="4" id="JYV-tK-8cG"/>
+                                        <constraint firstAttribute="bottom" secondItem="L8E-Md-GFO" secondAttribute="bottom" constant="4" id="P50-Ew-mmy"/>
+                                        <constraint firstAttribute="bottom" secondItem="bYg-Fx-9v1" secondAttribute="bottom" constant="4" id="QOG-gR-HRC"/>
+                                        <constraint firstItem="QmC-Bg-CP0" firstAttribute="top" secondItem="enA-Lq-QmF" secondAttribute="top" constant="4" id="XGR-zL-cON"/>
+                                        <constraint firstItem="bYg-Fx-9v1" firstAttribute="top" secondItem="enA-Lq-QmF" secondAttribute="top" constant="4" id="YRR-wW-Pqg"/>
+                                        <constraint firstItem="bYg-Fx-9v1" firstAttribute="leading" secondItem="enA-Lq-QmF" secondAttribute="leading" constant="4" id="d5m-FW-Rrd"/>
+                                        <constraint firstItem="chc-i2-UWD" firstAttribute="top" secondItem="QmC-Bg-CP0" secondAttribute="bottom" constant="33" id="hIG-6P-mzm"/>
+                                        <constraint firstAttribute="trailing" secondItem="L8E-Md-GFO" secondAttribute="trailing" constant="4" id="je5-zA-P0h"/>
+                                        <constraint firstItem="QmC-Bg-CP0" firstAttribute="leading" secondItem="bYg-Fx-9v1" secondAttribute="trailing" constant="4" id="nNA-jz-mA1"/>
+                                        <constraint firstItem="L8E-Md-GFO" firstAttribute="leading" secondItem="QmC-Bg-CP0" secondAttribute="trailing" constant="4" id="wjO-U4-3nZ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dynastyLabel" destination="chc-i2-UWD" id="ciR-fy-K79"/>
+                                    <outlet property="dynastyLogoImage" destination="L8E-Md-GFO" id="pS1-uv-59I"/>
+                                    <outlet property="nameLabel" destination="QmC-Bg-CP0" id="4Sl-5Y-3zO"/>
+                                    <outlet property="photoImage" destination="bYg-Fx-9v1" id="ZZW-sM-qVo"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="NnI-x4-csH" id="J1q-fP-8b8"/>
+                            <outlet property="delegate" destination="NnI-x4-csH" id="6Ei-c8-cdm"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Kings and Queens" id="84P-da-lsV"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UBt-sK-nBK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-239.13043478260872" y="28.794642857142854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FgO-u1-vSg">
+            <objects>
+                <navigationController id="Ish-jj-zlt" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kiW-Wq-ldX">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="NnI-x4-csH" kind="relationship" relationship="rootViewController" id="Xle-zO-BLb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LAw-4I-XBA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1157" y="29"/>
+        </scene>
+    </scenes>
+</document>
