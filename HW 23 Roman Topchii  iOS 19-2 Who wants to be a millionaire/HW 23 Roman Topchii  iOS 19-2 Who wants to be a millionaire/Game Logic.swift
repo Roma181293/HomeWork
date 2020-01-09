@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Question: Hashable{
-    var wording : String
+struct Question{
+    var question : String
     var answers : [String]
     var correctAnswer : Int
 }
@@ -18,33 +18,49 @@ struct Question: Hashable{
 class Game {
     
     var questionList : [Question]
-    var lastquestionIndex : Int = 0
+    var currentQuestionIndex : Int = 0
+    let prize : [Int] = [500,1000,2000,3000,5000,10000,15000,25000,50000,100000,200000,400000,800000,1000000]
     var gameOver : Bool = false
     
     
     init(questionList : [Question]) {
+        print("Start game")
         self.questionList = questionList
     }
     
     
     func askQuestion() -> Question? {
+         print(#function, currentQuestionIndex)
         if gameOver == false {
-            return questionList[lastquestionIndex]
+            print(questionList[currentQuestionIndex])
+            return questionList[currentQuestionIndex]
         }
         else {
+            print("Game over. There is no more questions!!")
             return nil
         }
     }
     
     
-    func chechAnswer (userAnswer : Int) -> Bool {
-        if userAnswer == questionList[lastquestionIndex].correctAnswer {
-            lastquestionIndex += 1
-            return true
+    func checkAnswer (userAnswer : Int) -> (correctAnsver : Bool, gameOver : Bool) {
+        
+        if userAnswer == questionList[currentQuestionIndex].correctAnswer {
+            print("Correct answer")
+            currentQuestionIndex += 1
+
+            if currentQuestionIndex >= questionList.count {
+                gameOver = true
+                currentQuestionIndex -= 1
+            }
+            print(#function, currentQuestionIndex,gameOver)
+            return (true,gameOver)
         }
         else {
             gameOver = true
-            return false
+            print("Wrong answer")
+            return (false,gameOver)
         }
     }
+    
+    
 }

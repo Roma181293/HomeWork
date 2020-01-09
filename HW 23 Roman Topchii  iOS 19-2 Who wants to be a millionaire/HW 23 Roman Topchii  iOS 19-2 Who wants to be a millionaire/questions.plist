@@ -2,13 +2,31 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<array>
-		<string>Question</string>
-		<string>Ans1</string>
-		<string>блабла</string>
-		<string>Ans3</string>
-		<string>Ans4</string>
-		<integer>0</integer>
-	</array>
+	<dict>
+		<key>question</key>
+		<string>Какого химического вещества не существует?</string>
+		<key>arswerArray</key>
+		<array>
+			<string>Кислород</string>
+			<string>Водород</string>
+			<string>Винирод</string>
+			<string>Углерод</string>
+		</array>
+		<key>correctAnswerIndex</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>question</key>
+		<string>Какой пигмент окрашивает листья в зеленый цвет?</string>
+		<key>arswerArray</key>
+		<array>
+			<string>Каротин</string>
+			<string>Хлорофил</string>
+			<string>Антоциан</string>
+			<string>Танин</string>
+		</array>
+		<key>correctAnswerIndex</key>
+		<integer>1</integer>
+	</dict>
 </array>
 </plist>

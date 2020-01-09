@@ -20,7 +20,7 @@
                                 <state key="normal" title="Новая игра"/>
                                 <connections>
                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MDj-z8-0I2"/>
-                                    <segue destination="SO2-jF-6Va" kind="show" id="r5d-Rw-QH7"/>
+                                    <segue destination="SO2-jF-6Va" kind="show" identifier="goToQuestionVC" id="r5d-Rw-QH7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mr-Hj-QCW">
@@ -31,13 +31,6 @@
                                     <segue destination="Qpf-0h-6UB" kind="show" id="LZh-tg-0O6"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J39-Jz-PBD">
-                                <rect key="frame" x="50" y="133" width="241" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -49,18 +42,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="o4y-DV-Olj"/>
-                    <connections>
-                        <outlet property="textlabel" destination="J39-Jz-PBD" id="nWl-FO-KzV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Question View Controller-->
         <scene sceneID="fug-uf-33y">
             <objects>
-                <viewController id="SO2-jF-6Va" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionStoryboard_ID" id="SO2-jF-6Va" customClass="QuestionViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PFp-if-eUd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,21 +89,27 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d7v-hW-eG6">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="128"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtZ-oq-ulH">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtZ-oq-ulH">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="60"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="hIx-ei-D4b"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="giveTheAnswer:" destination="SO2-jF-6Va" eventType="touchUpInside" id="9Rp-bX-wwe"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-O0-iU1">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-O0-iU1">
                                                 <rect key="frame" x="0.0" y="68" width="183" height="60"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="rm9-gT-n8w"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="giveTheAnswer:" destination="SO2-jF-6Va" eventType="touchUpInside" id="SJb-Z1-Vxm"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -121,21 +117,27 @@
                                         <rect key="frame" x="191" y="0.0" width="183" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-E4-7l3">
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Krr-E4-7l3">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="60"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="wEz-HN-usP"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="giveTheAnswer:" destination="SO2-jF-6Va" eventType="touchUpInside" id="MAX-E4-xzJ"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1A-S3-69a">
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1A-S3-69a">
                                                 <rect key="frame" x="0.0" y="68" width="183" height="60"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="7Ws-RD-Jfq"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="giveTheAnswer:" destination="SO2-jF-6Va" eventType="touchUpInside" id="w2y-kX-ayM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <viewLayoutGuide key="safeArea" id="cxX-fg-EYn"/>
@@ -164,15 +166,22 @@
                         <viewLayoutGuide key="safeArea" id="C0O-F1-V0G"/>
                     </view>
                     <navigationItem key="navigationItem" id="EzQ-XF-8Ma"/>
+                    <connections>
+                        <outlet property="firstAnswer" destination="JtZ-oq-ulH" id="fsG-X4-1CF"/>
+                        <outlet property="fourthAnswer" destination="c1A-S3-69a" id="b72-bh-htv"/>
+                        <outlet property="question" destination="I3x-in-M9P" id="MYS-Tw-zxv"/>
+                        <outlet property="secondAnswer" destination="fH0-O0-iU1" id="nxn-Au-gyw"/>
+                        <outlet property="thirdAnswer" destination="Krr-E4-7l3" id="JNV-f8-5im"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5Q-aZ-1OT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="960.86956521739137" y="117.85714285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Choose View Controller-->
         <scene sceneID="6Du-Tt-9XA">
             <objects>
-                <viewController id="iId-m5-Bj2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseVC_ID" id="iId-m5-Bj2" customClass="ChooseViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IP0-kW-9Jg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,14 +190,14 @@
                                 <rect key="frame" x="136" y="383" width="142" height="30"/>
                                 <state key="normal" title="Следующий вопрос"/>
                                 <connections>
-                                    <segue destination="SO2-jF-6Va" kind="show" id="dAt-kZ-7De"/>
+                                    <segue destination="SO2-jF-6Va" kind="show" identifier="goToQuestionVC" id="dAt-kZ-7De"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iU-ML-9Tk">
                                 <rect key="frame" x="151" y="483" width="112" height="30"/>
                                 <state key="normal" title="Забрать деньги"/>
                                 <connections>
-                                    <segue destination="iqI-YL-G3I" kind="show" id="9ue-BJ-AGr"/>
+                                    <segue destination="iqI-YL-G3I" kind="show" identifier="goToWinVC" id="9ue-BJ-AGr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы уже выиграли" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU3-es-Nuc">
@@ -209,10 +218,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1PY-t8-Ve8"/>
                     </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="wU3-es-Nuc" id="ovi-2D-YhZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dxm-nU-fih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1784" y="118"/>
+            <point key="canvasLocation" x="1782.608695652174" y="117.85714285714285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S3X-dm-2Ku">
@@ -279,10 +291,10 @@
             </objects>
             <point key="canvasLocation" x="961" y="848"/>
         </scene>
-        <!--View Controller-->
+        <!--Win View Controller-->
         <scene sceneID="XXe-br-DeL">
             <objects>
-                <viewController id="iqI-YL-G3I" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WinVC_ID" id="iqI-YL-G3I" customClass="WinViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I9I-SS-0iu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -311,6 +323,9 @@
                         <viewLayoutGuide key="safeArea" id="IGZ-CJ-zX9"/>
                     </view>
                     <navigationItem key="navigationItem" id="3Cp-N4-Ld4"/>
+                    <connections>
+                        <outlet property="winLabel" destination="uvv-ZL-D9R" id="EFD-bg-Lau"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kub-vh-4WO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -337,7 +352,7 @@
         <!--View Controller-->
         <scene sceneID="m9q-5j-pXK">
             <objects>
-                <viewController id="CGo-pN-oHd" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LooseVC_ID" id="CGo-pN-oHd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Ww-ei-HCX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -376,7 +391,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r5d-Rw-QH7"/>
-        <segue reference="bWa-4q-ueO"/>
+        <segue reference="dAt-kZ-7De"/>
+        <segue reference="8Kh-bN-sJX"/>
     </inferredMetricsTieBreakers>
 </document>

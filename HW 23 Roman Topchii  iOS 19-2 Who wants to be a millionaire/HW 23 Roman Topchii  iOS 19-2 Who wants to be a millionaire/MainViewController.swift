@@ -26,8 +26,6 @@ class MainViewController: UIViewController {
     
     @IBAction func newGame(_ sender: Any) {
         game = Game (questionList: readFromQuestionsList())
-        var question = game.askQuestion()
-        textlabel.text = question?.answers[1]
     }
     
     func readFromQuestionsList() -> [Question] {
@@ -42,21 +40,19 @@ class MainViewController: UIViewController {
         
         if let questionsArrayFromPList = myArray {
             for question in questionsArrayFromPList {
-                let questionItem  = question as! Array<Any> //приведение к типу массива<Any>
+                let questionItem  = question as! Dictionary<String, Any> //приведение к типу массива<Any>
                 
-                let wording: String = questionItem[0] as! String
+                let question: String = questionItem["question"] as! String
                 
-                var answers:[String] = []
-                for index in 1...4 {
-                    answers.append(questionItem[index] as! String)
-                }
+                let answers : [String] = questionItem["arswerArray"] as! [String]
                 
-                let correctAnswer: Int = questionItem[5] as! Int
-                questionsArray.append(Question(wording: wording, answers: answers, correctAnswer: correctAnswer))
+                let correctAnswerIndex: Int = questionItem["correctAnswerIndex"] as! Int
+                
+                questionsArray.append(Question(question: question, answers: answers, correctAnswer: correctAnswerIndex))
             }
             
         }
-        print(questionsArray)
+     //   print(questionsArray)
         
         return questionsArray
     }
@@ -71,20 +67,19 @@ class MainViewController: UIViewController {
     
     
      // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
         
-        
-        
-        
-        
-        
-        
-        
-     }
-     
+        if segue.identifier == "goToQuestionVC" {
+            if let vc : QuestionViewController = segue.destination as? QuestionViewController {
+                vc.game = game
+                
+            }
+        }
+    }
+    
     
 }

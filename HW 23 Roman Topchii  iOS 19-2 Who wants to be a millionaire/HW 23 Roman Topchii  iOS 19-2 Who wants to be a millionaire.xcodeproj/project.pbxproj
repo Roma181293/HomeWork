@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3048B37D23C6706D002FA29B /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048B37C23C6706D002FA29B /* ChooseViewController.swift */; };
+		3048B37F23C7BCE4002FA29B /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048B37E23C7BCE4002FA29B /* WinViewController.swift */; };
 		3084FEB623BF63B000DB1D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FEB523BF63B000DB1D9C /* AppDelegate.swift */; };
 		3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */; };
 		3084FEBD23BF63B000DB1D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEBB23BF63B000DB1D9C /* Main.storyboard */; };
@@ -15,9 +17,12 @@
 		30AAD58023BF76E6008DB4BE /* Game Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD57F23BF76E6008DB4BE /* Game Logic.swift */; };
 		30AAD58223BF799C008DB4BE /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AAD58123BF799C008DB4BE /* questions.plist */; };
 		30AAD58623BFD863008DB4BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD58523BFD863008DB4BE /* MainViewController.swift */; };
+		30F8B3AE23C62A0300A53ACB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3048B37C23C6706D002FA29B /* ChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
+		3048B37E23C7BCE4002FA29B /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		3084FEB223BF63B000DB1D9C /* HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3084FEB523BF63B000DB1D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -28,6 +33,7 @@
 		30AAD57F23BF76E6008DB4BE /* Game Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game Logic.swift"; sourceTree = "<group>"; };
 		30AAD58123BF799C008DB4BE /* questions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
 		30AAD58523BFD863008DB4BE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +68,12 @@
 			children = (
 				3084FEB523BF63B000DB1D9C /* AppDelegate.swift */,
 				3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */,
-				30AAD58523BFD863008DB4BE /* MainViewController.swift */,
-				3084FEBB23BF63B000DB1D9C /* Main.storyboard */,
 				30AAD57F23BF76E6008DB4BE /* Game Logic.swift */,
+				30AAD58523BFD863008DB4BE /* MainViewController.swift */,
+				30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */,
+				3048B37C23C6706D002FA29B /* ChooseViewController.swift */,
+				3048B37E23C7BCE4002FA29B /* WinViewController.swift */,
+				3084FEBB23BF63B000DB1D9C /* Main.storyboard */,
 				3084FEBE23BF63B300DB1D9C /* Assets.xcassets */,
 				3084FEC023BF63B300DB1D9C /* LaunchScreen.storyboard */,
 				3084FEC323BF63B300DB1D9C /* Info.plist */,
@@ -146,9 +155,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3084FEB623BF63B000DB1D9C /* AppDelegate.swift in Sources */,
+				30F8B3AE23C62A0300A53ACB /* QuestionViewController.swift in Sources */,
 				3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */,
 				30AAD58023BF76E6008DB4BE /* Game Logic.swift in Sources */,
+				3048B37F23C7BCE4002FA29B /* WinViewController.swift in Sources */,
 				30AAD58623BFD863008DB4BE /* MainViewController.swift in Sources */,
+				3048B37D23C6706D002FA29B /* ChooseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
