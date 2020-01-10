@@ -46,23 +46,25 @@ class QuestionViewController: UIViewController {
     @IBAction func giveTheAnswer(_ sender: UIButton) {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        
+        game?.addToHistory(userAnswer: sender.tag-1)
         if (game?.checkAnswer(userAnswer: sender.tag-1))! == (true,false) {
             let chooseViewController = storyBoard.instantiateViewController(withIdentifier: "ChooseVC_ID") as! ChooseViewController
             chooseViewController.game = game
             self.present(chooseViewController, animated:true, completion:nil)
         }
-            else  if (game?.checkAnswer(userAnswer: sender.tag-1))! == (true,true) {
-                let winViewController = storyBoard.instantiateViewController(withIdentifier: "WinVC_ID") as! WinViewController
+        else  if (game?.checkAnswer(userAnswer: sender.tag-1))! == (true,true) {
+            let winViewController = storyBoard.instantiateViewController(withIdentifier: "WinVC_ID") as! WinViewController
+            game?.saveResults()
             winViewController.game = game
-                self.present(winViewController, animated:true, completion:nil)
-            }
+            self.present(winViewController, animated:true, completion:nil)
+        }
         else  if (game?.checkAnswer(userAnswer: sender.tag-1))! == (false,true) {
             let looseViewController = storyBoard.instantiateViewController(withIdentifier: "LooseVC_ID")
+            game?.saveResults()
             game = nil
             self.present(looseViewController, animated:true, completion:nil)
-            
         }
+        
         
     }
     

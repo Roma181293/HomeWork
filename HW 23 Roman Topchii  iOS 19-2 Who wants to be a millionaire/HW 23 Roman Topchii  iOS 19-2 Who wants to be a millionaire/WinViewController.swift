@@ -17,12 +17,12 @@ class WinViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(game)
         if let index = game?.currentQuestionIndex {
             if let prize  = game?.prize[index] {
                 winLabel.text = "Поздравляем! Вы выиграли \(prize) грн. Введите номер вашей карты ниже и мы перешлем их Вам!"
             }
         }
+        game = nil
     }
     
 

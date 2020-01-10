@@ -18,7 +18,7 @@ class ChooseViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         if let currentQuestionIndex = game?.currentQuestionIndex {
-            if let prize = game?.prize[currentQuestionIndex-1]{
+            if let prize = game?.prize[currentQuestionIndex]{
                 messageLabel.text = "Вы уже выиграли \(prize)грн."
             }
         }
@@ -34,12 +34,16 @@ class ChooseViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "goToQuestionVC" {
             if let questionVC : QuestionViewController = segue.destination as? QuestionViewController {
+                if game?.gameOver == false {
+                    game?.nextQuestion()
+                }
                 questionVC.game = game
                 
             }
         }
         if segue.identifier == "goToWinVC" {
             if let winVC : WinViewController = segue.destination as? WinViewController {
+                game?.saveResults()
                 winVC.game = game
                 
             }

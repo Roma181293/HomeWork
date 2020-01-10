@@ -14,6 +14,8 @@
 		3084FEBD23BF63B000DB1D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEBB23BF63B000DB1D9C /* Main.storyboard */; };
 		3084FEBF23BF63B300DB1D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEBE23BF63B300DB1D9C /* Assets.xcassets */; };
 		3084FEC223BF63B300DB1D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEC023BF63B300DB1D9C /* LaunchScreen.storyboard */; };
+		30A5CBD823C8671D0095213A /* GameArchiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */; };
+		30A5CBDC23C8D4080095213A /* ArchiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5CBDB23C8D4080095213A /* ArchiveTableViewCell.swift */; };
 		30AAD58023BF76E6008DB4BE /* Game Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD57F23BF76E6008DB4BE /* Game Logic.swift */; };
 		30AAD58223BF799C008DB4BE /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AAD58123BF799C008DB4BE /* questions.plist */; };
 		30AAD58623BFD863008DB4BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD58523BFD863008DB4BE /* MainViewController.swift */; };
@@ -30,6 +32,8 @@
 		3084FEBE23BF63B300DB1D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3084FEC123BF63B300DB1D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3084FEC323BF63B300DB1D9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameArchiveTableViewController.swift; sourceTree = "<group>"; };
+		30A5CBDB23C8D4080095213A /* ArchiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewCell.swift; sourceTree = "<group>"; };
 		30AAD57F23BF76E6008DB4BE /* Game Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game Logic.swift"; sourceTree = "<group>"; };
 		30AAD58123BF799C008DB4BE /* questions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
 		30AAD58523BFD863008DB4BE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */,
 				3048B37C23C6706D002FA29B /* ChooseViewController.swift */,
 				3048B37E23C7BCE4002FA29B /* WinViewController.swift */,
+				30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */,
+				30A5CBDB23C8D4080095213A /* ArchiveTableViewCell.swift */,
 				3084FEBB23BF63B000DB1D9C /* Main.storyboard */,
 				3084FEBE23BF63B300DB1D9C /* Assets.xcassets */,
 				3084FEC023BF63B300DB1D9C /* LaunchScreen.storyboard */,
@@ -156,6 +162,8 @@
 			files = (
 				3084FEB623BF63B000DB1D9C /* AppDelegate.swift in Sources */,
 				30F8B3AE23C62A0300A53ACB /* QuestionViewController.swift in Sources */,
+				30A5CBD823C8671D0095213A /* GameArchiveTableViewController.swift in Sources */,
+				30A5CBDC23C8D4080095213A /* ArchiveTableViewCell.swift in Sources */,
 				3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */,
 				30AAD58023BF76E6008DB4BE /* Game Logic.swift in Sources */,
 				3048B37F23C7BCE4002FA29B /* WinViewController.swift in Sources */,

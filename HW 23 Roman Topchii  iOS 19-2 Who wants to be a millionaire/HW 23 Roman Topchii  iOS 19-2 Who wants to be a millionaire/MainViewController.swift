@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var game : Game!
+    var game : Game?
     
     @IBOutlet weak var textlabel : UILabel!
     
@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+      
     }
     
     
