@@ -9,7 +9,7 @@
 import UIKit
 
 class ChooseViewController: UIViewController {
-    weak var game : Game?
+    var game : Game! = Game.share
     
     
     @IBOutlet weak var messageLabel: UILabel!
@@ -17,10 +17,12 @@ class ChooseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        if let currentQuestionIndex = game?.currentQuestionIndex {
-            if let prize = game?.prize[currentQuestionIndex]{
-                messageLabel.text = "Вы уже выиграли \(prize)грн."
-            }
+        
+        self.navigationController?.isNavigationBarHidden = true
+//        self.modalPresentationStyle = .fullScreen
+        
+        if let prize = game?.prize(){
+            messageLabel.text = "Вы уже выиграли \(prize)грн."
         }
     }
     
@@ -34,21 +36,16 @@ class ChooseViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "goToQuestionVC" {
             if let questionVC : QuestionViewController = segue.destination as? QuestionViewController {
-                if game?.gameOver == false {
-                    game?.nextQuestion()
+                if game.gameStatus() == false {
+                    game.nextQuestion()
                 }
-                questionVC.game = game
-                
             }
         }
         if segue.identifier == "goToWinVC" {
             if let winVC : WinViewController = segue.destination as? WinViewController {
-                game?.saveResults()
-                winVC.game = game
-                
+                game.saveResults()
             }
         }
-        
     }
     
     

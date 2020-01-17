@@ -9,7 +9,7 @@
 import UIKit
 
 class WinViewController: UIViewController {
-    weak var game : Game?
+    var game : Game! = Game.share
     
     @IBOutlet weak var winLabel: UILabel!
     
@@ -17,12 +17,12 @@ class WinViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let index = game?.currentQuestionIndex {
-            if let prize  = game?.prize[index] {
+        
+        self.navigationController?.isNavigationBarHidden = true
+
+            if let prize  = game?.prize() {
                 winLabel.text = "Поздравляем! Вы выиграли \(prize) грн. Введите номер вашей карты ниже и мы перешлем их Вам!"
             }
-        }
-        game = nil
     }
     
 

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>question</key>
+		<string>Какого химического вещества не существует?</string>
+		<key>arswerArray</key>
+		<array>
+			<string>Кислород</string>
+			<string>Водород</string>
+			<string>Винирод</string>
+			<string>Углерод</string>
+		</array>
+		<key>correctAnswerIndex</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>question</key>
+		<string>Какой пигмент окрашивает листья в зеленый цвет?</string>
+		<key>arswerArray</key>
+		<array>
+			<string>Каротин</string>
+			<string>Хлорофил</string>
+			<string>Антоциан</string>
+			<string>Танин</string>
+		</array>
+		<key>correctAnswerIndex</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>question</key>
+		<string>После каких слов Шерлока Холмса обычно прозревал доктор Ватсон?</string>
+		<key>arswerArray</key>
+		<array>
+			<string>Однозначно</string>
+			<string>Упал-отжался</string>
+			<string>Элементарно</string>
+			<string>Совершенно понятно</string>
+		</array>
+		<key>correctAnswerIndex</key>
+		<integer>2</integer>
+	</dict>
+	<dict>
+		<key>question</key>
+		<string>Как называется документ, содержащий первые 10 поправок к Конституции США ?</string>
+		<key>arswerArray</key>
+		<array>
+			<string>&quot;Билль о правах&quot;</string>
+			<string>&quot;Бойль о правах&quot;</string>
+			<string>&quot;Булль о правах&quot;</string>
+			<string>&quot;Билл о правах&quot;</string>
+		</array>
+		<key>correctAnswerIndex</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>question</key>
+		<string>Сколько оленей везут Санта-Клауса?</string>
+		<key>arswerArray</key>
+		<array>
+			<string>2</string>
+			<string>4</string>
+			<string>6</string>
+			<string>8</string>
+		</array>
+		<key>correctAnswerIndex</key>
+		<integer>3</integer>
+	</dict>
+	<dict>
+		<key>question</key>
+		<string>Какой валюты не существует?</string>
+		<key>arswerArray</key>
+		<array>
+			<string>Леки</string>
+			<string>Лиры</string>
+			<string>Фрунки</string>
+			<string>Форинты</string>
+		</array>
+		<key>correctAnswerIndex</key>
+		<integer>2</integer>
+	</dict>
+</array>
+</plist>
