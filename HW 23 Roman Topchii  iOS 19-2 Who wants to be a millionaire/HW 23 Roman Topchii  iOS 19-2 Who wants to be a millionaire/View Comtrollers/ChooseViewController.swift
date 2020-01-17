@@ -19,7 +19,6 @@ class ChooseViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.navigationController?.isNavigationBarHidden = true
-//        self.modalPresentationStyle = .fullScreen
         
         if let prize = game?.prize(){
             messageLabel.text = "Вы уже выиграли \(prize)грн."

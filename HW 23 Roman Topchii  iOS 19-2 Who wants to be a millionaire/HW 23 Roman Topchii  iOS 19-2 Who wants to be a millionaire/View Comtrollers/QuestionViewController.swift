@@ -12,6 +12,8 @@ class QuestionViewController: UIViewController {
     
     var game : Game! = Game.share
     
+    var globalTimer: Timer?
+    var counter : Int = 0
     
     @IBOutlet weak var question: UILabel!
     
@@ -49,9 +51,9 @@ class QuestionViewController: UIViewController {
             changeButtonBackgroundColour(buttonNumber: friendHelp, to : .magenta)
         }
         else {
-            let alert2 = UIAlertController(title: "Думайте сами!", message: "Вы уже воспользовались помощью друга", preferredStyle: UIAlertController.Style.alert)
-            alert2.addAction(UIAlertAction(title: "Хорошо", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert2, animated: true, completion: nil)
+            let alert = UIAlertController(title: "Думайте сами!", message: "Вы уже воспользовались помощью друга", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Хорошо", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -81,16 +83,35 @@ class QuestionViewController: UIViewController {
         }
     }
     
+//  FIXME: timer
+//    @objc func doStrangeAction() {
+//        if counter < 3{
+//            counter += 1
+//        }
+//        else {
+//            self.globalTimer?.invalidate()
+//            self.globalTimer = nil
+//        }
+//    }
+    
     @IBAction func giveTheAnswer(_ sender: UIButton) {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
         game.addToHistory(userAnswer: sender.tag-1)
         
         let result = game.checkAnswer(userAnswer: sender.tag-1)
         
+        firstAnswer.backgroundColor = UIColor.red
+        secondAnswer.backgroundColor = UIColor.red
+        thirdAnswer.backgroundColor = UIColor.red
+        fourthAnswer.backgroundColor = UIColor.red
         
-        
-        
+        changeButtonBackgroundColour(buttonNumber: result.correctAnswerIndex, to : .green)
+//  FIXME: timer
+//        let localTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.doStrangeAction), userInfo: nil, repeats: true)
+//        self.globalTimer = localTimer
+//
         
         if result.correctAnswer == true && result.gameOver == false {
             let chooseViewController = storyBoard.instantiateViewController(withIdentifier: "ChooseVC_ID") as! ChooseViewController
