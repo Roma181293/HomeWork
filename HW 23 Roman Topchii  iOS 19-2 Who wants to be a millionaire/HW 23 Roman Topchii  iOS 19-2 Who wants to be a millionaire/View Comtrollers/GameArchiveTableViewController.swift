@@ -32,6 +32,10 @@ class GameArchiveTableViewController: UITableViewController {
     }
     
     
+    @IBAction func clearArchive() {
+        archive.clearAll()
+        tableView.reloadData()
+    }
     
     
     

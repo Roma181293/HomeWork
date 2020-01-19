@@ -130,6 +130,10 @@ class Game {
         return gameOver
     }
     
+    func canGetHelp() -> (audience : Bool, friend : Bool) {
+        return (audienceIsAlredyHelpt, friendIsAlredyHelpt)
+    }
+    
     func readFromQuestionsList() -> [Question] {
         print("Game",#function)
         //Чтение массива из файлов ресурсов Questions.plist
@@ -161,7 +165,12 @@ class Game {
     func saveResults() {
         print("Game",#function)
         
-        let newRecord : [String : Any] = ["date" : "\(Date())","answers" : answersForAskedQuestions, "questions" : askedQuestions, "looseGame"  : looseGame, "prize" : currentPrize, "numberOfAskedQuestions" : askedQuestions.count]
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy HH:mm"
+        let dateString = dateFormatter.string(from:date as Date)
+        
+        let newRecord : [String : Any] = ["date" : dateString,"answers" : answersForAskedQuestions, "questions" : askedQuestions, "looseGame"  : looseGame, "prize" : currentPrize, "numberOfAskedQuestions" : askedQuestions.count]
         
         //запиcать ответы играка в plist
         //получение папки Documents

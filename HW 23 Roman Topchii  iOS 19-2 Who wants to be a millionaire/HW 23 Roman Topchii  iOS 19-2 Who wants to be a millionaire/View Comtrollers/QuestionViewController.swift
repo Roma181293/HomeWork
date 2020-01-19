@@ -22,6 +22,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var thirdAnswer: UIButton!
     @IBOutlet weak var fourthAnswer: UIButton!
     
+    @IBOutlet weak var friendCall: UIButton!
+    @IBOutlet weak var audienceHelp: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,30 +43,34 @@ class QuestionViewController: UIViewController {
             fourthAnswer.setTitle("d) "+levelQuestion.answers[3], for: .normal)
         }
         else {
-            question.text = "что-то пошло не так"
+            let alert = UIAlertController(title: "Ошибка", message: "Что-то пошло не так при загрузке вопросов", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Окей", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         }
+        
+        
+        if game.canGetHelp().friend == true {
+            friendCall.isUserInteractionEnabled = false
+        }
+        
+        if game.canGetHelp().audience == true {
+            audienceHelp.isUserInteractionEnabled = false
+        }
+        
         
     }
     
-    @IBAction func callFriendAction(_ sender: Any) {
+    @IBAction func callFriendAction(_ sender: UIButton) {
         if let friendHelp = game.callFriend() {
             changeButtonBackgroundColour(buttonNumber: friendHelp, to : .magenta)
-        }
-        else {
-            let alert = UIAlertController(title: "Думайте сами!", message: "Вы уже воспользовались помощью друга", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Хорошо", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            sender.isUserInteractionEnabled = false
         }
     }
     
-    @IBAction func audienceHelpAction(_ sender: Any) {
+    @IBAction func audienceHelpAction(_ sender: UIButton) {
         if let audienceHelp = game.askForAudienceHelp() {
             changeButtonBackgroundColour(buttonNumber: audienceHelp, to : .orange)
-        }
-        else {
-            let alert = UIAlertController(title: "Думайте сами!", message: "Вы уже воспользовались помощью зала", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Хорошо", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            sender.isUserInteractionEnabled = false
         }
     }
     
@@ -83,52 +89,42 @@ class QuestionViewController: UIViewController {
         }
     }
     
-//  FIXME: timer
-//    @objc func doStrangeAction() {
-//        if counter < 3{
-//            counter += 1
-//        }
-//        else {
-//            self.globalTimer?.invalidate()
-//            self.globalTimer = nil
-//        }
-//    }
-    
     @IBAction func giveTheAnswer(_ sender: UIButton) {
+        
+        self.view.isUserInteractionEnabled = false
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
         game.addToHistory(userAnswer: sender.tag-1)
-        
         let result = game.checkAnswer(userAnswer: sender.tag-1)
         
-        firstAnswer.backgroundColor = UIColor.red
-        secondAnswer.backgroundColor = UIColor.red
-        thirdAnswer.backgroundColor = UIColor.red
-        fourthAnswer.backgroundColor = UIColor.red
+        var deadlineTime =  DispatchTime.now() + 1
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+            self.firstAnswer.backgroundColor = UIColor.red
+            self.secondAnswer.backgroundColor = UIColor.red
+            self.thirdAnswer.backgroundColor = UIColor.red
+            self.fourthAnswer.backgroundColor = UIColor.red
+            self.changeButtonBackgroundColour(buttonNumber: result.correctAnswerIndex, to : .green)
+        })
         
-        changeButtonBackgroundColour(buttonNumber: result.correctAnswerIndex, to : .green)
-//  FIXME: timer
-//        let localTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.doStrangeAction), userInfo: nil, repeats: true)
-//        self.globalTimer = localTimer
-//
+        deadlineTime =  DispatchTime.now() + 3
         
-        if result.correctAnswer == true && result.gameOver == false {
-            let chooseViewController = storyBoard.instantiateViewController(withIdentifier: "ChooseVC_ID") as! ChooseViewController
-            navigationController?.pushViewController(chooseViewController, animated: true)
-        }
-        else  if result.correctAnswer == true && result.gameOver == true {
-            let winViewController = storyBoard.instantiateViewController(withIdentifier: "WinVC_ID") as! WinViewController
-            game.saveResults()
-            navigationController?.pushViewController(winViewController, animated: true)
-        }
-        else  if result.correctAnswer == false && result.gameOver == true {
-            let looseViewController = storyBoard.instantiateViewController(withIdentifier: "LooseVC_ID")
-            game.saveResults()
-            navigationController?.pushViewController(looseViewController, animated: true)
-        }
-        
-        
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+            if result.correctAnswer == true && result.gameOver == false {
+                let chooseViewController = storyBoard.instantiateViewController(withIdentifier: "ChooseVC_ID") as! ChooseViewController
+                self.navigationController?.pushViewController(chooseViewController, animated: true)
+            }
+            else  if result.correctAnswer == true && result.gameOver == true {
+                let winViewController = storyBoard.instantiateViewController(withIdentifier: "WinVC_ID") as! WinViewController
+                self.game.saveResults()
+                self.navigationController?.pushViewController(winViewController, animated: true)
+            }
+            else  if result.correctAnswer == false && result.gameOver == true {
+                let looseViewController = storyBoard.instantiateViewController(withIdentifier: "LooseVC_ID")
+                self.game.saveResults()
+                self.navigationController?.pushViewController(looseViewController, animated: true)
+            }
+        })
     }
     
     

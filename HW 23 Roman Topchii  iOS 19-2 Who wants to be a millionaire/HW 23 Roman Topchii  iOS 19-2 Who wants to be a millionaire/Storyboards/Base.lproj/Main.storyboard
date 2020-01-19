@@ -12,26 +12,32 @@
             <objects>
                 <viewController storyboardIdentifier="MainVC_ID" id="BYZ-38-t0r" customClass="MainViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-bL-z9d">
-                                <rect key="frame" x="166.5" y="383" width="81" height="30"/>
-                                <state key="normal" title="Новая игра"/>
+                                <rect key="frame" x="133" y="347.5" width="148" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Новая игра">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MDj-z8-0I2"/>
                                     <segue destination="SO2-jF-6Va" kind="show" identifier="goToQuestionVC" id="r5d-Rw-QH7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Q-NC-ZpW">
-                                <rect key="frame" x="123" y="483" width="168" height="30"/>
-                                <state key="normal" title="Архив предыдущих игр"/>
+                                <rect key="frame" x="53.5" y="447.5" width="307" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Архив предыдущих игр">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="dCd-cq-ndx" kind="show" id="M63-On-TQq"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xHH-bL-z9d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MFr-mR-ZjO"/>
                             <constraint firstItem="b8Q-NC-ZpW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="50" id="hRy-dP-Rd8"/>
@@ -51,56 +57,67 @@
             <objects>
                 <viewController storyboardIdentifier="QuestionStoryboard_ID" id="SO2-jF-6Va" customClass="QuestionViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PFp-if-eUd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhg-5m-pvj">
-                                <rect key="frame" x="175" y="288" width="64.5" height="20.5"/>
+                                <rect key="frame" x="175" y="200" width="64.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст вопроса" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3x-in-M9P">
-                                <rect key="frame" x="20" y="333.5" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="245.5" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yar-Sa-3RC">
-                                <rect key="frame" x="20" y="799" width="374" height="40"/>
+                                <rect key="frame" x="20" y="745" width="374" height="40"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mGR-bZ-Nn7"/>
                                 </constraints>
-                                <state key="normal" title="Помощь зала"/>
+                                <state key="normal" title="Помощь зала">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="audienceHelpAction:" destination="SO2-jF-6Va" eventType="touchUpInside" id="Acs-Mf-J70"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtL-Mu-fWq">
-                                <rect key="frame" x="20" y="751" width="374" height="40"/>
+                                <rect key="frame" x="20" y="697" width="374" height="40"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AL3-yY-FI3"/>
                                 </constraints>
-                                <state key="normal" title="Звонок другу"/>
+                                <state key="normal" title="Звонок другу">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="callFriendAction:" destination="SO2-jF-6Va" eventType="touchUpInside" id="QJl-eQ-5sq"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lfa-pr-kmT">
-                                <rect key="frame" x="20" y="607" width="374" height="128"/>
+                                <rect key="frame" x="20" y="553" width="374" height="128"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d7v-hW-eG6">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="128"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtZ-oq-ulH">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtZ-oq-ulH">
                                                 <rect key="frame" x="0.0" y="0.0" width="183" height="60"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="hIx-ei-D4b"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerradius">
+                                                        <integer key="value" value="50"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="giveTheAnswer:" destination="SO2-jF-6Va" eventType="touchUpInside" id="9Rp-bX-wwe"/>
                                                 </connections>
@@ -111,7 +128,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="rm9-gT-n8w"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="giveTheAnswer:" destination="SO2-jF-6Va" eventType="touchUpInside" id="SJb-Z1-Vxm"/>
                                                 </connections>
@@ -128,7 +147,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="wEz-HN-usP"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="giveTheAnswer:" destination="SO2-jF-6Va" eventType="touchUpInside" id="MAX-E4-xzJ"/>
                                                 </connections>
@@ -139,7 +160,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="7Ws-RD-Jfq"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="giveTheAnswer:" destination="SO2-jF-6Va" eventType="touchUpInside" id="w2y-kX-ayM"/>
                                                 </connections>
@@ -150,7 +173,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="C0O-F1-V0G" firstAttribute="trailing" secondItem="I3x-in-M9P" secondAttribute="trailing" constant="20" id="06c-N5-E1J"/>
                             <constraint firstItem="C0O-F1-V0G" firstAttribute="bottom" secondItem="yar-Sa-3RC" secondAttribute="bottom" constant="23" id="2Td-Li-H4z"/>
@@ -170,10 +193,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C0O-F1-V0G"/>
                     </view>
-                    <navigationItem key="navigationItem" id="EzQ-XF-8Ma"/>
                     <connections>
+                        <outlet property="audienceHelp" destination="yar-Sa-3RC" id="MQj-v7-dQa"/>
                         <outlet property="firstAnswer" destination="JtZ-oq-ulH" id="fsG-X4-1CF"/>
                         <outlet property="fourthAnswer" destination="c1A-S3-69a" id="b72-bh-htv"/>
+                        <outlet property="friendCall" destination="MtL-Mu-fWq" id="9oT-mu-zqq"/>
                         <outlet property="question" destination="I3x-in-M9P" id="MYS-Tw-zxv"/>
                         <outlet property="secondAnswer" destination="fH0-O0-iU1" id="nxn-Au-gyw"/>
                         <outlet property="thirdAnswer" destination="Krr-E4-7l3" id="JNV-f8-5im"/>
@@ -192,15 +216,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="row-mT-gb4">
-                                <rect key="frame" x="136" y="383" width="142" height="30"/>
-                                <state key="normal" title="Следующий вопрос"/>
+                                <rect key="frame" x="77" y="374.5" width="260" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Следующий вопрос">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="SO2-jF-6Va" kind="show" identifier="goToQuestionVC" id="dAt-kZ-7De"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iU-ML-9Tk">
-                                <rect key="frame" x="151" y="483" width="112" height="30"/>
-                                <state key="normal" title="Забрать деньги"/>
+                                <rect key="frame" x="104.5" y="474.5" width="205" height="47"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Забрать деньги">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="iqI-YL-G3I" kind="show" identifier="goToWinVC" id="9ue-BJ-AGr"/>
                                 </connections>
@@ -212,7 +242,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="5iU-ML-9Tk" firstAttribute="centerX" secondItem="IP0-kW-9Jg" secondAttribute="centerX" id="QGh-6e-0lT"/>
                             <constraint firstItem="wU3-es-Nuc" firstAttribute="centerX" secondItem="IP0-kW-9Jg" secondAttribute="centerX" id="Wmt-bd-7nk"/>
@@ -253,7 +283,7 @@
             <objects>
                 <tableViewController id="dCd-cq-ndx" customClass="GameArchiveTableViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kDA-3x-Uyg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -305,13 +335,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Игры. Архив" leftItemsSupplementBackButton="YES" id="OX5-NU-q77">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Wik-Kb-UDA">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cwe-VG-Wa8">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="uWa-cr-rb3">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3YG-ak-R34">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Clear All"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="clearTableView:" destination="dCd-cq-ndx" eventType="touchUpInside" id="FVG-LK-BLu"/>
+                                    <action selector="clearArchive" destination="dCd-cq-ndx" eventType="touchUpInside" id="oPL-wq-D69"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -338,7 +368,10 @@
                                     <constraint firstAttribute="height" constant="60" id="BaY-v1-OQA"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="44" id="YCx-gA-2o9"/>
                                 </constraints>
-                                <state key="normal" title="Ok"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="8Kh-bN-sJX"/>
                                 </connections>
@@ -350,7 +383,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="uvv-ZL-D9R" firstAttribute="top" secondItem="IGZ-CJ-zX9" secondAttribute="top" constant="150" id="Ihb-SO-Tpk"/>
                             <constraint firstItem="uvv-ZL-D9R" firstAttribute="leading" secondItem="IGZ-CJ-zX9" secondAttribute="leading" constant="20" id="Xck-NV-GDF"/>
@@ -374,17 +407,17 @@
             <objects>
                 <viewController storyboardIdentifier="DetailViewController_ID" id="Nfl-Ul-4Y9" customClass="DetailViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iz-a4-Dwb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="24" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWm-7r-Nsm">
-                                <rect key="frame" x="8" y="369" width="398" height="20.5"/>
+                                <rect key="frame" x="8" y="281" width="398" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Mt-519">
-                                <rect key="frame" x="8" y="218" width="398" height="21"/>
+                                <rect key="frame" x="8" y="130" width="398" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KAi-7t-dUI"/>
                                 </constraints>
@@ -432,8 +465,10 @@
                                     <constraint firstAttribute="height" constant="60" id="Cfm-C6-u3w"/>
                                     <constraint firstAttribute="width" constant="120" id="KXS-sU-TAT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                <state key="normal" title="OK"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="29"/>
+                                <state key="normal" title="OK">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" id="ru3-1Y-Yxj"/>
                                 </connections>
@@ -448,7 +483,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="KXw-Ib-QLX" firstAttribute="centerY" secondItem="Ip5-o4-7SN" secondAttribute="centerY" constant="-240" id="3fD-G1-siz"/>
                             <constraint firstItem="KXw-Ib-QLX" firstAttribute="centerX" secondItem="Ip5-o4-7SN" secondAttribute="centerX" id="Koi-mL-QPB"/>
@@ -464,7 +499,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r5d-Rw-QH7"/>
-        <segue reference="gcc-Y1-skk"/>
+        <segue reference="dAt-kZ-7De"/>
+        <segue reference="ru3-1Y-Yxj"/>
     </inferredMetricsTieBreakers>
 </document>

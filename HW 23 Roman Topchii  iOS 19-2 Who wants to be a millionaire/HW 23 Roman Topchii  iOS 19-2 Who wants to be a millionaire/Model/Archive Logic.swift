@@ -67,8 +67,9 @@ class Archive {
     
     
     
-    func removeAll() {
+    func clearAll() {
         print("Archive",#function)
+        archive = []
         NSArray(array : []).write(to: gameArchivePlistURL, atomically: true)
     }
     
