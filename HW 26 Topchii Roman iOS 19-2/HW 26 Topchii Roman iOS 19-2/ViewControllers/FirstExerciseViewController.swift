@@ -27,6 +27,15 @@ class FirstExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        usdBuy.text = ""
+        eurBuy.text = ""
+        rurBuy.text = ""
+        btcBuy.text = ""
+        
+        usdSale.text = ""
+        eurSale.text = ""
+        rurSale.text = ""
+        btcSale.text = ""
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"

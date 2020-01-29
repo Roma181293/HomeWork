@@ -11,11 +11,12 @@ import UIKit
 struct WeatherData {
     
     var cityName : String = "Connection Issue"
-    var temp : Double = 0
+    var temp : Int = 0
     var pressure : Double = 0
     var humidity : Double = 0
     var windSpeed : Double = 0
     var weatherIcon : String = ""
+    
     
     private var rabish = ""
     
@@ -26,7 +27,7 @@ struct WeatherData {
         self.weatherIcon = weather[0]["icon"] as! String
         
         let main = dict["main"] as! [String:Double]
-        self.temp = main["temp"]!
+        self.temp = Int(main["temp"]! - 273.15)
         self.pressure = main["pressure"]!
         self.humidity = main["humidity"]!
         

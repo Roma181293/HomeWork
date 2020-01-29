@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 class SecondExerciseViewController: UIViewController {
     
@@ -30,22 +31,32 @@ class SecondExerciseViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        datePicker.maximumDate = Date()
-        loadData(date : Date())
+        datePicker.maximumDate = date
+        
+        loadData(date : date)
     }
     
     
     @IBAction func changeDate(_ sender: UIDatePicker) {
-        datePicker.isUserInteractionEnabled = false
-        loadData(date : datePicker.date)
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        
+        let datePickerFormatedDate = dateFormatter.string(from:datePicker.date as Date)
+        let dateFormated = dateFormatter.string(from:date as Date)
+        
+        if dateFormated != datePickerFormatedDate {
+            date = datePicker.date
+            datePicker.isUserInteractionEnabled = false
+            loadData(date : datePicker.date)
+            
+            HUD.flash(.progress, delay: .infinity)
+        }
     }
     
     
     
     func loadData(date : Date){
-        
-       
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -88,19 +99,23 @@ class SecondExerciseViewController: UIViewController {
                             salePB += "\n"+item.salePB
                         }
                         self?.cur.text = cur
-                            self?.buyNB.text = buyNB
-                            self?.saleNB.text = saleNB
-                            self?.buyPB.text = buyPB
-                            self?.salePB.text = salePB
+                        self?.buyNB.text = buyNB
+                        self?.saleNB.text = saleNB
+                        self?.buyPB.text = buyPB
+                        self?.salePB.text = salePB
                         self?.datePicker.isUserInteractionEnabled = true
+                        HUD.hide()
+                        
                     }
                 }
                 else
                 {
                     print("json == nil")
+                    
                 }
             } catch let error {
                 print(error.localizedDescription)
+                
             }
         }
         task.resume()

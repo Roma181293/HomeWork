@@ -17,6 +17,7 @@
 		30B6C03723D60D3900FFAD2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30B6C03623D60D3900FFAD2B /* Assets.xcassets */; };
 		30B6C03A23D60D3900FFAD2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30B6C03823D60D3900FFAD2B /* LaunchScreen.storyboard */; };
 		30E7DDDC23DB932200D9C659 /* WeatherStructures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E7DDDB23DB932200D9C659 /* WeatherStructures.swift */; };
+		50296B39B50525D6FCC8CCC1 /* Pods_HW_26_Topchii_Roman_iOS_19_2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75AF80CC6457185DF70FB0CD /* Pods_HW_26_Topchii_Roman_iOS_19_2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,9 @@
 		30B6C03923D60D3900FFAD2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30B6C03B23D60D3900FFAD2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30E7DDDB23DB932200D9C659 /* WeatherStructures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherStructures.swift; sourceTree = "<group>"; };
+		75AF80CC6457185DF70FB0CD /* Pods_HW_26_Topchii_Roman_iOS_19_2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HW_26_Topchii_Roman_iOS_19_2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7A7B7B6D4AAC86495A938F7 /* Pods-HW 26 Topchii Roman iOS 19-2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW 26 Topchii Roman iOS 19-2.release.xcconfig"; path = "Target Support Files/Pods-HW 26 Topchii Roman iOS 19-2/Pods-HW 26 Topchii Roman iOS 19-2.release.xcconfig"; sourceTree = "<group>"; };
+		EEA5AF67F0249AD4430623CE /* Pods-HW 26 Topchii Roman iOS 19-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW 26 Topchii Roman iOS 19-2.debug.xcconfig"; path = "Target Support Files/Pods-HW 26 Topchii Roman iOS 19-2/Pods-HW 26 Topchii Roman iOS 19-2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50296B39B50525D6FCC8CCC1 /* Pods_HW_26_Topchii_Roman_iOS_19_2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +74,8 @@
 			children = (
 				30B6C02C23D60D3300FFAD2B /* HW 26 Topchii Roman iOS 19-2 */,
 				30B6C02B23D60D3300FFAD2B /* Products */,
+				5AAA01015FDD31890E3EF669 /* Pods */,
+				A8AD13B9D336087313CC26AF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +102,24 @@
 			path = "HW 26 Topchii Roman iOS 19-2";
 			sourceTree = "<group>";
 		};
+		5AAA01015FDD31890E3EF669 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EEA5AF67F0249AD4430623CE /* Pods-HW 26 Topchii Roman iOS 19-2.debug.xcconfig */,
+				E7A7B7B6D4AAC86495A938F7 /* Pods-HW 26 Topchii Roman iOS 19-2.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		A8AD13B9D336087313CC26AF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				75AF80CC6457185DF70FB0CD /* Pods_HW_26_Topchii_Roman_iOS_19_2.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,9 +127,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 30B6C03E23D60D3900FFAD2B /* Build configuration list for PBXNativeTarget "HW 26 Topchii Roman iOS 19-2" */;
 			buildPhases = (
+				9941D99BCE6DA4ECAEADF163 /* [CP] Check Pods Manifest.lock */,
 				30B6C02623D60D3300FFAD2B /* Sources */,
 				30B6C02723D60D3300FFAD2B /* Frameworks */,
 				30B6C02823D60D3300FFAD2B /* Resources */,
+				69E957657584B6A4D496B22D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,6 +187,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69E957657584B6A4D496B22D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HW 26 Topchii Roman iOS 19-2/Pods-HW 26 Topchii Roman iOS 19-2-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HW 26 Topchii Roman iOS 19-2/Pods-HW 26 Topchii Roman iOS 19-2-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HW 26 Topchii Roman iOS 19-2/Pods-HW 26 Topchii Roman iOS 19-2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9941D99BCE6DA4ECAEADF163 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HW 26 Topchii Roman iOS 19-2-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		30B6C02623D60D3300FFAD2B /* Sources */ = {
@@ -314,6 +383,7 @@
 		};
 		30B6C03F23D60D3900FFAD2B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEA5AF67F0249AD4430623CE /* Pods-HW 26 Topchii Roman iOS 19-2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -331,6 +401,7 @@
 		};
 		30B6C04023D60D3900FFAD2B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7A7B7B6D4AAC86495A938F7 /* Pods-HW 26 Topchii Roman iOS 19-2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

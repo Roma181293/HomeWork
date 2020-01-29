@@ -13,7 +13,6 @@ class ThirdExerciseViewController: UIViewController, CLLocationManagerDelegate{
     
     var locationManager = CLLocationManager()
     
-    
     @IBOutlet weak var cityLabel : UILabel!
     @IBOutlet weak var temperatureLabel : UILabel!
     @IBOutlet weak var pressureLabel : UILabel!
@@ -22,14 +21,8 @@ class ThirdExerciseViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var weatherImage : UIImageView!
     
     
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
@@ -61,10 +54,10 @@ class ThirdExerciseViewController: UIViewController, CLLocationManagerDelegate{
                     
                     DispatchQueue.main.async {
                         self?.cityLabel.text = weather.cityName
-                        self?.temperatureLabel.text = String(weather.temp)
-                        self?.pressureLabel.text = String(weather.pressure)
-                        self?.humidityLabel.text = String(weather.humidity)
-                        self?.windSpeedLabel.text = String(weather.windSpeed)
+                        self?.temperatureLabel.text = String(weather.temp)+" C"
+                        self?.pressureLabel.text = String(weather.pressure)+" mm"
+                        self?.humidityLabel.text = String(weather.humidity)+" %"
+                        self?.windSpeedLabel.text = String(weather.windSpeed)+" m/c"
                     }
                 }
                 else

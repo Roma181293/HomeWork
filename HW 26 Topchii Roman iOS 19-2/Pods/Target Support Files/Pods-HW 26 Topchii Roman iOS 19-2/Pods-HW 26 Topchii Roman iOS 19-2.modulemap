@@ -1,0 +1,6 @@
+framework module Pods_HW_26_Topchii_Roman_iOS_19_2 {
+  umbrella header "Pods-HW 26 Topchii Roman iOS 19-2-umbrella.h"
+
+  export *
+  module * { export * }
+}
