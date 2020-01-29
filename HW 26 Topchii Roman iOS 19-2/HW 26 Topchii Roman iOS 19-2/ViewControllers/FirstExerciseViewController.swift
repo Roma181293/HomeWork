@@ -26,7 +26,7 @@ class FirstExerciseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         usdBuy.text = ""
         eurBuy.text = ""
         rurBuy.text = ""
@@ -39,11 +39,10 @@ class FirstExerciseViewController: UIViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
+        
         dateLabel.text = dateFormatter.string(from:Date() as Date)
         
         refreshData()
-        
-        
     }
     
     
@@ -58,9 +57,8 @@ func refreshData() {
             "exchange":"",
             "coursid" : "5",
         ]
-        let url = baseURL.withQueries(query)! //объединяем url c параметрами
+        let url = baseURL.withQueries(query)!
         
-        //формируем запрос
         let task = URLSession.shared.dataTask(with: url) {[weak self] (data, response, error) in
             
             guard let data = data else {
@@ -69,9 +67,6 @@ func refreshData() {
             }
             
             do {
-                
-                //create json object from data
-                //Получили МАССИВ данных
                 if let arrayOfJsonObjects = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: Any]] {
                     print("=======================",arrayOfJsonObjects,"=======================")
                     let currencyList : CurrencyExchangeList = CurrencyExchangeList(array: arrayOfJsonObjects)
@@ -103,18 +98,13 @@ func refreshData() {
                 }
             } catch let error {
                 print(error.localizedDescription)
-                
             }
-            
         }
-        
         task.resume()
-        
-        
     }
-    
-    
 }
+
+
 
 
 extension URL {

@@ -13,19 +13,14 @@ class SecondExerciseViewController: UIViewController {
     
     var date = Date()
     
-    
-    
     @IBOutlet weak var cur: UILabel!
     @IBOutlet weak var buyNB: UILabel!
     @IBOutlet weak var saleNB: UILabel!
     @IBOutlet weak var buyPB: UILabel!
     @IBOutlet weak var salePB: UILabel!
     
-    
-    
-    
-    
     @IBOutlet weak var datePicker: UIDatePicker!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +49,6 @@ class SecondExerciseViewController: UIViewController {
         }
     }
     
-    
-    
     func loadData(date : Date){
         
         let dateFormatter = DateFormatter()
@@ -63,12 +56,8 @@ class SecondExerciseViewController: UIViewController {
         let dateString = dateFormatter.string(from:date as Date)
         
         
-        //обращение к url с параметрами
-        //Параметры задаются в массиве query
-        let url = URL(string: "https://api.privatbank.ua/p24api/exchange_rates?json&date=\(dateString)")! //Основная URL запроса
+        let url = URL(string: "https://api.privatbank.ua/p24api/exchange_rates?json&date=\(dateString)")!
         
-        
-        //формируем запрос
         let task = URLSession.shared.dataTask(with: url) {[weak self] (data, response, error) in
             
             guard let data = data else {
@@ -78,8 +67,6 @@ class SecondExerciseViewController: UIViewController {
             
             do {
                 
-                //create json object from data
-                //Получили МАССИВ данных
                 if let dictOfJsonObjects = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
                     
                     let currencyHistoricalData : CurrencyHistoricalData = CurrencyHistoricalData(dict: dictOfJsonObjects)
@@ -90,7 +77,7 @@ class SecondExerciseViewController: UIViewController {
                         var saleNB = "Sale NB"
                         var buyPB = "Buy PB"
                         var salePB = "Sale PB"
-                        
+            
                         for item in currencyHistoricalData.exchangeRate.list {
                             cur += "\n"+item.currency
                             buyNB += "\n"+item.buyNB
@@ -105,29 +92,16 @@ class SecondExerciseViewController: UIViewController {
                         self?.salePB.text = salePB
                         self?.datePicker.isUserInteractionEnabled = true
                         HUD.hide()
-                        
                     }
                 }
                 else
                 {
                     print("json == nil")
-                    
                 }
             } catch let error {
                 print(error.localizedDescription)
-                
             }
         }
         task.resume()
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }
