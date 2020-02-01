@@ -18,6 +18,11 @@
 		3084FEBD23BF63B000DB1D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEBB23BF63B000DB1D9C /* Main.storyboard */; };
 		3084FEBF23BF63B300DB1D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEBE23BF63B300DB1D9C /* Assets.xcassets */; };
 		3084FEC223BF63B300DB1D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEC023BF63B300DB1D9C /* LaunchScreen.storyboard */; };
+		3091C70723E30986004C97C9 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091C70623E30986004C97C9 /* NetworkService.swift */; };
+		3091C70B23E4443B004C97C9 /* ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091C70A23E4443B004C97C9 /* ChooseGameViewController.swift */; };
+		3091C70D23E448BA004C97C9 /* ChooseCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091C70C23E448BA004C97C9 /* ChooseCategoryTableViewController.swift */; };
+		3091C70F23E45BD9004C97C9 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091C70E23E45BD9004C97C9 /* CategoryTableViewCell.swift */; };
+		3091C71523E55859004C97C9 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3091C71423E55859004C97C9 /* Category.swift */; };
 		30A5CBD823C8671D0095213A /* GameArchiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */; };
 		30A5CBDC23C8D4080095213A /* ArchiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5CBDB23C8D4080095213A /* ArchiveTableViewCell.swift */; };
 		30AAD58023BF76E6008DB4BE /* Game Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD57F23BF76E6008DB4BE /* Game Logic.swift */; };
@@ -40,6 +45,11 @@
 		3084FEBE23BF63B300DB1D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3084FEC123BF63B300DB1D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3084FEC323BF63B300DB1D9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3091C70623E30986004C97C9 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		3091C70A23E4443B004C97C9 /* ChooseGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseGameViewController.swift; sourceTree = "<group>"; };
+		3091C70C23E448BA004C97C9 /* ChooseCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCategoryTableViewController.swift; sourceTree = "<group>"; };
+		3091C70E23E45BD9004C97C9 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		3091C71423E55859004C97C9 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameArchiveTableViewController.swift; sourceTree = "<group>"; };
 		30A5CBDB23C8D4080095213A /* ArchiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewCell.swift; sourceTree = "<group>"; };
 		30AAD57F23BF76E6008DB4BE /* Game Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game Logic.swift"; sourceTree = "<group>"; };
@@ -63,6 +73,8 @@
 			isa = PBXGroup;
 			children = (
 				304D6B7E23CBC6E3000EF001 /* Question.swift */,
+				3091C71423E55859004C97C9 /* Category.swift */,
+				3091C70623E30986004C97C9 /* NetworkService.swift */,
 				30AAD57F23BF76E6008DB4BE /* Game Logic.swift */,
 				304D6B8223CBC869000EF001 /* Archive Logic.swift */,
 				304D6B8023CBC711000EF001 /* GameStatus.swift */,
@@ -74,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				30AAD58523BFD863008DB4BE /* MainViewController.swift */,
+				3091C70A23E4443B004C97C9 /* ChooseGameViewController.swift */,
+				3091C70C23E448BA004C97C9 /* ChooseCategoryTableViewController.swift */,
 				30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */,
 				3048B37C23C6706D002FA29B /* ChooseViewController.swift */,
 				3048B37E23C7BCE4002FA29B /* WinViewController.swift */,
@@ -114,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				30A5CBDB23C8D4080095213A /* ArchiveTableViewCell.swift */,
+				3091C70E23E45BD9004C97C9 /* CategoryTableViewCell.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -225,14 +240,19 @@
 				30F8B3AE23C62A0300A53ACB /* QuestionViewController.swift in Sources */,
 				30A5CBD823C8671D0095213A /* GameArchiveTableViewController.swift in Sources */,
 				30A5CBDC23C8D4080095213A /* ArchiveTableViewCell.swift in Sources */,
+				3091C71523E55859004C97C9 /* Category.swift in Sources */,
+				3091C70B23E4443B004C97C9 /* ChooseGameViewController.swift in Sources */,
 				3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */,
 				304D6B7F23CBC6E3000EF001 /* Question.swift in Sources */,
+				3091C70D23E448BA004C97C9 /* ChooseCategoryTableViewController.swift in Sources */,
 				304D6B8323CBC869000EF001 /* Archive Logic.swift in Sources */,
 				30AAD58023BF76E6008DB4BE /* Game Logic.swift in Sources */,
 				304D6B8123CBC711000EF001 /* GameStatus.swift in Sources */,
 				3048B37F23C7BCE4002FA29B /* WinViewController.swift in Sources */,
 				30AAD58623BFD863008DB4BE /* MainViewController.swift in Sources */,
 				3048B37D23C6706D002FA29B /* ChooseViewController.swift in Sources */,
+				3091C70723E30986004C97C9 /* NetworkService.swift in Sources */,
+				3091C70F23E45BD9004C97C9 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

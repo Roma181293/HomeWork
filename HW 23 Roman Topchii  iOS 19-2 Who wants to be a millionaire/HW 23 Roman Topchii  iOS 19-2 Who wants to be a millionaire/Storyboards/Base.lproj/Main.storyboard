@@ -7,27 +7,122 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Choose Game View Controller-->
+        <scene sceneID="nhb-Jr-Gvt">
+            <objects>
+                <viewController id="D4T-FF-V8C" customClass="ChooseGameViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="na1-m5-vyY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fl-6o-ANg">
+                                <rect key="frame" x="122" y="268" width="175" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Сетевая игра">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="serverGame" destination="D4T-FF-V8C" eventType="touchUpInside" id="Z2a-MY-z8F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqJ-7M-9ac">
+                                <rect key="frame" x="104" y="375" width="208" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <state key="normal" title="Локальная игра">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="localGame" destination="D4T-FF-V8C" eventType="touchUpInside" id="bwe-rX-eSW"/>
+                                    <segue destination="SO2-jF-6Va" kind="show" id="xnn-uh-ngg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="2hE-fp-cqi"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pbE-og-l47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pD6-wf-Ush" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="983" y="118"/>
+        </scene>
+        <!--Choose Category Table View Controller-->
+        <scene sceneID="teL-zY-436">
+            <objects>
+                <tableViewController storyboardIdentifier="ChooseCategoryVC_ID" id="yaq-5l-lrL" customClass="ChooseCategoryTableViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EEA-rj-UNF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chooseCell_ID" rowHeight="166" id="RO8-NZ-J2G" customClass="CategoryTableViewCell" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="166"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RO8-NZ-J2G" id="eWa-e5-whM">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h0M-Dd-f8q">
+                                            <rect key="frame" x="28" y="19" width="144" height="144"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="144" id="7EM-C1-9nL"/>
+                                                <constraint firstAttribute="height" constant="144" id="RgP-7S-Xhb"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmu-Ws-0tQ">
+                                            <rect key="frame" x="180" y="72.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Gmu-Ws-0tQ" firstAttribute="leading" secondItem="h0M-Dd-f8q" secondAttribute="trailing" constant="8" id="P9i-fU-Uz3"/>
+                                        <constraint firstItem="h0M-Dd-f8q" firstAttribute="bottom" secondItem="eWa-e5-whM" secondAttribute="bottomMargin" constant="8" id="ha8-Ef-R2Z"/>
+                                        <constraint firstItem="h0M-Dd-f8q" firstAttribute="top" secondItem="eWa-e5-whM" secondAttribute="topMargin" constant="8" id="i9C-QQ-Gtn"/>
+                                        <constraint firstItem="Gmu-Ws-0tQ" firstAttribute="centerY" secondItem="eWa-e5-whM" secondAttribute="centerY" id="kfA-bY-cFb"/>
+                                        <constraint firstItem="h0M-Dd-f8q" firstAttribute="leading" secondItem="eWa-e5-whM" secondAttribute="leadingMargin" constant="8" id="vZJ-ut-cNz"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="categoryImg" destination="h0M-Dd-f8q" id="TYM-mv-Qeh"/>
+                                    <outlet property="categoryName" destination="Gmu-Ws-0tQ" id="JlX-R5-z9K"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="yaq-5l-lrL" id="IjY-cE-H4Q"/>
+                            <outlet property="delegate" destination="yaq-5l-lrL" id="q9d-xY-r5o"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="enA-m9-sQZ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eMA-Rf-ZgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2077" y="118"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainVC_ID" id="BYZ-38-t0r" customClass="MainViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC_ID" id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-bL-z9d">
-                                <rect key="frame" x="133" y="374.5" width="148" height="47"/>
+                                <rect key="frame" x="133" y="347.5" width="148" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Новая игра">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MDj-z8-0I2"/>
-                                    <segue destination="SO2-jF-6Va" kind="show" identifier="goToQuestionVC" id="r5d-Rw-QH7"/>
+                                    <segue destination="D4T-FF-V8C" kind="show" id="k59-IY-q0W"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Q-NC-ZpW">
-                                <rect key="frame" x="53.5" y="474.5" width="307" height="47"/>
+                                <rect key="frame" x="53.5" y="447.5" width="307" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Архив предыдущих игр">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -59,23 +154,23 @@
             <objects>
                 <viewController storyboardIdentifier="QuestionStoryboard_ID" id="SO2-jF-6Va" customClass="QuestionViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PFp-if-eUd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhg-5m-pvj">
-                                <rect key="frame" x="175" y="288" width="64.5" height="20.5"/>
+                                <rect key="frame" x="175" y="200" width="64.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст вопроса" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3x-in-M9P">
-                                <rect key="frame" x="20" y="333.5" width="374" height="20.5"/>
+                                <rect key="frame" x="20" y="245.5" width="374" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yar-Sa-3RC">
-                                <rect key="frame" x="20" y="799" width="374" height="40"/>
+                                <rect key="frame" x="20" y="745" width="374" height="40"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="mGR-bZ-Nn7"/>
@@ -88,7 +183,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtL-Mu-fWq">
-                                <rect key="frame" x="20" y="751" width="374" height="40"/>
+                                <rect key="frame" x="20" y="697" width="374" height="40"/>
                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="AL3-yY-FI3"/>
@@ -101,7 +196,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lfa-pr-kmT">
-                                <rect key="frame" x="20" y="607" width="374" height="128"/>
+                                <rect key="frame" x="20" y="553" width="374" height="128"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d7v-hW-eG6">
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="128"/>
@@ -195,6 +290,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="C0O-F1-V0G"/>
                     </view>
+                    <navigationItem key="navigationItem" id="HzF-ZO-s0U"/>
                     <connections>
                         <outlet property="audienceHelp" destination="yar-Sa-3RC" id="MQj-v7-dQa"/>
                         <outlet property="firstAnswer" destination="JtZ-oq-ulH" id="fsG-X4-1CF"/>
@@ -207,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5Q-aZ-1OT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960.86956521739137" y="117.85714285714285"/>
+            <point key="canvasLocation" x="1816" y="844"/>
         </scene>
         <!--Choose View Controller-->
         <scene sceneID="6Du-Tt-9XA">
@@ -261,7 +357,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dxm-nU-fih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1782.608695652174" y="117.85714285714285"/>
+            <point key="canvasLocation" x="3152" y="104"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S3X-dm-2Ku">
@@ -278,14 +374,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YUh-F2-Pui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-667" y="135"/>
+            <point key="canvasLocation" x="-687" y="118"/>
         </scene>
         <!--Игры. Архив-->
         <scene sceneID="i86-b6-OUP">
             <objects>
                 <tableViewController id="dCd-cq-ndx" customClass="GameArchiveTableViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kDA-3x-Uyg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
@@ -339,7 +435,7 @@
                     <navigationItem key="navigationItem" title="Игры. Архив" leftItemsSupplementBackButton="YES" id="OX5-NU-q77">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="UUU-gg-7cA"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="uWa-cr-rb3">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3YG-ak-R34">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3YG-ak-R34">
                                 <rect key="frame" x="280" y="7" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Очистить архив"/>
@@ -403,24 +499,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kub-vh-4WO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2586.9565217391305" y="117.85714285714285"/>
+            <point key="canvasLocation" x="3986" y="104"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="lmT-2h-9rT">
             <objects>
                 <viewController storyboardIdentifier="DetailViewController_ID" id="Nfl-Ul-4Y9" customClass="DetailViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iz-a4-Dwb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="24" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWm-7r-Nsm">
-                                <rect key="frame" x="8" y="369" width="398" height="20.5"/>
+                                <rect key="frame" x="8" y="281" width="398" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Mt-519">
-                                <rect key="frame" x="8" y="218" width="398" height="21"/>
+                                <rect key="frame" x="8" y="130" width="398" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KAi-7t-dUI"/>
                                 </constraints>
@@ -452,7 +548,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eL-I9-ndG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="960.86956521739137" y="843.75"/>
+            <point key="canvasLocation" x="983" y="844"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fEA-yO-BFs">
@@ -498,11 +594,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqs-za-6WP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="844"/>
+            <point key="canvasLocation" x="3151" y="844"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="r5d-Rw-QH7"/>
-        <segue reference="gcc-Y1-skk"/>
+        <segue reference="xnn-uh-ngg"/>
+        <segue reference="ru3-1Y-Yxj"/>
     </inferredMetricsTieBreakers>
 </document>

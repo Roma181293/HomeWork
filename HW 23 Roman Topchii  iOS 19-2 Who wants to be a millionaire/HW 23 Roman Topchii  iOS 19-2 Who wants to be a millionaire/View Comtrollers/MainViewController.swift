@@ -10,18 +10,17 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var game : Game!
-    
-    @IBOutlet weak var textlabel : UILabel!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        game = Game.share
-        
+        self.navigationController?.isNavigationBarHidden = true
     }
-
-    @IBAction func newGame(_ sender: Any) {
-        game.newGame()
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        super.viewWillAppear(true)
+        self.navigationController?.isNavigationBarHidden = true
     }
+    
 }

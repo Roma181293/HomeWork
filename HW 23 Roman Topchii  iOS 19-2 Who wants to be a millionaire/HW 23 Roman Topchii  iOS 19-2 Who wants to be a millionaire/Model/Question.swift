@@ -9,8 +9,9 @@
 import Foundation
 
 
-struct Question{
-    var question : String
-    var answers : [String]
-    var correctAnswer : Int
+struct Question : Codable {
+    let question : String
+    let answers : [String]
+    let correctAnswer : Int
 }
+

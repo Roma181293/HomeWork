@@ -43,8 +43,19 @@ class Game {
     
     
     
-    func newGame() {
+    func newLocalGame() {
         questionList = readFromQuestionsList()
+        currentQuestionIndex = 0
+        gameOver = false
+        looseGame = false
+        askedQuestions = []
+        answersForAskedQuestions = []
+        
+        print("Game",#function)
+    }
+    
+    func newServerGame(questions : [Question]) {
+        questionList = questions
         currentQuestionIndex = 0
         gameOver = false
         looseGame = false

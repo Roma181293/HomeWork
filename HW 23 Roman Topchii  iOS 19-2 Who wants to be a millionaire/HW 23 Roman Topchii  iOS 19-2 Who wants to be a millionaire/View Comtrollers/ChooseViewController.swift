@@ -34,14 +34,14 @@ class ChooseViewController: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         if segue.identifier == "goToQuestionVC" {
-            if let questionVC : QuestionViewController = segue.destination as? QuestionViewController {
+            if let _ : QuestionViewController = segue.destination as? QuestionViewController {
                 if game.gameStatus() == false {
                     game.nextQuestion()
                 }
             }
         }
         if segue.identifier == "goToWinVC" {
-            if let winVC : WinViewController = segue.destination as? WinViewController {
+            if let _ : WinViewController = segue.destination as? WinViewController {
                 game.saveResults()
             }
         }
