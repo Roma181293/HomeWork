@@ -9,17 +9,33 @@
 import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
-
+    
+    @IBOutlet weak var imageSpiner: UIActivityIndicatorView!
+    @IBOutlet weak var loadSpiner: UIActivityIndicatorView!
     
     
     @IBOutlet weak var categoryName: UILabel!
     @IBOutlet weak var categoryImg: UIImageView!
     
-    func update(category : Category, img : UIImage) {
+    func updateCategory(_ category : Category) {
         categoryName.text = category.categoryName
-        categoryImg.image = img
-       }
-       
+      
+    }
+    
+    func updateAll(category : Category, img : UIImage) {
+         categoryName.text = category.categoryName
+         categoryImg.image = img
+     }
+    
+    func startAnimatingSpiner(_ spiner : UIActivityIndicatorView) {
+        spiner.isHidden = false
+        spiner.startAnimating()
+    }
+    
+    func stopAnimatingSpiner(_ spiner : UIActivityIndicatorView) {
+        spiner.stopAnimating()
+        spiner.isHidden = true
+    }
     
     
     
@@ -29,12 +45,14 @@ class CategoryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        loadSpiner.isHidden = true
+        imageSpiner.startAnimating()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
+    
 }

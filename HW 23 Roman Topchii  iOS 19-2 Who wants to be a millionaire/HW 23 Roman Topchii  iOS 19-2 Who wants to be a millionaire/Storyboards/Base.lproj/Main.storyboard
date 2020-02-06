@@ -7,47 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Choose Game View Controller-->
-        <scene sceneID="nhb-Jr-Gvt">
-            <objects>
-                <viewController id="D4T-FF-V8C" customClass="ChooseGameViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="na1-m5-vyY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fl-6o-ANg">
-                                <rect key="frame" x="122" y="268" width="175" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Сетевая игра">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="serverGame" destination="D4T-FF-V8C" eventType="touchUpInside" id="Z2a-MY-z8F"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqJ-7M-9ac">
-                                <rect key="frame" x="104" y="375" width="208" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="Локальная игра">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="localGame" destination="D4T-FF-V8C" eventType="touchUpInside" id="bwe-rX-eSW"/>
-                                    <segue destination="SO2-jF-6Va" kind="show" id="xnn-uh-ngg"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="2hE-fp-cqi"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="pbE-og-l47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pD6-wf-Ush" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="983" y="118"/>
-        </scene>
         <!--Choose Category Table View Controller-->
         <scene sceneID="teL-zY-436">
             <objects>
@@ -64,6 +23,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="166"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="asB-iD-rW0">
+                                            <rect key="frame" x="90" y="73" width="20" height="20"/>
+                                        </activityIndicatorView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h0M-Dd-f8q">
                                             <rect key="frame" x="28" y="19" width="144" height="144"/>
                                             <constraints>
@@ -77,18 +39,26 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-VV-4zD">
+                                            <rect key="frame" x="374" y="72" width="20" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </activityIndicatorView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="asB-iD-rW0" firstAttribute="centerX" secondItem="eWa-e5-whM" secondAttribute="centerX" constant="-107" id="Gk4-IX-WOn"/>
                                         <constraint firstItem="Gmu-Ws-0tQ" firstAttribute="leading" secondItem="h0M-Dd-f8q" secondAttribute="trailing" constant="8" id="P9i-fU-Uz3"/>
                                         <constraint firstItem="h0M-Dd-f8q" firstAttribute="bottom" secondItem="eWa-e5-whM" secondAttribute="bottomMargin" constant="8" id="ha8-Ef-R2Z"/>
                                         <constraint firstItem="h0M-Dd-f8q" firstAttribute="top" secondItem="eWa-e5-whM" secondAttribute="topMargin" constant="8" id="i9C-QQ-Gtn"/>
                                         <constraint firstItem="Gmu-Ws-0tQ" firstAttribute="centerY" secondItem="eWa-e5-whM" secondAttribute="centerY" id="kfA-bY-cFb"/>
+                                        <constraint firstItem="asB-iD-rW0" firstAttribute="centerY" secondItem="eWa-e5-whM" secondAttribute="centerY" id="txz-oe-D3x"/>
                                         <constraint firstItem="h0M-Dd-f8q" firstAttribute="leading" secondItem="eWa-e5-whM" secondAttribute="leadingMargin" constant="8" id="vZJ-ut-cNz"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="categoryImg" destination="h0M-Dd-f8q" id="TYM-mv-Qeh"/>
                                     <outlet property="categoryName" destination="Gmu-Ws-0tQ" id="JlX-R5-z9K"/>
+                                    <outlet property="imageSpiner" destination="asB-iD-rW0" id="lnG-aV-Q3m"/>
+                                    <outlet property="loadSpiner" destination="eUv-VV-4zD" id="pYq-bZ-Ras"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -101,12 +71,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eMA-Rf-ZgK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2077" y="118"/>
+            <point key="canvasLocation" x="982.60869565217399" y="117.85714285714285"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainVC_ID" id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC_ID" id="BYZ-38-t0r" customClass="MainViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,7 +88,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="D4T-FF-V8C" kind="show" id="k59-IY-q0W"/>
+                                    <action selector="startNewGameLacalOrNetwork" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hc0-rL-dGw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Q-NC-ZpW">
@@ -131,10 +101,15 @@
                                     <segue destination="dCd-cq-ndx" kind="show" id="M63-On-TQq"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="OGW-Aw-tBB">
+                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xHH-bL-z9d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MFr-mR-ZjO"/>
+                            <constraint firstItem="OGW-Aw-tBB" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ql0-RF-oSG"/>
+                            <constraint firstItem="OGW-Aw-tBB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ekI-a3-kEF"/>
                             <constraint firstItem="b8Q-NC-ZpW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="50" id="hRy-dP-Rd8"/>
                             <constraint firstItem="xHH-bL-z9d" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="kpf-BQ-wPs"/>
                             <constraint firstItem="b8Q-NC-ZpW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xEW-hc-jn5"/>
@@ -144,6 +119,9 @@
                     <navigationItem key="navigationItem" id="o4y-DV-Olj">
                         <barButtonItem key="backBarButtonItem" title="Назад" id="08o-t1-Wcp"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="spiner" destination="OGW-Aw-tBB" id="oSK-1M-huz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,7 +130,7 @@
         <!--Question View Controller-->
         <scene sceneID="fug-uf-33y">
             <objects>
-                <viewController storyboardIdentifier="QuestionStoryboard_ID" id="SO2-jF-6Va" customClass="QuestionViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionVC_ID" id="SO2-jF-6Va" customClass="QuestionViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PFp-if-eUd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -357,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dxm-nU-fih" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3152" y="104"/>
+            <point key="canvasLocation" x="1816" y="118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="S3X-dm-2Ku">
@@ -499,7 +477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kub-vh-4WO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3986" y="104"/>
+            <point key="canvasLocation" x="2655" y="118"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="lmT-2h-9rT">
@@ -594,11 +572,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yqs-za-6WP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3151" y="844"/>
+            <point key="canvasLocation" x="2655" y="844"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xnn-uh-ngg"/>
         <segue reference="ru3-1Y-Yxj"/>
     </inferredMetricsTieBreakers>
 </document>

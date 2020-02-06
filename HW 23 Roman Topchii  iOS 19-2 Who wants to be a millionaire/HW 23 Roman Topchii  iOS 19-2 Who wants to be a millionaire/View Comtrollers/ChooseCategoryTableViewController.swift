@@ -24,6 +24,7 @@ class ChooseCategoryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        self.navigationController?.isNavigationBarHidden = false
         
         for category in categories {
             
@@ -56,13 +57,17 @@ class ChooseCategoryTableViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCell_ID", for: indexPath) as! CategoryTableViewCell
         
         if images.isEmpty == false && indexPath.row < images.count{
-        cell.update(category: categories[indexPath.row], img : images[indexPath.row])
+            cell.updateAll(category: categories[indexPath.row], img : images[indexPath.row])
+            cell.categoryImg.isHidden = false
         }
         else {
-            cell.update(category: categories[indexPath.row], img : UIImage(named: "load")!)
+            cell.stopAnimatingSpiner(cell.imageSpiner)
+            cell.categoryImg.isHidden = true
+            cell.updateCategory(categories[indexPath.row])
         }
         
         return cell
@@ -72,23 +77,47 @@ class ChooseCategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionStoryboard_ID") as! QuestionViewController
+        let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
+        cell.startAnimatingSpiner(cell.loadSpiner)
         
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionVC_ID") as! QuestionViewController
         
         let url = URL(string: categories[indexPath.row].questionURL)!
         
         NetworkService.fetchQuestions(url: url) { (questions, error) in
-            DispatchQueue.main.async {
-                
-                if let questions = questions {
-                    self.game.newServerGame(questions: questions)
-                    self.navigationController?.pushViewController(questionVC, animated: true)
+            if error == nil {
+                DispatchQueue.main.async {
+                    cell.stopAnimatingSpiner(cell.loadSpiner)
+                    if let questions = questions {
+                        self.game.newServerGame(questions: questions)
+                        self.navigationController?.pushViewController(questionVC, animated: true)
+                    }
                 }
-                
-                
             }
-            
+            else {
+                DispatchQueue.main.async {
+                    cell.stopAnimatingSpiner(cell.loadSpiner)
+                    
+                    
+                    let alert = UIAlertController(title: "Alert", message: "Упс. Не удалось загрузить вопросы.", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Вопросы произвольной тематики", style: .default, handler: { action in
+                        
+                        print("Вопросы общей темы")
+                        self.game.newLocalGame()
+                        self.navigationController?.pushViewController(questionVC, animated: true)
+                    }))
+                    
+                    alert.addAction(UIAlertAction(title: "Главное меню", style: .default, handler: { action in
+                        print("Главное меню")
+                        let mainVC = storyBoard.instantiateViewController(withIdentifier: "MainVC_ID") as! MainViewController
+                        self.navigationController?.pushViewController(mainVC, animated: true)
+                    }))
+                    
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
         }
     }
     
@@ -131,16 +160,16 @@ class ChooseCategoryTableViewController: UITableViewController {
     
     
     /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        //        guard let selectedIndexPath = tableView.indexPathForSelectedRow else {return}
-        
-        
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     //        guard let selectedIndexPath = tableView.indexPathForSelectedRow else {return}
+     
+     
+     }
+     */
     
 }

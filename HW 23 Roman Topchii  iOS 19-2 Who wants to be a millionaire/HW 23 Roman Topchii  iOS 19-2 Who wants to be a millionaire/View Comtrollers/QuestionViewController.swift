@@ -124,7 +124,8 @@ class QuestionViewController: UIViewController {
                 self.game.saveResults()
                 self.navigationController?.pushViewController(looseViewController, animated: true)
             }
-        })
+        }
+        )
     }
     
     
