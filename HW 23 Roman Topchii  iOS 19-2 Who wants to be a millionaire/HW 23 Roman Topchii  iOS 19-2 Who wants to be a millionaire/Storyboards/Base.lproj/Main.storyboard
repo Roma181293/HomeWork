@@ -33,24 +33,26 @@
                                                 <constraint firstAttribute="height" constant="144" id="RgP-7S-Xhb"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmu-Ws-0tQ">
-                                            <rect key="frame" x="180" y="72.5" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmu-Ws-0tQ">
+                                            <rect key="frame" x="180" y="73" width="155" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-VV-4zD">
-                                            <rect key="frame" x="374" y="72" width="20" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-VV-4zD">
+                                            <rect key="frame" x="349" y="64.5" width="37" height="37"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="eUv-VV-4zD" firstAttribute="leading" secondItem="Gmu-Ws-0tQ" secondAttribute="trailing" constant="14" id="BzU-0U-1X1"/>
                                         <constraint firstItem="asB-iD-rW0" firstAttribute="centerX" secondItem="eWa-e5-whM" secondAttribute="centerX" constant="-107" id="Gk4-IX-WOn"/>
                                         <constraint firstItem="Gmu-Ws-0tQ" firstAttribute="leading" secondItem="h0M-Dd-f8q" secondAttribute="trailing" constant="8" id="P9i-fU-Uz3"/>
                                         <constraint firstItem="h0M-Dd-f8q" firstAttribute="bottom" secondItem="eWa-e5-whM" secondAttribute="bottomMargin" constant="8" id="ha8-Ef-R2Z"/>
                                         <constraint firstItem="h0M-Dd-f8q" firstAttribute="top" secondItem="eWa-e5-whM" secondAttribute="topMargin" constant="8" id="i9C-QQ-Gtn"/>
                                         <constraint firstItem="Gmu-Ws-0tQ" firstAttribute="centerY" secondItem="eWa-e5-whM" secondAttribute="centerY" id="kfA-bY-cFb"/>
                                         <constraint firstItem="asB-iD-rW0" firstAttribute="centerY" secondItem="eWa-e5-whM" secondAttribute="centerY" id="txz-oe-D3x"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eUv-VV-4zD" secondAttribute="trailing" constant="8" id="uVZ-YT-Cn9"/>
+                                        <constraint firstItem="eUv-VV-4zD" firstAttribute="centerY" secondItem="eWa-e5-whM" secondAttribute="centerY" id="uoc-xf-9pW"/>
                                         <constraint firstItem="h0M-Dd-f8q" firstAttribute="leading" secondItem="eWa-e5-whM" secondAttribute="leadingMargin" constant="8" id="vZJ-ut-cNz"/>
                                     </constraints>
                                 </tableViewCellContentView>

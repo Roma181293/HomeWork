@@ -26,18 +26,18 @@ class ChooseCategoryTableViewController: UITableViewController {
         
         self.navigationController?.isNavigationBarHidden = false
         
-        for category in categories {
-            
-            NetworkService.fetchImage(url: URL(string: category.imgURL)!) { (img, error) in
-                DispatchQueue.main.async {
-                    if let img = img{
-                        self.images.append(img)
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-            
-        }
+//        for category in categories {
+//
+//            NetworkService.fetchImage(url: URL(string: category.imgURL)!) { (img, error) in
+//                DispatchQueue.main.async {
+//                    if let img = img{
+//                        self.images.append(img)
+//                        self.tableView.reloadData()
+//                    }
+//                }
+//            }
+//
+//        }
         
         
     }
@@ -60,15 +60,8 @@ class ChooseCategoryTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCell_ID", for: indexPath) as! CategoryTableViewCell
         
-        if images.isEmpty == false && indexPath.row < images.count{
-            cell.updateAll(category: categories[indexPath.row], img : images[indexPath.row])
-            cell.categoryImg.isHidden = false
-        }
-        else {
-            cell.stopAnimatingSpiner(cell.imageSpiner)
-            cell.categoryImg.isHidden = true
-            cell.updateCategory(categories[indexPath.row])
-        }
+        cell.imageURL = URL(string:categories[indexPath.row].imgURL)!
+        cell.stringCategoryName = categories[indexPath.row].categoryName
         
         return cell
     }

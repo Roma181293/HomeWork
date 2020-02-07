@@ -100,10 +100,7 @@ class QuestionViewController: UIViewController {
         
         var deadlineTime =  DispatchTime.now() + 1
         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-            self.firstAnswer.backgroundColor = UIColor.red
-            self.secondAnswer.backgroundColor = UIColor.red
-            self.thirdAnswer.backgroundColor = UIColor.red
-            self.fourthAnswer.backgroundColor = UIColor.red
+            sender.backgroundColor = UIColor.red
             self.changeButtonBackgroundColour(buttonNumber: result.correctAnswerIndex, to : .green)
         })
         

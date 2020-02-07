@@ -10,22 +10,47 @@ import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
     
+    
+    var imageURL: URL? {
+        didSet {
+            categoryImg?.image = nil
+            updateUI()
+        }
+    }
+    var stringCategoryName: String? {
+        didSet {
+            categoryName?.text = stringCategoryName
+        }
+    }
+    
     @IBOutlet weak var imageSpiner: UIActivityIndicatorView!
     @IBOutlet weak var loadSpiner: UIActivityIndicatorView!
-    
     
     @IBOutlet weak var categoryName: UILabel!
     @IBOutlet weak var categoryImg: UIImageView!
     
-    func updateCategory(_ category : Category) {
-        categoryName.text = category.categoryName
-      
+    
+    private func updateUI() {
+        imageSpiner.startAnimating()
+        
+        if let url = imageURL {
+            NetworkService.fetchImage(url: url) { (img, error) in
+                DispatchQueue.main.async {
+                    if url == self.imageURL {
+                        if let img = img {
+                            self.categoryImg?.image = img
+                        }
+                        else {
+                            self.categoryImg?.image = UIImage(named: "questionMarkIcon")
+                        }
+                        self.imageSpiner?.stopAnimating()
+                        self.imageSpiner?.isHidden = true
+                    }
+                }
+            }
+        }
     }
     
-    func updateAll(category : Category, img : UIImage) {
-         categoryName.text = category.categoryName
-         categoryImg.image = img
-     }
     
     func startAnimatingSpiner(_ spiner : UIActivityIndicatorView) {
         spiner.isHidden = false
@@ -44,9 +69,10 @@ class CategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
+        
         loadSpiner.isHidden = true
-        imageSpiner.startAnimating()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -54,5 +80,4 @@ class CategoryTableViewCell: UITableViewCell {
         
         // Configure the view for the selected state
     }
-    
 }
