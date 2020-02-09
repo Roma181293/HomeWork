@@ -93,7 +93,7 @@ class ChooseCategoryTableViewController: UITableViewController {
                     cell.stopAnimatingSpiner(cell.loadSpiner)
                     
                     
-                    let alert = UIAlertController(title: "Alert", message: "Упс. Не удалось загрузить вопросы.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Упс. Не удалось загрузить вопросы.", message: nil, preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Вопросы произвольной тематики", style: .default, handler: { action in
                         

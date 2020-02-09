@@ -393,12 +393,22 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8MV-aU-6G0">
+                                <rect key="frame" x="87" y="218" width="240" height="123"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="RkF-BM-iFm"/>
+                                    <constraint firstAttribute="height" constant="123" id="VPQ-g2-g2m"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="2Lb-HU-kmu" firstAttribute="trailing" secondItem="c0K-A8-tZg" secondAttribute="trailing" constant="20" id="8DW-8N-e2R"/>
                             <constraint firstItem="c0K-A8-tZg" firstAttribute="top" secondItem="2Lb-HU-kmu" secondAttribute="top" constant="79" id="AZh-X4-E0B"/>
+                            <constraint firstItem="8MV-aU-6G0" firstAttribute="top" secondItem="c0K-A8-tZg" secondAttribute="bottom" constant="30" id="XZN-QE-PdZ"/>
+                            <constraint firstItem="5UJ-A9-lk0" firstAttribute="top" secondItem="8MV-aU-6G0" secondAttribute="bottom" constant="30" id="ezV-hF-oDT"/>
                             <constraint firstItem="5UJ-A9-lk0" firstAttribute="centerY" secondItem="oAj-og-ipF" secondAttribute="centerY" id="hac-YW-Z9M"/>
+                            <constraint firstItem="8MV-aU-6G0" firstAttribute="centerX" secondItem="oAj-og-ipF" secondAttribute="centerX" id="jbu-Bz-F6c"/>
                             <constraint firstItem="5UJ-A9-lk0" firstAttribute="centerX" secondItem="oAj-og-ipF" secondAttribute="centerX" id="ofC-2B-lAN"/>
                             <constraint firstItem="c0K-A8-tZg" firstAttribute="leading" secondItem="2Lb-HU-kmu" secondAttribute="leading" constant="20" id="pjb-NA-eEr"/>
                         </constraints>

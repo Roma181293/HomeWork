@@ -10,7 +10,7 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var gameResults : (memo : String ,prize : String, description : String)?
+    var gameResults : (memo : String, prize : String, description : String)?
     
     @IBOutlet weak var prizeLable: UILabel!
     @IBOutlet weak var questionsAndAnswersLabel: UILabel!

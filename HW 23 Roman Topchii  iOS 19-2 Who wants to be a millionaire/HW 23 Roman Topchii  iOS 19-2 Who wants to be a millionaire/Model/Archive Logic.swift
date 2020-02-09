@@ -43,7 +43,7 @@ class Archive {
         
         
         
-        //parssing
+        //parsing
         if let tmpArchive = tmpArchive {
             for element in tmpArchive {
                 let date = element["date"] as! String
@@ -53,9 +53,9 @@ class Archive {
                 let looseGame = element["looseGame"] as! Bool
                 let prize = element["prize"] as! Int
                 
-                let newRecord : [String : Any] = ["date" : "\(date)","answers" : answers, "questions" : questions, "looseGame"  : looseGame, "prize" : prize, "numberOfAskedQuestions" : numberOfAskedQuestions]
+                let record : [String : Any] = ["date" : "\(date)","answers" : answers, "questions" : questions, "looseGame"  : looseGame, "prize" : prize, "numberOfAskedQuestions" : numberOfAskedQuestions]
                 
-                archive.append(newRecord)
+                archive.append(record)
             }
         }
     }
@@ -137,7 +137,7 @@ class Archive {
             
             
             for index in 0...numberOfAskedQuestions - 1 {
-                description += "\n\(index+1). \(questions[index]) : \(answers[index])"
+                description += "\n\(index+1). \(questions[index]) : \(answers[index]) "
             }
             
             let prize = "Выигрыш: \(gameResults["prize"] as! Int) грн."

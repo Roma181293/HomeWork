@@ -77,6 +77,7 @@ class GameArchiveTableViewController: UITableViewController {
             // Delete the row from the data source
             archive.removeElement(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            archive.saveChanges()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -87,6 +88,7 @@ class GameArchiveTableViewController: UITableViewController {
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         archive.moveTo(move: fromIndexPath.row, to: to.row)
+        archive.saveChanges()
     }
     
     
@@ -98,14 +100,7 @@ class GameArchiveTableViewController: UITableViewController {
     }
     
     
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        archive.saveChanges()
-    }
-    
-    
     // MARK: - Navigation
-    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

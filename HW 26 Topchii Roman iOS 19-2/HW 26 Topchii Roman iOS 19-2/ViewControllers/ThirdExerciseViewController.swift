@@ -31,12 +31,30 @@ class ThirdExerciseViewController: UIViewController, CLLocationManagerDelegate{
         
     }
     
+//    func fetchImage(iconName: String, completion: @escaping (UIImage?, Error?)-> Void) {
+//
+//        let finURL = URL(string: "http://openweathermap.org/img/wn/\(iconName)@2x.png")!
+//        let task = URLSession.shared.dataTask(with: finURL) { (data, response, error) in
+//
+//            if let data = data {
+//                completion(UIImage(data:data), nil)
+//            }
+//            else {
+//                completion(nil, error)
+//            } //if let data = data
+//        } //task
+//
+//        task.resume()
+//    }
+
+    
+    
     func getWeatherData(latitude : String, longitude : String){
-      
-       let appid = "98d75809f415032cc06da47ddc41b9fd"
+        
+        let appid = "98d75809f415032cc06da47ddc41b9fd"
         
         let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?lat=\(latitude)&lon=\(longitude)&appid=\(appid)")! //Основная URL запроса
-       
+        
         //формируем запрос
         let task = URLSession.shared.dataTask(with: url) {[weak self] (data, response, error) in
             
@@ -53,6 +71,21 @@ class ThirdExerciseViewController: UIViewController, CLLocationManagerDelegate{
                     print(weather)
                     
                     DispatchQueue.main.async {
+                        
+                        
+//                        self?.fetchImage(iconName: weather.weatherIcon) { (image, error) in
+//                           
+//                                if let image = image {
+//                                    self?.weatherImage.image = image
+//                                }
+//                            
+//                        }
+                        
+                        
+                        
+                        
+                        
+                        
                         self?.cityLabel.text = weather.cityName
                         self?.temperatureLabel.text = String(weather.temp)+" C"
                         self?.pressureLabel.text = String(weather.pressure)+" mm"

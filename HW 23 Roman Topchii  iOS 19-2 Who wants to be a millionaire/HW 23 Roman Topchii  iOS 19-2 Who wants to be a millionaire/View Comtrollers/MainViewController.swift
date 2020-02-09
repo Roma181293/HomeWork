@@ -55,7 +55,7 @@ class MainViewController: UIViewController {
                     self.spiner.stopAnimating()
                     self.spiner.isHidden = true
                     
-                    let alert = UIAlertController(title: "Alert", message: "Упс. Не удалось загрузить темы вопросов.", preferredStyle: .alert)
+                    let alert = UIAlertController(title: "Упс. Не удалось загрузить темы вопросов.", message: nil, preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Вопросы произвольной тематики", style: .default, handler: { action in
                         let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionVC_ID") as! QuestionViewController
