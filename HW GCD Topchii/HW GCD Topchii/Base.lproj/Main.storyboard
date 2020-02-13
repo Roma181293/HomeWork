@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="HW_GCD_Topchii" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3WY-q4-buq">
+                                <rect key="frame" x="107" y="284" width="200" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="mbo-9L-3sO"/>
+                                </constraints>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Czs-Cv-RSl">
+                                <rect key="frame" x="190" y="396" width="34" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="hb4-oJ-FIJ"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="start" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hqf-JO-wYg"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-No-H7q">
+                                <rect key="frame" x="20" y="536" width="374" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="pif-QI-Uxr">
+                                <rect key="frame" x="197" y="154" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="pif-QI-Uxr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3f1-Wa-utU"/>
+                            <constraint firstItem="fQp-No-H7q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Fse-zm-ofg"/>
+                            <constraint firstItem="Czs-Cv-RSl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="PNM-xO-bZJ"/>
+                            <constraint firstItem="3WY-q4-buq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qit-NN-b4r"/>
+                            <constraint firstItem="3WY-q4-buq" firstAttribute="top" secondItem="pif-QI-Uxr" secondAttribute="bottom" constant="110" id="Rwk-2V-13o"/>
+                            <constraint firstItem="pif-QI-Uxr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="TVW-A2-ibe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fQp-No-H7q" secondAttribute="bottom" priority="999" constant="20" id="TWn-TA-7mk"/>
+                            <constraint firstItem="fQp-No-H7q" firstAttribute="top" secondItem="Czs-Cv-RSl" secondAttribute="bottom" constant="110" id="Ts9-8P-sUn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="fQp-No-H7q" secondAttribute="bottom" constant="300" id="YMg-MG-i1e"/>
+                            <constraint firstItem="Czs-Cv-RSl" firstAttribute="top" secondItem="3WY-q4-buq" secondAttribute="bottom" constant="110" id="kY8-B3-tIf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fQp-No-H7q" secondAttribute="trailing" constant="20" id="ncW-de-DsC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="logLabel" destination="fQp-No-H7q" id="pEa-vo-tcz"/>
+                        <outlet property="progressView" destination="3WY-q4-buq" id="bKV-bL-kks"/>
+                        <outlet property="spiner" destination="pif-QI-Uxr" id="pnE-Oq-b1V"/>
+                        <outlet property="startButtonOutlet" destination="Czs-Cv-RSl" id="GvL-D2-Ped"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
+        </scene>
+    </scenes>
+</document>
