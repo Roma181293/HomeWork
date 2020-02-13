@@ -34,14 +34,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        log = ""
+        log = "Status:\n"
         progress = 0.0
         spiner.isHidden = true
     }
     
-    @IBAction func start () {
+    @IBAction func startAction () {
          startButtonOutlet.isUserInteractionEnabled = false
-        log = ""
+        log = "Status:\n"
         spiner.isHidden = false
         progress = 0.0
         self.test(numberOfIteration : 5)
