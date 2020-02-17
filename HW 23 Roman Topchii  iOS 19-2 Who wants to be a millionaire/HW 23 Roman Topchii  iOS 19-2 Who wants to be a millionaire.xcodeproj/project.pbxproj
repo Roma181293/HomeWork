@@ -11,8 +11,10 @@
 		3048B37D23C6706D002FA29B /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048B37C23C6706D002FA29B /* ChooseViewController.swift */; };
 		3048B37F23C7BCE4002FA29B /* WinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048B37E23C7BCE4002FA29B /* WinViewController.swift */; };
 		304D6B7F23CBC6E3000EF001 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D6B7E23CBC6E3000EF001 /* Question.swift */; };
-		304D6B8123CBC711000EF001 /* GameStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D6B8023CBC711000EF001 /* GameStatus.swift */; };
 		304D6B8323CBC869000EF001 /* Archive Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D6B8223CBC869000EF001 /* Archive Logic.swift */; };
+		3054FFF523F99F1D003655FA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054FFF423F99F1D003655FA /* CoreDataStack.swift */; };
+		3054FFF923F99FC2003655FA /* CoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3054FFF723F99FC2003655FA /* CoreModel.xcdatamodeld */; };
+		3054FFFB23F9A990003655FA /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054FFFA23F9A990003655FA /* CoreDataViewController.swift */; };
 		3084FEB623BF63B000DB1D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FEB523BF63B000DB1D9C /* AppDelegate.swift */; };
 		3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */; };
 		3084FEBD23BF63B000DB1D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEBB23BF63B000DB1D9C /* Main.storyboard */; };
@@ -35,8 +37,10 @@
 		3048B37C23C6706D002FA29B /* ChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
 		3048B37E23C7BCE4002FA29B /* WinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinViewController.swift; sourceTree = "<group>"; };
 		304D6B7E23CBC6E3000EF001 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		304D6B8023CBC711000EF001 /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 		304D6B8223CBC869000EF001 /* Archive Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Archive Logic.swift"; sourceTree = "<group>"; };
+		3054FFF423F99F1D003655FA /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		3054FFF823F99FC2003655FA /* CoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreModel.xcdatamodel; sourceTree = "<group>"; };
+		3054FFFA23F9A990003655FA /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		3084FEB223BF63B000DB1D9C /* HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3084FEB523BF63B000DB1D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,12 +74,13 @@
 		302C504523CB6069001631E8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3054FFF423F99F1D003655FA /* CoreDataStack.swift */,
 				304D6B7E23CBC6E3000EF001 /* Question.swift */,
 				3091C71423E55859004C97C9 /* Category.swift */,
 				3091C70623E30986004C97C9 /* NetworkService.swift */,
 				30AAD57F23BF76E6008DB4BE /* Game Logic.swift */,
 				304D6B8223CBC869000EF001 /* Archive Logic.swift */,
-				304D6B8023CBC711000EF001 /* GameStatus.swift */,
+				3054FFF723F99FC2003655FA /* CoreModel.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -83,6 +88,7 @@
 		302C504623CB60DD001631E8 /* View Comtrollers */ = {
 			isa = PBXGroup;
 			children = (
+				3054FFFA23F9A990003655FA /* CoreDataViewController.swift */,
 				30AAD58523BFD863008DB4BE /* MainViewController.swift */,
 				3091C70C23E448BA004C97C9 /* ChooseCategoryTableViewController.swift */,
 				30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */,
@@ -232,10 +238,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3054FFFB23F9A990003655FA /* CoreDataViewController.swift in Sources */,
 				300F4BDA23CD1F0700C3FD71 /* DetailViewController.swift in Sources */,
 				3084FEB623BF63B000DB1D9C /* AppDelegate.swift in Sources */,
 				30F8B3AE23C62A0300A53ACB /* QuestionViewController.swift in Sources */,
 				30A5CBD823C8671D0095213A /* GameArchiveTableViewController.swift in Sources */,
+				3054FFF923F99FC2003655FA /* CoreModel.xcdatamodeld in Sources */,
 				30A5CBDC23C8D4080095213A /* ArchiveTableViewCell.swift in Sources */,
 				3091C71523E55859004C97C9 /* Category.swift in Sources */,
 				3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */,
@@ -243,8 +251,8 @@
 				3091C70D23E448BA004C97C9 /* ChooseCategoryTableViewController.swift in Sources */,
 				304D6B8323CBC869000EF001 /* Archive Logic.swift in Sources */,
 				30AAD58023BF76E6008DB4BE /* Game Logic.swift in Sources */,
-				304D6B8123CBC711000EF001 /* GameStatus.swift in Sources */,
 				3048B37F23C7BCE4002FA29B /* WinViewController.swift in Sources */,
+				3054FFF523F99F1D003655FA /* CoreDataStack.swift in Sources */,
 				30AAD58623BFD863008DB4BE /* MainViewController.swift in Sources */,
 				3048B37D23C6706D002FA29B /* ChooseViewController.swift in Sources */,
 				3091C70723E30986004C97C9 /* NetworkService.swift in Sources */,
@@ -444,6 +452,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3054FFF723F99FC2003655FA /* CoreModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3054FFF823F99FC2003655FA /* CoreModel.xcdatamodel */,
+			);
+			currentVersion = 3054FFF823F99FC2003655FA /* CoreModel.xcdatamodel */;
+			path = CoreModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3084FEAA23BF63B000DB1D9C /* Project object */;
 }
