@@ -50,6 +50,8 @@ class Game {
         looseGame = false
         askedQuestions = []
         answersForAskedQuestions = []
+        friendIsAlredyHelpt = false
+        audienceIsAlredyHelpt = false
         
         print("Game",#function)
     }
@@ -61,6 +63,8 @@ class Game {
         looseGame = false
         askedQuestions = []
         answersForAskedQuestions = []
+        friendIsAlredyHelpt = false
+        audienceIsAlredyHelpt = false
         
         print("Game",#function)
     }
