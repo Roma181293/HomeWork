@@ -48,7 +48,6 @@ class QuestionViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         
-        
         if game.canGetHelp().friend == true {
             friendCall.isUserInteractionEnabled = false
         }
@@ -56,8 +55,6 @@ class QuestionViewController: UIViewController {
         if game.canGetHelp().audience == true {
             audienceHelp.isUserInteractionEnabled = false
         }
-        
-        
     }
     
     @IBAction func callFriendAction(_ sender: UIButton) {
@@ -74,22 +71,10 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    func changeButtonBackgroundColour(buttonNumber : Int, to color : UIColor) {
-        switch buttonNumber {
-        case 0:
-            firstAnswer.backgroundColor = color
-        case 1:
-            secondAnswer.backgroundColor = color
-        case 2:
-            thirdAnswer.backgroundColor = color
-        case 3:
-            fourthAnswer.backgroundColor = color
-        default:
-            return
-        }
-    }
-    
+  
     @IBAction func giveTheAnswer(_ sender: UIButton) {
+        
+        sender.backgroundColor = .orange
         
         self.view.isUserInteractionEnabled = false
         
@@ -98,7 +83,22 @@ class QuestionViewController: UIViewController {
         game.addToHistory(userAnswer: sender.tag-1)
         let result = game.checkAnswer(userAnswer: sender.tag-1)
         
-        var deadlineTime =  DispatchTime.now() + 1
+        var deadlineTime =  DispatchTime.now() + 0.5
+        
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+            sender.backgroundColor = UIColor.red
+            self.changeButtonBackgroundColour(buttonNumber: result.correctAnswerIndex, to : .green)
+        })
+        
+        deadlineTime =  DispatchTime.now() + 0.8
+        
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+            sender.backgroundColor = UIColor.red
+            self.changeButtonBackgroundColour(buttonNumber: result.correctAnswerIndex, to : .orange)
+        })
+        
+        deadlineTime =  DispatchTime.now() + 1.1
+        
         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
             sender.backgroundColor = UIColor.red
             self.changeButtonBackgroundColour(buttonNumber: result.correctAnswerIndex, to : .green)
@@ -125,7 +125,21 @@ class QuestionViewController: UIViewController {
         )
     }
     
-    
+    func changeButtonBackgroundColour(buttonNumber : Int, to color : UIColor) {
+          switch buttonNumber {
+          case 0:
+              firstAnswer.backgroundColor = color
+          case 1:
+              secondAnswer.backgroundColor = color
+          case 2:
+              thirdAnswer.backgroundColor = color
+          case 3:
+              fourthAnswer.backgroundColor = color
+          default:
+              return
+          }
+      }
+      
     
     
     

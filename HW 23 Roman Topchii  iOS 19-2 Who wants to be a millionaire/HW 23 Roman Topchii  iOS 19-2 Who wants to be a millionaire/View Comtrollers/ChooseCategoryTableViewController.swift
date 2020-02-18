@@ -26,20 +26,6 @@ class ChooseCategoryTableViewController: UITableViewController {
         
         self.navigationController?.isNavigationBarHidden = false
         
-//        for category in categories {
-//
-//            NetworkService.fetchImage(url: URL(string: category.imgURL)!) { (img, error) in
-//                DispatchQueue.main.async {
-//                    if let img = img{
-//                        self.images.append(img)
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//            }
-//
-//        }
-        
-        
     }
     
     // MARK: - Table view data source
