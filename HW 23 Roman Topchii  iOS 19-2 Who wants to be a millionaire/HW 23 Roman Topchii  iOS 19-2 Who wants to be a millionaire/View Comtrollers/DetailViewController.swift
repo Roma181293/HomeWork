@@ -13,16 +13,20 @@ class DetailViewController: UIViewController {
     var gameResults : (memo : String, prize : String, description : String)?
     
     @IBOutlet weak var prizeLable: UILabel!
-    @IBOutlet weak var questionsAndAnswersLabel: UILabel!
+    
+    @IBOutlet weak var questionAndAnswersTextView: UITextView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let gameResults = gameResults{
-            
             prizeLable.text = gameResults.prize
-            questionsAndAnswersLabel.text = gameResults.description
+            
+            questionAndAnswersTextView.text = gameResults.description
+            questionAndAnswersTextView.isEditable = false
+            
             self.navigationItem.title = gameResults.memo
             
         }
