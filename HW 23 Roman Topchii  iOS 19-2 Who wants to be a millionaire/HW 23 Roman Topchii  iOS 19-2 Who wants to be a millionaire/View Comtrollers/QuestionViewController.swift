@@ -37,10 +37,10 @@ class QuestionViewController: UIViewController {
         
         if let levelQuestion = levelQuestion {
             question.text = levelQuestion.question
-            firstAnswer.setTitle("a) "+levelQuestion.answers[0], for: .normal)
-            secondAnswer.setTitle("b) "+levelQuestion.answers[1], for: .normal)
-            thirdAnswer.setTitle("c) "+levelQuestion.answers[2], for: .normal)
-            fourthAnswer.setTitle("d) "+levelQuestion.answers[3], for: .normal)
+            firstAnswer.setTitle("A: "+levelQuestion.answers[0], for: .normal)
+            secondAnswer.setTitle("B: "+levelQuestion.answers[1], for: .normal)
+            thirdAnswer.setTitle("C: "+levelQuestion.answers[2], for: .normal)
+            fourthAnswer.setTitle("D: "+levelQuestion.answers[3], for: .normal)
         }
         else {
             let alert = UIAlertController(title: "Ошибка", message: "Что-то пошло не так при загрузке вопросов", preferredStyle: UIAlertController.Style.alert)
