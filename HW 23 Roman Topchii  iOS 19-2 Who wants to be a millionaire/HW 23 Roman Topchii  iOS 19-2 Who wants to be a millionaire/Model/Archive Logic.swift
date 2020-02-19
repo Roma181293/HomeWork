@@ -15,11 +15,12 @@ class Archive {
     //получение полного пути файла
     private let gameArchivePlistURL : URL
     
+    private var archive : [[String : Any]] = []
     
     static let share = Archive()
     
     private init(){
-        print("Archive",#function)
+        print("Archive",#function, "singleton")
         docsBaseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
         gameArchivePlistURL = docsBaseURL.appendingPathComponent("gameArchive.plist")
     }
@@ -30,7 +31,7 @@ class Archive {
     
     
     
-    private var archive : [[String : Any]] = []
+    
     
     
     

@@ -14,7 +14,7 @@ class Game {
     static var share : Game = Game()
     
     private init() {
-        print("Game",#function, "singlton")
+        print("Game",#function, "singleton")
     }
     
     
@@ -81,9 +81,9 @@ class Game {
         }
     }
     
-    func checkAnswer (userAnswer : Int) -> (correctAnswer : Bool, gameOver : Bool, correctAnswerIndex : Int) {
+    func checkAnswer (userAnswerIndex : Int) -> (correctAnswer : Bool, gameOver : Bool, correctAnswerIndex : Int) {
         print("Game",#function)
-        if userAnswer == questionList[currentQuestionIndex].correctAnswer {
+        if userAnswerIndex == questionList[currentQuestionIndex].correctAnswer {
             print("   ","Correct answer")
             if currentQuestionIndex + 1 >= questionList.count {
                 gameOver = true
@@ -121,6 +121,49 @@ class Game {
         }
     }
     
+    func askForAudienceHelp2() -> (first : Double, second : Double, third : Double, fourth : Double, sum : Double)? {
+        print("Game",#function)
+//        if audienceIsAlredyHelpt == false{
+//            audienceIsAlredyHelpt = true
+            
+            var first : Double
+            var second : Double
+            var third : Double
+            var fourth : Double
+            
+            
+            switch questionList[currentQuestionIndex].correctAnswer {
+            case 0 :
+                first = Double.random(in: 0.25...0.6)
+                second = Double.random(in: 0...1 - first)
+                third = Double.random(in: 0...1 - first - second)
+                fourth = 1 - first - second - third
+            case 1 :
+                second = Double.random(in: 0.25...0.6)
+                first = Double.random(in: 0...1 - second)
+                third = Double.random(in: 0...1 - first - second)
+                fourth = 1 - first - second - third
+            case 2 :
+                third = Double.random(in: 0.25...0.6)
+                second = Double.random(in: 0...1 - third)
+                first = Double.random(in: 0...1 - third - second)
+                fourth = 1 - first - second - third
+            default :
+                fourth = Double.random(in: 0.25...0.6)
+                first = Double.random(in: 0...1 - fourth)
+                second = Double.random(in: 0...1 - first - fourth)
+                third = 1 - first - second - fourth
+            }
+            
+        return (first : first, second : second, third : third, fourth : fourth, sum : first + second + third + fourth)
+//        }
+//        else {
+//            return nil
+//        }
+    }
+    
+    
+    
     
     func nextQuestion() {
         print("Game",#function)
@@ -149,9 +192,9 @@ class Game {
         return (audienceIsAlredyHelpt, friendIsAlredyHelpt)
     }
     
-    func readFromQuestionsList() -> [Question] {
+    func readFromQuestionsList() -> [Question] {//Чтение массива из файлов ресурсов Questions.plist
         print("Game",#function)
-        //Чтение массива из файлов ресурсов Questions.plist
+        
         var myArray: NSArray?
         
         var questionsArray : [Question] = []

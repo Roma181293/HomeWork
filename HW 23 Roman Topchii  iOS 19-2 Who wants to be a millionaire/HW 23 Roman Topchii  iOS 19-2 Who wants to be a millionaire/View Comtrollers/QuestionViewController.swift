@@ -49,29 +49,32 @@ class QuestionViewController: UIViewController {
         }
         
         if game.canGetHelp().friend == true {
-            friendCall.isUserInteractionEnabled = false
+            friendCall.isEnabled = false
         }
         
         if game.canGetHelp().audience == true {
-            audienceHelp.isUserInteractionEnabled = false
+            audienceHelp.isEnabled = false
         }
+        
+        print(game.askForAudienceHelp2()!)
+        
     }
     
     @IBAction func callFriendAction(_ sender: UIButton) {
         if let friendHelp = game.callFriend() {
             changeButtonBackgroundColour(buttonNumber: friendHelp, to : .magenta)
-            sender.isUserInteractionEnabled = false
+            sender.isEnabled = false
         }
     }
     
     @IBAction func audienceHelpAction(_ sender: UIButton) {
         if let audienceHelp = game.askForAudienceHelp() {
             changeButtonBackgroundColour(buttonNumber: audienceHelp, to : .orange)
-            sender.isUserInteractionEnabled = false
+            sender.isEnabled = false
         }
     }
     
-  
+    
     @IBAction func giveTheAnswer(_ sender: UIButton) {
         
         sender.backgroundColor = .orange
@@ -81,7 +84,7 @@ class QuestionViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
         game.addToHistory(userAnswer: sender.tag-1)
-        let result = game.checkAnswer(userAnswer: sender.tag-1)
+        let result = game.checkAnswer(userAnswerIndex: sender.tag-1)
         
         var deadlineTime =  DispatchTime.now() + 0.5
         
@@ -126,20 +129,20 @@ class QuestionViewController: UIViewController {
     }
     
     func changeButtonBackgroundColour(buttonNumber : Int, to color : UIColor) {
-          switch buttonNumber {
-          case 0:
-              firstAnswer.backgroundColor = color
-          case 1:
-              secondAnswer.backgroundColor = color
-          case 2:
-              thirdAnswer.backgroundColor = color
-          case 3:
-              fourthAnswer.backgroundColor = color
-          default:
-              return
-          }
-      }
-      
+        switch buttonNumber {
+        case 0:
+            firstAnswer.backgroundColor = color
+        case 1:
+            secondAnswer.backgroundColor = color
+        case 2:
+            thirdAnswer.backgroundColor = color
+        case 3:
+            fourthAnswer.backgroundColor = color
+        default:
+            return
+        }
+    }
+    
     
     
     
