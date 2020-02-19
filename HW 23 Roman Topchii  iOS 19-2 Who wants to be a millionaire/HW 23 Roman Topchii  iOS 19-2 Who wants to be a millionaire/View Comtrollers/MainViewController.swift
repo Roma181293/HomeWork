@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         spiner.isHidden = true
+        self.navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: CGFloat(54.0/255.0), green: CGFloat(41.0/255.0), blue: CGFloat(67.0/255.0), alpha: 1.0)
     }
     
     

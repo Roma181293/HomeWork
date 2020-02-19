@@ -134,10 +134,18 @@ class Archive {
             let questions = gameResults["questions"] as! [String]
             let answers = gameResults["answers"] as! [String]
             let numberOfAskedQuestions = gameResults["numberOfAskedQuestions"] as! Int
+            let looseGame = gameResults["looseGame"] as! Bool
             
-            
-            for index in 0...numberOfAskedQuestions - 1 {
-                description += "\n\(index+1). \(questions[index]) : \(answers[index]) "
+            for i in 0...numberOfAskedQuestions - 1 {
+                if i == numberOfAskedQuestions - 1 && looseGame == false{
+                   description += "\n\(i+1). \(questions[i]) : \(answers[i]) ✅"
+                }
+                else if i == numberOfAskedQuestions - 1 && looseGame == true{
+                   description += "\n\(i+1). \(questions[i]) : \(answers[i]) ❌"
+                }
+                else {
+                   description += "\n\(i+1). \(questions[i]) : \(answers[i]) ✅"
+                }
             }
             
             let prize = "Выигрыш: \(gameResults["prize"] as! Int) грн."

@@ -24,6 +24,7 @@ class GameArchiveTableViewController: UITableViewController {
         //         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.rowHeight = 80

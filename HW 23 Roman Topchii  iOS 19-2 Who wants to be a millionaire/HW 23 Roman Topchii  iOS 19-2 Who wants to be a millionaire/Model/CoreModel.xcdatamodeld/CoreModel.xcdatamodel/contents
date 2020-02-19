@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DataAnswer" representedClassName="DataAnswer" syncable="YES" codeGenerationType="class">
+        <attribute name="answer" optional="YES" attributeType="String"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DataQuestion" inverseName="answers" inverseEntity="DataQuestion"/>
+    </entity>
+    <entity name="DataCategory" representedClassName="DataCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="categoryName" optional="YES" attributeType="String"/>
+        <attribute name="imageURL" optional="YES" attributeType="String"/>
+        <attribute name="questionURL" optional="YES" attributeType="String"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DataQuestion" inverseName="categoty" inverseEntity="DataQuestion"/>
+    </entity>
+    <entity name="DataQuestion" representedClassName="DataQuestion" syncable="YES" codeGenerationType="class">
+        <attribute name="correctAnswer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="question" optional="YES" attributeType="String"/>
+        <relationship name="answers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DataAnswer" inverseName="question" inverseEntity="DataAnswer"/>
+        <relationship name="categoty" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DataCategory" inverseName="questions" inverseEntity="DataCategory"/>
+    </entity>
+    <elements>
+        <element name="DataQuestion" positionX="-7.8984375" positionY="72.82421875" width="128" height="103"/>
+        <element name="DataCategory" positionX="-229.60546875" positionY="73.359375" width="128" height="103"/>
+        <element name="DataAnswer" positionX="210.515625" positionY="87.83984375" width="128" height="73"/>
+    </elements>
+</model>
