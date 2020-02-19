@@ -110,16 +110,16 @@ class QuestionViewController: UIViewController {
         deadlineTime =  DispatchTime.now() + 3
         
         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-            if result.correctAnswer == true && result.gameOver == false {
+            if result.isRightAnswer == true && result.gameOver == false {
                 let chooseViewController = storyBoard.instantiateViewController(withIdentifier: "ChooseVC_ID") as! ChooseViewController
                 self.navigationController?.pushViewController(chooseViewController, animated: true)
             }
-            else  if result.correctAnswer == true && result.gameOver == true {
+            else  if result.isRightAnswer == true && result.gameOver == true {
                 let winViewController = storyBoard.instantiateViewController(withIdentifier: "WinVC_ID") as! WinViewController
                 self.game.saveResults()
                 self.navigationController?.pushViewController(winViewController, animated: true)
             }
-            else  if result.correctAnswer == false && result.gameOver == true {
+            else  if result.isRightAnswer == false && result.gameOver == true {
                 let looseViewController = storyBoard.instantiateViewController(withIdentifier: "LooseVC_ID")
                 self.game.saveResults()
                 self.navigationController?.pushViewController(looseViewController, animated: true)

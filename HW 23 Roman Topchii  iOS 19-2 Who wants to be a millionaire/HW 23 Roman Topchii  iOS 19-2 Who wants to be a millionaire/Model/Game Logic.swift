@@ -81,7 +81,7 @@ class Game {
         }
     }
     
-    func checkAnswer (userAnswerIndex : Int) -> (correctAnswer : Bool, gameOver : Bool, correctAnswerIndex : Int) {
+    func checkAnswer (userAnswerIndex : Int) -> (isRightAnswer : Bool, gameOver : Bool, correctAnswerIndex : Int) {
         print("Game",#function)
         if userAnswerIndex == questionList[currentQuestionIndex].correctAnswer {
             print("   ","Correct answer")
