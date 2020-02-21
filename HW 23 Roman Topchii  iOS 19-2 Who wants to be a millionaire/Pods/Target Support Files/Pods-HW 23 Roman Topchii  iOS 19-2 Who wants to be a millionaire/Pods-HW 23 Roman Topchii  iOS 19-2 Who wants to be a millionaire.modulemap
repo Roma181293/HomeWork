@@ -1,0 +1,6 @@
+framework module Pods_HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire {
+  umbrella header "Pods-HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire-umbrella.h"
+
+  export *
+  module * { export * }
+}

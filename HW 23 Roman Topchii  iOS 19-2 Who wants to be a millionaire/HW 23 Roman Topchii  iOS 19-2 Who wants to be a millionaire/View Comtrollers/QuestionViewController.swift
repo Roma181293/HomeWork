@@ -13,7 +13,7 @@ class QuestionViewController: UIViewController {
     var game : Game! = Game.share
     
     var globalTimer: Timer?
-    var counter : Int = 0
+    var audienceVotes : (first : Double, second : Double, third : Double, fourth : Double)?
     
     @IBOutlet weak var question: UILabel!
     
@@ -24,6 +24,7 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var friendCall: UIButton!
     @IBOutlet weak var audienceHelp: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,9 +56,6 @@ class QuestionViewController: UIViewController {
         if game.canGetHelp().audience == true {
             audienceHelp.isEnabled = false
         }
-        
-        print(game.askForAudienceHelp2()!)
-        
     }
     
     @IBAction func callFriendAction(_ sender: UIButton) {
@@ -68,9 +66,8 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func audienceHelpAction(_ sender: UIButton) {
-        if let audienceHelp = game.askForAudienceHelp() {
-            changeButtonBackgroundColour(buttonNumber: audienceHelp, to : .orange)
-            sender.isEnabled = false
+        if let audienceVotes = game.askForAudienceHelp() {
+            self.audienceVotes = audienceVotes
         }
     }
     
@@ -146,15 +143,30 @@ class QuestionViewController: UIViewController {
     
     
     
-    /*
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
+//      In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     
+
+        let vc = segue.destination as! AudienceHelpViewController
+        vc.audienceVotes = self.audienceVotes
+
+
      }
-     */
+     
     
 }

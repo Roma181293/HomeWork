@@ -1,0 +1,10 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire
+    pod 'SwiftCharts', '~> 0.6.5'
+end

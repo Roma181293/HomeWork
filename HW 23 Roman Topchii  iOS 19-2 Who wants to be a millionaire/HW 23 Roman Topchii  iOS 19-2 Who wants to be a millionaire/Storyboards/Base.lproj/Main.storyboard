@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qpf-0h-6UB">
-    <device id="retina4_7" orientation="landscape" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,21 +10,21 @@
         <!--Choose Category Table View Controller-->
         <scene sceneID="teL-zY-436">
             <objects>
-                <tableViewController storyboardIdentifier="ChooseCategoryVC_ID" id="yaq-5l-lrL" customClass="ChooseCategoryTableViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChooseCategoryVC_ID" id="yaq-5l-lrL" customClass="ChooseCategoryTableViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EEA-rj-UNF">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chooseCell_ID" rowHeight="166" id="RO8-NZ-J2G" customClass="CategoryTableViewCell" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="667" height="166"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chooseCell_ID" rowHeight="166" id="RO8-NZ-J2G" customClass="CategoryTableViewCell" customModule="Millionaire" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="166"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RO8-NZ-J2G" id="eWa-e5-whM">
-                                    <rect key="frame" x="0.0" y="0.0" width="667" height="166"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="166"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="asB-iD-rW0">
-                                            <rect key="frame" x="216.5" y="73" width="20" height="20"/>
+                                            <rect key="frame" x="70.5" y="73" width="20" height="20"/>
                                         </activityIndicatorView>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h0M-Dd-f8q">
                                             <rect key="frame" x="8" y="8" width="144" height="150"/>
@@ -39,13 +39,13 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gmu-Ws-0tQ">
-                                            <rect key="frame" x="160" y="70" width="428" height="26.5"/>
+                                            <rect key="frame" x="160" y="70" width="140" height="26.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                             <color key="textColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="eUv-VV-4zD">
-                                            <rect key="frame" x="602" y="64.5" width="37" height="37"/>
+                                            <rect key="frame" x="314" y="64.5" width="37" height="37"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
@@ -84,13 +84,13 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainVC_ID" id="BYZ-38-t0r" customClass="MainViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC_ID" id="BYZ-38-t0r" customClass="MainViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-bL-z9d">
-                                <rect key="frame" x="259.5" y="114" width="148" height="47"/>
+                                <rect key="frame" x="113.5" y="260" width="148" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Новая игра">
                                     <color key="titleColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -100,7 +100,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Q-NC-ZpW">
-                                <rect key="frame" x="180" y="214" width="307" height="47"/>
+                                <rect key="frame" x="34" y="360" width="307" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Архив предыдущих игр">
                                     <color key="titleColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,7 +110,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="OGW-Aw-tBB">
-                                <rect key="frame" x="315" y="169" width="37" height="37"/>
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.21176470588235294" green="0.16078431372549018" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -138,31 +138,31 @@
         <!--Question View Controller-->
         <scene sceneID="fug-uf-33y">
             <objects>
-                <viewController storyboardIdentifier="QuestionVC_ID" id="SO2-jF-6Va" customClass="QuestionViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QuestionVC_ID" id="SO2-jF-6Va" customClass="QuestionViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PFp-if-eUd">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xhg-5m-pvj">
-                                <rect key="frame" x="301.5" y="80" width="64.5" height="20.5"/>
+                                <rect key="frame" x="155.5" y="80" width="64.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Текст вопроса" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3x-in-M9P">
-                                <rect key="frame" x="20" y="125.5" width="627" height="20.5"/>
+                                <rect key="frame" x="20" y="125.5" width="335" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Lfa-pr-kmT">
-                                <rect key="frame" x="20" y="279" width="627" height="76"/>
+                                <rect key="frame" x="20" y="467" width="335" height="160"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="d7v-hW-eG6">
-                                        <rect key="frame" x="0.0" y="0.0" width="627" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="76"/>
                                         <subviews>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JtZ-oq-ulH">
-                                                <rect key="frame" x="0.0" y="0.0" width="309.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -177,7 +177,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-O0-iU1">
-                                                <rect key="frame" x="317.5" y="0.0" width="309.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="42" width="335" height="34"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Button">
@@ -191,10 +191,10 @@
                                         <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dHA-aJ-xec">
-                                        <rect key="frame" x="0.0" y="42" width="627" height="34"/>
+                                        <rect key="frame" x="0.0" y="84" width="335" height="76"/>
                                         <subviews>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cLd-1v-IPa">
-                                                <rect key="frame" x="0.0" y="0.0" width="309.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="34"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -209,7 +209,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CI-7V-QWj">
-                                                <rect key="frame" x="317.5" y="0.0" width="309.5" height="34"/>
+                                                <rect key="frame" x="0.0" y="42" width="335" height="34"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <state key="normal" title="Button">
@@ -225,7 +225,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vWs-9R-i5n">
-                                <rect key="frame" x="287.5" y="20" width="92" height="36"/>
+                                <rect key="frame" x="141.5" y="20" width="92" height="36"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtL-Mu-fWq">
                                         <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
@@ -249,6 +249,9 @@
                                         </state>
                                         <connections>
                                             <action selector="audienceHelpAction:" destination="SO2-jF-6Va" eventType="touchUpInside" id="Acs-Mf-J70"/>
+                                            <segue destination="spr-5a-6le" kind="popoverPresentation" popoverAnchorView="yar-Sa-3RC" id="ACX-Re-BBw">
+                                                <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                            </segue>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -287,21 +290,68 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5Q-aZ-1OT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1816" y="844"/>
+            <point key="canvasLocation" x="1815.7421289355323" y="844"/>
+        </scene>
+        <!--Audience Help View Controller-->
+        <scene sceneID="sNm-Vb-ATM">
+            <objects>
+                <viewController storyboardIdentifier="AudienceHelpVC_ID" id="spr-5a-6le" customClass="AudienceHelpViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DxZ-Sa-Ph4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="PVo-Cm-SOi">
+                                <rect key="frame" x="0.0" y="110.5" width="375" height="426.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результаты голосования" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3If-M4-9WD">
+                                        <rect key="frame" x="43" y="0.0" width="289" height="31.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DjO-RL-zOe">
+                                        <rect key="frame" x="0.0" y="51.5" width="375" height="375"/>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="375" id="9a0-Cu-YEC"/>
+                                            <constraint firstAttribute="height" constant="375" id="yTX-H6-fwf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="mRd-ID-eEL"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PVo-Cm-SOi" firstAttribute="centerX" secondItem="DxZ-Sa-Ph4" secondAttribute="centerX" id="l88-9j-iay"/>
+                            <constraint firstItem="PVo-Cm-SOi" firstAttribute="centerY" secondItem="DxZ-Sa-Ph4" secondAttribute="centerY" id="qiH-0V-327"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HsF-H2-hI2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="G3X-ED-jLF"/>
+                    <connections>
+                        <outlet property="barView" destination="DjO-RL-zOe" id="1zE-T0-MOM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rXy-RX-H5g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814.8425787106448" y="1599.2"/>
         </scene>
         <!--Choose View Controller-->
         <scene sceneID="6Du-Tt-9XA">
             <objects>
-                <viewController storyboardIdentifier="ChooseVC_ID" id="iId-m5-Bj2" customClass="ChooseViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChooseVC_ID" id="iId-m5-Bj2" customClass="ChooseViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IP0-kW-9Jg">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Hn4-PI-8xg">
-                                <rect key="frame" x="20" y="278" width="627" height="47"/>
+                                <rect key="frame" x="20" y="473" width="335" height="144"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5iU-ML-9Tk">
-                                        <rect key="frame" x="0.0" y="0.0" width="288.5" height="47"/>
+                                        <rect key="frame" x="65" y="0.0" width="205" height="47"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         <state key="normal" title="Забрать деньги">
                                             <color key="titleColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -311,7 +361,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="row-mT-gb4">
-                                        <rect key="frame" x="338.5" y="0.0" width="288.5" height="47"/>
+                                        <rect key="frame" x="37.5" y="97" width="260" height="47"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                         <state key="normal" title="Следующий вопрос">
                                             <color key="titleColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -324,7 +374,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" axis="vertical"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы уже выиграли" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wU3-es-Nuc">
-                                <rect key="frame" x="264" y="100" width="139.5" height="20.5"/>
+                                <rect key="frame" x="118" y="100" width="139.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -351,9 +401,9 @@
         <!--Core Data View Controller-->
         <scene sceneID="IZa-9k-lV9">
             <objects>
-                <viewController id="u2a-GX-Kk1" customClass="CoreDataViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="u2a-GX-Kk1" customClass="CoreDataViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A37-6z-5la">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="XI8-Zb-Dy7"/>
@@ -369,7 +419,7 @@
                 <navigationController storyboardIdentifier="rootVC" id="Qpf-0h-6UB" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ZpS-uz-mPw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bPz-En-cSS">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="32"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -383,21 +433,21 @@
         <!--Игры. Архив-->
         <scene sceneID="i86-b6-OUP">
             <objects>
-                <tableViewController id="dCd-cq-ndx" customClass="GameArchiveTableViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dCd-cq-ndx" customClass="GameArchiveTableViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kDA-3x-Uyg">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="archiveCell_ID" rowHeight="84" id="XUj-jd-yha" customClass="ArchiveTableViewCell" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="667" height="84"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="archiveCell_ID" rowHeight="84" id="XUj-jd-yha" customClass="ArchiveTableViewCell" customModule="Millionaire" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XUj-jd-yha" id="CeP-hv-u7o">
-                                    <rect key="frame" x="0.0" y="0.0" width="636" height="84"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="348" height="84"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9w-iQ-iCl">
-                                            <rect key="frame" x="8" y="8" width="620" height="21"/>
+                                            <rect key="frame" x="8" y="8" width="332" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="HRh-qj-gZD"/>
                                             </constraints>
@@ -406,7 +456,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pq-qQ-geB">
-                                            <rect key="frame" x="8" y="45" width="620" height="21"/>
+                                            <rect key="frame" x="8" y="45" width="332" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="LaL-PK-u6n"/>
                                             </constraints>
@@ -441,7 +491,7 @@
                         <barButtonItem key="backBarButtonItem" title="Назад" id="UUU-gg-7cA"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="uWa-cr-rb3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3YG-ak-R34">
-                                <rect key="frame" x="533" y="1" width="114" height="30"/>
+                                <rect key="frame" x="245" y="7" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Очистить архив"/>
                                 <connections>
@@ -461,13 +511,13 @@
         <!--Win View Controller-->
         <scene sceneID="XXe-br-DeL">
             <objects>
-                <viewController storyboardIdentifier="WinVC_ID" id="iqI-YL-G3I" customClass="WinViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WinVC_ID" id="iqI-YL-G3I" customClass="WinViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I9I-SS-0iu">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPt-9b-Pbg">
-                                <rect key="frame" x="273.5" y="265" width="120" height="60"/>
+                                <rect key="frame" x="127.5" y="537" width="120" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="BaY-v1-OQA"/>
                                     <constraint firstAttribute="width" constant="120" id="YCx-gA-2o9"/>
@@ -481,13 +531,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Поздравляем! Вы выиграли ХХХХ грн. Введите номер вашей карты ниже и мы перешлем их Вам!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvv-ZL-D9R">
-                                <rect key="frame" x="20" y="100" width="627" height="41"/>
+                                <rect key="frame" x="20" y="100" width="335" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.95903986689999998" green="0.94908112290000002" blue="0.94211477040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="v8L-xU-Y0a">
-                                <rect key="frame" x="243.5" y="191" width="180" height="26"/>
+                                <rect key="frame" x="97.5" y="211" width="180" height="26"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="07u-uo-kDC"/>
@@ -522,13 +572,13 @@
         <!--Detail View Controller-->
         <scene sceneID="lmT-2h-9rT">
             <objects>
-                <viewController storyboardIdentifier="DetailViewController_ID" id="Nfl-Ul-4Y9" customClass="DetailViewController" customModule="HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController_ID" id="Nfl-Ul-4Y9" customClass="DetailViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iz-a4-Dwb">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Mt-519">
-                                <rect key="frame" x="8" y="82" width="651" height="21"/>
+                                <rect key="frame" x="8" y="94" width="359" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KAi-7t-dUI"/>
                                 </constraints>
@@ -537,7 +587,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4d-Bu-fjr">
-                                <rect key="frame" x="20" y="153" width="627" height="202"/>
+                                <rect key="frame" x="20" y="165" width="335" height="482"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -573,11 +623,11 @@
             <objects>
                 <viewController storyboardIdentifier="LooseVC_ID" id="eBQ-gd-0DW" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ip5-o4-7SN">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8R-wY-rf8">
-                                <rect key="frame" x="273.5" y="265" width="120" height="60"/>
+                                <rect key="frame" x="127.5" y="557" width="120" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Cfm-C6-u3w"/>
                                     <constraint firstAttribute="width" constant="120" id="KXS-sU-TAT"/>
@@ -591,7 +641,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы проиграли! Не расстраивайтесь! Играйте еще!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXw-Ib-QLX">
-                                <rect key="frame" x="233.5" y="100" width="200" height="61"/>
+                                <rect key="frame" x="87.5" y="100" width="200" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="dQF-f8-4ZG"/>
                                 </constraints>

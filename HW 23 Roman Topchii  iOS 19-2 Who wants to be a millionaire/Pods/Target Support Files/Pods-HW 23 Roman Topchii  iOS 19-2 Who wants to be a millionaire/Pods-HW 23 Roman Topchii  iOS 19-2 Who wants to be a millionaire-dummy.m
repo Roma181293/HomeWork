@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire : NSObject
+@end
+@implementation PodsDummy_Pods_HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire
+@end
