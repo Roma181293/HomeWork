@@ -109,22 +109,10 @@ class Game {
         }
     }
     
-    
-    func askForAudienceHelp() -> Int? {
+    func askForAudienceHelp() -> (first : Double, second : Double, third : Double, fourth : Double)? {
         print("Game",#function)
         if audienceIsAlredyHelpt == false{
             audienceIsAlredyHelpt = true
-            return Int.random(in: 0...3)
-        }
-        else {
-            return nil
-        }
-    }
-    
-    func askForAudienceHelp2() -> (first : Double, second : Double, third : Double, fourth : Double, sum : Double)? {
-        print("Game",#function)
-//        if audienceIsAlredyHelpt == false{
-//            audienceIsAlredyHelpt = true
             
             var first : Double
             var second : Double
@@ -155,11 +143,11 @@ class Game {
                 third = 1 - first - second - fourth
             }
             
-        return (first : first, second : second, third : third, fourth : fourth, sum : first + second + third + fourth)
-//        }
-//        else {
-//            return nil
-//        }
+        return (first : first, second : second, third : third, fourth : fourth)
+        }
+        else {
+            return nil
+        }
     }
     
     
