@@ -34,7 +34,7 @@ class AudienceHelpViewController: UIViewController {
             valsAxisConfig: ChartAxisConfig(from: 0, to: 60, by: 10)
         )
         
-        let frame = CGRect(x: 0, y: 40, width: 350, height: 350)
+        let frame = CGRect(x: 0, y: 40, width: 350, height: 280)
         
         
         let chart = BarsChart(
