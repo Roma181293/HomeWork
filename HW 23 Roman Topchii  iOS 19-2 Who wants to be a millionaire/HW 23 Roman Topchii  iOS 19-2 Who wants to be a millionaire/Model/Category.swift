@@ -10,6 +10,7 @@ import Foundation
 
 
 struct Category : Codable {
+    let id : Int64
     let categoryName : String
     let imgURL : String
     let questionURL : String

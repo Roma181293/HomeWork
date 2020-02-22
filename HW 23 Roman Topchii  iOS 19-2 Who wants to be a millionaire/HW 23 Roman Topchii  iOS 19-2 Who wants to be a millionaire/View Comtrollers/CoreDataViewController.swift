@@ -19,44 +19,20 @@ class CoreDataViewController: UIViewController {
         super.viewDidLoad()
         
         
-        addQuestion(Question(question: "Who2?", answers: ["false","false","true","false"], correctAnswer: 2))
-        addQuestion(Question(question: "Who3?", answers: ["false","false","false","true"], correctAnswer: 3))
+        addCategory(Category(id: 0, categoryName: "sport", imgURL: "urlImg", questionURL: "URLQuest"))
+        addCategory(Category(id: 1, categoryName: "hishory", imgURL: "urlImg", questionURL: "URLQuest"))
+        addCategory(Category(id: 2, categoryName: "music", imgURL: "urlImg", questionURL: "URLQuest"))
+
         
+        //MARK: - printing DataCategory list
         let fetchRequest : NSFetchRequest<DataQuestion> = DataQuestion.fetchRequest()
-        do{
-            let result = try managedContext.fetch(fetchRequest)
-            
-            for item in result {
-                print(item.question!)
-                if let answers = item.answers{
-                    for i in 0...answers.count - 1 {
-                        print((item.answers![i] as! DataAnswer).answer!)
-                    }
-                }
-                print(item.correctAnswer)
-                print("-----")
-            }
-            
-        }
-        catch let error {
-            print("ERROR", error)
-        }
-        
-        
-        
-        
-        addCategory(Category(categoryName: "sport", imgURL: "urlImg", questionURL: "URLQuest"))
-        
-        
-        
-        
         
         var fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
         do{
             let resultCategory = try managedContext.fetch(fetchRequestCategory)
             let resultQuestion = try managedContext.fetch(fetchRequest)
             for question in resultQuestion {
-                resultCategory[1].addToQuestions(question)
+                resultCategory[0].addToQuestions(question)
             }
             try managedContext.save()
         }
@@ -66,32 +42,101 @@ class CoreDataViewController: UIViewController {
         
         
         
-        fetchRequestCategory = DataCategory.fetchRequest()
         
+        
+        
+        
+        
+        
+        
+        let fetchRequest1 : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+        fetchRequest1.predicate = NSPredicate(format: "categoryName = %@", "sport")
         do{
-            let resultCategory = try managedContext.fetch(fetchRequestCategory)
-            for category in resultCategory{
-                print("Category", category.categoryName!)
-                print("Category", category.imageURL!)
-                print("Category", category.questionURL!)
-                if let questions = category.questions {
-                    for question in questions {
-                        print("Category/ question", (question as! DataQuestion).question!)
-                        print("Category/correctAnswer ", (question as! DataQuestion).correctAnswer)
-                        for answer in (question as! DataQuestion).answers! {
-                            print("Category/ answer", (answer as! DataAnswer).answer!)
-                        }
-                    }
-                }
-                print("*_*_*_*_*_*_*_*_*_*_*_*_*")
+            let result = try managedContext.fetch(fetchRequest1)
+            print("result" , result.count)
+            
+            for item in result {
+                print(item.categoryName)
             }
+            
         }
         catch let error {
             print("ERROR", error)
         }
         
         
-    }
+        
+        //        addQuestion(Question(question: "Who2?", answers: ["false","false","true","false"], correctAnswer: 2))
+        //        addQuestion(Question(question: "Who3?", answers: ["false","false","false","true"], correctAnswer: 3))
+        
+        
+        
+        
+        
+        
+        
+        
+        //MARK: - printing DataQuestion list
+//        print("start printing DataQuestion list")
+//        do{
+//            let result = try managedContext.fetch(fetchRequest)
+//
+//            for item in result {
+//                print(item.question!)
+//                if let answers = item.answers{
+//                    for i in 0...answers.count - 1 {
+//                        print((item.answers![i] as! DataAnswer).answer!)
+//                    }
+//                }
+//                print(item.correctAnswer)
+//                print("-----")
+//            }
+//
+//        }
+//        catch let error {
+//            print("ERROR", error)
+//        }
+//        print("stop printing DataQuestion list")
+//
+//
+//
+//
+        
+        
+        
+        //MARK: - printing DataCategry and DataQuestion list
+//        fetchRequestCategory = DataCategory.fetchRequest()
+//
+//        do {
+//            let resultCategory = try managedContext.fetch(fetchRequestCategory)
+//            for category in resultCategory{
+//                print("Category", category.categoryName!)
+//                print("Category", category.imageURL!)
+//                print("Category", category.questionURL!)
+//                if let questions = category.questions {
+//                    for question in questions {
+//                        print("Category/ question", (question as! DataQuestion).question!)
+//                        print("Category/ correctAnswer", (question as! DataQuestion).correctAnswer)
+//                        for answer in (question as! DataQuestion).answers! {
+//                            print("Category/ answer", (answer as! DataAnswer).answer!)
+//                        }
+//                    }
+//                }
+//                print("*_*_*_*_*_*_*_*_*_*_*_*_*")
+//            }
+//        }
+//        catch let error {
+//            print("ERROR", error)
+//        }
+//
+//
+   }
+    
+    
+    
+    
+    
+    
     
     
     
@@ -109,7 +154,7 @@ class CoreDataViewController: UIViewController {
         }
     }
     
-    func addQuestion(_ question : Question) {
+    func addQuestion(question : Question, to category: DataCategory) {
         let question1 = DataQuestion(context: managedContext)
         question1.question = question.question
         question1.correctAnswer = Int16(question.correctAnswer)
@@ -119,6 +164,8 @@ class CoreDataViewController: UIViewController {
             answer.answer = question.answers[i]
             question1.addToAnswers(answer)
         }
+        
+        question1.categoty = category
         
         do {
             try managedContext.save()
