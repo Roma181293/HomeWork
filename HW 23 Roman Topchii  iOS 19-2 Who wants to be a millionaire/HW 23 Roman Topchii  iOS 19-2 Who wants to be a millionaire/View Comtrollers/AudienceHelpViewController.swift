@@ -22,6 +22,9 @@ class AudienceHelpViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.title = "Результаты голосования"
+        
         print(#function)
         if let votes = self.audienceVotes{
             self.showChart(data : votes)
