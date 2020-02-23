@@ -18,6 +18,7 @@
 		3054FFFB23F9A990003655FA /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054FFFA23F9A990003655FA /* CoreDataViewController.swift */; };
 		306DB31224032D5700B8DD65 /* CategoriesEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DB31124032D5700B8DD65 /* CategoriesEditorTableViewController.swift */; };
 		306DB3162403356000B8DD65 /* CategoryForEditorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DB3152403356000B8DD65 /* CategoryForEditorTableViewCell.swift */; };
+		306DB3182403382F00B8DD65 /* QuestionsEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DB3172403382F00B8DD65 /* QuestionsEditorTableViewController.swift */; };
 		3084FEB623BF63B000DB1D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FEB523BF63B000DB1D9C /* AppDelegate.swift */; };
 		3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */; };
 		3084FEBD23BF63B000DB1D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEBB23BF63B000DB1D9C /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		3054FFFA23F9A990003655FA /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		306DB31124032D5700B8DD65 /* CategoriesEditorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesEditorTableViewController.swift; sourceTree = "<group>"; };
 		306DB3152403356000B8DD65 /* CategoryForEditorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryForEditorTableViewCell.swift; sourceTree = "<group>"; };
+		306DB3172403382F00B8DD65 /* QuestionsEditorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsEditorTableViewController.swift; sourceTree = "<group>"; };
 		3084FEB223BF63B000DB1D9C /* Millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Millionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3084FEB523BF63B000DB1D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */,
 				300F4BD923CD1F0700C3FD71 /* DetailViewController.swift */,
 				306DB31124032D5700B8DD65 /* CategoriesEditorTableViewController.swift */,
+				306DB3172403382F00B8DD65 /* QuestionsEditorTableViewController.swift */,
 			);
 			path = "View Comtrollers";
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				30AAD58623BFD863008DB4BE /* MainViewController.swift in Sources */,
 				3048B37D23C6706D002FA29B /* ChooseViewController.swift in Sources */,
 				3091C70723E30986004C97C9 /* NetworkService.swift in Sources */,
+				306DB3182403382F00B8DD65 /* QuestionsEditorTableViewController.swift in Sources */,
 				3091C70F23E45BD9004C97C9 /* CategoryTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

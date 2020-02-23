@@ -501,7 +501,6 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="3Pq-qQ-geB" id="Hss-SL-iWV"/>
                                     <outlet property="resultLabel" destination="A9w-iQ-iCl" id="PdB-MX-0RW"/>
-                                    <segue destination="Nfl-Ul-4Y9" kind="show" id="RGb-SP-FQO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -534,13 +533,13 @@
         <!--Редактор вопросов-->
         <scene sceneID="PDz-Jn-sFX">
             <objects>
-                <tableViewController id="fj0-kF-lPJ" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="QuestionEditorVC_ID" id="fj0-kF-lPJ" customClass="QuestionsEditorTableViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ydc-Gc-aH6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" textLabel="qML-HO-Ax0" rowHeight="54" style="IBUITableViewCellStyleDefault" id="Qbi-fY-Kys">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionCell_ID" textLabel="qML-HO-Ax0" rowHeight="54" style="IBUITableViewCellStyleDefault" id="Qbi-fY-Kys">
                                 <rect key="frame" x="0.0" y="28" width="375" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qbi-fY-Kys" id="5Sl-lN-AhR">
@@ -551,7 +550,7 @@
                                             <rect key="frame" x="16" y="0.0" width="343" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -750,7 +749,7 @@
             <objects>
                 <viewController storyboardIdentifier="DetailViewController_ID" id="Nfl-Ul-4Y9" customClass="DetailViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iz-a4-Dwb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Mt-519">
@@ -763,7 +762,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4d-Bu-fjr">
-                                <rect key="frame" x="20" y="121" width="335" height="506"/>
+                                <rect key="frame" x="20" y="121" width="335" height="526"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -901,7 +900,6 @@
                                 <connections>
                                     <outlet property="categoryImg" destination="KIF-ES-i1E" id="ZaN-Qw-r3z"/>
                                     <outlet property="categoryName" destination="sa4-TM-kHR" id="co2-A3-xwq"/>
-                                    <segue destination="fj0-kF-lPJ" kind="show" id="VXD-h9-8fE"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

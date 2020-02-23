@@ -1,42 +1,42 @@
 //
-//  CategoriesEditorTableViewController.swift
+//  QuestionsEditorTableViewController.swift
 //  HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire
 //
-//  Created by Roman Topchii on 23.02.2020.
+//  Created by Roman Topchii on 24.02.2020.
 //  Copyright © 2020 Roman Topchii. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class CategoriesEditorTableViewController: UITableViewController {
+class QuestionsEditorTableViewController: UITableViewController {
     
-    lazy var fetchedResultsController : NSFetchedResultsController<DataCategory> = {
-        let fetchRequest = NSFetchRequest<DataCategory>(entityName: "DataCategory")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+    var id : Int64 = 1_000_000
+    
+    lazy var fetchedResultsController : NSFetchedResultsController<DataQuestion> = {
+        let fetchRequest = NSFetchRequest<DataQuestion>(entityName: "DataQuestion")
+        fetchRequest.predicate = NSPredicate(format: "categoty.id = %@", "\(id)")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "question", ascending: true)]
         let context = CoreDataStack.shared.persistentContainer.viewContext
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         return frc
     }()
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.isNavigationBarHidden = false
-        
         // Uncomment the following line to preserve selection between presentations
-        self.clearsSelectionOnViewWillAppear = true
+        // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
         
         do {
             try fetchedResultsController.performFetch()
+            
         }
         catch {
             print(error)
@@ -51,32 +51,20 @@ class CategoriesEditorTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         if let count = fetchedResultsController.sections?[section].numberOfObjects {
             return count
         }
         return 0
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell_ID", for: indexPath) as! CategoryForEditorTableViewCell
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {  let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionCell_ID", for: indexPath)
         
-        let category  = fetchedResultsController.object(at: indexPath) as DataCategory
+        let question  = fetchedResultsController.object(at: indexPath) as DataQuestion
         
-        //cell.imageURL = URL(string:category.imageURL!)!
-        cell.stringCategoryName = category.categoryName
+        cell.textLabel?.text = question.question!
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let category  = fetchedResultsController.object(at: indexPath) as DataCategory
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionEditorVC_ID") as! QuestionsEditorTableViewController
-        vc.id = category.id
-        self.navigationController?.pushViewController(vc, animated: true)
-        print(#function,vc.id)
     }
     
     
@@ -96,7 +84,7 @@ class CategoriesEditorTableViewController: UITableViewController {
      tableView.deleteRows(at: [indexPath], with: .fade)
      } else if editingStyle == .insert {
      // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }    
+     }
      }
      */
     
