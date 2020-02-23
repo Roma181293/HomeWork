@@ -11,10 +11,11 @@ import Foundation
 class Game {
     
     
-    static var share : Game = Game()
+    static var shared : Game = Game()
     
     private init() {
         print("Game",#function, "singleton")
+        
     }
     
     

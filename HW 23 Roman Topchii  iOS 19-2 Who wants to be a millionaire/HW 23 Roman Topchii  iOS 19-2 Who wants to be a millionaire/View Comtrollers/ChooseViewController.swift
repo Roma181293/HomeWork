@@ -9,7 +9,7 @@
 import UIKit
 
 class ChooseViewController: UIViewController {
-    var game : Game! = Game.share
+    var game : Game! = Game.shared
     
     
     @IBOutlet weak var messageLabel: UILabel!

@@ -59,4 +59,158 @@ class CoreDataStack {
         }
     }
     
+    // MARK: - Core Data add categories
+    
+    func addCategories(_ categories : [Category]) {
+        let context = persistentContainer.viewContext
+        for category in categories {
+            let categoryTmp = DataCategory(context: context)
+            categoryTmp.id = category.id
+            categoryTmp.categoryName = category.categoryName
+            categoryTmp.imageURL = category.imgURL
+            categoryTmp.questionURL = category.questionURL
+        }
+        do {
+            try context.save()
+        }
+        catch let error {
+            print("ERROR", error)
+        }
+    }
+    
+    
+    
+    // MARK: - Core Data update categories
+    
+    func updateCategories2(_ categories : [Category]) {
+        let context = persistentContainer.viewContext
+        do {
+            for category in categories {
+                
+                let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+                fetchRequest.predicate = NSPredicate(format: "id = %@", "\(category.id)")
+                let storedCategories = try context.fetch(fetchRequest)
+                
+                if storedCategories.isEmpty {
+                    let categoryTmp = DataCategory(context: context)
+                    categoryTmp.id = category.id
+                    categoryTmp.categoryName = category.categoryName
+                    categoryTmp.imageURL = category.imgURL
+                    categoryTmp.questionURL = category.questionURL
+                }
+                else{
+                    if category.id == storedCategories[0].id {
+                        storedCategories[0].id = category.id
+                        storedCategories[0].categoryName = category.categoryName
+                        storedCategories[0].imageURL = category.imgURL
+                        storedCategories[0].questionURL = category.questionURL
+                    }
+                }
+            }
+            try context.save()
+        }
+        catch let error {
+            print("ERROR", error)
+        }
+    }
+    
+    
+    
+    
+    
+    
+    // MARK: - Core Data add Questions to Category
+    
+    func addQuestionsToCategory(questions : [Question], toCategoryId: Int64) {
+        let context = persistentContainer.viewContext
+        let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+        fetchRequest.predicate = NSPredicate(format: "id = %@", "\(toCategoryId)")
+        do{
+            let result = try context.fetch(fetchRequest)
+            
+            for question in questions {
+                let questionToAdd = DataQuestion(context: context)
+                questionToAdd.question = question.question
+                questionToAdd.correctAnswer = Int16(question.correctAnswer)
+                
+                for i in 0...question.answers.count - 1{
+                    let answer = DataAnswer(context: context)
+                    answer.answer = question.answers[i]
+                    questionToAdd.addToAnswers(answer)
+                }
+                result[0].addToQuestions(questionToAdd)             //add reference to question
+            }
+            try context.save()
+        }
+        catch let error {
+            print("ERROR", error)
+        }
+    }
+    
+    
+    
+    // MARK: - Core Data print CategoriesList
+    func printCategory(){
+        let context = persistentContainer.viewContext
+        let fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
+        
+        do {
+            let resultCategory = try context.fetch(fetchRequestCategory)
+            for category in resultCategory{
+                print("Category", category.id)
+                print("Category", category.categoryName!)
+                print("Category", category.imageURL!)
+                print("Category", category.questionURL!)
+                if let questions = category.questions {
+                    for question in questions {
+                        print("-----------------------")
+                        print("Category/ question", (question as! DataQuestion).question!)
+                        print("Category/ correctAnswer", (question as! DataQuestion).correctAnswer)
+                        for answer in (question as! DataQuestion).answers! {
+                            print("Category/ answer", (answer as! DataAnswer).answer!)
+                        }
+                    }
+                }
+                print("*_*_*_*_*_*_*_*_*_*_*_*_*\n")
+            }
+        }
+        catch let error {
+            print("ERROR", error)
+        }
+    }
+    
+    
+    // MARK: - Core Data print CategoriesList
+    func printCategories() -> String? {
+        print(#function)
+        
+        var printinResult = ""
+        let context = persistentContainer.viewContext
+        let fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
+        do {
+            let resultCategory = try context.fetch(fetchRequestCategory)
+            for category in resultCategory{
+                printinResult += "Category \(category.categoryName!)\n"
+                printinResult += "Category \(category.imageURL!)\n"
+                printinResult += "Category \(category.questionURL!)\n"
+                if let questions = category.questions {
+                    for question in questions {
+                        printinResult += "-----------------------\n"
+                        printinResult += "Category/ question \((question as! DataQuestion).question!)\n"
+                        printinResult += "Category/ correctAnswer \((question as! DataQuestion).correctAnswer)\n"
+                        for answer in (question as! DataQuestion).answers! {
+                            printinResult += "Category/ answer \((answer as! DataAnswer).answer!))\n"
+                        }
+                    }
+                }
+                printinResult += "*_*_*_*_*_*_*_*_*_*_*_*_*\n"
+            }
+            return printinResult
+        }
+        catch let error {
+            print("ERROR", error)
+            return nil
+        }
+    }
+    
 }

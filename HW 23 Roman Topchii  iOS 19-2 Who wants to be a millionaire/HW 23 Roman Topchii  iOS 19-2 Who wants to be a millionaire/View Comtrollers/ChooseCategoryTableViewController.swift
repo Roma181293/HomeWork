@@ -10,7 +10,7 @@ import UIKit
 
 class ChooseCategoryTableViewController: UITableViewController {
     
-    var game : Game! = Game.share
+    var game : Game! = Game.shared
     
     var categories : [Category] = []
     var images : [UIImage] = []

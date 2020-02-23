@@ -9,7 +9,7 @@
 import UIKit
 
 class WinViewController: UIViewController {
-    var game : Game! = Game.share
+    var game : Game! = Game.shared
     
     @IBOutlet weak var winLabel: UILabel!
     

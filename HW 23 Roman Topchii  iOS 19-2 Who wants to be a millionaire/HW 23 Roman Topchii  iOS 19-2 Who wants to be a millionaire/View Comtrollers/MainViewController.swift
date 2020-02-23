@@ -12,7 +12,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    var game : Game! = Game.share
+    var game : Game! = Game.shared
+    var coreDataStack = CoreDataStack.shared
     
     @IBOutlet weak var spiner: UIActivityIndicatorView!
     
@@ -49,6 +50,9 @@ class MainViewController: UIViewController {
                     let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseCategoryVC_ID") as! ChooseCategoryTableViewController
                     vc.categories = categories!
                     self.navigationController?.pushViewController(vc, animated: true)
+                    self.coreDataStack.updateCategories2(categories!)
+                    self.coreDataStack.printCategory()
+                   // print(self.coreDataStack.printCategories())
                 }
             }
             else {

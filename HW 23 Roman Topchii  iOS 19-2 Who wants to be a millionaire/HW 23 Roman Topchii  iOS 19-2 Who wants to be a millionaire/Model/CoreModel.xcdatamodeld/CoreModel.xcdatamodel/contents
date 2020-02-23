@@ -9,7 +9,7 @@
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
         <attribute name="questionURL" optional="YES" attributeType="String"/>
-        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="DataQuestion" inverseName="categoty" inverseEntity="DataQuestion"/>
+        <relationship name="questions" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DataQuestion" inverseName="categoty" inverseEntity="DataQuestion"/>
     </entity>
     <entity name="DataQuestion" representedClassName="DataQuestion" syncable="YES" codeGenerationType="class">
         <attribute name="correctAnswer" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>

@@ -10,7 +10,7 @@ import UIKit
 
 class QuestionViewController: UIViewController {
     
-    var game : Game! = Game.share
+    var game : Game! = Game.shared
     
     var globalTimer: Timer?
     var audienceVotes : (first : Double, second : Double, third : Double, fourth : Double)?
