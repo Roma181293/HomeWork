@@ -88,7 +88,7 @@ class CoreDataStack {
             let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
             
             for category in categories {  //поиск среди новых категорий и добавление в случае отсутствия в БД или обновление в случае нахождения в БД
-               
+                
                 fetchRequest.predicate = NSPredicate(format: "id = %@", "\(category.id)")
                 let storedCategories = try context.fetch(fetchRequest)
                 
@@ -111,11 +111,13 @@ class CoreDataStack {
             
             let fetchRequest2 : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
             let storedCategories = try context.fetch(fetchRequest2)
-           
+            
             for storedCategory in storedCategories {
-                let filtered = categories.filter{$0.id == storedCategory.id}
-                if filtered.isEmpty {
-                    context.delete(storedCategory)
+                if storedCategory.id < 1_000_000 {
+                    let filtered = categories.filter{$0.id == storedCategory.id}
+                    if filtered.isEmpty {
+                        context.delete(storedCategory)
+                    }
                 }
             }
             
