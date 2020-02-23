@@ -48,11 +48,9 @@ class MainViewController: UIViewController {
                     self.spiner.stopAnimating()
                     self.spiner.isHidden = true
                     let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseCategoryVC_ID") as! ChooseCategoryTableViewController
-                    vc.categories = categories!
                     self.navigationController?.pushViewController(vc, animated: true)
                     self.coreDataStack.updateCategories2(categories!)
                     self.coreDataStack.printCategory()
-                   // print(self.coreDataStack.printCategories())
                 }
             }
             else {

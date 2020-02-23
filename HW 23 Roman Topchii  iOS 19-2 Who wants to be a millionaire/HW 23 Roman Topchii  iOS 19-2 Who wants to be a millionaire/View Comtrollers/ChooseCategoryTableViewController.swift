@@ -7,29 +7,43 @@
 //
 
 import UIKit
+import CoreData
 
 class ChooseCategoryTableViewController: UITableViewController {
     
     var game : Game! = Game.shared
     
-    var categories : [Category] = []
-    var images : [UIImage] = []
+    lazy var fetchedResultsController : NSFetchedResultsController<DataCategory> = {
+        let fetchRequest = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        let context = CoreDataStack.shared.persistentContainer.viewContext
+        
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        return frc
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.clearsSelectionOnViewWillAppear = true
         
         self.navigationController?.isNavigationBarHidden = false
-        //self.navigationController?.title = "Категории"
+        
+        self.navigationController?.title = "Категории"
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
         
+        do {
+            try fetchedResultsController.performFetch()
+        }
+        catch {
+            print(error)
+        }
         
     }
+    
+    
+    
     
     // MARK: - Table view data source
     
@@ -40,8 +54,10 @@ class ChooseCategoryTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        
-        return categories.count
+        if let count = fetchedResultsController.sections?[section].numberOfObjects {
+            return count
+        }
+        return 0
     }
     
     
@@ -49,8 +65,10 @@ class ChooseCategoryTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "chooseCell_ID", for: indexPath) as! CategoryTableViewCell
         
-        cell.imageURL = URL(string:categories[indexPath.row].imgURL)!
-        cell.stringCategoryName = categories[indexPath.row].categoryName
+        let category  = fetchedResultsController.object(at: indexPath) as DataCategory
+        
+        cell.imageURL = URL(string:category.imageURL!)!
+        cell.stringCategoryName = category.categoryName
         
         return cell
     }
@@ -62,10 +80,12 @@ class ChooseCategoryTableViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath) as! CategoryTableViewCell
         cell.startAnimatingSpiner(cell.loadSpiner)
         
+        let category  = fetchedResultsController.object(at: indexPath) as DataCategory
+        
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionVC_ID") as! QuestionViewController
         
-        let url = URL(string: categories[indexPath.row].questionURL)!
+        let url = URL(string: category.questionURL!)!
         
         NetworkService.fetchQuestions(url: url) { (questions, error) in
             if error == nil {
