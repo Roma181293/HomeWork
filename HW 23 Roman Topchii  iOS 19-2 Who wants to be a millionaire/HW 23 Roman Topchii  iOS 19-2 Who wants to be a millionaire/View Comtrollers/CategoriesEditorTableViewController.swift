@@ -35,13 +35,26 @@ class CategoriesEditorTableViewController: UITableViewController {
         
          self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
         
-        do {
-            try fetchedResultsController.performFetch()
-        }
-        catch {
-            print(error)
-        }
+//        do {
+//            try fetchedResultsController.performFetch()
+//        }
+//        catch {
+//            print(error)
+//        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+          super.viewWillAppear(true)
+          do {
+                     try fetchedResultsController.performFetch()
+                     
+                 }
+                 catch {
+                     print(error)
+                 }
+      }
+    
+    
     
     // MARK: - Table view data source
     
