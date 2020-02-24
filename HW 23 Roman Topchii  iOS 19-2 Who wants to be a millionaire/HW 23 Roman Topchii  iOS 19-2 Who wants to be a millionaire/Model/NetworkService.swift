@@ -13,8 +13,12 @@ class NetworkService {
     
 
     static func fetchQuestions(url: URL, completion: @escaping ([Question]?, Error?)-> Void) {
-        
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 5
+        sessionConfig.timeoutIntervalForResource = 10
+        let session = URLSession(configuration: sessionConfig)
+        //URLSession.shared.configuration = sessionConfig
+        let task = session.dataTask(with: url) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data {
                 do {
@@ -27,6 +31,10 @@ class NetworkService {
                     completion(nil, error)
                 }//do-catch
             } //if let data = data
+            else {
+                print("ERROR: \(error?.localizedDescription)")
+                completion(nil, error)
+            }
         } //task
         
         task.resume()
@@ -35,7 +43,12 @@ class NetworkService {
     
     static func fetchCategory(url: URL, completion: @escaping ([Category]?, Error?)-> Void) {
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 5
+        sessionConfig.timeoutIntervalForResource = 10
+        let session = URLSession(configuration: sessionConfig)
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
             let jsonDecoder = JSONDecoder()
             if let data = data {
                 do {
@@ -48,6 +61,10 @@ class NetworkService {
                     completion(nil, error)
                 }//do-catch
             } //if let data = data
+            else {
+                print("ERROR: \(error?.localizedDescription)")
+                completion(nil, error)
+            }
         } //task
         
         task.resume()
@@ -55,7 +72,12 @@ class NetworkService {
     
     static func fetchImage(url: URL, completion: @escaping (UIImage?, Error?)-> Void) {
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        let sessionConfig = URLSessionConfiguration.default
+        sessionConfig.timeoutIntervalForRequest = 5
+        sessionConfig.timeoutIntervalForResource = 10
+        let session = URLSession(configuration: sessionConfig)
+        
+        let task = session.dataTask(with: url) { (data, response, error) in
             
             if let data = data {
                 completion(UIImage(data:data), nil)
