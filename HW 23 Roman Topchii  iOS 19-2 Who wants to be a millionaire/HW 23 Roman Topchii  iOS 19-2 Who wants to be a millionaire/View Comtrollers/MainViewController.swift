@@ -34,17 +34,18 @@ class MainViewController: UIViewController {
     }
     
     
-    
-    
-    @IBAction func startNewGameLacalOrNetwork() {
+    @IBAction func startNewGameAction() {
+        view.isUserInteractionEnabled = false
         spiner.isHidden = false
         spiner.startAnimating()
+        
         let url = URL(string: "https://raw.githubusercontent.com/Roma181293/MillionaireResouces/master/categoryList.json")!
         
         NetworkService.fetchCategory(url: url) { (categories , error) in
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             if error == nil{
                 DispatchQueue.main.async {
+                    self.view.isUserInteractionEnabled = true
                     self.spiner.stopAnimating()
                     self.spiner.isHidden = true
                     let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseCategoryVC_ID") as! ChooseCategoryTableViewController
@@ -55,6 +56,7 @@ class MainViewController: UIViewController {
             }
             else {
                 DispatchQueue.main.async {
+                    self.view.isUserInteractionEnabled = true
                     self.spiner.stopAnimating()
                     self.spiner.isHidden = true
                     
