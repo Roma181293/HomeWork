@@ -501,6 +501,7 @@
                                 <connections>
                                     <outlet property="dateLabel" destination="3Pq-qQ-geB" id="Hss-SL-iWV"/>
                                     <outlet property="resultLabel" destination="A9w-iQ-iCl" id="PdB-MX-0RW"/>
+                                    <segue destination="Nfl-Ul-4Y9" kind="show" id="gAg-pz-Yxd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -564,12 +565,32 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Редактор вопросов" id="E8v-QZ-XTg">
-                        <barButtonItem key="rightBarButtonItem" title="Save" image="Я" id="PTH-51-SJC"/>
+                        <barButtonItem key="rightBarButtonItem" title="Добавить" id="PTH-51-SJC">
+                            <connections>
+                                <segue destination="Lrc-KY-Atf" kind="show" id="FM0-hO-kH7"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4D9-9p-ynj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="1624.1379310344828"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jF9-r8-YsA">
+            <objects>
+                <viewController id="Lrc-KY-Atf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TFi-t3-Evl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gh4-GD-6xJ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pv7-tm-yr6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bGE-h3-efS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="982" y="2388"/>
         </scene>
         <!--Редактор вопроса-->
         <scene sceneID="6fH-6I-MxW">
@@ -692,7 +713,7 @@
                         <viewLayoutGuide key="safeArea" id="BW7-gF-nhi"/>
                     </view>
                     <navigationItem key="navigationItem" title="Редактор вопроса" id="vaz-bD-iBA">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="9Sj-lO-6Nw">
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="9Sj-lO-6Nw">
                             <connections>
                                 <action selector="saveAction" destination="dvO-DK-dmi" id="s6j-tw-aZS"/>
                             </connections>
@@ -780,7 +801,7 @@
             <objects>
                 <viewController storyboardIdentifier="DetailViewController_ID" id="Nfl-Ul-4Y9" customClass="DetailViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iz-a4-Dwb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Mt-519">
@@ -793,7 +814,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4d-Bu-fjr">
-                                <rect key="frame" x="20" y="121" width="335" height="526"/>
+                                <rect key="frame" x="20" y="121" width="335" height="506"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -949,7 +970,6 @@
     <resources>
         <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="phone" catalog="system" width="64" height="56"/>
-        <image name="Я" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ru3-1Y-Yxj"/>

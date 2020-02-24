@@ -41,10 +41,13 @@ class QuestionEditorViewController: UIViewController {
             thirdAnswerLabel.text = (question.answers![2] as! DataAnswer).answer!
             fourthAnswerLabel.text = (question.answers![3] as! DataAnswer).answer!
         }
+        else {
+            switchSwitcherAtIndexToOnAndOtherSwitcherToOff(index: nil)
+        }
     }
     
     
-   
+    
     
     
     @IBAction func switchCorrectAnswerAction(_ sender: UISwitch) {
@@ -52,7 +55,7 @@ class QuestionEditorViewController: UIViewController {
     }
     
     @IBAction func saveAction() {
-//        print("categoryId", categoryId! ,"\ninputQuestion!.question",inputQuestion!.question!)
+        //        print("categoryId", categoryId! ,"\ninputQuestion!.question",inputQuestion!.question!)
         let context = CoreDataStack.shared.persistentContainer.viewContext
         let fetchRequest : NSFetchRequest<DataQuestion> = DataQuestion.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "question = %@", "\(inputQuestion!.question!)")
@@ -87,9 +90,9 @@ class QuestionEditorViewController: UIViewController {
         }
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-               let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionsEditorVC_ID") as! QuestionsEditorTableViewController
-               vc.id = categoryId!
-//               print("vc.categoryId", vc.id!)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionsEditorVC_ID") as! QuestionsEditorTableViewController
+        vc.id = categoryId!
+        //               print("vc.categoryId", vc.id!)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -97,42 +100,47 @@ class QuestionEditorViewController: UIViewController {
     
     
     
-    func switchSwitcherAtIndexToOnAndOtherSwitcherToOff(index : Int) {
-           switch index {
-           case 0:
-               firstAnswerSwitch.setOn(true, animated: true)
-               secondAnswerSwitch.setOn(false, animated: true)
-               thirdAnswerSwitch.setOn(false, animated: true)
-               fourthAnswerSwitch.setOn(false, animated: true)
-           case 1:
-               firstAnswerSwitch.setOn(false, animated: true)
-               secondAnswerSwitch.setOn(true, animated: true)
-               thirdAnswerSwitch.setOn(false, animated: true)
-               fourthAnswerSwitch.setOn(false, animated: true)
-           case 2:
-               firstAnswerSwitch.setOn(false, animated: true)
-               secondAnswerSwitch.setOn(false, animated: true)
-               thirdAnswerSwitch.setOn(true, animated: true)
-               fourthAnswerSwitch.setOn(false, animated: true)
-           default:
-               firstAnswerSwitch.setOn(false, animated: true)
-               secondAnswerSwitch.setOn(false, animated: true)
-               thirdAnswerSwitch.setOn(false, animated: true)
-               fourthAnswerSwitch.setOn(true, animated: true)
-           }
-       }
+    func switchSwitcherAtIndexToOnAndOtherSwitcherToOff(index : Int?) {
+        switch index {
+        case 0:
+            firstAnswerSwitch.setOn(true, animated: true)
+            secondAnswerSwitch.setOn(false, animated: true)
+            thirdAnswerSwitch.setOn(false, animated: true)
+            fourthAnswerSwitch.setOn(false, animated: true)
+        case 1:
+            firstAnswerSwitch.setOn(false, animated: true)
+            secondAnswerSwitch.setOn(true, animated: true)
+            thirdAnswerSwitch.setOn(false, animated: true)
+            fourthAnswerSwitch.setOn(false, animated: true)
+        case 2:
+            firstAnswerSwitch.setOn(false, animated: true)
+            secondAnswerSwitch.setOn(false, animated: true)
+            thirdAnswerSwitch.setOn(true, animated: true)
+            fourthAnswerSwitch.setOn(false, animated: true)
+        case 3:
+            firstAnswerSwitch.setOn(false, animated: true)
+            secondAnswerSwitch.setOn(false, animated: true)
+            thirdAnswerSwitch.setOn(false, animated: true)
+            fourthAnswerSwitch.setOn(true, animated: true)
+        default:
+            firstAnswerSwitch.setOn(false, animated: true)
+            secondAnswerSwitch.setOn(false, animated: true)
+            thirdAnswerSwitch.setOn(false, animated: true)
+            fourthAnswerSwitch.setOn(false, animated: true)
+        }
+    }
     
     
     
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-//        let vc = segue.destination as! QuestionsEditorTableViewController
-//        vc.id = categoryId!
-     }
-     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        //        let vc = segue.destination as! QuestionsEditorTableViewController
+        //        vc.id = categoryId!
+    }
+    
     
 }
