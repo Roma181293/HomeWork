@@ -105,7 +105,6 @@ class ChooseCategoryTableViewController: UITableViewController {
                     let alert = UIAlertController(title: "Упс. Не удалось загрузить вопросы.", message: nil, preferredStyle: .alert)
                     
                     alert.addAction(UIAlertAction(title: "Вопросы произвольной тематики", style: .default, handler: { action in
-                        
                         print("Вопросы общей темы")
                         self.game.newLocalGame()
                         self.navigationController?.pushViewController(questionVC, animated: true)
@@ -115,6 +114,10 @@ class ChooseCategoryTableViewController: UITableViewController {
                         print("Главное меню")
                         let mainVC = storyBoard.instantiateViewController(withIdentifier: "MainVC_ID") as! MainViewController
                         self.navigationController?.pushViewController(mainVC, animated: true)
+                    }))
+                    
+                    alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: { action in
+                        print("Закрыть")
                     }))
                     
                     self.present(alert, animated: true, completion: nil)

@@ -93,7 +93,7 @@ class QuestionEditorViewController: UIViewController {
         let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionsEditorVC_ID") as! QuestionsEditorTableViewController
         vc.id = categoryId!
         //               print("vc.categoryId", vc.id!)
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
