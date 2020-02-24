@@ -73,7 +73,7 @@ class CategoriesEditorTableViewController: UITableViewController {
         
         let category  = fetchedResultsController.object(at: indexPath) as DataCategory
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionEditorVC_ID") as! QuestionsEditorTableViewController
+        let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionsEditorVC_ID") as! QuestionsEditorTableViewController
         vc.id = category.id
         self.navigationController?.pushViewController(vc, animated: true)
         print(#function,vc.id)
