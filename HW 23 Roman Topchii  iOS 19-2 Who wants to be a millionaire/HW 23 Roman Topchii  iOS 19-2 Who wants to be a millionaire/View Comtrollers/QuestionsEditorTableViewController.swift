@@ -33,14 +33,25 @@ class QuestionsEditorTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
-        
+//        do {
+//            try fetchedResultsController.performFetch()
+//            
+//        }
+//        catch {
+//            print(error)
+//        }
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         do {
-            try fetchedResultsController.performFetch()
-            
-        }
-        catch {
-            print(error)
-        }
+                   try fetchedResultsController.performFetch()
+                   
+               }
+               catch {
+                   print(error)
+               }
     }
     
     // MARK: - Table view data source
@@ -67,6 +78,18 @@ class QuestionsEditorTableViewController: UITableViewController {
         return cell
     }
     
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let question  = fetchedResultsController.object(at: indexPath) as DataQuestion
+        
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionEditorVC_ID") as! QuestionEditorViewController
+        vc.inputQuestion = question
+        vc.categoryId = id
+//        print("vc.categoryId", vc.categoryId)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     /*
      // Override to support conditional editing of the table view.

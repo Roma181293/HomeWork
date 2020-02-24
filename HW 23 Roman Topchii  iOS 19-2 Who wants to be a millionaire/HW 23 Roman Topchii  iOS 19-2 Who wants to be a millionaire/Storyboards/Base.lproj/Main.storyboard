@@ -556,9 +556,6 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="dvO-DK-dmi" kind="show" id="Cim-Gf-hdz"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -579,30 +576,34 @@
             <objects>
                 <viewController storyboardIdentifier="QuestionEditorVC_ID" id="dvO-DK-dmi" customClass="QuestionEditorViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ddr-4X-oym">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="125" translatesAutoresizingMaskIntoConstraints="NO" id="miz-PY-EMe">
-                                <rect key="frame" x="16" y="20" width="343" height="607"/>
+                                <rect key="frame" x="16" y="20" width="343" height="627"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Question" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jAg-5j-T9f">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="292"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="textColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="300"/>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="wsg-4M-jjZ">
-                                        <rect key="frame" x="0.0" y="417" width="339" height="190"/>
+                                        <rect key="frame" x="0.0" y="425" width="339" height="202"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="akl-En-IP8">
-                                                <rect key="frame" x="0.0" y="0.0" width="339" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="339" height="34"/>
                                                 <subviews>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V2w-d9-2K2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V2w-d9-2K2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="34"/>
+                                                        <connections>
+                                                            <action selector="switchCorrectAnswerAction:" destination="dvO-DK-dmi" eventType="valueChanged" id="xMu-UP-OqT"/>
+                                                        </connections>
                                                     </switch>
                                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Vd-ro-6xz">
-                                                        <rect key="frame" x="69" y="0.0" width="270" height="31"/>
+                                                        <rect key="frame" x="69" y="0.0" width="270" height="34"/>
+                                                        <color key="backgroundColor" red="0.95903986689999998" green="0.94908112290000002" blue="0.94211477040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="LEy-In-Olb"/>
                                                         </constraints>
@@ -610,15 +611,20 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                 </subviews>
+                                                <color key="backgroundColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rwd-b6-BSx">
-                                                <rect key="frame" x="0.0" y="53" width="339" height="31"/>
+                                                <rect key="frame" x="0.0" y="56" width="339" height="34"/>
                                                 <subviews>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-0p-qK3">
-                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                    <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j3x-0p-qK3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="34"/>
+                                                        <connections>
+                                                            <action selector="switchCorrectAnswerAction:" destination="dvO-DK-dmi" eventType="valueChanged" id="y2y-FT-Wl6"/>
+                                                        </connections>
                                                     </switch>
                                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xeI-KT-0ji">
-                                                        <rect key="frame" x="69" y="0.0" width="270" height="31"/>
+                                                        <rect key="frame" x="69" y="0.0" width="270" height="34"/>
+                                                        <color key="backgroundColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="ItP-qs-ezS"/>
                                                         </constraints>
@@ -628,13 +634,17 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fwq-iN-rJY">
-                                                <rect key="frame" x="0.0" y="106" width="339" height="31"/>
+                                                <rect key="frame" x="0.0" y="112" width="339" height="34"/>
                                                 <subviews>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZUn-qZ-Gfb">
-                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                    <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ZUn-qZ-Gfb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="34"/>
+                                                        <connections>
+                                                            <action selector="switchCorrectAnswerAction:" destination="dvO-DK-dmi" eventType="valueChanged" id="CZU-81-FSO"/>
+                                                        </connections>
                                                     </switch>
                                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lRO-bz-Cmp">
-                                                        <rect key="frame" x="69" y="0.0" width="270" height="31"/>
+                                                        <rect key="frame" x="69" y="0.0" width="270" height="34"/>
+                                                        <color key="backgroundColor" red="0.95903986689999998" green="0.94908112290000002" blue="0.94211477040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="0tj-e5-m56"/>
                                                         </constraints>
@@ -644,13 +654,17 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="LoC-nu-vfG">
-                                                <rect key="frame" x="0.0" y="159" width="339" height="31"/>
+                                                <rect key="frame" x="0.0" y="168" width="339" height="34"/>
                                                 <subviews>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-6r-HcG">
-                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                    <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-6r-HcG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="34"/>
+                                                        <connections>
+                                                            <action selector="switchCorrectAnswerAction:" destination="dvO-DK-dmi" eventType="valueChanged" id="naZ-fh-Mck"/>
+                                                        </connections>
                                                     </switch>
                                                     <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9fc-PV-0cm">
-                                                        <rect key="frame" x="69" y="0.0" width="270" height="31"/>
+                                                        <rect key="frame" x="69" y="0.0" width="270" height="34"/>
+                                                        <color key="backgroundColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="Hx7-K4-97s"/>
                                                         </constraints>
@@ -677,7 +691,24 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="BW7-gF-nhi"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Редактор вопроса" id="vaz-bD-iBA"/>
+                    <navigationItem key="navigationItem" title="Редактор вопроса" id="vaz-bD-iBA">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="9Sj-lO-6Nw">
+                            <connections>
+                                <action selector="saveAction" destination="dvO-DK-dmi" id="s6j-tw-aZS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="firstAnswerLabel" destination="4Vd-ro-6xz" id="HNG-uD-mS3"/>
+                        <outlet property="firstAnswerSwitch" destination="V2w-d9-2K2" id="qri-nM-U5T"/>
+                        <outlet property="fourthAnswerLabel" destination="9fc-PV-0cm" id="Vp7-6W-jzo"/>
+                        <outlet property="fourthAnswerSwitch" destination="EZY-6r-HcG" id="nl6-a7-gtM"/>
+                        <outlet property="questionTextField" destination="jAg-5j-T9f" id="GGA-Ac-ghU"/>
+                        <outlet property="secondAnswerLabel" destination="xeI-KT-0ji" id="XSi-wK-J79"/>
+                        <outlet property="secondAnswerSwitch" destination="j3x-0p-qK3" id="UUX-vw-pil"/>
+                        <outlet property="thirdAnswerLabel" destination="lRO-bz-Cmp" id="IMS-yo-I5d"/>
+                        <outlet property="thirdAnswerSwitch" destination="ZUn-qZ-Gfb" id="vb5-Oz-aiQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qN8-AL-hWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
