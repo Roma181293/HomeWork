@@ -82,46 +82,40 @@ class CoreDataStack {
     
     // MARK: - Core Data update categories
     
-    func updateCategories2(_ categories : [Category]) {
+    func updateCategoriesFromServerTest(_ categories : [Category]) {
         let context = persistentContainer.viewContext
         do {
             let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+            fetchRequest.predicate = NSPredicate(format: "type = %@", "Server")
             
-            for category in categories {  //поиск среди новых категорий и добавление в случае отсутствия в БД или обновление в случае нахождения в БД
-                
-                fetchRequest.predicate = NSPredicate(format: "id = %@", "\(category.id)")
-                let storedCategories = try context.fetch(fetchRequest)
-                
-                if storedCategories.isEmpty {
-                    let categoryTmp = DataCategory(context: context)
-                    categoryTmp.id = category.id
-                    categoryTmp.categoryName = category.categoryName
-                    categoryTmp.imageURL = category.imgURL
-                    categoryTmp.questionURL = category.questionURL
-                }
-                else{
-                    if category.id == storedCategories[0].id {
-                        storedCategories[0].id = category.id
-                        storedCategories[0].categoryName = category.categoryName
-                        storedCategories[0].imageURL = category.imgURL
-                        storedCategories[0].questionURL = category.questionURL
-                    }
-                }
-            }
-            
-            let fetchRequest2 : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
-            let storedCategories = try context.fetch(fetchRequest2)
-            
-            for storedCategory in storedCategories {
-                if storedCategory.id < 1_000_000 {
-                    let filtered = categories.filter{$0.id == storedCategory.id}
-                    if filtered.isEmpty {
-                        context.delete(storedCategory)
-                    }
+            var storedCategories = try context.fetch(fetchRequest)
+            print("storedCategories.count", storedCategories.count)
+            //Если серверные категории есть, то удаляем их
+            if storedCategories.isEmpty == false {
+                for category in storedCategories {
+                    context.delete(category)
                 }
             }
             
             try context.save()
+            
+            storedCategories = try context.fetch(fetchRequest)
+            print("storedCategories.count", storedCategories.count)
+            //добавляем серверные категории
+            if storedCategories.isEmpty {
+                for category in categories {
+                    let categoryTmp = DataCategory(context: context)
+                    categoryTmp.id = category.id
+                    categoryTmp.type = "Server"
+                    categoryTmp.categoryName = category.categoryName
+                    categoryTmp.imageURL = category.imgURL
+                    categoryTmp.questionURL = category.questionURL
+                }
+            }
+            
+            try context.save()
+            storedCategories = try context.fetch(fetchRequest)
+            print("storedCategories.count", storedCategories.count)
         }
         catch let error {
             print("ERROR", error)
@@ -163,8 +157,13 @@ class CoreDataStack {
     
     
     
+    
+    
+    
+    
+    
     // MARK: - Core Data print CategoriesList
-    func printCategory(){
+    func printCategories(){
         let context = persistentContainer.viewContext
         let fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
         
@@ -172,6 +171,7 @@ class CoreDataStack {
             let resultCategory = try context.fetch(fetchRequestCategory)
             for category in resultCategory{
                 print("Category", category.id)
+                print("Category", category.type!)
                 print("Category", category.categoryName!)
                 print("Category", category.imageURL!)
                 print("Category", category.questionURL!)
@@ -194,37 +194,57 @@ class CoreDataStack {
     }
     
     
-    // MARK: - Core Data print CategoriesList
-    func printCategories() -> String? {
-        print(#function)
-        
-        var printinResult = ""
+    
+    
+    
+    // MARK: -- Core Data Version Methods
+    
+    // MARK: - get DB version
+    func createZeroVersion() {
         let context = persistentContainer.viewContext
-        let fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
-        do {
-            let resultCategory = try context.fetch(fetchRequestCategory)
-            for category in resultCategory{
-                printinResult += "Category \(category.categoryName!)\n"
-                printinResult += "Category \(category.imageURL!)\n"
-                printinResult += "Category \(category.questionURL!)\n"
-                if let questions = category.questions {
-                    for question in questions {
-                        printinResult += "-----------------------\n"
-                        printinResult += "Category/ question \((question as! DataQuestion).question!)\n"
-                        printinResult += "Category/ correctAnswer \((question as! DataQuestion).correctAnswer)\n"
-                        for answer in (question as! DataQuestion).answers! {
-                            printinResult += "Category/ answer \((answer as! DataAnswer).answer!))\n"
-                        }
-                    }
-                }
-                printinResult += "*_*_*_*_*_*_*_*_*_*_*_*_*\n"
+        do{
+            let version = DataVersion(context: context)
+            version.version = 0
+            version.author = "Device"
+            try context.save()
+        }
+        catch let error {
+            print("ERROR", error)
+        }
+    }
+    
+    func updateDBVersion(_ newVersion : Version) {
+        let context = persistentContainer.viewContext
+        let fetchRequest : NSFetchRequest<DataVersion> = NSFetchRequest<DataVersion>(entityName: DataVersion.entity().name!)
+        do{
+            let result = try context.fetch(fetchRequest)
+            
+            result[0].version = newVersion.version
+            result[0].author = newVersion.author
+            
+            try context.save()
+        }
+        catch let error {
+            print("ERROR", error)
+        }
+    }
+    
+    func getCurrentDBVersion () -> Int64? {
+        let context = persistentContainer.viewContext
+        let fetchRequest : NSFetchRequest<DataVersion> = NSFetchRequest<DataVersion>(entityName: DataVersion.entity().name!)
+        do{
+            let result = try context.fetch(fetchRequest)
+            if result.isEmpty {
+                return result[0].version
             }
-            return printinResult
+            else {
+                return nil
+            }
+            
         }
         catch let error {
             print("ERROR", error)
             return nil
         }
     }
-    
 }

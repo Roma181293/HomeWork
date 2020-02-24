@@ -50,8 +50,8 @@ class MainViewController: UIViewController {
                     self.spiner.isHidden = true
                     let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseCategoryVC_ID") as! ChooseCategoryTableViewController
                     self.navigationController?.pushViewController(vc, animated: true)
-                    self.coreDataStack.updateCategories2(categories!)
-                    self.coreDataStack.printCategory()
+                    self.coreDataStack.updateCategoriesFromServerTest(categories!)
+                    self.coreDataStack.printCategories()
                 }
             }
             else {
