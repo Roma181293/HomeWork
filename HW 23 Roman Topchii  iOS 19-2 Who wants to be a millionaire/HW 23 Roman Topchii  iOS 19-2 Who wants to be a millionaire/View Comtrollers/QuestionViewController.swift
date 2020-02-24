@@ -31,9 +31,6 @@ class QuestionViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         
-        self.navigationController?.isNavigationBarHidden = true
-        //        self.modalPresentationStyle = .fullScreen
-        
         let levelQuestion = game.askQuestion()
         
         if let levelQuestion = levelQuestion {
@@ -58,6 +55,12 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+         self.navigationController?.isNavigationBarHidden = true
+    }
+    
     @IBAction func callFriendAction(_ sender: UIButton) {
         if let friendHelp = game.callFriend() {
             changeButtonBackgroundColour(buttonNumber: friendHelp, to : .magenta)
@@ -70,7 +73,6 @@ class QuestionViewController: UIViewController {
             self.audienceVotes = audienceVotes
         }
     }
-    
     
     @IBAction func giveTheAnswer(_ sender: UIButton) {
         
