@@ -14,8 +14,8 @@ class NetworkService {
 
     static func fetchQuestions(url: URL, completion: @escaping ([Question]?, Error?)-> Void) {
         let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 5
-        sessionConfig.timeoutIntervalForResource = 10
+        sessionConfig.timeoutIntervalForRequest = 10
+        sessionConfig.timeoutIntervalForResource = 30
         let session = URLSession(configuration: sessionConfig)
         //URLSession.shared.configuration = sessionConfig
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -44,8 +44,8 @@ class NetworkService {
     static func fetchCategory(url: URL, completion: @escaping ([Category]?, Error?)-> Void) {
         
         let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 5
-        sessionConfig.timeoutIntervalForResource = 10
+        sessionConfig.timeoutIntervalForRequest = 10
+        sessionConfig.timeoutIntervalForResource = 30
         let session = URLSession(configuration: sessionConfig)
         
         let task = session.dataTask(with: url) { (data, response, error) in
@@ -74,8 +74,8 @@ class NetworkService {
     static func fetchVersion(url: URL, completion: @escaping (Version?, Error?)-> Void) {
            
            let sessionConfig = URLSessionConfiguration.default
-           sessionConfig.timeoutIntervalForRequest = 5
-           sessionConfig.timeoutIntervalForResource = 10
+           sessionConfig.timeoutIntervalForRequest = 10
+           sessionConfig.timeoutIntervalForResource = 30
            let session = URLSession(configuration: sessionConfig)
            
            let task = session.dataTask(with: url) { (data, response, error) in
@@ -104,8 +104,8 @@ class NetworkService {
          static func fetchImage(url: URL, completion: @escaping (UIImage?, Error?)-> Void) {
         
         let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = 5
-        sessionConfig.timeoutIntervalForResource = 10
+        sessionConfig.timeoutIntervalForRequest = 10
+        sessionConfig.timeoutIntervalForResource = 30
         let session = URLSession(configuration: sessionConfig)
         
         let task = session.dataTask(with: url) { (data, response, error) in

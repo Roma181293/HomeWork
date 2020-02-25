@@ -61,11 +61,6 @@ class MainViewController: UIViewController {
         spiner.isHidden = false
         spiner.startAnimating()
         
-        //coreDataStack.updateDBVersion()
-        
-        
-        
-        
         if loadNewCategoryListFromServer == true {
             
             let url = URL(string: "https://raw.githubusercontent.com/Roma181293/MillionaireResouces/master/categoryList.json")!
@@ -100,11 +95,11 @@ class MainViewController: UIViewController {
                                         }
                                     } //NetworkService.fetchQuestions(url: url)
                                 }
-                                if let url = URL(string: category.imageURL!) {
-                                    NetworkService.fetchImage(url: url) { (data, error) in
-                                        
-                                    }
-                                }
+//                                if let url = URL(string: category.imageURL!) {
+//                                    NetworkService.fetchImage(url: url) { (data, error) in
+//
+//                                    }
+//                                }
                             }
                             
                         }
