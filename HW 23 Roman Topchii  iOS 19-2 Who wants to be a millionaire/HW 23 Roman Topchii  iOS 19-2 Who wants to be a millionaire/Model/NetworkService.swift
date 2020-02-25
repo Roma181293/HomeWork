@@ -6,7 +6,7 @@
 //  Copyright © 2020 Roman Topchii. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
 class NetworkService {
@@ -100,7 +100,7 @@ class NetworkService {
            task.resume()
        }
     
-    static func fetchImage(url: URL, completion: @escaping (UIImage?, Error?)-> Void) {
+    static func fetchImage(url: URL, completion: @escaping (Data?, Error?)-> Void) {
         
         let sessionConfig = URLSessionConfiguration.default
         sessionConfig.timeoutIntervalForRequest = 5
@@ -110,9 +110,10 @@ class NetworkService {
         let task = session.dataTask(with: url) { (data, response, error) in
             
             if let data = data {
-                completion(UIImage(data:data), nil)
+                completion(data, nil)
             }
             else {
+                print("ERROR: \(error?.localizedDescription)")
                 completion(nil, error)
             } //if let data = data
         } //task

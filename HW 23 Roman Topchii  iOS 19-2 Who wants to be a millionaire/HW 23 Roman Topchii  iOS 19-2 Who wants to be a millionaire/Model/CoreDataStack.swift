@@ -135,18 +135,19 @@ class CoreDataStack {
         fetchRequest.predicate = NSPredicate(format: "id = %@", "\(toCategoryId)")
         do{
             let result = try context.fetch(fetchRequest)
-            
-            for question in questions {
-                let questionToAdd = DataQuestion(context: context)
-                questionToAdd.question = question.question
-                questionToAdd.correctAnswer = Int16(question.correctAnswer)
-                
-                for i in 0...question.answers.count - 1{
-                    let answer = DataAnswer(context: context)
-                    answer.answer = question.answers[i]
-                    questionToAdd.addToAnswers(answer)
+            if result.isEmpty == false {
+                for question in questions {
+                    let questionToAdd = DataQuestion(context: context)
+                    questionToAdd.question = question.question
+                    questionToAdd.correctAnswer = Int16(question.correctAnswer)
+                    
+                    for i in 0...question.answers.count - 1{
+                        let answer = DataAnswer(context: context)
+                        answer.answer = question.answers[i]
+                        questionToAdd.addToAnswers(answer)
+                    }
+                    result[0].addToQuestions(questionToAdd)             //add reference to question
                 }
-                result[0].addToQuestions(questionToAdd)             //add reference to question
             }
             try context.save()
         }
@@ -154,6 +155,29 @@ class CoreDataStack {
             print("ERROR", error)
         }
     }
+    
+    
+    
+    
+    
+    
+    // MARK: - Core Data add Questions to Category
+       
+//       func addQImageToCategory(image : Data, toCategoryId: Int64) {
+//           let context = persistentContainer.viewContext
+//           let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+//           fetchRequest.predicate = NSPredicate(format: "id = %@", "\(toCategoryId)")
+//           do{
+//               let result = try context.fetch(fetchRequest)
+//            if result.isEmpty == false {
+//               // result[0].image
+//            }
+//               try context.save()
+//           }
+//           catch let error {
+//               print("ERROR", error)
+//           }
+//       }
     
     
     

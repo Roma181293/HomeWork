@@ -38,7 +38,7 @@ class CategoryTableViewCell: UITableViewCell {
                 DispatchQueue.main.async {
                     if url == self.imageURL {
                         if let img = img {
-                            self.categoryImg?.image = img
+                            self.categoryImg?.image = UIImage(data: img)
                         }
                         else {
                             self.categoryImg?.image = UIImage(named: "questionMarkIcon")

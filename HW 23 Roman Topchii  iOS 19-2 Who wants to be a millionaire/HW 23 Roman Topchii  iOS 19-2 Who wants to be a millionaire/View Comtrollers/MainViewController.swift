@@ -81,7 +81,7 @@ class MainViewController: UIViewController {
                         self.coreDataStack.updateCategoriesFromServerTest(categories!)
                         self.coreDataStack.printCategories()
                         
-                        //MARK:- load question in DataCategory type "Server"
+                        //MARK:- load question and Image in DataCategory type "Server"
                         let context = self.coreDataStack.persistentContainer.viewContext
                         let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
                         fetchRequest.predicate = NSPredicate(format: "type = %@", "Server")
@@ -99,6 +99,11 @@ class MainViewController: UIViewController {
                                             print("Error", error?.localizedDescription)
                                         }
                                     } //NetworkService.fetchQuestions(url: url)
+                                }
+                                if let url = URL(string: category.imageURL!) {
+                                    NetworkService.fetchImage(url: url) { (data, error) in
+                                        
+                                    }
                                 }
                             }
                             
