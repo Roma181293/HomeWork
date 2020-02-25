@@ -15,3 +15,7 @@ struct Category : Codable {
     let imgURL : String
     let questionURL : String
 }
+
+enum CategoryType{
+    case User, Server, Preinstall
+}

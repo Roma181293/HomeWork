@@ -15,8 +15,7 @@ class ChooseCategoryTableViewController: UITableViewController {
     
     lazy var fetchedResultsController : NSFetchedResultsController<DataCategory> = {
         let fetchRequest = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
-        //fetchRequest.predicate = NSPredicate(format: "questions.@count > 0")
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "type", ascending: true),NSSortDescriptor(key: "id", ascending: true)]
         let context = CoreDataStack.shared.persistentContainer.viewContext
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -68,7 +67,17 @@ class ChooseCategoryTableViewController: UITableViewController {
         
         let category  = fetchedResultsController.object(at: indexPath) as DataCategory
         
-        cell.imageURL = URL(string:category.imageURL!)!
+        //set Image
+        if let url = category.imageURL{
+            cell.imageURL = URL(string:url)!
+        }
+        else if category.type == "User" {
+            cell.setImageForCategoryType = .User
+        }
+        else {
+            cell.setImageForCategoryType = .Preinstall
+        }
+        
         cell.stringCategoryName = category.categoryName
         
         return cell
@@ -86,9 +95,6 @@ class ChooseCategoryTableViewController: UITableViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionVC_ID") as! QuestionViewController
         
-        let url = URL(string: category.questionURL!)!
-        
-        //
         if category.questions?.count != 0 {     //проверка наличия вопросов в категории
             var questionArray : [Question] = []
             for item in category.questions! {
@@ -97,95 +103,109 @@ class ChooseCategoryTableViewController: UITableViewController {
             self.game.newGame(questions: questionArray)
             self.navigationController?.pushViewController(questionVC, animated: true)
         }
-        else {
-            NetworkService.fetchQuestions(url: url) { (questions, error) in
-                if error == nil {
-                    DispatchQueue.main.async {
-                        cell.stopAnimatingSpiner(cell.loadSpiner)
-                        if let questions = questions {
-                            self.game.newGame(questions: questions)
-                            self.navigationController?.pushViewController(questionVC, animated: true)
+        else if category.type == "Server" {
+            if let questionURL = category.questionURL, let url = URL(string: questionURL){
+                NetworkService.fetchQuestions(url: url) { (questions, error) in
+                    if error == nil {
+                        DispatchQueue.main.async {
+                            cell.stopAnimatingSpiner(cell.loadSpiner)
+                            if let questions = questions {
+                                self.game.newGame(questions: questions)
+                                self.navigationController?.pushViewController(questionVC, animated: true)
+                            }
                         }
                     }
-                }
-                else {
-                    DispatchQueue.main.async {
-                        cell.stopAnimatingSpiner(cell.loadSpiner)
-                        
-                        
-                        let alert = UIAlertController(title: "Упс. Не удалось загрузить вопросы.", message: nil, preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "Вопросы произвольной тематики", style: .default, handler: { action in
-                            print("Вопросы произвольной тематики")
-//                            self.game.newLocalGame()
-//                            self.navigationController?.pushViewController(questionVC, animated: true)
-                        }))
-                        
-                        alert.addAction(UIAlertAction(title: "Главное меню", style: .default, handler: { action in
-                            print("Главное меню")
-                            let mainVC = storyBoard.instantiateViewController(withIdentifier: "MainVC_ID") as! MainViewController
-                            self.navigationController?.pushViewController(mainVC, animated: true)
-                        }))
-                        
-                        alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: { action in
-                            print("Закрыть")
-                        }))
-                        
-                        self.present(alert, animated: true, completion: nil)
+                    else {
+                        DispatchQueue.main.async {
+                            cell.stopAnimatingSpiner(cell.loadSpiner)
+                            
+                            
+                            let alert = UIAlertController(title: "Упс. Не удалось загрузить вопросы.", message: nil, preferredStyle: .alert)
+                            
+                            alert.addAction(UIAlertAction(title: "Главное меню", style: .default, handler: { action in
+                                print("Главное меню")
+                                let mainVC = storyBoard.instantiateViewController(withIdentifier: "MainVC_ID") as! MainViewController
+                                self.navigationController?.pushViewController(mainVC, animated: true)
+                            }))
+                            
+                            alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: { action in
+                                print("Закрыть")
+                            }))
+                            
+                            self.present(alert, animated: true, completion: nil)
+                        }
                     }
+                    
                 }
             }
+        }//else if
+        else {  //когда это пользовательские темы без вопросов
+            let alert = UIAlertController(title: "В созданной вами категории \"\(category.categoryName!)\" нет вопросов!", message: nil, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Главное меню", style: .default, handler: { action in
+                print("Главное меню")
+                let mainVC = storyBoard.instantiateViewController(withIdentifier: "MainVC_ID") as! MainViewController
+                self.navigationController?.pushViewController(mainVC, animated: true)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Закрыть", style: .cancel, handler: { action in
+                print("Закрыть")
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+            cell.stopAnimatingSpiner(cell.loadSpiner)
         }
-    }
         
-        
-        /*
-         // Override to support conditional editing of the table view.
-         override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-         // Return false if you do not want the specified item to be editable.
-         return true
-         }
-         */
-        
-        /*
-         // Override to support editing the table view.
-         override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == .delete {
-         // Delete the row from the data source
-         tableView.deleteRows(at: [indexPath], with: .fade)
-         } else if editingStyle == .insert {
-         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-         }
-         }
-         */
-        
-        /*
-         // Override to support rearranging the table view.
-         override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-         
-         }
-         */
-        
-        /*
-         // Override to support conditional rearranging of the table view.
-         override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-         // Return false if you do not want the item to be re-orderable.
-         return true
-         }
-         */
-        
-        
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         //        guard let selectedIndexPath = tableView.indexPathForSelectedRow else {return}
-         
-         
-         }
-         */
-        
+    } //override
+    
+    
+    /*
+     // Override to support conditional editing of the table view.
+     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the specified item to be editable.
+     return true
+     }
+     */
+    
+    /*
+     // Override to support editing the table view.
+     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+     // Delete the row from the data source
+     tableView.deleteRows(at: [indexPath], with: .fade)
+     } else if editingStyle == .insert {
+     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+     }
+     }
+     */
+    
+    /*
+     // Override to support rearranging the table view.
+     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+     
+     }
+     */
+    
+    /*
+     // Override to support conditional rearranging of the table view.
+     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+     // Return false if you do not want the item to be re-orderable.
+     return true
+     }
+     */
+    
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     //        guard let selectedIndexPath = tableView.indexPathForSelectedRow else {return}
+     
+     
+     }
+     */
+    
 }

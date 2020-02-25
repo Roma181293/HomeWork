@@ -73,7 +73,7 @@ class MainViewController: UIViewController {
                         self.spiner.stopAnimating()
                         self.spiner.isHidden = true
                         self.coreDataStack.updateDBVersion(self.newVersion!)
-                        self.coreDataStack.updateCategoriesFromServerTest(categories!)
+                        self.coreDataStack.updateCategoriesFromServer(categories!)
                         self.coreDataStack.printCategories()
                         
                         //MARK:- load question and Image in DataCategory type "Server"
@@ -95,44 +95,49 @@ class MainViewController: UIViewController {
                                         }
                                     } //NetworkService.fetchQuestions(url: url)
                                 }
-//                                if let url = URL(string: category.imageURL!) {
-//                                    NetworkService.fetchImage(url: url) { (data, error) in
-//
-//                                    }
-//                                }
+                                //MARK:-DELETE begin
+                                //                                if let url = URL(string: category.imageURL!) {
+                                //                                    NetworkService.fetchImage(url: url) { (data, error) in
+                                //
+                                //                                    }
+                                //                                }
+                                //MARK:-DELETE end
                             }
                             
                         }
                         catch let error {
                             print("ERROR", error)
                         }
-                        //MARK:-load question in DataCategory type "Server"
+                        //MARK:-load question and Image in DataCategory type "Server"
                         
                         
                         let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseCategoryVC_ID") as! ChooseCategoryTableViewController
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 } //if error == nil
-                else {
-                    DispatchQueue.main.async {
-                        self.view.isUserInteractionEnabled = true
-                        self.spiner.stopAnimating()
-                        self.spiner.isHidden = true
-                        
-                        let alert = UIAlertController(title: "Упс. Не удалось загрузить темы вопросов.", message: nil, preferredStyle: .alert)
-                        
-                        alert.addAction(UIAlertAction(title: "Вопросы произвольной тематики", style: .default, handler: { action in
-                            let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionVC_ID") as! QuestionViewController
-                            print("Вопросы произвольной тематики")
-                            //                        self.game.newLocalGame()
-                            //                        self.navigationController?.pushViewController(questionVC, animated: true)
-                        }))
-                        
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        
-                        self.present(alert, animated: true, completion: nil)
-                    }
-                } //if error == nil else
+                
+                //MARK:-DELETE begin
+                //                else {
+                //                    DispatchQueue.main.async {
+                //                        self.view.isUserInteractionEnabled = true
+                //                        self.spiner.stopAnimating()
+                //                        self.spiner.isHidden = true
+                //
+                //                        let alert = UIAlertController(title: "Упс. Не удалось загрузить темы вопросов.", message: nil, preferredStyle: .alert)
+                //
+                //                        alert.addAction(UIAlertAction(title: "Вопросы произвольной тематики", style: .default, handler: { action in
+                //                            let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionVC_ID") as! QuestionViewController
+                //                            print("Вопросы произвольной тематики")
+                //                            //                        self.game.newLocalGame()
+                //                            //                        self.navigationController?.pushViewController(questionVC, animated: true)
+                //                        }))
+                //
+                //                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                //
+                //                        self.present(alert, animated: true, completion: nil)
+                //                    }
+                //                } //if error == nil else
+                //MARK:-DELETE end
             }//NetworkService.fetchCategory(url: url)
             
         }//if loadNewCategoryListFromServer == true
@@ -144,7 +149,7 @@ class MainViewController: UIViewController {
             let vc = storyBoard.instantiateViewController(withIdentifier: "ChooseCategoryVC_ID") as! ChooseCategoryTableViewController
             self.navigationController?.pushViewController(vc, animated: true)
         }
-       
+        
     }
     
 }

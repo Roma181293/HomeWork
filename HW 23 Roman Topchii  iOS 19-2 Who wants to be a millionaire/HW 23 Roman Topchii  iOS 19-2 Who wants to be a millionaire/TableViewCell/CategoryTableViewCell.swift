@@ -17,6 +17,20 @@ class CategoryTableViewCell: UITableViewCell {
             updateUI()
         }
     }
+    
+    var setImageForCategoryType : CategoryType? {
+        didSet {
+            if let type = setImageForCategoryType{
+                if type == .User{
+                    categoryImg.image = UIImage(named: "userImg")
+                }
+                else if type == .Preinstall {
+                     categoryImg.image = UIImage(named: "logo")
+                }
+            }
+        }
+    }
+    
     var stringCategoryName: String? {
         didSet {
             categoryName?.text = stringCategoryName
@@ -38,11 +52,11 @@ class CategoryTableViewCell: UITableViewCell {
                 DispatchQueue.main.async {
                     if url == self.imageURL {
                         if let img = img {
-//                            self.categoryImg?.image = UIImage(data: img)
+                            //                            self.categoryImg?.image = UIImage(data: img)
                             self.categoryImg?.image = img
                         }
                         else {
-                            self.categoryImg?.image = UIImage(named: "placeholderImg")
+                            self.categoryImg?.image = UIImage(named: "serverImg")
                         }
                         self.imageSpiner?.stopAnimating()
                         self.imageSpiner?.isHidden = true

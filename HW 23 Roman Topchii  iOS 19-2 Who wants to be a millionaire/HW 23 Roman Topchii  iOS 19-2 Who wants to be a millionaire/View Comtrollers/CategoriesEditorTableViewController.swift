@@ -11,9 +11,12 @@ import CoreData
 
 class CategoriesEditorTableViewController: UITableViewController {
     
+    let coreDataStack = CoreDataStack.shared
+    
     lazy var fetchedResultsController : NSFetchedResultsController<DataCategory> = {
         let fetchRequest = NSFetchRequest<DataCategory>(entityName: "DataCategory")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        fetchRequest.predicate = NSPredicate(format: "type = %@", "User")
         let context = CoreDataStack.shared.persistentContainer.viewContext
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -31,29 +34,40 @@ class CategoriesEditorTableViewController: UITableViewController {
         self.clearsSelectionOnViewWillAppear = true
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-//         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
-        
-//        do {
-//            try fetchedResultsController.performFetch()
-//        }
-//        catch {
-//            print(error)
-//        }
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
     }
     
     override func viewWillAppear(_ animated: Bool) {
-          super.viewWillAppear(true)
-          do {
-                     try fetchedResultsController.performFetch()
-                     
-                 }
-                 catch {
-                     print(error)
-                 }
-      }
+        super.viewWillAppear(true)
+        do {
+            try fetchedResultsController.performFetch()
+        }
+        catch {
+            print(error)
+        }
+    }
     
+    
+    // MARK: - Actions
+    @IBAction func addCategoryAction() {
+        
+        let alert = UIAlertController(title: "Добавить категорию", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "Название категории"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            if let tmp = alert!.textFields![0].text, tmp != "" {
+                self.coreDataStack.addLocalCategory(categoryName: tmp, categoryType: "User")
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+        
+        super.viewWillAppear(true)
+    }
     
     
     // MARK: - Table view data source
@@ -87,9 +101,9 @@ class CategoriesEditorTableViewController: UITableViewController {
         let category  = fetchedResultsController.object(at: indexPath) as DataCategory
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionsEditorVC_ID") as! QuestionsEditorTableViewController
-        vc.id = category.id
+        vc.categoryId = category.id
         self.navigationController?.pushViewController(vc, animated: true)
-        print(#function,vc.id)
+        print(#function,vc.categoryId)
     }
     
     

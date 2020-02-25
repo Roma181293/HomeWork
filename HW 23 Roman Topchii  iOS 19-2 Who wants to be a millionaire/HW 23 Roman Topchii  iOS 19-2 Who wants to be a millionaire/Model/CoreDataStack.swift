@@ -61,16 +61,25 @@ class CoreDataStack {
     
     // MARK: - Core Data add categories
     
-    func addCategories(_ categories : [Category]) {
+    func addLocalCategory(categoryName : String, categoryType: String) {
         let context = persistentContainer.viewContext
-        for category in categories {
+        
+        let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+        fetchRequest.predicate = NSPredicate(format: "type = %@", "Server")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+        do{
+            var storedCategories = try context.fetch(fetchRequest)
+            
             let categoryTmp = DataCategory(context: context)
-            categoryTmp.id = category.id
-            categoryTmp.categoryName = category.categoryName
-            categoryTmp.imageURL = category.imgURL
-            categoryTmp.questionURL = category.questionURL
-        }
-        do {
+            categoryTmp.type = categoryType
+            categoryTmp.categoryName = categoryName
+            
+            if storedCategories.isEmpty == false {
+                categoryTmp.id = storedCategories[0].id + 1
+            }
+            else {
+                categoryTmp.id = 1
+            }
             try context.save()
         }
         catch let error {
@@ -82,7 +91,7 @@ class CoreDataStack {
     
     // MARK: - Core Data update categories
     
-    func updateCategoriesFromServerTest(_ categories : [Category]) {
+    func updateCategoriesFromServer(_ categories : [Category]) {
         let context = persistentContainer.viewContext
         do {
             let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
@@ -162,22 +171,22 @@ class CoreDataStack {
     
     
     // MARK: - Core Data add Questions to Category
-       
-//       func addQImageToCategory(image : Data, toCategoryId: Int64) {
-//           let context = persistentContainer.viewContext
-//           let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
-//           fetchRequest.predicate = NSPredicate(format: "id = %@", "\(toCategoryId)")
-//           do{
-//               let result = try context.fetch(fetchRequest)
-//            if result.isEmpty == false {
-//               // result[0].image
-//            }
-//               try context.save()
-//           }
-//           catch let error {
-//               print("ERROR", error)
-//           }
-//       }
+    
+    //       func addQImageToCategory(image : Data, toCategoryId: Int64) {
+    //           let context = persistentContainer.viewContext
+    //           let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+    //           fetchRequest.predicate = NSPredicate(format: "id = %@", "\(toCategoryId)")
+    //           do{
+    //               let result = try context.fetch(fetchRequest)
+    //            if result.isEmpty == false {
+    //               // result[0].image
+    //            }
+    //               try context.save()
+    //           }
+    //           catch let error {
+    //               print("ERROR", error)
+    //           }
+    //       }
     
     
     
@@ -195,17 +204,17 @@ class CoreDataStack {
             let resultCategory = try context.fetch(fetchRequestCategory)
             for category in resultCategory{
                 print("Category", category.id)
-                print("Category", category.type!)
+                print("Category", category.type)
                 print("Category", category.categoryName!)
-                print("Category", category.imageURL!)
-                print("Category", category.questionURL!)
+                print("Category", category.imageURL)
+                print("Category", category.questionURL)
                 if let questions = category.questions {
                     for question in questions {
                         print("-----------------------")
-                        print("Category/ question", (question as! DataQuestion).question!)
+                        print("Category/ question", (question as! DataQuestion).question)
                         print("Category/ correctAnswer", (question as! DataQuestion).correctAnswer)
-                        for answer in (question as! DataQuestion).answers! {
-                            print("Category/ answer", (answer as! DataAnswer).answer!)
+                        for answer in (question as! DataQuestion).answers!{
+                            print("Category/ answer", (answer as! DataAnswer).answer)
                         }
                     }
                 }
@@ -224,18 +233,18 @@ class CoreDataStack {
     // MARK: -- Core Data Version Methods
     
     // MARK: - get DB version
-//    func createZeroVersion() {
-//        let context = persistentContainer.viewContext
-//        do{
-//            let version = DataVersion(context: context)
-//            version.version = 0
-//            version.author = "Device"
-//            try context.save()
-//        }
-//        catch let error {
-//            print("ERROR", error)
-//        }
-//    }
+    //    func createZeroVersion() {
+    //        let context = persistentContainer.viewContext
+    //        do{
+    //            let version = DataVersion(context: context)
+    //            version.version = 0
+    //            version.author = "Device"
+    //            try context.save()
+    //        }
+    //        catch let error {
+    //            print("ERROR", error)
+    //        }
+    //    }
     
     func updateDBVersion(_ newVersion : Version) {
         let context = persistentContainer.viewContext

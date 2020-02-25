@@ -99,11 +99,11 @@
             <objects>
                 <viewController storyboardIdentifier="MainVC_ID" id="BYZ-38-t0r" customClass="MainViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHH-bL-z9d">
-                                <rect key="frame" x="133" y="347.5" width="148" height="47"/>
+                                <rect key="frame" x="133" y="374.5" width="148" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Новая игра">
                                     <color key="titleColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -113,7 +113,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Q-NC-ZpW">
-                                <rect key="frame" x="53.5" y="447.5" width="307" height="47"/>
+                                <rect key="frame" x="53.5" y="474.5" width="307" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Архив предыдущих игр">
                                     <color key="titleColor" red="0.96078431372549022" green="0.94901960784313721" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -123,10 +123,10 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="OGW-Aw-tBB">
-                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axS-Xv-4d1">
-                                <rect key="frame" x="144.5" y="544.5" width="125" height="47"/>
+                                <rect key="frame" x="144.5" y="571.5" width="125" height="47"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Редактор">
                                     <color key="titleColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -458,7 +458,7 @@
             <objects>
                 <tableViewController id="dCd-cq-ndx" customClass="GameArchiveTableViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kDA-3x-Uyg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -514,7 +514,7 @@
                         <barButtonItem key="backBarButtonItem" title="Назад" id="UUU-gg-7cA"/>
                         <barButtonItem key="rightBarButtonItem" style="plain" id="uWa-cr-rb3">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3YG-ak-R34">
-                                <rect key="frame" x="245" y="7" width="114" height="30"/>
+                                <rect key="frame" x="280" y="7" width="114" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Очистить архив"/>
                                 <connections>
@@ -565,11 +565,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Редактор вопросов" id="E8v-QZ-XTg">
-                        <barButtonItem key="rightBarButtonItem" title="Добавить" id="PTH-51-SJC">
-                            <connections>
-                                <segue destination="Lrc-KY-Atf" kind="show" id="FM0-hO-kH7"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Добавить" id="PTH-51-SJC"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4D9-9p-ynj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -581,7 +577,7 @@
             <objects>
                 <viewController id="Lrc-KY-Atf" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TFi-t3-Evl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gh4-GD-6xJ"/>
@@ -801,11 +797,11 @@
             <objects>
                 <viewController storyboardIdentifier="DetailViewController_ID" id="Nfl-Ul-4Y9" customClass="DetailViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2iz-a4-Dwb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S77-Mt-519">
-                                <rect key="frame" x="8" y="50" width="398" height="21"/>
+                                <rect key="frame" x="8" y="138" width="398" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="KAi-7t-dUI"/>
                                 </constraints>
@@ -814,7 +810,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q4d-Bu-fjr">
-                                <rect key="frame" x="20" y="121" width="374" height="667"/>
+                                <rect key="frame" x="20" y="209" width="374" height="633"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -896,7 +892,7 @@
             <objects>
                 <tableViewController id="2Uf-Gt-LDt" customClass="CategoriesEditorTableViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="36E-Wj-9Oi">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
@@ -960,7 +956,13 @@
                             <outlet property="delegate" destination="2Uf-Gt-LDt" id="2vU-j4-T4S"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Редактор категорий" id="rbV-HU-7O9"/>
+                    <navigationItem key="navigationItem" title="Редактор категорий" id="rbV-HU-7O9">
+                        <barButtonItem key="rightBarButtonItem" title="Добавить" id="MOd-it-SJD">
+                            <connections>
+                                <action selector="addCategoryAction" destination="2Uf-Gt-LDt" id="WGw-8P-IZe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pn7-Sv-h5l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -972,6 +974,6 @@
         <image name="phone" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ru3-1Y-Yxj"/>
+        <segue reference="gcc-Y1-skk"/>
     </inferredMetricsTieBreakers>
 </document>
