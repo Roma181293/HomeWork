@@ -38,10 +38,11 @@ class CategoryTableViewCell: UITableViewCell {
                 DispatchQueue.main.async {
                     if url == self.imageURL {
                         if let img = img {
-                            self.categoryImg?.image = UIImage(data: img)
+//                            self.categoryImg?.image = UIImage(data: img)
+                            self.categoryImg?.image = img
                         }
                         else {
-                            self.categoryImg?.image = UIImage(named: "questionMarkIcon")
+                            self.categoryImg?.image = UIImage(named: "placeholderImg")
                         }
                         self.imageSpiner?.stopAnimating()
                         self.imageSpiner?.isHidden = true

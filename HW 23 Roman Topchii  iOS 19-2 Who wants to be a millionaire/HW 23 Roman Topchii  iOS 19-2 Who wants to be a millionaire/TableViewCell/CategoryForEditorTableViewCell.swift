@@ -36,7 +36,7 @@ class CategoryForEditorTableViewCell: UITableViewCell {
 //                            self.categoryImg?.image = img
 //                        }
 //                        else {
-//                            self.categoryImg?.image = UIImage(named: "questionMarkIcon")
+//                            self.categoryImg?.image = UIImage(named: "placeholderImg")
 //                        }
 //                    }
 //                }
