@@ -200,28 +200,33 @@ class CoreDataStack {
     // MARK: -- Core Data Version Methods
     
     // MARK: - get DB version
-    func createZeroVersion() {
-        let context = persistentContainer.viewContext
-        do{
-            let version = DataVersion(context: context)
-            version.version = 0
-            version.author = "Device"
-            try context.save()
-        }
-        catch let error {
-            print("ERROR", error)
-        }
-    }
+//    func createZeroVersion() {
+//        let context = persistentContainer.viewContext
+//        do{
+//            let version = DataVersion(context: context)
+//            version.version = 0
+//            version.author = "Device"
+//            try context.save()
+//        }
+//        catch let error {
+//            print("ERROR", error)
+//        }
+//    }
     
     func updateDBVersion(_ newVersion : Version) {
         let context = persistentContainer.viewContext
         let fetchRequest : NSFetchRequest<DataVersion> = NSFetchRequest<DataVersion>(entityName: DataVersion.entity().name!)
         do{
             let result = try context.fetch(fetchRequest)
-            
-            result[0].version = newVersion.version
-            result[0].author = newVersion.author
-            
+            if result.isEmpty == false {
+                result[0].version = newVersion.version
+                result[0].author = newVersion.author
+            }
+            else {
+                let version = DataVersion(context: context)
+                version.version = 0
+                version.author = "Device"
+            }
             try context.save()
         }
         catch let error {
@@ -235,10 +240,10 @@ class CoreDataStack {
         do{
             let result = try context.fetch(fetchRequest)
             if result.isEmpty {
-                return result[0].version
+                return nil
             }
             else {
-                return nil
+                return result[0].version
             }
             
         }

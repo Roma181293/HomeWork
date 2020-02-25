@@ -10,8 +10,24 @@ import Foundation
 
 
 struct Question : Codable {
-    let question : String
-    let answers : [String]
-    let correctAnswer : Int
+    var question : String
+    var answers : [String]
+    var correctAnswer : Int
+    
+    
+    init(question: String, answers : [String], correctAnswer : Int) {
+        self.question = question
+        self.answers = answers
+        self.correctAnswer = correctAnswer
+    }
+    
+    init(dataQuestion : DataQuestion) {
+        self.question = dataQuestion.question!
+        self.correctAnswer = Int(dataQuestion.correctAnswer)
+        self.answers = []
+        for i in 0...dataQuestion.answers!.count - 1 {
+            self.answers.append((dataQuestion.answers![i] as! DataAnswer).answer!)
+        }
+    }
 }
 

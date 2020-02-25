@@ -44,20 +44,20 @@ class Game {
     
     
     
-    func newLocalGame() {
-        questionList = readFromQuestionsList()
-        currentQuestionIndex = 0
-        gameOver = false
-        looseGame = false
-        askedQuestions = []
-        answersForAskedQuestions = []
-        friendIsAlredyHelpt = false
-        audienceIsAlredyHelpt = false
-        
-        print("Game",#function)
-    }
+//    func newLocalGame() {
+//        questionList = readFromQuestionsList()
+//        currentQuestionIndex = 0
+//        gameOver = false
+//        looseGame = false
+//        askedQuestions = []
+//        answersForAskedQuestions = []
+//        friendIsAlredyHelpt = false
+//        audienceIsAlredyHelpt = false
+//
+//        print("Game",#function)
+//    }
     
-    func newServerGame(questions : [Question]) {
+    func newGame(questions : [Question]) {
         questionList = questions
         currentQuestionIndex = 0
         gameOver = false
@@ -69,7 +69,7 @@ class Game {
         
         print("Game",#function)
     }
-    
+
     func askQuestion() -> Question? {
         print("Game",#function)
         if gameOver == false {
