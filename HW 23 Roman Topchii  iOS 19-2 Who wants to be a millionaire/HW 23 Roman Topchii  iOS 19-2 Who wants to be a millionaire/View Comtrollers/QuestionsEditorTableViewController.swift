@@ -11,11 +11,13 @@ import CoreData
 
 class QuestionsEditorTableViewController: UITableViewController {
     
-    var categoryId : Int64 = 1_000_000
+    var categoryId : Int64?
     
     lazy var fetchedResultsController : NSFetchedResultsController<DataQuestion> = {
         let fetchRequest = NSFetchRequest<DataQuestion>(entityName: "DataQuestion")
-        fetchRequest.predicate = NSPredicate(format: "categoty.id = %@", "\(categoryId)")
+        fetchRequest.predicate = NSPredicate(format: "categoty.id = %@", "\(categoryId!)")
+//        fetchRequest.predicate = NSPredicate(format: "categoty.id = %@ AND type = %@", ["\(categoryId!)","User"])
+//        fetchRequest.predicate = NSPredicate(format: "type = %@", "User")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "question", ascending: true)]
         let context = CoreDataStack.shared.persistentContainer.viewContext
         
@@ -85,7 +87,7 @@ class QuestionsEditorTableViewController: UITableViewController {
         
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionEditorVC_ID") as! QuestionEditorViewController
-        vc.inputQuestion = question
+        vc.inputQuestion = Question(dataQuestion : question)
         vc.categoryId = categoryId
 //        print("vc.categoryId", vc.categoryId)
         self.navigationController?.pushViewController(vc, animated: true)

@@ -572,21 +572,49 @@
             </objects>
             <point key="canvasLocation" x="981.60000000000002" y="1624.1379310344828"/>
         </scene>
-        <!--View Controller-->
+        <!--Создать новую категорию-->
         <scene sceneID="jF9-r8-YsA">
             <objects>
-                <viewController id="Lrc-KY-Atf" sceneMemberID="viewController">
+                <viewController id="Lrc-KY-Atf" customClass="CreateNewCategoryViewController" customModule="Millionaire" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TFi-t3-Evl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0j8-vY-kKt">
+                                <rect key="frame" x="71" y="174" width="272" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1i-I1-jbF">
+                                <rect key="frame" x="133" y="292" width="149" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Добавить категорию"/>
+                                <connections>
+                                    <action selector="addNewCategoryAction:" destination="Lrc-KY-Atf" eventType="touchUpInside" id="Ws3-0R-bIe"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Введите название категории" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mus-7w-MLz">
+                                <rect key="frame" x="91" y="119" width="233" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="gh4-GD-6xJ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Pv7-tm-yr6"/>
+                    <navigationItem key="navigationItem" title="Создать новую категорию" id="Pv7-tm-yr6">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="PeE-ZI-KYq"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="categoryNameTextField" destination="0j8-vY-kKt" id="ryk-sG-XQO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGE-h3-efS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982" y="2388"/>
+            <point key="canvasLocation" x="981.15942028985512" y="2387.9464285714284"/>
         </scene>
         <!--Редактор вопроса-->
         <scene sceneID="6fH-6I-MxW">
@@ -960,6 +988,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Добавить" id="MOd-it-SJD">
                             <connections>
                                 <action selector="addCategoryAction" destination="2Uf-Gt-LDt" id="WGw-8P-IZe"/>
+                                <segue destination="Lrc-KY-Atf" kind="show" id="lD1-jV-qm9"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

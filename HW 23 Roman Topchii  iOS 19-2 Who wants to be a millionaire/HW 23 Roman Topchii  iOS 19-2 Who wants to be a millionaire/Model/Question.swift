@@ -22,11 +22,21 @@ struct Question : Codable {
     }
     
     init(dataQuestion : DataQuestion) {
-        self.question = dataQuestion.question!
+        if let question = dataQuestion.question{
+            self.question = question
+        }
+        else {
+            self.question = ""
+        }
         self.correctAnswer = Int(dataQuestion.correctAnswer)
         self.answers = []
-        for i in 0...dataQuestion.answers!.count - 1 {
-            self.answers.append((dataQuestion.answers![i] as! DataAnswer).answer!)
+        if let answers = dataQuestion.answers{
+            for i in 0...answers.count - 1 {
+                self.answers.append((dataQuestion.answers![i] as! DataAnswer).answer!)
+            }
+        }
+        else {
+            self.answers = ["","","",""]
         }
     }
 }

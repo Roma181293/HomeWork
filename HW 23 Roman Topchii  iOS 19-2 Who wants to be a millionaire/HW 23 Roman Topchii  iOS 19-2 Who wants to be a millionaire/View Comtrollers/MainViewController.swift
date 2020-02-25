@@ -43,9 +43,6 @@ class MainViewController: UIViewController {
                 }
             }
         }
-        
-        
-        
     }
     
     
@@ -91,7 +88,7 @@ class MainViewController: UIViewController {
                                             }
                                         }
                                         else {
-                                            print("Error", error?.localizedDescription)
+                                            print("Error", error?.localizedDescription as Any)
                                         }
                                     } //NetworkService.fetchQuestions(url: url)
                                 }

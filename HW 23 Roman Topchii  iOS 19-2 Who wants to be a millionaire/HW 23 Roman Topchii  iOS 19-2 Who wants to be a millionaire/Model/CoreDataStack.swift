@@ -61,29 +61,42 @@ class CoreDataStack {
     
     // MARK: - Core Data add categories
     
-    func addLocalCategory(categoryName : String, categoryType: String) {
+    func addLocalCategory(categoryName : String, categoryType: String) -> DataCategory?  {
         let context = persistentContainer.viewContext
         
         let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
         fetchRequest.predicate = NSPredicate(format: "type = %@", "Server")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+        
+        let category = DataCategory(context: context)
+        category.type = categoryType
+        category.categoryName = categoryName
+        
+        let question = DataQuestion(context: context)
+        question.question = ""
+        question.correctAnswer = 0
+        for i in 0...3 {
+        let answer = DataAnswer(context: context)
+            answer.answer = ""
+            question.addToAnswers(answer)
+        }
+        category.addToQuestions(question)
+        
         do{
-            var storedCategories = try context.fetch(fetchRequest)
-            
-            let categoryTmp = DataCategory(context: context)
-            categoryTmp.type = categoryType
-            categoryTmp.categoryName = categoryName
+            let storedCategories = try context.fetch(fetchRequest)
             
             if storedCategories.isEmpty == false {
-                categoryTmp.id = storedCategories[0].id + 1
+                category.id = storedCategories[0].id + 1
             }
             else {
-                categoryTmp.id = 1
+                category.id = 1
             }
             try context.save()
+            return category
         }
         catch let error {
             print("ERROR", error)
+            return nil
         }
     }
     

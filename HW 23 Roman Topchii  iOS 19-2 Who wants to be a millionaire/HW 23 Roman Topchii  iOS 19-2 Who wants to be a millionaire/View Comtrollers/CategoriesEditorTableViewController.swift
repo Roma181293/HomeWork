@@ -16,7 +16,7 @@ class CategoriesEditorTableViewController: UITableViewController {
     lazy var fetchedResultsController : NSFetchedResultsController<DataCategory> = {
         let fetchRequest = NSFetchRequest<DataCategory>(entityName: "DataCategory")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-        fetchRequest.predicate = NSPredicate(format: "type = %@", "User")
+//        fetchRequest.predicate = NSPredicate(format: "type = %@", "User")
         let context = CoreDataStack.shared.persistentContainer.viewContext
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
@@ -60,13 +60,13 @@ class CategoriesEditorTableViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             if let tmp = alert!.textFields![0].text, tmp != "" {
                 self.coreDataStack.addLocalCategory(categoryName: tmp, categoryType: "User")
+                self.tableView.reloadData()
             }
         }))
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
         
-        super.viewWillAppear(true)
     }
     
     
