@@ -32,6 +32,9 @@ class MainViewController: UIViewController {
         
         let currentDBVersion = coreDataStack.getCurrentDBVersion()
         
+        if currentDBVersion == nil{
+            coreDataStack.defaultGamesQuestions()
+        }
         
         NetworkService.fetchVersion(url: URL(string: "https://raw.githubusercontent.com/Roma181293/MillionaireResouces/master/version.json")!) { (version, error) in
             if let version = version {

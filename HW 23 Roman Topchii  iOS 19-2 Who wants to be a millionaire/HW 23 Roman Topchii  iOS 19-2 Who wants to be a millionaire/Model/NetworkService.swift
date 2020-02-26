@@ -92,7 +92,7 @@ class NetworkService {
                    }//do-catch
                } //if let data = data
                else {
-                   print("ERROR: \(error?.localizedDescription)")
+                print("ERROR: \(String(describing: error?.localizedDescription))")
                    completion(nil, error)
                }
            } //task

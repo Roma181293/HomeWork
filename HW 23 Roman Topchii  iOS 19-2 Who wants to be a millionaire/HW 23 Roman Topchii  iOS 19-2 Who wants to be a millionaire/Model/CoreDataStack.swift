@@ -76,7 +76,7 @@ class CoreDataStack {
         question.question = ""
         question.correctAnswer = 0
         for _ in 0...3 {
-        let answer = DataAnswer(context: context)
+            let answer = DataAnswer(context: context)
             answer.answer = ""
             question.addToAnswers(answer)
         }
@@ -209,55 +209,41 @@ class CoreDataStack {
     
     
     // MARK: - Core Data print CategoriesList
-//    func printCategories(){
-//        let context = persistentContainer.viewContext
-//        let fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
-//        
-//        do {
-//            let resultCategory = try context.fetch(fetchRequestCategory)
-//            for category in resultCategory{
-//                print("Category", category.id)
-//                print("Category", category.type)
-//                print("Category", category.categoryName!)
-//                print("Category", category.imageURL)
-//                print("Category", category.questionURL)
-//                if let questions = category.questions {
-//                    for question in questions {
-//                        print("-----------------------")
-//                        print("Category/ question", (question as! DataQuestion).question)
-//                        print("Category/ correctAnswer", (question as! DataQuestion).correctAnswer)
-//                        for answer in (question as! DataQuestion).answers!{
-//                            print("Category/ answer", (answer as! DataAnswer).answer)
-//                        }
-//                    }
-//                }
-//                print("*_*_*_*_*_*_*_*_*_*_*_*_*\n")
-//            }
-//        }
-//        catch let error {
-//            print("ERROR", error)
-//        }
-//    }
+    //    func printCategories(){
+    //        let context = persistentContainer.viewContext
+    //        let fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
+    //
+    //        do {
+    //            let resultCategory = try context.fetch(fetchRequestCategory)
+    //            for category in resultCategory{
+    //                print("Category", category.id)
+    //                print("Category", category.type)
+    //                print("Category", category.categoryName!)
+    //                print("Category", category.imageURL)
+    //                print("Category", category.questionURL)
+    //                if let questions = category.questions {
+    //                    for question in questions {
+    //                        print("-----------------------")
+    //                        print("Category/ question", (question as! DataQuestion).question)
+    //                        print("Category/ correctAnswer", (question as! DataQuestion).correctAnswer)
+    //                        for answer in (question as! DataQuestion).answers!{
+    //                            print("Category/ answer", (answer as! DataAnswer).answer)
+    //                        }
+    //                    }
+    //                }
+    //                print("*_*_*_*_*_*_*_*_*_*_*_*_*\n")
+    //            }
+    //        }
+    //        catch let error {
+    //            print("ERROR", error)
+    //        }
+    //    }
     
     
     
     
     
     // MARK: -- Core Data Version Methods
-    
-    // MARK: - get DB version
-    //    func createZeroVersion() {
-    //        let context = persistentContainer.viewContext
-    //        do{
-    //            let version = DataVersion(context: context)
-    //            version.version = 0
-    //            version.author = "Device"
-    //            try context.save()
-    //        }
-    //        catch let error {
-    //            print("ERROR", error)
-    //        }
-    //    }
     
     func updateDBVersion(_ newVersion : Version) {
         let context = persistentContainer.viewContext
@@ -298,4 +284,124 @@ class CoreDataStack {
             return nil
         }
     }
+    
+    
+    
+    
+    
+    
+    func defaultGamesQuestions() {
+        let context = persistentContainer.viewContext
+        do {
+            let fetchRequest : NSFetchRequest<DataCategory> = NSFetchRequest<DataCategory>(entityName: DataCategory.entity().name!)
+            fetchRequest.predicate = NSPredicate(format: "type = %@", "Preinstall")
+            
+            let storedCategories = try context.fetch(fetchRequest)
+            print("storedCategories.count", storedCategories.count)
+            //Если серверные категории есть, то удаляем их
+            if storedCategories.isEmpty == false {
+                for category in storedCategories {
+                    context.delete(category)
+                }
+            }
+            
+            try context.save()
+            
+            let category1 = DataCategory(context: context)
+            category1.id = 1
+            category1.type = "Preinstall"
+            category1.categoryName = "Общие знания"
+            
+            
+            let question1 = DataQuestion(context: context)
+            question1.question = "Кто собирался открыть Индию, а открыл Америку?"
+            question1.correctAnswer = 1
+            let ans1 = DataAnswer(context: context)
+            let ans2 = DataAnswer(context: context)
+            let ans3 = DataAnswer(context: context)
+            let ans4 = DataAnswer(context: context)
+            
+            ans1.answer = "Марко Поло"
+            ans2.answer = "Коллумб"
+            ans3.answer = "Магелан"
+            ans4.answer = "Васко де Гама"
+            question1.addToAnswers(ans1)
+            question1.addToAnswers(ans2)
+            question1.addToAnswers(ans3)
+            question1.addToAnswers(ans4)
+            category1.addToQuestions(question1)
+            
+            
+            
+            let question2 = DataQuestion(context: context)
+            question2.question = "Во что должен попасть спортсмен в стендовой стрельбе?"
+            question2.correctAnswer = 2
+            let ans5 = DataAnswer(context: context)
+            let ans6 = DataAnswer(context: context)
+            let ans7 = DataAnswer(context: context)
+            let ans8 = DataAnswer(context: context)
+            
+            ans5.answer = "Ядро"
+            ans6.answer = "Ложку"
+            ans7.answer = "Тарелку"
+            ans8.answer = "Плечо соперника"
+            question2.addToAnswers(ans5)
+            question2.addToAnswers(ans6)
+            question2.addToAnswers(ans7)
+            question2.addToAnswers(ans8)
+            category1.addToQuestions(question2)
+            
+            
+            let question3 = DataQuestion(context: context)
+            question2.question = "Историю какого города написал Никколо Макиавелли?"
+            question2.correctAnswer = 0
+            let ans9 = DataAnswer(context: context)
+            let ans10 = DataAnswer(context: context)
+            let ans11 = DataAnswer(context: context)
+            let ans12 = DataAnswer(context: context)
+            
+            ans9.answer = "Флоренция"
+            ans10.answer = "Венеция"
+            ans11.answer = "Рим"
+            ans12.answer = "Неаполь"
+            question3.addToAnswers(ans9)
+            question3.addToAnswers(ans10)
+            question3.addToAnswers(ans11)
+            question3.addToAnswers(ans12)
+            category1.addToQuestions(question3)
+            
+            try context.save()
+            
+        }
+        catch let error {
+            print("ERROR", error)
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
