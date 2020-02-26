@@ -27,25 +27,6 @@ class MainViewController: UIViewController {
         
         spiner.isHidden = true
         self.navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: CGFloat(54.0/255.0), green: CGFloat(41.0/255.0), blue: CGFloat(67.0/255.0), alpha: 1.0)
-        
-        
-        
-        let currentDBVersion = coreDataStack.getCurrentDBVersion()
-        
-        if currentDBVersion == nil{
-            coreDataStack.defaultGamesQuestions()
-        }
-        
-        NetworkService.fetchVersion(url: URL(string: "https://raw.githubusercontent.com/Roma181293/MillionaireResouces/master/version.json")!) { (version, error) in
-            if let version = version {
-                if currentDBVersion != version.version   {
-                    DispatchQueue.main.async {
-                        self.loadNewCategoryListFromServer = true
-                        self.newVersion = version
-                    }
-                }
-            }
-        }
     }
     
     
@@ -53,6 +34,23 @@ class MainViewController: UIViewController {
         
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = true
+        
+        let currentDBVersion = coreDataStack.getCurrentDBVersion()
+             
+             if currentDBVersion == nil{
+                 coreDataStack.defaultGamesQuestions()
+             }
+             
+             NetworkService.fetchVersion(url: URL(string: "https://raw.githubusercontent.com/Roma181293/MillionaireResouces/master/version.json")!) { (version, error) in
+                 if let version = version {
+                     if currentDBVersion != version.version   {
+                         DispatchQueue.main.async {
+                             self.loadNewCategoryListFromServer = true
+                             self.newVersion = version
+                         }
+                     }
+                 }
+             }
     }
     
     

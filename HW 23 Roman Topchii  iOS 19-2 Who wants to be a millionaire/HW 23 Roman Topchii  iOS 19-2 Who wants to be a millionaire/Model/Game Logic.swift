@@ -42,6 +42,7 @@ class Game {
     private var friendIsAlredyHelpt : Bool = false
     private var audienceIsAlredyHelpt : Bool = false
     private var fiftyFiftyIsAlredyHelpt : Bool = false
+    private var fiftyFiftyResult : (firsrAnswer: Int, secondAnswer: Int, currentQuestionIndex: Int)?
     
     func newGame(questions : [Question]) {
         questionList = questions
@@ -56,7 +57,7 @@ class Game {
         
         print("Game",#function)
     }
-
+    
     func askQuestion() -> Question? {
         print("Game",#function)
         if gameOver == false {
@@ -90,14 +91,54 @@ class Game {
         print("Game",#function)
         if friendIsAlredyHelpt == false{
             friendIsAlredyHelpt = true
-            return Int.random(in: 0...3)
+            if currentQuestionIndex != fiftyFiftyResult?.currentQuestionIndex{
+                let res = Int.random(in: 0...3)
+                print(#function,"rand", res)
+                return res
+            }
+            else {
+                var set : Set<Int> = [0,1,2,3]
+                set.subtract([fiftyFiftyResult!.firsrAnswer, fiftyFiftyResult!.secondAnswer])
+                let res = set.randomElement()
+                print(#function,"set", res)
+                return res
+            }
         }
         else {
             return nil
         }
+        
+        
+        
+        
+        
+        //        print("Game",#function)
+        //              if currentQuestionIndex != fiftyFiftyResult?.currentQuestionIndex{
+        //                  if friendIsAlredyHelpt == false{
+        //                      friendIsAlredyHelpt = true
+        //                      return Int.random(in: 0...3)
+        //                  }
+        //                  else {
+        //                      return nil
+        //                  }
+        //              }
+        //              else {
+        //                  if friendIsAlredyHelpt == false{
+        //                      friendIsAlredyHelpt = true
+        //                      var set : Set<Int> = [0,1,2,3]
+        //                      set.subtract([fiftyFiftyResult!.firsrAnswer, fiftyFiftyResult!.secondAnswer])
+        //                      let res = set.randomElement()
+        //                      print(res)
+        //                      return res
+        //                  }
+        //                  else {
+        //                      return nil
+        //                  }
+        //              }
     }
     
-    func fiftyFifty() -> (Int, Int)? { // результат ответы которые нужно скрыть на экран
+    
+    func fiftyFifty() -> (firsrAnswer: Int, secondAnswer: Int, currentQuestionIndex: Int)? { // результат ответы которые нужно скрыть на экран
         print("Game",#function)
         if fiftyFiftyIsAlredyHelpt == false{
             fiftyFiftyIsAlredyHelpt = true
@@ -108,7 +149,8 @@ class Game {
                 first = Int.random(in: 0...3)
                 second = Int.random(in: 0...3)
             }
-            return (first, second)
+            fiftyFiftyResult = (first, second, currentQuestionIndex)
+            return (first, second, currentQuestionIndex)
         }
         else {
             return nil
@@ -149,7 +191,7 @@ class Game {
                 third = 1 - first - second - fourth
             }
             
-        return (first : first, second : second, third : third, fourth : fourth)
+            return (first : first, second : second, third : third, fourth : fourth)
         }
         else {
             return nil
