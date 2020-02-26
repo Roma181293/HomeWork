@@ -71,7 +71,7 @@ class MainViewController: UIViewController {
                         self.spiner.isHidden = true
                         self.coreDataStack.updateDBVersion(self.newVersion!)
                         self.coreDataStack.updateCategoriesFromServer(categories!)
-                        self.coreDataStack.printCategories()
+//                        self.coreDataStack.printCategories()
                         
                         //MARK:- load question and Image in DataCategory type "Server"
                         let context = self.coreDataStack.persistentContainer.viewContext

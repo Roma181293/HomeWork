@@ -16,12 +16,10 @@
 		304D6B8323CBC869000EF001 /* Archive Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304D6B8223CBC869000EF001 /* Archive Logic.swift */; };
 		3054FFF523F99F1D003655FA /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054FFF423F99F1D003655FA /* CoreDataStack.swift */; };
 		3054FFF923F99FC2003655FA /* CoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3054FFF723F99FC2003655FA /* CoreModel.xcdatamodeld */; };
-		3054FFFB23F9A990003655FA /* CoreDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3054FFFA23F9A990003655FA /* CoreDataViewController.swift */; };
 		306DB31224032D5700B8DD65 /* CategoriesEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DB31124032D5700B8DD65 /* CategoriesEditorTableViewController.swift */; };
 		306DB3162403356000B8DD65 /* CategoryForEditorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DB3152403356000B8DD65 /* CategoryForEditorTableViewCell.swift */; };
 		306DB3182403382F00B8DD65 /* QuestionsEditorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DB3172403382F00B8DD65 /* QuestionsEditorTableViewController.swift */; };
 		306DB31A2403421300B8DD65 /* QuestionEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DB3192403421300B8DD65 /* QuestionEditorViewController.swift */; };
-		3078DF5A2405C1C200349E88 /* CreateNewCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3078DF592405C1C200349E88 /* CreateNewCategoryViewController.swift */; };
 		3084FEB623BF63B000DB1D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FEB523BF63B000DB1D9C /* AppDelegate.swift */; };
 		3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */; };
 		3084FEBD23BF63B000DB1D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3084FEBB23BF63B000DB1D9C /* Main.storyboard */; };
@@ -34,7 +32,6 @@
 		30A5CBD823C8671D0095213A /* GameArchiveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */; };
 		30A5CBDC23C8D4080095213A /* ArchiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A5CBDB23C8D4080095213A /* ArchiveTableViewCell.swift */; };
 		30AAD58023BF76E6008DB4BE /* Game Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD57F23BF76E6008DB4BE /* Game Logic.swift */; };
-		30AAD58223BF799C008DB4BE /* questions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30AAD58123BF799C008DB4BE /* questions.plist */; };
 		30AAD58623BFD863008DB4BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAD58523BFD863008DB4BE /* MainViewController.swift */; };
 		30F8B3AE23C62A0300A53ACB /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */; };
 		F0642109CEDE1339DA339EBC /* Pods_HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71D657D62824522C044AA14A /* Pods_HW_23_Roman_Topchii__iOS_19_2_Who_wants_to_be_a_millionaire.framework */; };
@@ -50,12 +47,10 @@
 		304D6B8223CBC869000EF001 /* Archive Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Archive Logic.swift"; sourceTree = "<group>"; };
 		3054FFF423F99F1D003655FA /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3054FFF823F99FC2003655FA /* CoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreModel.xcdatamodel; sourceTree = "<group>"; };
-		3054FFFA23F9A990003655FA /* CoreDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataViewController.swift; sourceTree = "<group>"; };
 		306DB31124032D5700B8DD65 /* CategoriesEditorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesEditorTableViewController.swift; sourceTree = "<group>"; };
 		306DB3152403356000B8DD65 /* CategoryForEditorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryForEditorTableViewCell.swift; sourceTree = "<group>"; };
 		306DB3172403382F00B8DD65 /* QuestionsEditorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsEditorTableViewController.swift; sourceTree = "<group>"; };
 		306DB3192403421300B8DD65 /* QuestionEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionEditorViewController.swift; sourceTree = "<group>"; };
-		3078DF592405C1C200349E88 /* CreateNewCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewCategoryViewController.swift; sourceTree = "<group>"; };
 		3084FEB223BF63B000DB1D9C /* Millionaire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Millionaire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3084FEB523BF63B000DB1D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3084FEB723BF63B000DB1D9C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,7 +65,6 @@
 		30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameArchiveTableViewController.swift; sourceTree = "<group>"; };
 		30A5CBDB23C8D4080095213A /* ArchiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveTableViewCell.swift; sourceTree = "<group>"; };
 		30AAD57F23BF76E6008DB4BE /* Game Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Game Logic.swift"; sourceTree = "<group>"; };
-		30AAD58123BF799C008DB4BE /* questions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = questions.plist; sourceTree = "<group>"; };
 		30AAD58523BFD863008DB4BE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		70D8253C37DEFF003A6CA070 /* Pods-HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire.debug.xcconfig"; path = "Target Support Files/Pods-HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire/Pods-HW 23 Roman Topchii  iOS 19-2 Who wants to be a millionaire.debug.xcconfig"; sourceTree = "<group>"; };
@@ -108,7 +102,6 @@
 		302C504623CB60DD001631E8 /* View Comtrollers */ = {
 			isa = PBXGroup;
 			children = (
-				3054FFFA23F9A990003655FA /* CoreDataViewController.swift */,
 				30AAD58523BFD863008DB4BE /* MainViewController.swift */,
 				3091C70C23E448BA004C97C9 /* ChooseCategoryTableViewController.swift */,
 				30F8B3AD23C62A0300A53ACB /* QuestionViewController.swift */,
@@ -118,7 +111,6 @@
 				30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */,
 				300F4BD923CD1F0700C3FD71 /* DetailViewController.swift */,
 				306DB31124032D5700B8DD65 /* CategoriesEditorTableViewController.swift */,
-				3078DF592405C1C200349E88 /* CreateNewCategoryViewController.swift */,
 				306DB3172403382F00B8DD65 /* QuestionsEditorTableViewController.swift */,
 				306DB3192403421300B8DD65 /* QuestionEditorViewController.swift */,
 			);
@@ -147,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				3084FEBE23BF63B300DB1D9C /* Assets.xcassets */,
-				30AAD58123BF799C008DB4BE /* questions.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -271,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30AAD58223BF799C008DB4BE /* questions.plist in Resources */,
 				3084FEC223BF63B300DB1D9C /* LaunchScreen.storyboard in Resources */,
 				3084FEBF23BF63B300DB1D9C /* Assets.xcassets in Resources */,
 				3084FEBD23BF63B000DB1D9C /* Main.storyboard in Resources */,
@@ -327,7 +317,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3054FFFB23F9A990003655FA /* CoreDataViewController.swift in Sources */,
 				306DB31224032D5700B8DD65 /* CategoriesEditorTableViewController.swift in Sources */,
 				300F4BDA23CD1F0700C3FD71 /* DetailViewController.swift in Sources */,
 				3084FEB623BF63B000DB1D9C /* AppDelegate.swift in Sources */,
@@ -350,7 +339,6 @@
 				30AAD58623BFD863008DB4BE /* MainViewController.swift in Sources */,
 				3048B37D23C6706D002FA29B /* ChooseViewController.swift in Sources */,
 				3091C70723E30986004C97C9 /* NetworkService.swift in Sources */,
-				3078DF5A2405C1C200349E88 /* CreateNewCategoryViewController.swift in Sources */,
 				306DB3182403382F00B8DD65 /* QuestionsEditorTableViewController.swift in Sources */,
 				3091C70F23E45BD9004C97C9 /* CategoryTableViewCell.swift in Sources */,
 			);

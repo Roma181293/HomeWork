@@ -55,110 +55,45 @@ class QuestionEditorViewController: UIViewController {
     }
     
     @IBAction func saveAction() {
-        if let inputQuestion = inputQuestion {
-        let context = CoreDataStack.shared.persistentContainer.viewContext
-        let fetchRequest : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id = %@", "\(categoryId!)")
-            fetchRequest.predicate = NSPredicate(format: "type = %@", "User")
-        do {
-            let category = try context.fetch(fetchRequest)
-            if category.isEmpty == false {
-                if let questions = category[0].questions {
-                    for question in questions{
-                        if inputQuestion.question == (question as! DataQuestion).question!{
-                            
-                            (question as! DataQuestion).question = questionTextField.text!
-                            
-                            ((question as! DataQuestion).answers![0] as! DataAnswer).answer = self.firstAnswerLabel.text!
-                            ((question as! DataQuestion).answers![1] as! DataAnswer).answer = self.secondAnswerLabel.text!
-                            ((question as! DataQuestion).answers![2] as! DataAnswer).answer = self.thirdAnswerLabel.text!
-                            ((question as! DataQuestion).answers![3] as! DataAnswer).answer = self.fourthAnswerLabel.text!
-                            
-                            if firstAnswerSwitch.isOn {
-                                (question as! DataQuestion).correctAnswer = 0
-                            }
-                            if secondAnswerSwitch.isOn {
-                                (question as! DataQuestion).correctAnswer = 1
-                            }
-                            if thirdAnswerSwitch.isOn {
-                                (question as! DataQuestion).correctAnswer = 2
-                            }
-                            if fourthAnswerSwitch.isOn {
-                                (question as! DataQuestion).correctAnswer = 3
-                            }
-                            
-                        }
-                    }
+        if let inputQuestion = inputQuestion, let categoryId = categoryId {
+            let context = CoreDataStack.shared.persistentContainer.viewContext
+            let fetchRequest : NSFetchRequest<DataQuestion> = DataQuestion.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "question = %@", "\(inputQuestion.question)")
+            do {
+                let question = try context.fetch(fetchRequest)
+                print("questionTextField.text!", questionTextField.text!)
+                question[0].question = questionTextField.text!
+                
+                (question[0].answers![0] as! DataAnswer).answer = self.firstAnswerLabel.text!
+                (question[0].answers![1] as! DataAnswer).answer = self.secondAnswerLabel.text!
+                (question[0].answers![2] as! DataAnswer).answer = self.thirdAnswerLabel.text!
+                (question[0].answers![3] as! DataAnswer).answer = self.fourthAnswerLabel.text!
+                
+                if firstAnswerSwitch.isOn {
+                    question[0].correctAnswer = 0
                 }
+                if secondAnswerSwitch.isOn {
+                    question[0].correctAnswer = 1
+                }
+                if thirdAnswerSwitch.isOn {
+                    question[0].correctAnswer = 2
+                }
+                if fourthAnswerSwitch.isOn {
+                    question[0].correctAnswer = 3
+                }
+                try context.save()
+            }
+            catch {
+                print("Error", error)
             }
             
-            
-            
-            
-           
-            
-            try context.save()
-        }
-        catch {
-            print("Error", error)
-        }
-        
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionsEditorVC_ID") as! QuestionsEditorTableViewController
-       // vc.category= categoryId!
-        //               print("vc.categoryId", vc.id!)
-        self.navigationController?.popViewController(animated: true)
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionsEditorVC_ID") as! QuestionsEditorTableViewController
+            vc.categoryId = categoryId
+            vc.viewWillAppear(true)
+            self.navigationController?.popViewController(animated: true)
         }
     }
-    
-    
-    
-//     @IBAction func saveAction() {
-//            if let inputQuestion = inputQuestion {
-//            let context = CoreDataStack.shared.persistentContainer.viewContext
-//            let fetchRequest : NSFetchRequest<DataQuestion> = DataQuestion.fetchRequest()
-//            fetchRequest.predicate = NSPredicate(format: "question = %@", "\(inputQuestion.question)")
-//    //        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "question", ascending: true)]
-//    //
-//            //fetchRequest.predicate = NSPredicate(format: "category.id = %@", "\(categoryId!)")
-//            do {
-//                let question = try context.fetch(fetchRequest)
-//                print("questionTextField.text!", questionTextField.text!)
-//                question[0].question = questionTextField.text!
-//
-//                (question[0].answers![0] as! DataAnswer).answer = self.firstAnswerLabel.text!
-//                (question[0].answers![1] as! DataAnswer).answer = self.secondAnswerLabel.text!
-//                (question[0].answers![2] as! DataAnswer).answer = self.thirdAnswerLabel.text!
-//                (question[0].answers![3] as! DataAnswer).answer = self.fourthAnswerLabel.text!
-//
-//                if firstAnswerSwitch.isOn {
-//                    question[0].correctAnswer = 0
-//                }
-//                if secondAnswerSwitch.isOn {
-//                    question[0].correctAnswer = 1
-//                }
-//                if thirdAnswerSwitch.isOn {
-//                    question[0].correctAnswer = 2
-//                }
-//                if fourthAnswerSwitch.isOn {
-//                    question[0].correctAnswer = 3
-//                }
-//                try context.save()
-//            }
-//            catch {
-//                print("Error", error)
-//            }
-//
-//            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//            let vc = storyBoard.instantiateViewController(withIdentifier: "QuestionsEditorVC_ID") as! QuestionsEditorTableViewController
-//            vc.categoryId = categoryId!
-//            //               print("vc.categoryId", vc.id!)
-//            self.navigationController?.popViewController(animated: true)
-//            }
-//        }
-    
-    
-    
     
     func switchSwitcherAtIndexToOnAndOtherSwitcherToOff(index : Int?) {
         switch index {
@@ -189,18 +124,4 @@ class QuestionEditorViewController: UIViewController {
             fourthAnswerSwitch.setOn(false, animated: true)
         }
     }
-    
-    
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        //        let vc = segue.destination as! QuestionsEditorTableViewController
-        //        vc.id = categoryId!
-    }
-    
-    
 }

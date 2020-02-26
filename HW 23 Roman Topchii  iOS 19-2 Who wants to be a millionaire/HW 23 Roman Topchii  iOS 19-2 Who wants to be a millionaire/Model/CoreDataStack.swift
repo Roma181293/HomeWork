@@ -75,7 +75,7 @@ class CoreDataStack {
         let question = DataQuestion(context: context)
         question.question = ""
         question.correctAnswer = 0
-        for i in 0...3 {
+        for _ in 0...3 {
         let answer = DataAnswer(context: context)
             answer.answer = ""
             question.addToAnswers(answer)
@@ -209,35 +209,35 @@ class CoreDataStack {
     
     
     // MARK: - Core Data print CategoriesList
-    func printCategories(){
-        let context = persistentContainer.viewContext
-        let fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
-        
-        do {
-            let resultCategory = try context.fetch(fetchRequestCategory)
-            for category in resultCategory{
-                print("Category", category.id)
-                print("Category", category.type)
-                print("Category", category.categoryName!)
-                print("Category", category.imageURL)
-                print("Category", category.questionURL)
-                if let questions = category.questions {
-                    for question in questions {
-                        print("-----------------------")
-                        print("Category/ question", (question as! DataQuestion).question)
-                        print("Category/ correctAnswer", (question as! DataQuestion).correctAnswer)
-                        for answer in (question as! DataQuestion).answers!{
-                            print("Category/ answer", (answer as! DataAnswer).answer)
-                        }
-                    }
-                }
-                print("*_*_*_*_*_*_*_*_*_*_*_*_*\n")
-            }
-        }
-        catch let error {
-            print("ERROR", error)
-        }
-    }
+//    func printCategories(){
+//        let context = persistentContainer.viewContext
+//        let fetchRequestCategory : NSFetchRequest<DataCategory> = DataCategory.fetchRequest()
+//        
+//        do {
+//            let resultCategory = try context.fetch(fetchRequestCategory)
+//            for category in resultCategory{
+//                print("Category", category.id)
+//                print("Category", category.type)
+//                print("Category", category.categoryName!)
+//                print("Category", category.imageURL)
+//                print("Category", category.questionURL)
+//                if let questions = category.questions {
+//                    for question in questions {
+//                        print("-----------------------")
+//                        print("Category/ question", (question as! DataQuestion).question)
+//                        print("Category/ correctAnswer", (question as! DataQuestion).correctAnswer)
+//                        for answer in (question as! DataQuestion).answers!{
+//                            print("Category/ answer", (answer as! DataAnswer).answer)
+//                        }
+//                    }
+//                }
+//                print("*_*_*_*_*_*_*_*_*_*_*_*_*\n")
+//            }
+//        }
+//        catch let error {
+//            print("ERROR", error)
+//        }
+//    }
     
     
     

@@ -13,9 +13,7 @@ class DetailViewController: UIViewController {
     var gameResults : (memo : String, prize : String, description : String)?
     
     @IBOutlet weak var prizeLable: UILabel!
-    
     @IBOutlet weak var questionAndAnswersTextView: UITextView!
-    
     
     
     override func viewDidLoad() {

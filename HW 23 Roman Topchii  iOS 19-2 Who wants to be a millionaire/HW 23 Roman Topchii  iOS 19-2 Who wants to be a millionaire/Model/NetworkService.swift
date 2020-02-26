@@ -32,7 +32,7 @@ class NetworkService {
                 }//do-catch
             } //if let data = data
             else {
-                print("ERROR: \(error?.localizedDescription)")
+                print("ERROR: \(String(describing: error?.localizedDescription))")
                 completion(nil, error)
             }
         } //task
@@ -62,7 +62,7 @@ class NetworkService {
                 }//do-catch
             } //if let data = data
             else {
-                print("ERROR: \(error?.localizedDescription)")
+                print("ERROR: \(String(describing: error?.localizedDescription))")
                 completion(nil, error)
             }
         } //task
@@ -115,7 +115,7 @@ class NetworkService {
                 completion(UIImage(data: data), nil)
             }
             else {
-                print("ERROR: \(error?.localizedDescription)")
+                print("ERROR: \(String(describing: error?.localizedDescription))")
                 completion(nil, error)
             } //if let data = data
         } //task
