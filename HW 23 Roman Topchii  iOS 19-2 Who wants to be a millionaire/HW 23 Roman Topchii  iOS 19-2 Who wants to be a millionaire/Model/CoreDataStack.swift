@@ -353,8 +353,8 @@ class CoreDataStack {
             
             
             let question3 = DataQuestion(context: context)
-            question2.question = "Историю какого города написал Никколо Макиавелли?"
-            question2.correctAnswer = 0
+            question3.question = "Историю какого города написал Никколо Макиавелли?"
+            question3.correctAnswer = 0
             let ans9 = DataAnswer(context: context)
             let ans10 = DataAnswer(context: context)
             let ans11 = DataAnswer(context: context)

@@ -22,7 +22,7 @@ class Game {
     private var questionList : [Question] = []
     private var currentQuestionIndex : Int = 0
     
-    private let prizeArray : [Int] = [500,1000,2000,3000,5000,10000,15000,25000,50000,100000,200000,400000,800000,1000000]
+    private let prizeArray : [Int] = [500,2000,5000,10000,15000,25000,50000,100000,200000,400000,800000,1000000]
     
     private var gameOver : Bool = false
     private var looseGame = false

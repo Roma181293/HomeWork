@@ -237,12 +237,16 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vWs-9R-i5n">
-                                <rect key="frame" x="133" y="20" width="148" height="36"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="vWs-9R-i5n">
+                                <rect key="frame" x="127" y="20" width="160" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MtL-Mu-fWq">
-                                        <rect key="frame" x="0.0" y="0.0" width="22" height="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                         <color key="backgroundColor" red="0.21176470588235294" green="0.16078431372549018" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="HQX-xi-vZg"/>
+                                            <constraint firstAttribute="height" constant="40" id="kZl-Sd-0rV"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="phone" catalog="system">
@@ -253,8 +257,12 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yar-Sa-3RC">
-                                        <rect key="frame" x="42" y="0.0" width="39.5" height="36"/>
+                                        <rect key="frame" x="60" y="0.0" width="40" height="40"/>
                                         <color key="backgroundColor" red="0.21176470588235294" green="0.16078431372549018" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="lii-HA-jwd"/>
+                                            <constraint firstAttribute="height" constant="40" id="sgd-38-h0V"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" image="person.3" catalog="system">
@@ -266,9 +274,13 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfF-ZX-wPh">
-                                        <rect key="frame" x="101.5" y="0.0" width="46.5" height="36"/>
+                                        <rect key="frame" x="120" y="0.0" width="40" height="40"/>
                                         <color key="backgroundColor" red="0.21176470589999999" green="0.16078431369999999" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="5qf-Hu-zTp"/>
+                                            <constraint firstAttribute="width" constant="40" id="9dv-UC-tS3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <state key="normal" title="50/50">
                                             <color key="titleColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -279,8 +291,8 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="R7N-pN-ea0"/>
-                                    <constraint firstAttribute="width" constant="148" id="boG-j9-vM7"/>
+                                    <constraint firstAttribute="height" constant="40" id="R7N-pN-ea0"/>
+                                    <constraint firstAttribute="width" constant="160" id="boG-j9-vM7"/>
                                 </constraints>
                             </stackView>
                         </subviews>

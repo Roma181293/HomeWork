@@ -55,8 +55,10 @@ class QuestionViewController: UIViewController {
             audienceHelp.isEnabled = false
         }
         
-        if game.canGetHelp().audience == true {
+        if game.canGetHelp().fiftyFifty == true {
             fiftyFiftyHelp.isEnabled = false
+            fiftyFiftyHelp.setTitleColor(UIColor(displayP3Red: 52/255, green: 91/255, blue: 74/255, alpha: 1), for: .disabled)
+            
         }
     }
     
