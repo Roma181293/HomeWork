@@ -107,34 +107,6 @@ class Game {
         else {
             return nil
         }
-        
-        
-        
-        
-        
-        //        print("Game",#function)
-        //              if currentQuestionIndex != fiftyFiftyResult?.currentQuestionIndex{
-        //                  if friendIsAlredyHelpt == false{
-        //                      friendIsAlredyHelpt = true
-        //                      return Int.random(in: 0...3)
-        //                  }
-        //                  else {
-        //                      return nil
-        //                  }
-        //              }
-        //              else {
-        //                  if friendIsAlredyHelpt == false{
-        //                      friendIsAlredyHelpt = true
-        //                      var set : Set<Int> = [0,1,2,3]
-        //                      set.subtract([fiftyFiftyResult!.firsrAnswer, fiftyFiftyResult!.secondAnswer])
-        //                      let res = set.randomElement()
-        //                      print(res)
-        //                      return res
-        //                  }
-        //                  else {
-        //                      return nil
-        //                  }
-        //              }
     }
     
     

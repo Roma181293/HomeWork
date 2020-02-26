@@ -21,7 +21,7 @@ class ChooseViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         if let prize = game?.prize(){
-            messageLabel.text = "Вы уже выиграли \(prize)грн."
+            messageLabel.text = "Вы выиграли \(prize) грн."
         }
     }
     
