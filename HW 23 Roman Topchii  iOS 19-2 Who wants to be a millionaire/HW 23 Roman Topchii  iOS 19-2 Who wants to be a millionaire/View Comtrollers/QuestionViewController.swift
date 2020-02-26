@@ -24,6 +24,7 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var friendCall: UIButton!
     @IBOutlet weak var audienceHelp: UIButton!
+    @IBOutlet weak var fiftyFiftyHelp: UIButton!
     
     
     override func viewDidLoad() {
@@ -53,12 +54,16 @@ class QuestionViewController: UIViewController {
         if game.canGetHelp().audience == true {
             audienceHelp.isEnabled = false
         }
+        
+        if game.canGetHelp().audience == true {
+            fiftyFiftyHelp.isEnabled = false
+        }
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-         self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func callFriendAction(_ sender: UIButton) {
@@ -71,6 +76,16 @@ class QuestionViewController: UIViewController {
     @IBAction func audienceHelpAction(_ sender: UIButton) {
         if let audienceVotes = game.askForAudienceHelp() {
             self.audienceVotes = audienceVotes
+        }
+    }
+    
+    @IBAction func fiftyFiftyHelpAction(_ sender: UIButton) {
+        if let fiftyFifty = game.fiftyFifty() {
+            print(fiftyFifty)
+            hideWrongAnswer(buttonNumber: fiftyFifty.0)
+            hideWrongAnswer(buttonNumber: fiftyFifty.1)
+            sender.setTitleColor(UIColor(displayP3Red: 52/255, green: 91/255, blue: 74/255, alpha: 1), for: .disabled)
+            sender.isEnabled = false
         }
     }
     
@@ -142,33 +157,32 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    func hideWrongAnswer(buttonNumber : Int) {
+        switch buttonNumber {
+        case 0:
+            firstAnswer.isHidden = true
+        case 1:
+            secondAnswer.isHidden = true
+        case 2:
+            thirdAnswer.isHidden = true
+        case 3:
+            fourthAnswer.isHidden = true
+        default:
+            return
+        }
+    }
     
     
+    // MARK: - Navigation
     
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-     // MARK: - Navigation
-     
-//      In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+    //      In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         let vc = segue.destination as! AudienceHelpViewController
         vc.audienceVotes = self.audienceVotes
-
-
-     }
-     
+        
+        
+    }
+    
     
 }

@@ -41,21 +41,7 @@ class Game {
     
     private var friendIsAlredyHelpt : Bool = false
     private var audienceIsAlredyHelpt : Bool = false
-    
-    
-    
-//    func newLocalGame() {
-//        questionList = readFromQuestionsList()
-//        currentQuestionIndex = 0
-//        gameOver = false
-//        looseGame = false
-//        askedQuestions = []
-//        answersForAskedQuestions = []
-//        friendIsAlredyHelpt = false
-//        audienceIsAlredyHelpt = false
-//
-//        print("Game",#function)
-//    }
+    private var fiftyFiftyIsAlredyHelpt : Bool = false
     
     func newGame(questions : [Question]) {
         questionList = questions
@@ -66,6 +52,7 @@ class Game {
         answersForAskedQuestions = []
         friendIsAlredyHelpt = false
         audienceIsAlredyHelpt = false
+        fiftyFiftyIsAlredyHelpt = false
         
         print("Game",#function)
     }
@@ -104,6 +91,24 @@ class Game {
         if friendIsAlredyHelpt == false{
             friendIsAlredyHelpt = true
             return Int.random(in: 0...3)
+        }
+        else {
+            return nil
+        }
+    }
+    
+    func fiftyFifty() -> (Int, Int)? { // результат ответы которые нужно скрыть на экран
+        print("Game",#function)
+        if fiftyFiftyIsAlredyHelpt == false{
+            fiftyFiftyIsAlredyHelpt = true
+            
+            var first = 0
+            var second = 1
+            while  first == questionList[currentQuestionIndex].correctAnswer || second == questionList[currentQuestionIndex].correctAnswer || first == second{
+                first = Int.random(in: 0...3)
+                second = Int.random(in: 0...3)
+            }
+            return (first, second)
         }
         else {
             return nil
@@ -177,8 +182,8 @@ class Game {
         return gameOver
     }
     
-    func canGetHelp() -> (audience : Bool, friend : Bool) {
-        return (audienceIsAlredyHelpt, friendIsAlredyHelpt)
+    func canGetHelp() -> (audience : Bool, friend : Bool, fiftyFifty : Bool) {
+        return (audienceIsAlredyHelpt, friendIsAlredyHelpt, fiftyFiftyIsAlredyHelpt)
     }
     
     func readFromQuestionsList() -> [Question] {//Чтение массива из файлов ресурсов Questions.plist
