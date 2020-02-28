@@ -191,7 +191,7 @@ class Game {
         return currentPrize
     }
     
-    func gameStatus() -> Bool{
+    func isGameOver() -> Bool{
         print("Game",#function)
         return gameOver
     }

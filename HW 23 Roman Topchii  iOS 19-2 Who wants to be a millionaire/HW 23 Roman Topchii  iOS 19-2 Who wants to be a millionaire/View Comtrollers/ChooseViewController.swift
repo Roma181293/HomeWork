@@ -9,8 +9,9 @@
 import UIKit
 
 class ChooseViewController: UIViewController {
-    var game : Game! = Game.shared
     
+    weak var previousVC : QuestionViewController?
+    weak var game : Game! = Game.shared
     
     @IBOutlet weak var messageLabel: UILabel!
     
@@ -25,27 +26,46 @@ class ChooseViewController: UIViewController {
         }
     }
     
+    @IBAction func takeMoneyAction(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "WinVC_ID") as! WinViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
+    @IBAction func nextQuestionAction(_ sender: Any) {
+        if game.isGameOver() == false {
+            game.nextQuestion()
+            previousVC!.viewDidLoad()
+        }
+        self.navigationController?.popToViewController(previousVC!, animated: true)
+    }
+    
+    
+    
+    
+    
     
     
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if segue.identifier == "goToQuestionVC" {
-            if let _ : QuestionViewController = segue.destination as? QuestionViewController {
-                if game.gameStatus() == false {
-                    game.nextQuestion()
-                }
-            }
-        }
-        if segue.identifier == "goToWinVC" {
-            if let _ : WinViewController = segue.destination as? WinViewController {
-                game.saveResults()
-            }
-        }
-    }
-    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destination.
+//        // Pass the selected object to the new view controller.
+//        if segue.identifier == "goToQuestionVC" {
+//            if let _ : QuestionViewController = segue.destination as? QuestionViewController {
+//                if game.gameStatus() == false {
+//                    game.nextQuestion()
+//                }
+//            }
+//        }
+//        if segue.identifier == "goToWinVC" {
+//            if let _ : WinViewController = segue.destination as? WinViewController {
+//                game.saveResults()
+//            }
+//        }
+//    }
+//
     
 }

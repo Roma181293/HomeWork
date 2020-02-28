@@ -30,11 +30,21 @@ class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        self.navigationController?.isNavigationBarHidden = true
         
-        let levelQuestion = game.askQuestion()
+        view.isUserInteractionEnabled = true
         
-        if let levelQuestion = levelQuestion {
+        firstAnswer.backgroundColor = .opaqueSeparator
+        secondAnswer.backgroundColor = .opaqueSeparator
+        thirdAnswer.backgroundColor = .opaqueSeparator
+        fourthAnswer.backgroundColor = .opaqueSeparator
+        
+        firstAnswer.isHidden = false
+        secondAnswer.isHidden = false
+        thirdAnswer.isHidden = false
+        fourthAnswer.isHidden = false
+        
+        if let levelQuestion = game.askQuestion() {
             question.text = levelQuestion.question
             firstAnswer.setTitle("A: "+levelQuestion.answers[0], for: .normal)
             secondAnswer.setTitle("B: "+levelQuestion.answers[1], for: .normal)
@@ -50,22 +60,13 @@ class QuestionViewController: UIViewController {
         if game.canGetHelp().friend == true {
             friendCall.isEnabled = false
         }
-        
         if game.canGetHelp().audience == true {
             audienceHelp.isEnabled = false
         }
-        
         if game.canGetHelp().fiftyFifty == true {
             fiftyFiftyHelp.isEnabled = false
             fiftyFiftyHelp.setTitleColor(UIColor(displayP3Red: 52/255, green: 91/255, blue: 74/255, alpha: 1), for: .disabled)
-            
         }
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func callFriendAction(_ sender: UIButton) {
@@ -128,6 +129,7 @@ class QuestionViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
             if result.isRightAnswer == true && result.gameOver == false {
                 let chooseViewController = storyBoard.instantiateViewController(withIdentifier: "ChooseVC_ID") as! ChooseViewController
+                chooseViewController.previousVC = self
                 self.navigationController?.pushViewController(chooseViewController, animated: true)
             }
             else  if result.isRightAnswer == true && result.gameOver == true {
