@@ -15,7 +15,6 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var prizeLable: UILabel!
     @IBOutlet weak var questionAndAnswersTextView: UITextView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +28,7 @@ class DetailViewController: UIViewController {
             
         }
     }
+    
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }

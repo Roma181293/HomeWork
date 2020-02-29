@@ -17,11 +17,7 @@ class GameArchiveTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Uncomment the following line to preserve selection between presentations
         self.clearsSelectionOnViewWillAppear = true
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        //         self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(displayP3Red: 245.0/255.0, green: 242/255.0, blue: 240/255.0, alpha: 1)]
