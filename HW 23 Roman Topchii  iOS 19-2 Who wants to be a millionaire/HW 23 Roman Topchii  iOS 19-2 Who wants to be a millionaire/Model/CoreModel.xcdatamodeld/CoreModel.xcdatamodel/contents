@@ -7,7 +7,6 @@
     <entity name="DataCategory" representedClassName="DataCategory" syncable="YES" codeGenerationType="class">
         <attribute name="categoryName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="imageURL" optional="YES" attributeType="String"/>
         <attribute name="questionURL" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
@@ -25,7 +24,7 @@
     </entity>
     <elements>
         <element name="DataAnswer" positionX="210.515625" positionY="87.83984375" width="128" height="73"/>
-        <element name="DataCategory" positionX="-229.60546875" positionY="73.359375" width="128" height="148"/>
+        <element name="DataCategory" positionX="-229.60546875" positionY="73.359375" width="128" height="133"/>
         <element name="DataQuestion" positionX="-7.8984375" positionY="72.82421875" width="128" height="103"/>
         <element name="DataVersion" positionX="-11.05859375" positionY="278.22265625" width="128" height="73"/>
     </elements>

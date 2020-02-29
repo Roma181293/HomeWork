@@ -29,6 +29,9 @@ class DetailViewController: UIViewController {
             
         }
     }
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
     
     
 }

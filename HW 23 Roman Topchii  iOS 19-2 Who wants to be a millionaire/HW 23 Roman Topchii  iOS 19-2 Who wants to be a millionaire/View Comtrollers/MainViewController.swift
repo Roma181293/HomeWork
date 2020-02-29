@@ -36,21 +36,21 @@ class MainViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         let currentDBVersion = coreDataStack.getCurrentDBVersion()
-             
-             if currentDBVersion == nil{
-                 coreDataStack.defaultGamesQuestions()
-             }
-             
-             NetworkService.fetchVersion(url: URL(string: "https://raw.githubusercontent.com/Roma181293/MillionaireResouces/master/version.json")!) { (version, error) in
-                 if let version = version {
-                     if currentDBVersion != version.version   {
-                         DispatchQueue.main.async {
-                             self.loadNewCategoryListFromServer = true
-                             self.newVersion = version
-                         }
-                     }
-                 }
-             }
+        
+        if currentDBVersion == nil{
+            coreDataStack.defaultGamesQuestions()
+        }
+        
+        NetworkService.fetchVersion(url: URL(string: "https://raw.githubusercontent.com/Roma181293/MillionaireResouces/master/version.json")!) { (version, error) in
+            if let version = version {
+                if currentDBVersion != version.version   {
+                    DispatchQueue.main.async {
+                        self.loadNewCategoryListFromServer = true
+                        self.newVersion = version
+                    }
+                }
+            }
+        }
     }
     
     
@@ -72,7 +72,6 @@ class MainViewController: UIViewController {
                         self.spiner.isHidden = true
                         self.coreDataStack.updateDBVersion(self.newVersion!)
                         self.coreDataStack.updateCategoriesFromServer(categories!)
-//                        self.coreDataStack.printCategories()
                         
                         //MARK:- load question and Image in DataCategory type "Server"
                         let context = self.coreDataStack.persistentContainer.viewContext
@@ -93,15 +92,7 @@ class MainViewController: UIViewController {
                                         }
                                     } //NetworkService.fetchQuestions(url: url)
                                 }
-                                //MARK:-DELETE begin
-                                //                                if let url = URL(string: category.imageURL!) {
-                                //                                    NetworkService.fetchImage(url: url) { (data, error) in
-                                //
-                                //                                    }
-                                //                                }
-                                //MARK:-DELETE end
                             }
-                            
                         }
                         catch let error {
                             print("ERROR", error)
@@ -113,31 +104,7 @@ class MainViewController: UIViewController {
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 } //if error == nil
-                
-                //MARK:-DELETE begin
-                //                else {
-                //                    DispatchQueue.main.async {
-                //                        self.view.isUserInteractionEnabled = true
-                //                        self.spiner.stopAnimating()
-                //                        self.spiner.isHidden = true
-                //
-                //                        let alert = UIAlertController(title: "Упс. Не удалось загрузить темы вопросов.", message: nil, preferredStyle: .alert)
-                //
-                //                        alert.addAction(UIAlertAction(title: "Вопросы произвольной тематики", style: .default, handler: { action in
-                //                            let questionVC = storyBoard.instantiateViewController(withIdentifier: "QuestionVC_ID") as! QuestionViewController
-                //                            print("Вопросы произвольной тематики")
-                //                            //                        self.game.newLocalGame()
-                //                            //                        self.navigationController?.pushViewController(questionVC, animated: true)
-                //                        }))
-                //
-                //                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                //
-                //                        self.present(alert, animated: true, completion: nil)
-                //                    }
-                //                } //if error == nil else
-                //MARK:-DELETE end
             }//NetworkService.fetchCategory(url: url)
-            
         }//if loadNewCategoryListFromServer == true
         else {
             view.isUserInteractionEnabled = true
@@ -150,4 +117,7 @@ class MainViewController: UIViewController {
         
     }
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
 }

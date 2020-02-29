@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		300F4BDA23CD1F0700C3FD71 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300F4BD923CD1F0700C3FD71 /* DetailViewController.swift */; };
+		301A41BA2409681600CF9FF0 /* LooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301A41B92409681600CF9FF0 /* LooseViewController.swift */; };
 		303BED1723FFFBCD00A0D328 /* AudienceHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303BED1623FFFBCD00A0D328 /* AudienceHelpViewController.swift */; };
 		304153D724048ACF007FA0D4 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304153D624048ACF007FA0D4 /* Version.swift */; };
 		3048B37D23C6706D002FA29B /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048B37C23C6706D002FA29B /* ChooseViewController.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		300F4BD923CD1F0700C3FD71 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		301A41B92409681600CF9FF0 /* LooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LooseViewController.swift; sourceTree = "<group>"; };
 		303BED1623FFFBCD00A0D328 /* AudienceHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudienceHelpViewController.swift; sourceTree = "<group>"; };
 		304153D624048ACF007FA0D4 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		3048B37C23C6706D002FA29B /* ChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				303BED1623FFFBCD00A0D328 /* AudienceHelpViewController.swift */,
 				3048B37C23C6706D002FA29B /* ChooseViewController.swift */,
 				3048B37E23C7BCE4002FA29B /* WinViewController.swift */,
+				301A41B92409681600CF9FF0 /* LooseViewController.swift */,
 				30A5CBD723C8671D0095213A /* GameArchiveTableViewController.swift */,
 				300F4BD923CD1F0700C3FD71 /* DetailViewController.swift */,
 			);
@@ -313,6 +316,7 @@
 				30F8B3AE23C62A0300A53ACB /* QuestionViewController.swift in Sources */,
 				30A5CBD823C8671D0095213A /* GameArchiveTableViewController.swift in Sources */,
 				3054FFF923F99FC2003655FA /* CoreModel.xcdatamodeld in Sources */,
+				301A41BA2409681600CF9FF0 /* LooseViewController.swift in Sources */,
 				30A5CBDC23C8D4080095213A /* ArchiveTableViewCell.swift in Sources */,
 				3091C71523E55859004C97C9 /* Category.swift in Sources */,
 				3084FEB823BF63B000DB1D9C /* SceneDelegate.swift in Sources */,

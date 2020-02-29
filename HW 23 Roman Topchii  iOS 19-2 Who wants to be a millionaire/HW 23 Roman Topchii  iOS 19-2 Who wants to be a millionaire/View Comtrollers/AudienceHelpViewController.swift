@@ -13,7 +13,6 @@ class AudienceHelpViewController: UIViewController {
     
     var audienceVotes : (first : Double, second : Double, third : Double, fourth : Double)?
     
-    
     var chartView : BarsChart!
     
     @IBOutlet weak var barView: UIView!
@@ -36,9 +35,7 @@ class AudienceHelpViewController: UIViewController {
         let chartConfig = BarsChartConfig(
             valsAxisConfig: ChartAxisConfig(from: 0, to: 60, by: 10)
         )
-        
         let frame = CGRect(x: 0, y: 40, width: 350, height: 280)
-        
         
         let chart = BarsChart(
             frame: frame,
@@ -54,8 +51,11 @@ class AudienceHelpViewController: UIViewController {
             color: UIColor(red: 54.0/255.0, green: 41.0/255.0, blue: 67.0/255.0, alpha: 1.0),
             barWidth: 20
         )
-        
         self.barView.addSubview(chart.view)
         self.chartView = chart
+    }
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
     }
 }

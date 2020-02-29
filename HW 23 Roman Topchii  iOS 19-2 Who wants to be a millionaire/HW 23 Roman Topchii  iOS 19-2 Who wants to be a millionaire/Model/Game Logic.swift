@@ -200,34 +200,6 @@ class Game {
         return (audienceIsAlredyHelpt, friendIsAlredyHelpt, fiftyFiftyIsAlredyHelpt)
     }
     
-    func readFromQuestionsList() -> [Question] {//Чтение массива из файлов ресурсов Questions.plist
-        print("Game",#function)
-        
-        var myArray: NSArray?
-        
-        var questionsArray : [Question] = []
-        
-        if let path = Bundle.main.path(forResource: "questions", ofType: "plist") {
-            myArray = NSArray(contentsOfFile: path)
-        }
-        
-        if let questionsArrayFromPList = myArray {
-            for question in questionsArrayFromPList {
-                let questionItem  = question as! Dictionary<String, Any> //приведение к типу массива<Any>
-                
-                let question: String = questionItem["question"] as! String
-                
-                let answers : [String] = questionItem["arswerArray"] as! [String]
-                
-                let correctAnswerIndex: Int = questionItem["correctAnswerIndex"] as! Int
-                
-                questionsArray.append(Question(question: question, answers: answers, correctAnswer: correctAnswerIndex))
-            }
-            
-        }
-        return questionsArray
-    }
-    
     func saveResults() {
         print("Game",#function)
         

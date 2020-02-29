@@ -176,6 +176,10 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
+    
     
     // MARK: - Navigation
     

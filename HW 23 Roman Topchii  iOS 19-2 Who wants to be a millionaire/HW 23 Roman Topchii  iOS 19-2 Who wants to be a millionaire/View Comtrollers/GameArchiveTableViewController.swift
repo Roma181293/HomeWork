@@ -38,7 +38,9 @@ class GameArchiveTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
     
     // MARK: - Table view data source
     

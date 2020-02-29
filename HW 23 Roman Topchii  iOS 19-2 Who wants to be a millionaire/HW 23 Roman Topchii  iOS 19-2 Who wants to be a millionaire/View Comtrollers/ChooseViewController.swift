@@ -17,7 +17,6 @@ class ChooseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         self.navigationController?.isNavigationBarHidden = true
         
@@ -32,7 +31,6 @@ class ChooseViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
     @IBAction func nextQuestionAction(_ sender: Any) {
         if game.isGameOver() == false {
             game.nextQuestion()
@@ -41,31 +39,7 @@ class ChooseViewController: UIViewController {
         self.navigationController?.popToViewController(previousVC!, animated: true)
     }
     
-    
-    
-    
-    
-    
-    
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destination.
-//        // Pass the selected object to the new view controller.
-//        if segue.identifier == "goToQuestionVC" {
-//            if let _ : QuestionViewController = segue.destination as? QuestionViewController {
-//                if game.gameStatus() == false {
-//                    game.nextQuestion()
-//                }
-//            }
-//        }
-//        if segue.identifier == "goToWinVC" {
-//            if let _ : WinViewController = segue.destination as? WinViewController {
-//                game.saveResults()
-//            }
-//        }
-//    }
-//
-    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
 }

@@ -9,20 +9,26 @@
 import UIKit
 
 class WinViewController: UIViewController {
-    var game : Game! = Game.shared
+    
+    weak var game : Game! = Game.shared
     
     @IBOutlet weak var winLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         self.navigationController?.isNavigationBarHidden = true
-
-            if let prize  = game?.prize() {
-                winLabel.text = "Поздравляем! Вы выиграли \(prize) грн. Введите номер вашей карты ниже и мы перешлем их Вам!"
-            }
+        
+        if let prize  = game?.prize() {
+            winLabel.text = "Поздравляем! Вы выиграли \(prize) грн. Введите номер вашей карты ниже и мы перешлем их Вам!"
+        }
     }
-
+    
+    @IBAction func okAction(_ sender: Any) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
 }

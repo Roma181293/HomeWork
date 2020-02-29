@@ -42,7 +42,9 @@ class ChooseCategoryTableViewController: UITableViewController {
         
     }
     
-    
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return .lightContent
+    }
     
     
     // MARK: - Table view data source
@@ -82,7 +84,6 @@ class ChooseCategoryTableViewController: UITableViewController {
         
         return cell
     }
-    
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -156,5 +157,5 @@ class ChooseCategoryTableViewController: UITableViewController {
             cell.stopAnimatingSpiner(cell.loadSpiner)
         }
         
-    } //override
+    } //override  tableView
 }
